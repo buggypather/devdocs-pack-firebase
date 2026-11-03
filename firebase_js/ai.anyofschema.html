@@ -1,0 +1,67 @@
+<h1>AnyOfSchema class</h1>
+<p>Schema class representing a value that can conform to any of the provided sub-schemas. This is useful when a field can accept multiple distinct types or structures.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class AnyOfSchema extends Schema </pre>
+<p><b>Extends:</b> <a href="ai.schema">Schema</a></p>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.anyofschema#anyofschemaconstructor">(constructor)(schemaParams)</a></td>
+<td></td>
+<td>Constructs a new instance of the <code>AnyOfSchema</code> class</td>
+</tr>
+</tbody></table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.anyofschema#anyofschemaanyof">anyOf</a></td>
+<td></td>
+<td><a href="ai#typedschema">TypedSchema</a><!-- -->[]</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="anyofschemaconstructor">AnyOfSchema.(constructor)</h2>
+<p>Constructs a new instance of the <code>AnyOfSchema</code> class</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">constructor(schemaParams: SchemaParams &amp; {
+        anyOf: TypedSchema[];
+    });</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>schemaParams</td>
+<td><a href="ai.schemaparams">SchemaParams</a> &amp; { anyOf: <a href="ai#typedschema">TypedSchema</a><!-- -->[]; }</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="anyofschemaanyof">AnyOfSchema.anyOf</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">anyOf: TypedSchema[];</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.anyofschema" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.anyofschema</a>
+  </p>
+</div>

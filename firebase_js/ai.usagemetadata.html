@@ -1,0 +1,105 @@
+<h1>UsageMetadata interface</h1>
+<p>Usage metadata about a <a href="ai.generatecontentresponse">GenerateContentResponse</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface UsageMetadata </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.usagemetadata#usagemetadatacachedcontenttokencount">cachedContentTokenCount</a></td>
+<td>number</td>
+<td>The number of tokens in the prompt that were served from the cache. If implicit caching is not active or no content was cached, this will be 0.</td>
+</tr>
+<tr>
+<td><a href="ai.usagemetadata#usagemetadatacachetokensdetails">cacheTokensDetails</a></td>
+<td><a href="ai.modalitytokencount">ModalityTokenCount</a><!-- -->[]</td>
+<td>Detailed breakdown of the cached tokens by modality (for example, text or image). This list provides granular insight into which parts of the content were cached.</td>
+</tr>
+<tr>
+<td><a href="ai.usagemetadata#usagemetadatacandidatestokencount">candidatesTokenCount</a></td>
+<td>number</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.usagemetadata#usagemetadatacandidatestokensdetails">candidatesTokensDetails</a></td>
+<td><a href="ai.modalitytokencount">ModalityTokenCount</a><!-- -->[]</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.usagemetadata#usagemetadataprompttokencount">promptTokenCount</a></td>
+<td>number</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.usagemetadata#usagemetadataprompttokensdetails">promptTokensDetails</a></td>
+<td><a href="ai.modalitytokencount">ModalityTokenCount</a><!-- -->[]</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.usagemetadata#usagemetadatathoughtstokencount">thoughtsTokenCount</a></td>
+<td>number</td>
+<td>The number of tokens used by the model&#39;s internal &quot;thinking&quot; process.</td>
+</tr>
+<tr>
+<td><a href="ai.usagemetadata#usagemetadatatooluseprompttokencount">toolUsePromptTokenCount</a></td>
+<td>number</td>
+<td>The number of tokens used by tools.</td>
+</tr>
+<tr>
+<td><a href="ai.usagemetadata#usagemetadatatooluseprompttokensdetails">toolUsePromptTokensDetails</a></td>
+<td><a href="ai.modalitytokencount">ModalityTokenCount</a><!-- -->[]</td>
+<td>A list of tokens used by tools, broken down by modality.</td>
+</tr>
+<tr>
+<td><a href="ai.usagemetadata#usagemetadatatotaltokencount">totalTokenCount</a></td>
+<td>number</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="usagemetadatacachedcontenttokencount">UsageMetadata.cachedContentTokenCount</h2>
+<p>The number of tokens in the prompt that were served from the cache. If implicit caching is not active or no content was cached, this will be 0.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">cachedContentTokenCount?: number;</pre>
+<h2 id="usagemetadatacachetokensdetails">UsageMetadata.cacheTokensDetails</h2>
+<p>Detailed breakdown of the cached tokens by modality (for example, text or image). This list provides granular insight into which parts of the content were cached.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">cacheTokensDetails?: ModalityTokenCount[];</pre>
+<h2 id="usagemetadatacandidatestokencount">UsageMetadata.candidatesTokenCount</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">candidatesTokenCount: number;</pre>
+<h2 id="usagemetadatacandidatestokensdetails">UsageMetadata.candidatesTokensDetails</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">candidatesTokensDetails?: ModalityTokenCount[];</pre>
+<h2 id="usagemetadataprompttokencount">UsageMetadata.promptTokenCount</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">promptTokenCount: number;</pre>
+<h2 id="usagemetadataprompttokensdetails">UsageMetadata.promptTokensDetails</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">promptTokensDetails?: ModalityTokenCount[];</pre>
+<h2 id="usagemetadatathoughtstokencount">UsageMetadata.thoughtsTokenCount</h2>
+<p>The number of tokens used by the model&#39;s internal &quot;thinking&quot; process.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">thoughtsTokenCount?: number;</pre>
+<h2 id="usagemetadatatooluseprompttokencount">UsageMetadata.toolUsePromptTokenCount</h2>
+<p>The number of tokens used by tools.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">toolUsePromptTokenCount?: number;</pre>
+<h2 id="usagemetadatatooluseprompttokensdetails">UsageMetadata.toolUsePromptTokensDetails</h2>
+<p>A list of tokens used by tools, broken down by modality.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">toolUsePromptTokensDetails?: ModalityTokenCount[];</pre>
+<h2 id="usagemetadatatotaltokencount">UsageMetadata.totalTokenCount</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">totalTokenCount: number;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.usagemetadata" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.usagemetadata</a>
+  </p>
+</div>

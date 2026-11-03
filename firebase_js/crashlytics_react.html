@@ -1,0 +1,105 @@
+<h1>@firebase/crashlytics/react</h1>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="crashlytics_react#firebasecrashlytics_097ca29">FirebaseCrashlytics({ firebaseApp, crashlyticsOptions }, input)</a></td>
+<td><b><i>(Public Preview)</i></b> Registers event listeners for uncaught errors.<!-- -->This should be installed near the root of your application. Caught errors, including those implicitly caught by Error Boundaries, will not be captured by this component.</td>
+</tr>
+</tbody></table>
+<h2 id="interfaces">Interfaces</h2>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="crashlytics_react.crashlytics">Crashlytics</a></td>
+<td><b><i>(Public Preview)</i></b> An instance of the Firebase Crashlytics SDK.<!-- -->Do not create this instance directly. Instead, use <a href="crashlytics#getcrashlytics_a9d22a1">getCrashlytics()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="crashlytics_react.crashlyticsfeature">CrashlyticsFeature</a></td>
+<td><b>(EXPERIMENTAL)</b> An opaque feature plugin object returned by Crashlytics feature factory functions such as <a href="crashlytics#breadcrumbs">breadcrumbs()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="crashlytics_react.crashlyticsoptions">CrashlyticsOptions</a></td>
+<td><b><i>(Public Preview)</i></b> Options for initializing the Crashlytics service using <a href="crashlytics#getcrashlytics_a9d22a1">getCrashlytics()</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="function-firebaseapp-crashlyticsoptions--">function({ firebaseApp, crashlyticsOptions }, ...)</h2>
+<h3 id="firebasecrashlytics_097ca29">FirebaseCrashlytics({ firebaseApp, crashlyticsOptions }, input)</h3>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Registers event listeners for uncaught errors.</p>
+<p>This should be installed near the root of your application. Caught errors, including those implicitly caught by Error Boundaries, will not be captured by this component.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function FirebaseCrashlytics(input: {
+    firebaseApp: FirebaseApp;
+    crashlyticsOptions?: CrashlyticsOptions;
+}): null;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>{ firebaseApp, crashlyticsOptions }</td>
+<td>(not declared)</td>
+<td></td>
+</tr>
+<tr>
+<td>input</td>
+<td>{ firebaseApp: <a href="app.firebaseapp">FirebaseApp</a><!-- -->; crashlyticsOptions?: <a href="crashlytics_react.crashlyticsoptions">CrashlyticsOptions</a><!-- -->; }</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>null</p>
+<p>The default <a href="crashlytics_react.crashlytics">Crashlytics</a> instance for the given <a href="app.firebaseapp">FirebaseApp</a><!-- -->.</p>
+<h3 id="example">Example</h3>
+<pre data-language="tsx">import { useEffect, useState } from &quot;react&quot;;
+import { FirebaseCrashlytics } from &quot;firebase/crashlytics/react&quot;;
+import { FirebaseApp, initializeApp } from &quot;firebase/app&quot;;
+
+export default function MyApp() {
+  const [app, setApp] = useState&lt;FirebaseApp | null&gt;(null);
+
+  useEffect(() =&gt; {
+    if (getApps().length === 0) {
+      const newApp = initializeApp({...});
+      setApp(newApp);
+    } else {
+      setApp(getApp());
+    }
+  }, []);
+
+  return (
+    &lt;&gt;
+      {app &amp;&amp; (
+        &lt;FirebaseCrashlytics
+          firebaseApp={app}
+          crashlyticsOptions={ {...} }
+        /&gt;
+      )}
+      ...
+    &lt;/&gt;
+  );
+}</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/crashlytics_react" class="_attribution-link">https://firebase.google.com/docs/reference/js/crashlytics_react</a>
+  </p>
+</div>

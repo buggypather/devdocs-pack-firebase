@@ -1,0 +1,187 @@
+<h1>TemplateGenerativeModel class</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p><a href="ai.generativemodel">GenerativeModel</a> APIs that execute on a server prompt template.</p>
+<p>This class should only be instantiated with <a href="ai#gettemplategenerativemodel_9476bbc">getTemplateGenerativeModel()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class TemplateGenerativeModel </pre>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.templategenerativemodel#templategenerativemodelconstructor">(constructor)(ai, requestOptions)</a></td>
+<td></td>
+<td><b><i>(Public Preview)</i></b> Constructs a new instance of the <code>TemplateGenerativeModel</code> class</td>
+</tr>
+</tbody></table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.templategenerativemodel#templategenerativemodelrequestoptions">requestOptions</a></td>
+<td></td>
+<td><a href="ai.requestoptions">RequestOptions</a></td>
+<td><b><i>(Public Preview)</i></b> Additional options to use when making requests.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.templategenerativemodel#templategenerativemodelgeneratecontent">generateContent(request, singleRequestOptions)</a></td>
+<td></td>
+<td><b><i>(Public Preview)</i></b> Generates new content using a server prompt template and returns an object containing a single <a href="ai.generatecontentresponse">GenerateContentResponse</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.templategenerativemodel#templategenerativemodelgeneratecontentstream">generateContentStream(request, singleRequestOptions)</a></td>
+<td></td>
+<td><b><i>(Public Preview)</i></b> Generates new content as a stream using a server prompt template and returns an object containing an iterable stream that iterates over all chunks in the streaming response as well as a promise that returns the final aggregated response.</td>
+</tr>
+<tr>
+<td><a href="ai.templategenerativemodel#templategenerativemodelstartchat">startChat(params)</a></td>
+<td></td>
+<td><b><i>(Public Preview)</i></b> Starts a <a href="ai.templatechatsession">TemplateChatSession</a> that will use this server prompt template to respond to messages.</td>
+</tr>
+</tbody></table>
+<h2 id="templategenerativemodelconstructor">TemplateGenerativeModel.(constructor)</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Constructs a new instance of the <code>TemplateGenerativeModel</code> class</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">constructor(ai: AI, requestOptions?: RequestOptions);</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ai</td>
+<td><a href="ai.ai">AI</a></td>
+<td></td>
+</tr>
+<tr>
+<td>requestOptions</td>
+<td><a href="ai.requestoptions">RequestOptions</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="templategenerativemodelrequestoptions">TemplateGenerativeModel.requestOptions</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Additional options to use when making requests.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">requestOptions?: RequestOptions;</pre>
+<h2 id="templategenerativemodelgeneratecontent">TemplateGenerativeModel.generateContent()</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Generates new content using a server prompt template and returns an object containing a single <a href="ai.generatecontentresponse">GenerateContentResponse</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">generateContent(request: TemplateRequest, singleRequestOptions?: SingleRequestOptions): Promise&lt;GenerateContentResult&gt;;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>request</td>
+<td><a href="ai.templaterequest">TemplateRequest</a></td>
+<td>The request parameters for using a server prompt template.</td>
+</tr>
+<tr>
+<td>singleRequestOptions</td>
+<td><a href="ai.singlerequestoptions">SingleRequestOptions</a></td>
+<td>Optional. Options to use for this request.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="ai.generatecontentresult">GenerateContentResult</a><!-- -->&gt;</p>
+<h2 id="templategenerativemodelgeneratecontentstream">TemplateGenerativeModel.generateContentStream()</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Generates new content as a stream using a server prompt template and returns an object containing an iterable stream that iterates over all chunks in the streaming response as well as a promise that returns the final aggregated response.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">generateContentStream(request: TemplateRequest, singleRequestOptions?: SingleRequestOptions): Promise&lt;GenerateContentStreamResult&gt;;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>request</td>
+<td><a href="ai.templaterequest">TemplateRequest</a></td>
+<td>The request parameters for using a server prompt template.</td>
+</tr>
+<tr>
+<td>singleRequestOptions</td>
+<td><a href="ai.singlerequestoptions">SingleRequestOptions</a></td>
+<td>Optional. Options to use for this request.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="ai.generatecontentstreamresult">GenerateContentStreamResult</a><!-- -->&gt;</p>
+<h2 id="templategenerativemodelstartchat">TemplateGenerativeModel.startChat()</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Starts a <a href="ai.templatechatsession">TemplateChatSession</a> that will use this server prompt template to respond to messages.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">startChat(params: StartTemplateChatParams): TemplateChatSession;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>params</td>
+<td><a href="ai.starttemplatechatparams">StartTemplateChatParams</a></td>
+<td>Configurations for the chat, including the template ID and input variables.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="ai.templatechatsession">TemplateChatSession</a></p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.templategenerativemodel" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.templategenerativemodel</a>
+  </p>
+</div>

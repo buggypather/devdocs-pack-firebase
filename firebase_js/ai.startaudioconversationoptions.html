@@ -1,0 +1,35 @@
+<h1>StartAudioConversationOptions interface</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Options for <a href="ai#startaudioconversation_01c8e7f">startAudioConversation()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface StartAudioConversationOptions </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.startaudioconversationoptions#startaudioconversationoptionsfunctioncallinghandler">functionCallingHandler</a></td>
+<td>(functionCalls: <a href="ai.functioncall">FunctionCall</a><!-- -->[]) =&gt; Promise&lt;<a href="ai.functionresponse">FunctionResponse</a><!-- -->&gt;</td>
+<td><b><i>(Public Preview)</i></b> An async handler that is called when the model requests a function to be executed. The handler should perform the function call and return the result as a <code>Part</code>, which will then be sent back to the model.</td>
+</tr>
+</tbody></table>
+<h2 id="startaudioconversationoptionsfunctioncallinghandler">StartAudioConversationOptions.functionCallingHandler</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>An async handler that is called when the model requests a function to be executed. The handler should perform the function call and return the result as a <code>Part</code><!-- -->, which will then be sent back to the model.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">functionCallingHandler?: (functionCalls: FunctionCall[]) =&gt; Promise&lt;FunctionResponse&gt;;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.startaudioconversationoptions" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.startaudioconversationoptions</a>
+  </p>
+</div>

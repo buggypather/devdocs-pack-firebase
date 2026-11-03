@@ -1,0 +1,46 @@
+<h1>SafetySetting interface</h1>
+<p>Safety setting that can be sent as part of request parameters.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface SafetySetting </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.safetysetting#safetysettingcategory">category</a></td>
+<td><a href="ai#harmcategory">HarmCategory</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.safetysetting#safetysettingmethod">method</a></td>
+<td><a href="ai#harmblockmethod">HarmBlockMethod</a></td>
+<td>The harm block method.<!-- -->This property is only supported in the Agent Platform Gemini API (<a href="ai.agentplatformbackend">AgentPlatformBackend</a><!-- -->). When using the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->), an <a href="ai.aierror">AIError</a> will be thrown if this property is defined.</td>
+</tr>
+<tr>
+<td><a href="ai.safetysetting#safetysettingthreshold">threshold</a></td>
+<td><a href="ai#harmblockthreshold">HarmBlockThreshold</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="safetysettingcategory">SafetySetting.category</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">category: HarmCategory;</pre>
+<h2 id="safetysettingmethod">SafetySetting.method</h2>
+<p>The harm block method.</p>
+<p>This property is only supported in the Agent Platform Gemini API (<a href="ai.agentplatformbackend">AgentPlatformBackend</a><!-- -->). When using the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->), an <a href="ai.aierror">AIError</a> will be thrown if this property is defined.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">method?: HarmBlockMethod;</pre>
+<h2 id="safetysettingthreshold">SafetySetting.threshold</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">threshold: HarmBlockThreshold;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.safetysetting" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.safetysetting</a>
+  </p>
+</div>

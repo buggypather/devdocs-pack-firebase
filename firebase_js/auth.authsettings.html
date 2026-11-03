@@ -1,0 +1,32 @@
+<h1>AuthSettings interface</h1>
+<p>Interface representing an <a href="auth.auth">Auth</a> instance&#39;s settings.</p>
+<p>Currently used for enabling/disabling app verification for phone Auth testing.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface AuthSettings </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.authsettings#authsettingsappverificationdisabledfortesting">appVerificationDisabledForTesting</a></td>
+<td>boolean</td>
+<td>When set, this property disables app verification for the purpose of testing phone authentication. For this property to take effect, it needs to be set before rendering a reCAPTCHA app verifier. When this is disabled, a mock reCAPTCHA is rendered instead. This is useful for manual testing during development or for automated integration tests.<!-- -->In order to use this feature, you will need to <a href="https://firebase.google.com/docs/auth/web/phone-auth#test-with-whitelisted-phone-numbers">whitelist your phone number</a> via the Firebase Console.<!-- -->The default value is false (app verification is enabled).</td>
+</tr>
+</tbody></table>
+<h2 id="authsettingsappverificationdisabledfortesting">AuthSettings.appVerificationDisabledForTesting</h2>
+<p>When set, this property disables app verification for the purpose of testing phone authentication. For this property to take effect, it needs to be set before rendering a reCAPTCHA app verifier. When this is disabled, a mock reCAPTCHA is rendered instead. This is useful for manual testing during development or for automated integration tests.</p>
+<p>In order to use this feature, you will need to <a href="https://firebase.google.com/docs/auth/web/phone-auth#test-with-whitelisted-phone-numbers">whitelist your phone number</a> via the Firebase Console.</p>
+<p>The default value is false (app verification is enabled).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">appVerificationDisabledForTesting: boolean;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.authsettings" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.authsettings</a>
+  </p>
+</div>

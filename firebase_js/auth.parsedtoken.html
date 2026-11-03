@@ -1,0 +1,69 @@
+<h1>ParsedToken interface</h1>
+<p>Interface representing a parsed ID token.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface ParsedToken </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.parsedtoken#parsedtokenauth_time">auth_time</a></td>
+<td>string</td>
+<td>Time at which authentication was performed.</td>
+</tr>
+<tr>
+<td><a href="auth.parsedtoken#parsedtokenexp">exp</a></td>
+<td>string</td>
+<td>Expiration time of the token.</td>
+</tr>
+<tr>
+<td><a href="auth.parsedtoken#parsedtokenfirebase">firebase</a></td>
+<td>{ &#39;sign_in_provider&#39;?: string; &#39;sign_in_second_factor&#39;?: string; &#39;identities&#39;?: Record&lt;string, string&gt;; }</td>
+<td>Firebase specific claims, containing the provider(s) used to authenticate the user.</td>
+</tr>
+<tr>
+<td><a href="auth.parsedtoken#parsedtokeniat">iat</a></td>
+<td>string</td>
+<td>Issuance time of the token.</td>
+</tr>
+<tr>
+<td><a href="auth.parsedtoken#parsedtokensub">sub</a></td>
+<td>string</td>
+<td>UID of the user.</td>
+</tr>
+</tbody></table>
+<h2 id="parsedtokenauth_time">ParsedToken.auth_time</h2>
+<p>Time at which authentication was performed.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">'auth_time'?: string;</pre>
+<h2 id="parsedtokenexp">ParsedToken.exp</h2>
+<p>Expiration time of the token.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">'exp'?: string;</pre>
+<h2 id="parsedtokenfirebase">ParsedToken.firebase</h2>
+<p>Firebase specific claims, containing the provider(s) used to authenticate the user.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">'firebase'?: {
+        'sign_in_provider'?: string;
+        'sign_in_second_factor'?: string;
+        'identities'?: Record&lt;string, string&gt;;
+    };</pre>
+<h2 id="parsedtokeniat">ParsedToken.iat</h2>
+<p>Issuance time of the token.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">'iat'?: string;</pre>
+<h2 id="parsedtokensub">ParsedToken.sub</h2>
+<p>UID of the user.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">'sub'?: string;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.parsedtoken" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.parsedtoken</a>
+  </p>
+</div>

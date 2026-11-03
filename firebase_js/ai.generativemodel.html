@@ -1,0 +1,283 @@
+<h1>GenerativeModel class</h1>
+<p>Class for generative model APIs.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class GenerativeModel extends AIModel </pre>
+<p><b>Extends:</b> <a href="ai.aimodel">AIModel</a></p>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.generativemodel#generativemodelconstructor">(constructor)(ai, modelParams, requestOptions, chromeAdapter)</a></td>
+<td></td>
+<td>Constructs a new instance of the <code>GenerativeModel</code> class</td>
+</tr>
+</tbody></table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.generativemodel#generativemodelgenerationconfig">generationConfig</a></td>
+<td></td>
+<td><a href="ai.generationconfig">GenerationConfig</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generativemodel#generativemodelrequestoptions">requestOptions</a></td>
+<td></td>
+<td><a href="ai.requestoptions">RequestOptions</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generativemodel#generativemodelsafetysettings">safetySettings</a></td>
+<td></td>
+<td><a href="ai.safetysetting">SafetySetting</a><!-- -->[]</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generativemodel#generativemodelsysteminstruction">systemInstruction</a></td>
+<td></td>
+<td><a href="ai.content">Content</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generativemodel#generativemodeltoolconfig">toolConfig</a></td>
+<td></td>
+<td><a href="ai.toolconfig">ToolConfig</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generativemodel#generativemodeltools">tools</a></td>
+<td></td>
+<td><a href="ai#tool">Tool</a><!-- -->[]</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.generativemodel#generativemodelcounttokens">countTokens(request, singleRequestOptions)</a></td>
+<td></td>
+<td>Counts the tokens in the provided request.</td>
+</tr>
+<tr>
+<td><a href="ai.generativemodel#generativemodelgeneratecontent">generateContent(request, singleRequestOptions)</a></td>
+<td></td>
+<td>Makes a single non-streaming call to the model and returns an object containing a single <a href="ai.generatecontentresponse">GenerateContentResponse</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.generativemodel#generativemodelgeneratecontentstream">generateContentStream(request, singleRequestOptions)</a></td>
+<td></td>
+<td>Makes a single streaming call to the model and returns an object containing an iterable stream that iterates over all chunks in the streaming response as well as a promise that returns the final aggregated response.</td>
+</tr>
+<tr>
+<td><a href="ai.generativemodel#generativemodelinitializedevicemodel">initializeDeviceModel(onDownloadProgress)</a></td>
+<td></td>
+<td>Initializes on-device models.</td>
+</tr>
+<tr>
+<td><a href="ai.generativemodel#generativemodelstartchat">startChat(startChatParams)</a></td>
+<td></td>
+<td>Gets a new <a href="ai.chatsession">ChatSession</a> instance which can be used for multi-turn chats.</td>
+</tr>
+</tbody></table>
+<h2 id="generativemodelconstructor">GenerativeModel.(constructor)</h2>
+<p>Constructs a new instance of the <code>GenerativeModel</code> class</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">constructor(ai: AI, modelParams: ModelParams, requestOptions?: RequestOptions, chromeAdapter?: ChromeAdapter | undefined);</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ai</td>
+<td><a href="ai.ai">AI</a></td>
+<td></td>
+</tr>
+<tr>
+<td>modelParams</td>
+<td><a href="ai.modelparams">ModelParams</a></td>
+<td></td>
+</tr>
+<tr>
+<td>requestOptions</td>
+<td><a href="ai.requestoptions">RequestOptions</a></td>
+<td></td>
+</tr>
+<tr>
+<td>chromeAdapter</td>
+<td><a href="ai.chromeadapter">ChromeAdapter</a> | undefined</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="generativemodelgenerationconfig">GenerativeModel.generationConfig</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">generationConfig: GenerationConfig;</pre>
+<h2 id="generativemodelrequestoptions">GenerativeModel.requestOptions</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">requestOptions?: RequestOptions;</pre>
+<h2 id="generativemodelsafetysettings">GenerativeModel.safetySettings</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">safetySettings: SafetySetting[];</pre>
+<h2 id="generativemodelsysteminstruction">GenerativeModel.systemInstruction</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">systemInstruction?: Content;</pre>
+<h2 id="generativemodeltoolconfig">GenerativeModel.toolConfig</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">toolConfig?: ToolConfig;</pre>
+<h2 id="generativemodeltools">GenerativeModel.tools</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">tools?: Tool[];</pre>
+<h2 id="generativemodelcounttokens">GenerativeModel.countTokens()</h2>
+<p>Counts the tokens in the provided request.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">countTokens(request: CountTokensRequest | string | Array&lt;string | Part&gt;, singleRequestOptions?: SingleRequestOptions): Promise&lt;CountTokensResponse&gt;;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>request</td>
+<td><a href="ai.counttokensrequest">CountTokensRequest</a> | string | Array&lt;string | <a href="ai#part">Part</a><!-- -->&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td>singleRequestOptions</td>
+<td><a href="ai.singlerequestoptions">SingleRequestOptions</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="ai.counttokensresponse">CountTokensResponse</a><!-- -->&gt;</p>
+<h2 id="generativemodelgeneratecontent">GenerativeModel.generateContent()</h2>
+<p>Makes a single non-streaming call to the model and returns an object containing a single <a href="ai.generatecontentresponse">GenerateContentResponse</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">generateContent(request: GenerateContentRequest | string | Array&lt;string | Part&gt;, singleRequestOptions?: SingleRequestOptions): Promise&lt;GenerateContentResult&gt;;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>request</td>
+<td><a href="ai.generatecontentrequest">GenerateContentRequest</a> | string | Array&lt;string | <a href="ai#part">Part</a><!-- -->&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td>singleRequestOptions</td>
+<td><a href="ai.singlerequestoptions">SingleRequestOptions</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="ai.generatecontentresult">GenerateContentResult</a><!-- -->&gt;</p>
+<h2 id="generativemodelgeneratecontentstream">GenerativeModel.generateContentStream()</h2>
+<p>Makes a single streaming call to the model and returns an object containing an iterable stream that iterates over all chunks in the streaming response as well as a promise that returns the final aggregated response.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">generateContentStream(request: GenerateContentRequest | string | Array&lt;string | Part&gt;, singleRequestOptions?: SingleRequestOptions): Promise&lt;GenerateContentStreamResult&gt;;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>request</td>
+<td><a href="ai.generatecontentrequest">GenerateContentRequest</a> | string | Array&lt;string | <a href="ai#part">Part</a><!-- -->&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td>singleRequestOptions</td>
+<td><a href="ai.singlerequestoptions">SingleRequestOptions</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="ai.generatecontentstreamresult">GenerateContentStreamResult</a><!-- -->&gt;</p>
+<h2 id="generativemodelinitializedevicemodel">GenerativeModel.initializeDeviceModel()</h2>
+<p>Initializes on-device models.</p>
+<p>This may trigger a download on first use. Wait for this promise to complete before calling inference methods if you want to ensure the device models are ready before any calls. Calling inference methods before the device is ready will result in a cloud fallback if <code>inferenceMode</code> is set to <code>PREFER_ON_DEVICE</code><!-- -->, and an error if set to <code>ONLY_ON_DEVICE</code><!-- -->.</p>
+<p>IMPORTANT: This call must be made on or after a user has interacted with the page (for example, through a button click or key press). If it is called without a user interaction, and it requires a download, this will cause an error.</p>
+<p>See the <a href="https://developer.chrome.com/docs/ai/prompt-api#use_the_prompt_api">Prompt API docs</a> for more details on this requirement.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">initializeDeviceModel(onDownloadProgress?: (progressValue: number) =&gt; void): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onDownloadProgress</td>
+<td>(progressValue: number) =&gt; void</td>
+<td>A callback called repeatedly as the download progresses that provides a <code>progressValue</code> between 0 and 1 representing how much of the download is complete. This will be ignored if <code>monitor</code> was populated in <a href="ai.languagemodelcreateoptions">LanguageModelCreateOptions</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h2 id="generativemodelstartchat">GenerativeModel.startChat()</h2>
+<p>Gets a new <a href="ai.chatsession">ChatSession</a> instance which can be used for multi-turn chats.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">startChat(startChatParams?: StartChatParams): ChatSession;</pre>
+<h4 id="parameters-5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>startChatParams</td>
+<td><a href="ai.startchatparams">StartChatParams</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="ai.chatsession">ChatSession</a></p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.generativemodel" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.generativemodel</a>
+  </p>
+</div>

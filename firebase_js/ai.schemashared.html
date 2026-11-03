@@ -1,0 +1,148 @@
+<h1>SchemaShared interface</h1>
+<p>Basic <a href="ai.schema">Schema</a> properties shared across several Schema-related types.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface SchemaShared&lt;T&gt; </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.schemashared#schemasharedanyof">anyOf</a></td>
+<td>T[]</td>
+<td>An array of <a href="ai.schema">Schema</a><!-- -->. The generated data must be valid against any of the schemas listed in this array. This allows specifying multiple possible structures or types for a single field.</td>
+</tr>
+<tr>
+<td><a href="ai.schemashared#schemashareddescription">description</a></td>
+<td>string</td>
+<td>Optional. The description of the property.</td>
+</tr>
+<tr>
+<td><a href="ai.schemashared#schemasharedenum">enum</a></td>
+<td>string[]</td>
+<td>Optional. The enum of the property.</td>
+</tr>
+<tr>
+<td><a href="ai.schemashared#schemasharedexample">example</a></td>
+<td>unknown</td>
+<td>Optional. The example of the property.</td>
+</tr>
+<tr>
+<td><a href="ai.schemashared#schemasharedformat">format</a></td>
+<td>string</td>
+<td>Optional. The format of the property. When using the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->), this must be either <code>'enum'</code> or <code>'date-time'</code>, otherwise requests will fail.</td>
+</tr>
+<tr>
+<td><a href="ai.schemashared#schemashareditems">items</a></td>
+<td>T</td>
+<td>Optional. The items of the property.</td>
+</tr>
+<tr>
+<td><a href="ai.schemashared#schemasharedmaximum">maximum</a></td>
+<td>number</td>
+<td>The maximum value of a numeric type.</td>
+</tr>
+<tr>
+<td><a href="ai.schemashared#schemasharedmaxitems">maxItems</a></td>
+<td>number</td>
+<td>The maximum number of items (elements) in a schema of <a href="ai#schematype">SchemaType</a> <code>array</code>.</td>
+</tr>
+<tr>
+<td><a href="ai.schemashared#schemasharedminimum">minimum</a></td>
+<td>number</td>
+<td>The minimum value of a numeric type.</td>
+</tr>
+<tr>
+<td><a href="ai.schemashared#schemasharedminitems">minItems</a></td>
+<td>number</td>
+<td>The minimum number of items (elements) in a schema of <a href="ai#schematype">SchemaType</a> <code>array</code>.</td>
+</tr>
+<tr>
+<td><a href="ai.schemashared#schemasharednullable">nullable</a></td>
+<td>boolean</td>
+<td>Optional. Whether the property is nullable.</td>
+</tr>
+<tr>
+<td><a href="ai.schemashared#schemasharedproperties">properties</a></td>
+<td>{ [k: string]: T; }</td>
+<td>Optional. Map of <code>Schema</code> objects.</td>
+</tr>
+<tr>
+<td><a href="ai.schemashared#schemasharedpropertyordering">propertyOrdering</a></td>
+<td>string[]</td>
+<td>A hint suggesting the order in which the keys should appear in the generated JSON string.</td>
+</tr>
+<tr>
+<td><a href="ai.schemashared#schemasharedtitle">title</a></td>
+<td>string</td>
+<td>The title of the property. This helps document the schema&#39;s purpose but does not typically constrain the generated value. It can subtly guide the model by clarifying the intent of a field.</td>
+</tr>
+</tbody></table>
+<h2 id="schemasharedanyof">SchemaShared.anyOf</h2>
+<p>An array of <a href="ai.schema">Schema</a><!-- -->. The generated data must be valid against any of the schemas listed in this array. This allows specifying multiple possible structures or types for a single field.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">anyOf?: T[];</pre>
+<h2 id="schemashareddescription">SchemaShared.description</h2>
+<p>Optional. The description of the property.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">description?: string;</pre>
+<h2 id="schemasharedenum">SchemaShared.enum</h2>
+<p>Optional. The enum of the property.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">enum?: string[];</pre>
+<h2 id="schemasharedexample">SchemaShared.example</h2>
+<p>Optional. The example of the property.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">example?: unknown;</pre>
+<h2 id="schemasharedformat">SchemaShared.format</h2>
+<p>Optional. The format of the property. When using the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->), this must be either <code>&#39;enum&#39;</code> or <code>&#39;date-time&#39;</code><!-- -->, otherwise requests will fail.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">format?: string;</pre>
+<h2 id="schemashareditems">SchemaShared.items</h2>
+<p>Optional. The items of the property.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">items?: T;</pre>
+<h2 id="schemasharedmaximum">SchemaShared.maximum</h2>
+<p>The maximum value of a numeric type.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">maximum?: number;</pre>
+<h2 id="schemasharedmaxitems">SchemaShared.maxItems</h2>
+<p>The maximum number of items (elements) in a schema of <a href="ai#schematype">SchemaType</a> <code>array</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">maxItems?: number;</pre>
+<h2 id="schemasharedminimum">SchemaShared.minimum</h2>
+<p>The minimum value of a numeric type.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">minimum?: number;</pre>
+<h2 id="schemasharedminitems">SchemaShared.minItems</h2>
+<p>The minimum number of items (elements) in a schema of <a href="ai#schematype">SchemaType</a> <code>array</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">minItems?: number;</pre>
+<h2 id="schemasharednullable">SchemaShared.nullable</h2>
+<p>Optional. Whether the property is nullable.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">nullable?: boolean;</pre>
+<h2 id="schemasharedproperties">SchemaShared.properties</h2>
+<p>Optional. Map of <code>Schema</code> objects.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">properties?: {
+        [k: string]: T;
+    };</pre>
+<h2 id="schemasharedpropertyordering">SchemaShared.propertyOrdering</h2>
+<p>A hint suggesting the order in which the keys should appear in the generated JSON string.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">propertyOrdering?: string[];</pre>
+<h2 id="schemasharedtitle">SchemaShared.title</h2>
+<p>The title of the property. This helps document the schema&#39;s purpose but does not typically constrain the generated value. It can subtly guide the model by clarifying the intent of a field.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">title?: string;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.schemashared" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.schemashared</a>
+  </p>
+</div>

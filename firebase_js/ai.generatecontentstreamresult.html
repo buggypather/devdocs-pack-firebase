@@ -1,0 +1,36 @@
+<h1>GenerateContentStreamResult interface</h1>
+<p>Result object returned from <a href="ai.generativemodel#generativemodelgeneratecontentstream">GenerativeModel.generateContentStream()</a> call. Iterate over <code>stream</code> to get chunks as they come in and/or use the <code>response</code> promise to get the aggregated response when the stream is done.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface GenerateContentStreamResult </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.generatecontentstreamresult#generatecontentstreamresultresponse">response</a></td>
+<td>Promise&lt;<a href="ai.enhancedgeneratecontentresponse">EnhancedGenerateContentResponse</a><!-- -->&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generatecontentstreamresult#generatecontentstreamresultstream">stream</a></td>
+<td>AsyncGenerator&lt;<a href="ai.enhancedgeneratecontentresponse">EnhancedGenerateContentResponse</a><!-- -->&gt;</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="generatecontentstreamresultresponse">GenerateContentStreamResult.response</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">response: Promise&lt;EnhancedGenerateContentResponse&gt;;</pre>
+<h2 id="generatecontentstreamresultstream">GenerateContentStreamResult.stream</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">stream: AsyncGenerator&lt;EnhancedGenerateContentResponse&gt;;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.generatecontentstreamresult" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.generatecontentstreamresult</a>
+  </p>
+</div>

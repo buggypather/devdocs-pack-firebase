@@ -1,0 +1,318 @@
+<h1>@firebase/messaging</h1>
+<p>The Firebase Cloud Messaging Web SDK. This SDK does not work in a Node.js environment.</p>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><b>function(app, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="messaging#getmessaging_cf608e1">getMessaging(app)</a></td>
+<td>Retrieves a Firebase Cloud Messaging instance.</td>
+</tr>
+<tr>
+<td><b>function(messaging, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="messaging#deletetoken_3fae4b1">deleteToken(messaging)</a></td>
+<td>Deletes the registration token associated with this <a href="messaging.messaging">Messaging</a> instance and unsubscribes the <a href="messaging.messaging">Messaging</a> instance from the push subscription.<!-- -->If there is no legacy registration token but the client has FID-based registration metadata (from <a href="messaging#register_795bb8a">register()</a><!-- -->), this deletes that registration on the server, clears local metadata, and invokes <a href="messaging#onunregistered_f8a466e">onUnregistered()</a> with the removed FID when successful.</td>
+</tr>
+<tr>
+<td><a href="messaging#gettoken_b538f38">getToken(messaging, options)</a></td>
+<td>Subscribes the <a href="messaging.messaging">Messaging</a> instance to push notifications. Returns a Firebase Cloud Messaging registration token that can be used to send push messages to that <a href="messaging.messaging">Messaging</a> instance.<!-- -->If notification permission isn&#39;t already granted, this method asks the user for permission. The returned promise rejects if the user does not allow the app to show notifications.</td>
+</tr>
+<tr>
+<td><a href="messaging#onmessage_b9887da">onMessage(messaging, nextOrObserver)</a></td>
+<td>When a push message is received and the user is currently on a page for your origin, the message is passed to the page and an <code>onMessage()</code> event is dispatched with the payload of the push message.</td>
+</tr>
+<tr>
+<td><a href="messaging#onregistered_f8a466e">onRegistered(messaging, nextOrObserver)</a></td>
+<td>Subscribes to an event that the app instance is registered with FCM via Firebase Installation ID (FID). Use the FID passed to the callback to upload it to your application server. When you receive an FID after calling <a href="messaging#register_795bb8a">register()</a><!-- -->, instruct your backend to remove any legacy token for this instance.</td>
+</tr>
+<tr>
+<td><a href="messaging#onunregistered_f8a466e">onUnregistered(messaging, nextOrObserver)</a></td>
+<td>Subscribes to an event that the app instance is unregistered from FCM (FID no longer active). Use this to notify your backend to remove this FID to prevent 404 errors on send.</td>
+</tr>
+<tr>
+<td><a href="messaging#register_795bb8a">register(messaging, options)</a></td>
+<td>Registers the app instance with FCM using its Firebase Installation ID (FID). The FID is delivered via the <a href="messaging#onregistered_f8a466e">onRegistered()</a> callback, not as a return value. Call this to establish an FID-based identity; once <a href="messaging#onregistered_f8a466e">onRegistered()</a> provides an FID, instruct your backend to remove any legacy token previously associated with this instance. The backend send API supports FID as a target.</td>
+</tr>
+<tr>
+<td><a href="messaging#unregister_3fae4b1">unregister(messaging)</a></td>
+<td>Unregisters the app instance from FCM by deleting its FID-based registration. On success, triggers <a href="messaging#onunregistered_f8a466e">onUnregistered()</a> (if registered) with the unregistered FID.</td>
+</tr>
+<tr>
+<td><b>function()</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="messaging#issupported">isSupported()</a></td>
+<td>Checks if all required APIs exist in the browser.</td>
+</tr>
+</tbody></table>
+<h2 id="interfaces">Interfaces</h2>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="messaging.fcmoptions">FcmOptions</a></td>
+<td>Options for features provided by the FCM SDK for Web. See <a href="https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#webpushfcmoptions">WebpushFcmOptions</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="messaging.gettokenoptions">GetTokenOptions</a></td>
+<td>Options for <a href="messaging#gettoken_b538f38">getToken()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="messaging.messagepayload">MessagePayload</a></td>
+<td>Message payload that contains the notification payload that is represented with <a href="messaging.notificationpayload">NotificationPayload</a> and the data payload that contains an arbitrary number of key-value pairs sent by developers through the <a href="https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#notification">Send API</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="messaging.messaging">Messaging</a></td>
+<td>Public interface of the Firebase Cloud Messaging SDK.</td>
+</tr>
+<tr>
+<td><a href="messaging.notificationpayload">NotificationPayload</a></td>
+<td>Display notification details. Details are sent through the <a href="https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#notification">Send API</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="messaging.registeroptions">RegisterOptions</a></td>
+<td>Options for <a href="messaging#register_795bb8a">register()</a><!-- -->. Same shape as GetTokenOptions for SW and VAPID configuration.</td>
+</tr>
+</tbody></table>
+<h2 id="functionapp-">function(app, ...)</h2>
+<h3 id="getmessaging_cf608e1">getMessaging(app)</h3>
+<p>Retrieves a Firebase Cloud Messaging instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getMessagingInWindow(app?: FirebaseApp): Messaging;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>app</td>
+<td><a href="app.firebaseapp">FirebaseApp</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="messaging.messaging">Messaging</a></p>
+<p>The Firebase Cloud Messaging instance associated with the provided firebase app.</p>
+<h2 id="functionmessaging-">function(messaging, ...)</h2>
+<h3 id="deletetoken_3fae4b1">deleteToken(messaging)</h3>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Use <a href="messaging#onunregistered_f8a466e">onUnregistered()</a> to observe when the client is no longer registered and update your backend accordingly, instead of explicitly deleting the registration token with this API.</p>
+</blockquote>
+<p>Deletes the registration token associated with this <a href="messaging.messaging">Messaging</a> instance and unsubscribes the <a href="messaging.messaging">Messaging</a> instance from the push subscription.</p>
+<p>If there is no legacy registration token but the client has FID-based registration metadata (from <a href="messaging#register_795bb8a">register()</a><!-- -->), this deletes that registration on the server, clears local metadata, and invokes <a href="messaging#onunregistered_f8a466e">onUnregistered()</a> with the removed FID when successful.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function deleteToken(messaging: Messaging): Promise&lt;boolean&gt;;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>messaging</td>
+<td><a href="messaging.messaging">Messaging</a></td>
+<td>The <a href="messaging.messaging">Messaging</a> instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;boolean&gt;</p>
+<p>The promise resolves when the token has been successfully deleted.</p>
+<h3 id="gettoken_b538f38">getToken(messaging, options)</h3>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Use <a href="messaging#register_795bb8a">register()</a> together with <a href="messaging#onregistered_f8a466e">onRegistered()</a> for Firebase Installation ID-based messaging instead of retrieving an FCM registration token with this API.</p>
+</blockquote>
+<p>Subscribes the <a href="messaging.messaging">Messaging</a> instance to push notifications. Returns a Firebase Cloud Messaging registration token that can be used to send push messages to that <a href="messaging.messaging">Messaging</a> instance.</p>
+<p>If notification permission isn&#39;t already granted, this method asks the user for permission. The returned promise rejects if the user does not allow the app to show notifications.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getToken(messaging: Messaging, options?: GetTokenOptions): Promise&lt;string&gt;;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>messaging</td>
+<td><a href="messaging.messaging">Messaging</a></td>
+<td>The <a href="messaging.messaging">Messaging</a> instance.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="messaging.gettokenoptions">GetTokenOptions</a></td>
+<td>Provides an optional vapid key and an optional service worker registration.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;string&gt;</p>
+<p>The promise resolves with an FCM registration token.</p>
+<h3 id="onmessage_b9887da">onMessage(messaging, nextOrObserver)</h3>
+<p>When a push message is received and the user is currently on a page for your origin, the message is passed to the page and an <code>onMessage()</code> event is dispatched with the payload of the push message.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function onMessage(messaging: Messaging, nextOrObserver: NextFn&lt;MessagePayload&gt; | Observer&lt;MessagePayload&gt;): Unsubscribe;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>messaging</td>
+<td><a href="messaging.messaging">Messaging</a></td>
+<td>The <a href="messaging.messaging">Messaging</a> instance.</td>
+</tr>
+<tr>
+<td>nextOrObserver</td>
+<td><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#nextfn">NextFn</a><!-- -->&lt;<a href="messaging.messagepayload">MessagePayload</a><!-- -->&gt; | <a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.observer.md">Observer</a><!-- -->&lt;<a href="messaging.messagepayload">MessagePayload</a><!-- -->&gt;</td>
+<td>This function, or observer object with <code>next</code> defined, is called when a message is received and the user is currently viewing your page.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#unsubscribe">Unsubscribe</a></p>
+<p>To stop listening for messages execute this returned function.</p>
+<h3 id="onregistered_f8a466e">onRegistered(messaging, nextOrObserver)</h3>
+<p>Subscribes to an event that the app instance is registered with FCM via Firebase Installation ID (FID). Use the FID passed to the callback to upload it to your application server. When you receive an FID after calling <a href="messaging#register_795bb8a">register()</a><!-- -->, instruct your backend to remove any legacy token for this instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function onRegistered(messaging: Messaging, nextOrObserver: NextFn&lt;string&gt; | Observer&lt;string&gt;): Unsubscribe;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>messaging</td>
+<td><a href="messaging.messaging">Messaging</a></td>
+<td>The <a href="messaging.messaging">Messaging</a> instance.</td>
+</tr>
+<tr>
+<td>nextOrObserver</td>
+<td><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#nextfn">NextFn</a><!-- -->&lt;string&gt; | <a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.observer.md">Observer</a><!-- -->&lt;string&gt;</td>
+<td>A function or observer object called when an FID is registered.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#unsubscribe">Unsubscribe</a></p>
+<p>Unsubscribe function to stop listening.</p>
+<h3 id="onunregistered_f8a466e">onUnregistered(messaging, nextOrObserver)</h3>
+<p>Subscribes to an event that the app instance is unregistered from FCM (FID no longer active). Use this to notify your backend to remove this FID to prevent 404 errors on send.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function onUnregistered(messaging: Messaging, nextOrObserver: NextFn&lt;string&gt; | Observer&lt;string&gt;): Unsubscribe;</pre>
+<h4 id="parameters-5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>messaging</td>
+<td><a href="messaging.messaging">Messaging</a></td>
+<td>The <a href="messaging.messaging">Messaging</a> instance.</td>
+</tr>
+<tr>
+<td>nextOrObserver</td>
+<td><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#nextfn">NextFn</a><!-- -->&lt;string&gt; | <a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.observer.md">Observer</a><!-- -->&lt;string&gt;</td>
+<td>A function or observer object called with the unregistered FID.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#unsubscribe">Unsubscribe</a></p>
+<p>Unsubscribe function to stop listening.</p>
+<h3 id="register_795bb8a">register(messaging, options)</h3>
+<p>Registers the app instance with FCM using its Firebase Installation ID (FID). The FID is delivered via the <a href="messaging#onregistered_f8a466e">onRegistered()</a> callback, not as a return value. Call this to establish an FID-based identity; once <a href="messaging#onregistered_f8a466e">onRegistered()</a> provides an FID, instruct your backend to remove any legacy token previously associated with this instance. The backend send API supports FID as a target.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function register(messaging: Messaging, options?: RegisterOptions): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>messaging</td>
+<td><a href="messaging.messaging">Messaging</a></td>
+<td>The <a href="messaging.messaging">Messaging</a> instance.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="messaging.registeroptions">RegisterOptions</a></td>
+<td>Optional. VAPID key and/or service worker registration (same as getToken).</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<p>Promise that resolves when registration has been initiated; FID is delivered via onRegistered.</p>
+<h3 id="unregister_3fae4b1">unregister(messaging)</h3>
+<p>Unregisters the app instance from FCM by deleting its FID-based registration. On success, triggers <a href="messaging#onunregistered_f8a466e">onUnregistered()</a> (if registered) with the unregistered FID.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function unregister(messaging: Messaging): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-7">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>messaging</td>
+<td><a href="messaging.messaging">Messaging</a></td>
+<td>The <a href="messaging.messaging">Messaging</a> instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h2 id="function">function()</h2>
+<h3 id="issupported">isSupported()</h3>
+<p>Checks if all required APIs exist in the browser.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function isWindowSupported(): Promise&lt;boolean&gt;;</pre>
+<p><b>Returns:</b></p>
+<p>Promise&lt;boolean&gt;</p>
+<p>a Promise that resolves to a boolean.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/messaging" class="_attribution-link">https://firebase.google.com/docs/reference/js/messaging</a>
+  </p>
+</div>

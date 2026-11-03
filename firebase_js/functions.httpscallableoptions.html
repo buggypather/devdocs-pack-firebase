@@ -1,0 +1,38 @@
+<h1>HttpsCallableOptions interface</h1>
+<p>An interface for metadata about how calls should be executed.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface HttpsCallableOptions </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="functions.httpscallableoptions#httpscallableoptionslimiteduseappchecktokens">limitedUseAppCheckTokens</a></td>
+<td>boolean</td>
+<td>If set to true, uses a limited-use App Check token for callable function requests from this instance of <a href="functions.functions">Functions</a><!-- -->. You must use limited-use tokens to call functions with replay protection enabled. By default, this is false.</td>
+</tr>
+<tr>
+<td><a href="functions.httpscallableoptions#httpscallableoptionstimeout">timeout</a></td>
+<td>number</td>
+<td>Time in milliseconds after which to cancel if there is no response. Default is 70000.</td>
+</tr>
+</tbody></table>
+<h2 id="httpscallableoptionslimiteduseappchecktokens">HttpsCallableOptions.limitedUseAppCheckTokens</h2>
+<p>If set to true, uses a limited-use App Check token for callable function requests from this instance of <a href="functions.functions">Functions</a><!-- -->. You must use limited-use tokens to call functions with replay protection enabled. By default, this is false.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">limitedUseAppCheckTokens?: boolean;</pre>
+<h2 id="httpscallableoptionstimeout">HttpsCallableOptions.timeout</h2>
+<p>Time in milliseconds after which to cancel if there is no response. Default is 70000.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">timeout?: number;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/functions.httpscallableoptions" class="_attribution-link">https://firebase.google.com/docs/reference/js/functions.httpscallableoptions</a>
+  </p>
+</div>

@@ -1,0 +1,38 @@
+<h1>AIOptions interface</h1>
+<p>Options for initializing the AI service using <a href="ai#getai_a94a413">getAI()</a><!-- -->. This allows specifying which backend to use (Gemini Developer API or Agent Platform Gemini API) and configuring its specific options (like location for Agent Platform).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface AIOptions </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.aioptions#aioptionsbackend">backend</a></td>
+<td><a href="ai.backend">Backend</a></td>
+<td>The backend configuration to use for the AI service instance. Defaults to the Gemini Developer API backend (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->).</td>
+</tr>
+<tr>
+<td><a href="ai.aioptions#aioptionsuselimiteduseappchecktokens">useLimitedUseAppCheckTokens</a></td>
+<td>boolean</td>
+<td>Whether to use App Check limited use tokens. Defaults to false.</td>
+</tr>
+</tbody></table>
+<h2 id="aioptionsbackend">AIOptions.backend</h2>
+<p>The backend configuration to use for the AI service instance. Defaults to the Gemini Developer API backend (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">backend?: Backend;</pre>
+<h2 id="aioptionsuselimiteduseappchecktokens">AIOptions.useLimitedUseAppCheckTokens</h2>
+<p>Whether to use App Check limited use tokens. Defaults to false.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">useLimitedUseAppCheckTokens?: boolean;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.aioptions" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.aioptions</a>
+  </p>
+</div>

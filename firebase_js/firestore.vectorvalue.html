@@ -1,0 +1,96 @@
+<h1>VectorValue class</h1>
+<p>Represents a vector type in Firestore documents. Create an instance with <code><a href="firestore#vector_0dbdaf2">vector()</a></code>.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class VectorValue </pre>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.vectorvalue#vectorvaluefromjson">fromJSON(json)</a></td>
+<td><code>static</code></td>
+<td>Builds a <code>VectorValue</code> instance from a JSON object created by <a href="firestore.vectorvalue#vectorvaluetojson">VectorValue.toJSON()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="firestore.vectorvalue#vectorvalueisequal">isEqual(other)</a></td>
+<td></td>
+<td>Returns <code>true</code> if the two <code>VectorValue</code> values have the same raw number arrays, returns <code>false</code> otherwise.</td>
+</tr>
+<tr>
+<td><a href="firestore.vectorvalue#vectorvaluetoarray">toArray()</a></td>
+<td></td>
+<td>Returns a copy of the raw number array form of the vector.</td>
+</tr>
+<tr>
+<td><a href="firestore.vectorvalue#vectorvaluetojson">toJSON()</a></td>
+<td></td>
+<td>Returns a JSON-serializable representation of this <code>VectorValue</code> instance.</td>
+</tr>
+</tbody></table>
+<h2 id="vectorvaluefromjson">VectorValue.fromJSON()</h2>
+<p>Builds a <code>VectorValue</code> instance from a JSON object created by <a href="firestore.vectorvalue#vectorvaluetojson">VectorValue.toJSON()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static fromJSON(json: object): VectorValue;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>json</td>
+<td>object</td>
+<td>a JSON object represention of a <code>VectorValue</code> instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore.vectorvalue">VectorValue</a></p>
+<p>an instance of <a href="firestore.vectorvalue">VectorValue</a> if the JSON object could be parsed. Throws a <a href="firestore.firestoreerror">FirestoreError</a> if an error occurs.</p>
+<h2 id="vectorvalueisequal">VectorValue.isEqual()</h2>
+<p>Returns <code>true</code> if the two <code>VectorValue</code> values have the same raw number arrays, returns <code>false</code> otherwise.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">isEqual(other: VectorValue): boolean;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>other</td>
+<td><a href="firestore.vectorvalue">VectorValue</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<h2 id="vectorvaluetoarray">VectorValue.toArray()</h2>
+<p>Returns a copy of the raw number array form of the vector.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">toArray(): number[];</pre>
+<p><b>Returns:</b></p>
+<p>number[]</p>
+<h2 id="vectorvaluetojson">VectorValue.toJSON()</h2>
+<p>Returns a JSON-serializable representation of this <code>VectorValue</code> instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">toJSON(): object;</pre>
+<p><b>Returns:</b></p>
+<p>object</p>
+<p>a JSON representation of this object.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.vectorvalue" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.vectorvalue</a>
+  </p>
+</div>

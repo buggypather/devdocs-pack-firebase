@@ -1,0 +1,243 @@
+<h1>UploadTask interface</h1>
+<p>Represents the process of uploading an object. Allows you to monitor and manage the upload.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface UploadTask </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="storage.uploadtask#uploadtasksnapshot">snapshot</a></td>
+<td><a href="storage.uploadtasksnapshot">UploadTaskSnapshot</a></td>
+<td>A snapshot of the current task state.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="storage.uploadtask#uploadtaskcancel">cancel()</a></td>
+<td>Cancels a running task. Has no effect on a complete or failed task.</td>
+</tr>
+<tr>
+<td><a href="storage.uploadtask#uploadtaskcatch">catch(onRejected)</a></td>
+<td>Equivalent to calling <code>then(null, onRejected)</code>.</td>
+</tr>
+<tr>
+<td><a href="storage.uploadtask#uploadtaskon">on(event, nextOrObserver, error, complete)</a></td>
+<td>Listens for events on this task.<!-- -->Events have three callback functions (referred to as <code>next</code>, <code>error</code>, and <code>complete</code>).<!-- -->If only the event is passed, a function that can be used to register the callbacks is returned. Otherwise, the callbacks are passed after the event.<!-- -->Callbacks can be passed either as three separate arguments <em>or</em> as the <code>next</code>, <code>error</code>, and <code>complete</code> properties of an object. Any of the three callbacks is optional, as long as at least one is specified. In addition, when you add your callbacks, you get a function back. You can call this function to unregister the associated callbacks.</td>
+</tr>
+<tr>
+<td><a href="storage.uploadtask#uploadtaskpause">pause()</a></td>
+<td>Pauses a currently running task. Has no effect on a paused or failed task.</td>
+</tr>
+<tr>
+<td><a href="storage.uploadtask#uploadtaskresume">resume()</a></td>
+<td>Resumes a paused task. Has no effect on a currently running or failed task.</td>
+</tr>
+<tr>
+<td><a href="storage.uploadtask#uploadtaskthen">then(onFulfilled, onRejected)</a></td>
+<td>This object behaves like a Promise, and resolves with its snapshot data when the upload completes.</td>
+</tr>
+</tbody></table>
+<h2 id="uploadtasksnapshot">UploadTask.snapshot</h2>
+<p>A snapshot of the current task state.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">snapshot: UploadTaskSnapshot;</pre>
+<h2 id="uploadtaskcancel">UploadTask.cancel()</h2>
+<p>Cancels a running task. Has no effect on a complete or failed task.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">cancel(): boolean;</pre>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<p>True if the cancel had an effect.</p>
+<h2 id="uploadtaskcatch">UploadTask.catch()</h2>
+<p>Equivalent to calling <code>then(null, onRejected)</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">catch(onRejected: (error: StorageError) =&gt; unknown): Promise&lt;unknown&gt;;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onRejected</td>
+<td>(error: <a href="storage.storageerror">StorageError</a><!-- -->) =&gt; unknown</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;unknown&gt;</p>
+<h2 id="uploadtaskon">UploadTask.on()</h2>
+<p>Listens for events on this task.</p>
+<p>Events have three callback functions (referred to as <code>next</code><!-- -->, <code>error</code><!-- -->, and <code>complete</code><!-- -->).</p>
+<p>If only the event is passed, a function that can be used to register the callbacks is returned. Otherwise, the callbacks are passed after the event.</p>
+<p>Callbacks can be passed either as three separate arguments <em>or</em> as the <code>next</code><!-- -->, <code>error</code><!-- -->, and <code>complete</code> properties of an object. Any of the three callbacks is optional, as long as at least one is specified. In addition, when you add your callbacks, you get a function back. You can call this function to unregister the associated callbacks.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">on(event: TaskEvent, nextOrObserver?: StorageObserver&lt;UploadTaskSnapshot&gt; | null | ((snapshot: UploadTaskSnapshot) =&gt; unknown), error?: ((a: StorageError) =&gt; unknown) | null, complete?: Unsubscribe | null): Unsubscribe | Subscribe&lt;UploadTaskSnapshot&gt;;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>event</td>
+<td><a href="storage#taskevent">TaskEvent</a></td>
+<td>The type of event to listen for.</td>
+</tr>
+<tr>
+<td>nextOrObserver</td>
+<td><a href="storage.storageobserver">StorageObserver</a><!-- -->&lt;<a href="storage.uploadtasksnapshot">UploadTaskSnapshot</a><!-- -->&gt; | null | ((snapshot: <a href="storage.uploadtasksnapshot">UploadTaskSnapshot</a><!-- -->) =&gt; unknown)</td>
+<td>The <code>next</code> function, which gets called for each item in the event stream, or an observer object with some or all of these three properties (<code>next</code>, <code>error</code>, <code>complete</code>).</td>
+</tr>
+<tr>
+<td>error</td>
+<td>((a: <a href="storage.storageerror">StorageError</a><!-- -->) =&gt; unknown) | null</td>
+<td>A function that gets called with a <code>StorageError</code> if the event stream ends due to an error.</td>
+</tr>
+<tr>
+<td>complete</td>
+<td><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#unsubscribe">Unsubscribe</a> | null</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#unsubscribe">Unsubscribe</a> | <a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.subscribe.md">Subscribe</a><!-- -->&lt;<a href="storage.uploadtasksnapshot">UploadTaskSnapshot</a><!-- -->&gt;</p>
+<p>If only the event argument is passed, returns a function you can use to add callbacks (see the examples above). If more than just the event argument is passed, returns a function you can call to unregister the callbacks.</p>
+<h3 id="example-1">Example 1</h3>
+<p>**Pass callbacks separately or in an object.**</p>
+<pre data-language="javascript">var next = function(snapshot) {};
+var error = function(error) {};
+var complete = function() {};
+
+// The first example.
+uploadTask.on(
+    firebase.storage.TaskEvent.STATE_CHANGED,
+    next,
+    error,
+    complete);
+
+// This is equivalent to the first example.
+uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, {
+  'next': next,
+  'error': error,
+  'complete': complete
+});
+
+// This is equivalent to the first example.
+var subscribe = uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED);
+subscribe(next, error, complete);
+
+// This is equivalent to the first example.
+var subscribe = uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED);
+subscribe({
+  'next': next,
+  'error': error,
+  'complete': complete
+});</pre>
+<h3 id="example-2">Example 2</h3>
+<p>**Any callback is optional.**</p>
+<pre data-language="javascript">// Just listening for completion, this is legal.
+uploadTask.on(
+    firebase.storage.TaskEvent.STATE_CHANGED,
+    null,
+    null,
+    function() {
+      console.log('upload complete!');
+    });
+
+// Just listening for progress/state changes, this is legal.
+uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, function(snapshot) {
+  var percent = snapshot.bytesTransferred / snapshot.totalBytes * 100;
+  console.log(percent + &quot;% done&quot;);
+});
+
+// This is also legal.
+uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, {
+  'complete': function() {
+    console.log('upload complete!');
+  }
+});</pre>
+<h3 id="example-3">Example 3</h3>
+<p>**Use the returned function to remove callbacks.**</p>
+<pre data-language="javascript">var unsubscribe = uploadTask.on(
+    firebase.storage.TaskEvent.STATE_CHANGED,
+    function(snapshot) {
+      var percent = snapshot.bytesTransferred / snapshot.totalBytes * 100;
+      console.log(percent + &quot;% done&quot;);
+      // Stop after receiving one update.
+      unsubscribe();
+    });
+
+// This code is equivalent to the above.
+var handle = uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED);
+unsubscribe = handle(function(snapshot) {
+  var percent = snapshot.bytesTransferred / snapshot.totalBytes * 100;
+  console.log(percent + &quot;% done&quot;);
+  // Stop after receiving one update.
+  unsubscribe();
+});</pre>
+<h2 id="uploadtaskpause">UploadTask.pause()</h2>
+<p>Pauses a currently running task. Has no effect on a paused or failed task.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">pause(): boolean;</pre>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<p>True if the operation took effect, false if ignored.</p>
+<h2 id="uploadtaskresume">UploadTask.resume()</h2>
+<p>Resumes a paused task. Has no effect on a currently running or failed task.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">resume(): boolean;</pre>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<p>True if the operation took effect, false if ignored.</p>
+<h2 id="uploadtaskthen">UploadTask.then()</h2>
+<p>This object behaves like a Promise, and resolves with its snapshot data when the upload completes.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">then(onFulfilled?: ((snapshot: UploadTaskSnapshot) =&gt; unknown) | null, onRejected?: ((error: StorageError) =&gt; unknown) | null): Promise&lt;unknown&gt;;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onFulfilled</td>
+<td>((snapshot: <a href="storage.uploadtasksnapshot">UploadTaskSnapshot</a><!-- -->) =&gt; unknown) | null</td>
+<td>The fulfillment callback. Promise chaining works as normal.</td>
+</tr>
+<tr>
+<td>onRejected</td>
+<td>((error: <a href="storage.storageerror">StorageError</a><!-- -->) =&gt; unknown) | null</td>
+<td>The rejection callback.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;unknown&gt;</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/storage.uploadtask" class="_attribution-link">https://firebase.google.com/docs/reference/js/storage.uploadtask</a>
+  </p>
+</div>

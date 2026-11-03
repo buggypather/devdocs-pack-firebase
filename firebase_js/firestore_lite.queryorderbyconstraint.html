@@ -1,0 +1,33 @@
+<h1>QueryOrderByConstraint class</h1>
+<p>A <code>QueryOrderByConstraint</code> is used to sort the set of documents returned by a Firestore query. <code>QueryOrderByConstraint</code><!-- -->s are created by invoking <a href="firestore_lite#orderby_006d61f">orderBy()</a> and can then be passed to <a href="firestore_lite#query_9f7b0f4">query()</a> to create a new query instance that also contains this <code>QueryOrderByConstraint</code><!-- -->.</p>
+<p>Note: Documents that do not contain the orderBy field will not be present in the query result.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class QueryOrderByConstraint extends QueryConstraint </pre>
+<p><b>Extends:</b> <a href="firestore_lite.queryconstraint">QueryConstraint</a></p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite.queryorderbyconstraint#queryorderbyconstrainttype">type</a></td>
+<td></td>
+<td>(not declared)</td>
+<td>The type of this query constraint</td>
+</tr>
+</tbody></table>
+<h2 id="queryorderbyconstrainttype">QueryOrderByConstraint.type</h2>
+<p>The type of this query constraint</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly type = 'orderBy';</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_lite.queryorderbyconstraint" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_lite.queryorderbyconstraint</a>
+  </p>
+</div>

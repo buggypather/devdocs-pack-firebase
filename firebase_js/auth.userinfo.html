@@ -1,0 +1,75 @@
+<h1>UserInfo interface</h1>
+<p>User profile information, visible only to the Firebase project&#39;s apps.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface UserInfo </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.userinfo#userinfodisplayname">displayName</a></td>
+<td>string | null</td>
+<td>The display name of the user.</td>
+</tr>
+<tr>
+<td><a href="auth.userinfo#userinfoemail">email</a></td>
+<td>string | null</td>
+<td>The email of the user.</td>
+</tr>
+<tr>
+<td><a href="auth.userinfo#userinfophonenumber">phoneNumber</a></td>
+<td>string | null</td>
+<td>The phone number normalized based on the E.164 standard (e.g. +16505550101) for the user.</td>
+</tr>
+<tr>
+<td><a href="auth.userinfo#userinfophotourl">photoURL</a></td>
+<td>string | null</td>
+<td>The profile photo URL of the user.</td>
+</tr>
+<tr>
+<td><a href="auth.userinfo#userinfoproviderid">providerId</a></td>
+<td>string</td>
+<td>The provider used to authenticate the user.</td>
+</tr>
+<tr>
+<td><a href="auth.userinfo#userinfouid">uid</a></td>
+<td>string</td>
+<td>The user&#39;s unique ID, scoped to the project.</td>
+</tr>
+</tbody></table>
+<h2 id="userinfodisplayname">UserInfo.displayName</h2>
+<p>The display name of the user.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly displayName: string | null;</pre>
+<h2 id="userinfoemail">UserInfo.email</h2>
+<p>The email of the user.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly email: string | null;</pre>
+<h2 id="userinfophonenumber">UserInfo.phoneNumber</h2>
+<p>The phone number normalized based on the E.164 standard (e.g. +16505550101) for the user.</p>
+<p>This is null if the user has no phone credential linked to the account.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly phoneNumber: string | null;</pre>
+<h2 id="userinfophotourl">UserInfo.photoURL</h2>
+<p>The profile photo URL of the user.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly photoURL: string | null;</pre>
+<h2 id="userinfoproviderid">UserInfo.providerId</h2>
+<p>The provider used to authenticate the user.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly providerId: string;</pre>
+<h2 id="userinfouid">UserInfo.uid</h2>
+<p>The user&#39;s unique ID, scoped to the project.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly uid: string;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.userinfo" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.userinfo</a>
+  </p>
+</div>

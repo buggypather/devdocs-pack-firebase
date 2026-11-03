@@ -1,0 +1,48 @@
+<h1>RequestOptions interface</h1>
+<p>Params passed to <a href="ai#getgenerativemodel_c63f46a">getGenerativeModel()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface RequestOptions </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.requestoptions#requestoptionsbaseurl">baseUrl</a></td>
+<td>string</td>
+<td>Base url for endpoint. Defaults to <a href="https://firebasevertexai.googleapis.com">https://firebasevertexai.googleapis.com</a>, which is the <a href="https://console.cloud.google.com/apis/library/firebasevertexai.googleapis.com?project=_">Firebase AI Logic API</a> (used regardless of your chosen Gemini API provider).</td>
+</tr>
+<tr>
+<td><a href="ai.requestoptions#requestoptionsmaxsequentialfunctioncalls">maxSequentialFunctionCalls</a></td>
+<td>number</td>
+<td>Limits amount of sequential function calls the SDK can make during automatic function calling, in order to prevent infinite loops. If not specified, this value defaults to 10.<!-- -->When it reaches this limit, it will return the last response received from the model, whether it is a text response or further function calls.</td>
+</tr>
+<tr>
+<td><a href="ai.requestoptions#requestoptionstimeout">timeout</a></td>
+<td>number</td>
+<td>Request timeout in milliseconds. Defaults to 180 seconds (180000ms).</td>
+</tr>
+</tbody></table>
+<h2 id="requestoptionsbaseurl">RequestOptions.baseUrl</h2>
+<p>Base url for endpoint. Defaults to <a href="https://firebasevertexai.googleapis.com">https://firebasevertexai.googleapis.com</a>, which is the <a href="https://console.cloud.google.com/apis/library/firebasevertexai.googleapis.com?project=_">Firebase AI Logic API</a> (used regardless of your chosen Gemini API provider).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">baseUrl?: string;</pre>
+<h2 id="requestoptionsmaxsequentialfunctioncalls">RequestOptions.maxSequentialFunctionCalls</h2>
+<p>Limits amount of sequential function calls the SDK can make during automatic function calling, in order to prevent infinite loops. If not specified, this value defaults to 10.</p>
+<p>When it reaches this limit, it will return the last response received from the model, whether it is a text response or further function calls.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">maxSequentialFunctionCalls?: number;</pre>
+<h2 id="requestoptionstimeout">RequestOptions.timeout</h2>
+<p>Request timeout in milliseconds. Defaults to 180 seconds (180000ms).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">timeout?: number;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.requestoptions" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.requestoptions</a>
+  </p>
+</div>

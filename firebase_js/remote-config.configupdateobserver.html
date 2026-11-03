@@ -1,0 +1,48 @@
+<h1>ConfigUpdateObserver interface</h1>
+<p>Observer interface for receiving real-time Remote Config update notifications.</p>
+<p>NOTE: Although an <code>complete</code> callback can be provided, it will never be called because the ConfigUpdate stream is never-ending.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface ConfigUpdateObserver </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="remote-config.configupdateobserver#configupdateobservercomplete">complete</a></td>
+<td>() =&gt; void</td>
+<td>Called when the stream is gracefully terminated.</td>
+</tr>
+<tr>
+<td><a href="remote-config.configupdateobserver#configupdateobservererror">error</a></td>
+<td>(error: <a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.firebaseerror.md">FirebaseError</a><!-- -->) =&gt; void</td>
+<td>Called if an error occurs during the stream.</td>
+</tr>
+<tr>
+<td><a href="remote-config.configupdateobserver#configupdateobservernext">next</a></td>
+<td>(configUpdate: <a href="remote-config.configupdate">ConfigUpdate</a><!-- -->) =&gt; void</td>
+<td>Called when a new ConfigUpdate is available.</td>
+</tr>
+</tbody></table>
+<h2 id="configupdateobservercomplete">ConfigUpdateObserver.complete</h2>
+<p>Called when the stream is gracefully terminated.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">complete: () =&gt; void;</pre>
+<h2 id="configupdateobservererror">ConfigUpdateObserver.error</h2>
+<p>Called if an error occurs during the stream.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">error: (error: FirebaseError) =&gt; void;</pre>
+<h2 id="configupdateobservernext">ConfigUpdateObserver.next</h2>
+<p>Called when a new ConfigUpdate is available.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">next: (configUpdate: ConfigUpdate) =&gt; void;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/remote-config.configupdateobserver" class="_attribution-link">https://firebase.google.com/docs/reference/js/remote-config.configupdateobserver</a>
+  </p>
+</div>

@@ -1,0 +1,112 @@
+<h1>FirestoreSettings interface</h1>
+<p>Specifies custom configurations for your Cloud Firestore instance. You must set these before invoking any other methods.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface FirestoreSettings </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.firestoresettings#firestoresettingscachesizebytes">cacheSizeBytes</a></td>
+<td>number</td>
+<td>NOTE: This field will be deprecated in a future major release. Use <code>cache</code> field instead to specify cache size, and other cache configurations.<!-- -->An approximate cache size threshold for the on-disk data. If the cache grows beyond this size, Firestore will start removing data that hasn&#39;t been recently used. The size is not a guarantee that the cache will stay below that size, only that if the cache exceeds the given size, cleanup will be attempted.<!-- -->The default value is 40 MB. The threshold must be set to at least 1 MB, and can be set to <code>CACHE_SIZE_UNLIMITED</code> to disable garbage collection.</td>
+</tr>
+<tr>
+<td><a href="firestore.firestoresettings#firestoresettingsexperimentalautodetectlongpolling">experimentalAutoDetectLongPolling</a></td>
+<td>boolean</td>
+<td>Configures the SDK&#39;s underlying transport (WebChannel) to automatically detect if long-polling should be used. This is very similar to <code>experimentalForceLongPolling</code>, but only uses long-polling if required.<!-- -->After having had a default value of <code>false</code> since its inception in 2019, the default value of this setting was changed in May 2023 to <code>true</code> in v9.22.0 of the Firebase JavaScript SDK. That is, auto-detection of long polling is now enabled by default. To disable it, set this setting to <code>false</code>, and please open a GitHub issue to share the problems that motivated you disabling long-polling auto-detection.<!-- -->This setting cannot be used in a Node.js environment.</td>
+</tr>
+<tr>
+<td><a href="firestore.firestoresettings#firestoresettingsexperimentalforcelongpolling">experimentalForceLongPolling</a></td>
+<td>boolean</td>
+<td>Forces the SDK’s underlying network transport (WebChannel) to use long-polling. Each response from the backend will be closed immediately after the backend sends data (by default responses are kept open in case the backend has more data to send). This avoids incompatibility issues with certain proxies, antivirus software, etc. that incorrectly buffer traffic indefinitely. Use of this option will cause some performance degradation though.<!-- -->This setting cannot be used with <code>experimentalAutoDetectLongPolling</code> and may be removed in a future release. If you find yourself using it to work around a specific network reliability issue, please tell us about it in <a href="https://github.com/firebase/firebase-js-sdk/issues/1674">https://github.com/firebase/firebase-js-sdk/issues/1674</a>.<!-- -->This setting cannot be used in a Node.js environment.</td>
+</tr>
+<tr>
+<td><a href="firestore.firestoresettings#firestoresettingsexperimentallongpollingoptions">experimentalLongPollingOptions</a></td>
+<td><a href="firestore.experimentallongpollingoptions">ExperimentalLongPollingOptions</a></td>
+<td>Options that configure the SDK’s underlying network transport (WebChannel) when long-polling is used.<!-- -->These options are only used if <code>experimentalForceLongPolling</code> is true or if <code>experimentalAutoDetectLongPolling</code> is true and the auto-detection determined that long-polling was needed. Otherwise, these options have no effect.</td>
+</tr>
+<tr>
+<td><a href="firestore.firestoresettings#firestoresettingsgrpcflowcontrolwindow">grpcFlowControlWindow</a></td>
+<td>number</td>
+<td>Only applicable in Node environments.<!-- -->The gRPC flow control window size in bytes. Defaults to 256 KB. This maps directly to grpc-node&#39;s <a href="https://github.com/grpc/grpc-node/blob/651cbeec6b4d6d11cbee91c042946d2fe5968ef6/packages/grpc-js/README.md#supported-channel-options">grpc-node.flow_control_window</a> setting.<!-- -->**WARNING:** This is an advanced setting. The default of 256 KB is optimized for most Node workloads. Only modify this if you are actively tuning gRPC network behavior and understand the implications of HTTP/2 flow control.</td>
+</tr>
+<tr>
+<td><a href="firestore.firestoresettings#firestoresettingshost">host</a></td>
+<td>string</td>
+<td>The hostname to connect to.</td>
+</tr>
+<tr>
+<td><a href="firestore.firestoresettings#firestoresettingsignoreundefinedproperties">ignoreUndefinedProperties</a></td>
+<td>boolean</td>
+<td>Whether to skip nested properties that are set to <code>undefined</code> during object serialization. If set to <code>true</code>, these properties are skipped and not written to Firestore. If set to <code>false</code> or omitted, the SDK throws an exception when it encounters properties of type <code>undefined</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore.firestoresettings#firestoresettingslocalcache">localCache</a></td>
+<td><a href="firestore#firestorelocalcache">FirestoreLocalCache</a></td>
+<td>Specifies the cache used by the SDK. Available options are <code>MemoryLocalCache</code> and <code>PersistentLocalCache</code>, each with different configuration options.<!-- -->When unspecified, <code>MemoryLocalCache</code> will be used by default.<!-- -->NOTE: setting this field and <code>cacheSizeBytes</code> at the same time will throw exception during SDK initialization. Instead, using the configuration in the <code>FirestoreLocalCache</code> object to specify the cache size.</td>
+</tr>
+<tr>
+<td><a href="firestore.firestoresettings#firestoresettingsssl">ssl</a></td>
+<td>boolean</td>
+<td>Whether to use SSL when connecting.</td>
+</tr>
+</tbody></table>
+<h2 id="firestoresettingscachesizebytes">FirestoreSettings.cacheSizeBytes</h2>
+<p>NOTE: This field will be deprecated in a future major release. Use <code>cache</code> field instead to specify cache size, and other cache configurations.</p>
+<p>An approximate cache size threshold for the on-disk data. If the cache grows beyond this size, Firestore will start removing data that hasn&#39;t been recently used. The size is not a guarantee that the cache will stay below that size, only that if the cache exceeds the given size, cleanup will be attempted.</p>
+<p>The default value is 40 MB. The threshold must be set to at least 1 MB, and can be set to <code>CACHE_SIZE_UNLIMITED</code> to disable garbage collection.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">cacheSizeBytes?: number;</pre>
+<h2 id="firestoresettingsexperimentalautodetectlongpolling">FirestoreSettings.experimentalAutoDetectLongPolling</h2>
+<p>Configures the SDK&#39;s underlying transport (WebChannel) to automatically detect if long-polling should be used. This is very similar to <code>experimentalForceLongPolling</code><!-- -->, but only uses long-polling if required.</p>
+<p>After having had a default value of <code>false</code> since its inception in 2019, the default value of this setting was changed in May 2023 to <code>true</code> in v9.22.0 of the Firebase JavaScript SDK. That is, auto-detection of long polling is now enabled by default. To disable it, set this setting to <code>false</code><!-- -->, and please open a GitHub issue to share the problems that motivated you disabling long-polling auto-detection.</p>
+<p>This setting cannot be used in a Node.js environment.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">experimentalAutoDetectLongPolling?: boolean;</pre>
+<h2 id="firestoresettingsexperimentalforcelongpolling">FirestoreSettings.experimentalForceLongPolling</h2>
+<p>Forces the SDK’s underlying network transport (WebChannel) to use long-polling. Each response from the backend will be closed immediately after the backend sends data (by default responses are kept open in case the backend has more data to send). This avoids incompatibility issues with certain proxies, antivirus software, etc. that incorrectly buffer traffic indefinitely. Use of this option will cause some performance degradation though.</p>
+<p>This setting cannot be used with <code>experimentalAutoDetectLongPolling</code> and may be removed in a future release. If you find yourself using it to work around a specific network reliability issue, please tell us about it in <a href="https://github.com/firebase/firebase-js-sdk/issues/1674">https://github.com/firebase/firebase-js-sdk/issues/1674</a>.</p>
+<p>This setting cannot be used in a Node.js environment.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">experimentalForceLongPolling?: boolean;</pre>
+<h2 id="firestoresettingsexperimentallongpollingoptions">FirestoreSettings.experimentalLongPollingOptions</h2>
+<p>Options that configure the SDK’s underlying network transport (WebChannel) when long-polling is used.</p>
+<p>These options are only used if <code>experimentalForceLongPolling</code> is true or if <code>experimentalAutoDetectLongPolling</code> is true and the auto-detection determined that long-polling was needed. Otherwise, these options have no effect.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">experimentalLongPollingOptions?: ExperimentalLongPollingOptions;</pre>
+<h2 id="firestoresettingsgrpcflowcontrolwindow">FirestoreSettings.grpcFlowControlWindow</h2>
+<p>Only applicable in Node environments.</p>
+<p>The gRPC flow control window size in bytes. Defaults to 256 KB. This maps directly to grpc-node&#39;s <a href="https://github.com/grpc/grpc-node/blob/651cbeec6b4d6d11cbee91c042946d2fe5968ef6/packages/grpc-js/README.md#supported-channel-options">grpc-node.flow_control_window</a> setting.</p>
+<p>**WARNING:** This is an advanced setting. The default of 256 KB is optimized for most Node workloads. Only modify this if you are actively tuning gRPC network behavior and understand the implications of HTTP/2 flow control.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">grpcFlowControlWindow?: number;</pre>
+<h2 id="firestoresettingshost">FirestoreSettings.host</h2>
+<p>The hostname to connect to.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">host?: string;</pre>
+<h2 id="firestoresettingsignoreundefinedproperties">FirestoreSettings.ignoreUndefinedProperties</h2>
+<p>Whether to skip nested properties that are set to <code>undefined</code> during object serialization. If set to <code>true</code><!-- -->, these properties are skipped and not written to Firestore. If set to <code>false</code> or omitted, the SDK throws an exception when it encounters properties of type <code>undefined</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">ignoreUndefinedProperties?: boolean;</pre>
+<h2 id="firestoresettingslocalcache">FirestoreSettings.localCache</h2>
+<p>Specifies the cache used by the SDK. Available options are <code>MemoryLocalCache</code> and <code>PersistentLocalCache</code><!-- -->, each with different configuration options.</p>
+<p>When unspecified, <code>MemoryLocalCache</code> will be used by default.</p>
+<p>NOTE: setting this field and <code>cacheSizeBytes</code> at the same time will throw exception during SDK initialization. Instead, using the configuration in the <code>FirestoreLocalCache</code> object to specify the cache size.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">localCache?: FirestoreLocalCache;</pre>
+<h2 id="firestoresettingsssl">FirestoreSettings.ssl</h2>
+<p>Whether to use SSL when connecting.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">ssl?: boolean;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.firestoresettings" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.firestoresettings</a>
+  </p>
+</div>

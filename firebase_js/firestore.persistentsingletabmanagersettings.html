@@ -1,0 +1,29 @@
+<h1>PersistentSingleTabManagerSettings interface</h1>
+<p>Type to configure an <code>PersistentSingleTabManager</code> instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface PersistentSingleTabManagerSettings </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.persistentsingletabmanagersettings#persistentsingletabmanagersettingsforceownership">forceOwnership</a></td>
+<td>boolean</td>
+<td>Whether to force-enable persistent (IndexedDB) cache for the client. This cannot be used with multi-tab synchronization and is primarily intended for use with Web Workers. Setting this to <code>true</code> will enable IndexedDB, but cause other tabs using IndexedDB cache to fail.</td>
+</tr>
+</tbody></table>
+<h2 id="persistentsingletabmanagersettingsforceownership">PersistentSingleTabManagerSettings.forceOwnership</h2>
+<p>Whether to force-enable persistent (IndexedDB) cache for the client. This cannot be used with multi-tab synchronization and is primarily intended for use with Web Workers. Setting this to <code>true</code> will enable IndexedDB, but cause other tabs using IndexedDB cache to fail.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">forceOwnership?: boolean;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.persistentsingletabmanagersettings" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.persistentsingletabmanagersettings</a>
+  </p>
+</div>

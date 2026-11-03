@@ -1,0 +1,49 @@
+<h1>WebGroundingChunk interface</h1>
+<p>A grounding chunk from the web.</p>
+<p>Important: If using Grounding with Google Search, you are required to comply with the <a href="https://cloud.google.com/terms/service-terms">Service Specific Terms</a> for &quot;Grounding with Google Search&quot;.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface WebGroundingChunk </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.webgroundingchunk#webgroundingchunkdomain">domain</a></td>
+<td>string</td>
+<td>The domain of the original URI from which the content was retrieved.<!-- -->This property is only supported in the Agent Platform Gemini API (<a href="ai.agentplatformbackend">AgentPlatformBackend</a><!-- -->). When using the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->), this property will be <code>undefined</code>.</td>
+</tr>
+<tr>
+<td><a href="ai.webgroundingchunk#webgroundingchunktitle">title</a></td>
+<td>string</td>
+<td>The title of the retrieved web page.</td>
+</tr>
+<tr>
+<td><a href="ai.webgroundingchunk#webgroundingchunkuri">uri</a></td>
+<td>string</td>
+<td>The URI of the retrieved web page.</td>
+</tr>
+</tbody></table>
+<h2 id="webgroundingchunkdomain">WebGroundingChunk.domain</h2>
+<p>The domain of the original URI from which the content was retrieved.</p>
+<p>This property is only supported in the Agent Platform Gemini API (<a href="ai.agentplatformbackend">AgentPlatformBackend</a><!-- -->). When using the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->), this property will be <code>undefined</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">domain?: string;</pre>
+<h2 id="webgroundingchunktitle">WebGroundingChunk.title</h2>
+<p>The title of the retrieved web page.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">title?: string;</pre>
+<h2 id="webgroundingchunkuri">WebGroundingChunk.uri</h2>
+<p>The URI of the retrieved web page.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">uri?: string;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.webgroundingchunk" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.webgroundingchunk</a>
+  </p>
+</div>

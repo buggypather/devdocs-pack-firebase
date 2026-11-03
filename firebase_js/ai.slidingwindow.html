@@ -1,0 +1,36 @@
+<h1>SlidingWindow interface</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Configures the sliding window context compression mechanism.</p>
+<p>The sliding window discards content at the beginning of the context window. The resulting context will always begin at the start of a <code>user</code> role turn. System instructions will always remain at the start of the result.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface SlidingWindow </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.slidingwindow#slidingwindowtargettokens">targetTokens</a></td>
+<td>number</td>
+<td><b><i>(Public Preview)</i></b> The session reduction target, for example, how many tokens the model should keep.</td>
+</tr>
+</tbody></table>
+<h2 id="slidingwindowtargettokens">SlidingWindow.targetTokens</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The session reduction target, for example, how many tokens the model should keep.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">targetTokens?: number;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.slidingwindow" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.slidingwindow</a>
+  </p>
+</div>

@@ -1,0 +1,38 @@
+<h1>GetTokenOptions interface</h1>
+<p>Options for <a href="app-check#gettoken_39fc1b3">getToken()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface GetTokenOptions </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="messaging_sw.gettokenoptions#gettokenoptionsserviceworkerregistration">serviceWorkerRegistration</a></td>
+<td>ServiceWorkerRegistration</td>
+<td>The service worker registration for receiving push messaging. If the registration is not provided explicitly, you need to have a <code>firebase-messaging-sw.js</code> at your root location. See <a href="https://firebase.google.com/docs/cloud-messaging/js/client#access_the_registration_token">Access the registration token</a> for more details.</td>
+</tr>
+<tr>
+<td><a href="messaging_sw.gettokenoptions#gettokenoptionsvapidkey">vapidKey</a></td>
+<td>string</td>
+<td>The public server key provided to push services. The key is used to authenticate push subscribers to receive push messages only from sending servers that hold the corresponding private key. If it is not provided, a default VAPID key is used. Note that some push services (Chrome Push Service) require a non-default VAPID key. Therefore, it is recommended to generate and import a VAPID key for your project with <a href="https://firebase.google.com/docs/cloud-messaging/js/client#configure_web_credentials_in_your_app">Configure Web Credentials with FCM</a><!-- -->. See <a href="https://developers.google.com/web/fundamentals/push-notifications/web-push-protocol">The Web Push Protocol</a> for details on web push services.</td>
+</tr>
+</tbody></table>
+<h2 id="gettokenoptionsserviceworkerregistration">GetTokenOptions.serviceWorkerRegistration</h2>
+<p>The service worker registration for receiving push messaging. If the registration is not provided explicitly, you need to have a <code>firebase-messaging-sw.js</code> at your root location. See <a href="https://firebase.google.com/docs/cloud-messaging/js/client#access_the_registration_token">Access the registration token</a> for more details.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">serviceWorkerRegistration?: ServiceWorkerRegistration;</pre>
+<h2 id="gettokenoptionsvapidkey">GetTokenOptions.vapidKey</h2>
+<p>The public server key provided to push services. The key is used to authenticate push subscribers to receive push messages only from sending servers that hold the corresponding private key. If it is not provided, a default VAPID key is used. Note that some push services (Chrome Push Service) require a non-default VAPID key. Therefore, it is recommended to generate and import a VAPID key for your project with <a href="https://firebase.google.com/docs/cloud-messaging/js/client#configure_web_credentials_in_your_app">Configure Web Credentials with FCM</a><!-- -->. See <a href="https://developers.google.com/web/fundamentals/push-notifications/web-push-protocol">The Web Push Protocol</a> for details on web push services.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">vapidKey?: string;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/messaging_sw.gettokenoptions" class="_attribution-link">https://firebase.google.com/docs/reference/js/messaging_sw.gettokenoptions</a>
+  </p>
+</div>

@@ -1,0 +1,246 @@
+<h1>Transaction class</h1>
+<p>A reference to a transaction.</p>
+<p>The <code>Transaction</code> object passed to a transaction&#39;s <code>updateFunction</code> provides the methods to read and write data within the transaction context. See <a href="firestore_lite#runtransaction_6f03ec4">runTransaction()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class Transaction </pre>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite.transaction#transactiondelete">delete(documentRef)</a></td>
+<td></td>
+<td>Deletes the document referred to by the provided <a href="firestore_lite.documentreference">DocumentReference</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.transaction#transactionget">get(documentRef)</a></td>
+<td></td>
+<td>Reads the document referenced by the provided <a href="firestore_lite.documentreference">DocumentReference</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.transaction#transactionset">set(documentRef, data)</a></td>
+<td></td>
+<td>Writes to the document referred to by the provided <a href="firestore_lite.documentreference">DocumentReference</a><!-- -->. If the document does not exist yet, it will be created.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.transaction#transactionset">set(documentRef, data, options)</a></td>
+<td></td>
+<td>Writes to the document referred to by the provided <a href="firestore_lite.documentreference">DocumentReference</a><!-- -->. If the document does not exist yet, it will be created. If you provide <code>merge</code> or <code>mergeFields</code>, the provided data can be merged into an existing document.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.transaction#transactionupdate">update(documentRef, data)</a></td>
+<td></td>
+<td>Updates fields in the document referred to by the provided <a href="firestore_lite.documentreference">DocumentReference</a><!-- -->. The update will fail if applied to a document that does not exist.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.transaction#transactionupdate">update(documentRef, field, value, moreFieldsAndValues)</a></td>
+<td></td>
+<td>Updates fields in the document referred to by the provided <a href="firestore_lite.documentreference">DocumentReference</a><!-- -->. The update will fail if applied to a document that does not exist.<!-- -->Nested fields can be updated by providing dot-separated field path strings or by providing <code>FieldPath</code> objects.</td>
+</tr>
+</tbody></table>
+<h2 id="transactiondelete">Transaction.delete()</h2>
+<p>Deletes the document referred to by the provided <a href="firestore_lite.documentreference">DocumentReference</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">delete&lt;AppModelType, DbModelType extends DocumentData&gt;(
+    documentRef: DocumentReference&lt;AppModelType, DbModelType&gt;
+  ): this;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>documentRef</td>
+<td><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to the document to be deleted.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>this</p>
+<p>This <code>Transaction</code> instance. Used for chaining method calls.</p>
+<h2 id="transactionget">Transaction.get()</h2>
+<p>Reads the document referenced by the provided <a href="firestore_lite.documentreference">DocumentReference</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get&lt;AppModelType, DbModelType extends DocumentData&gt;(
+    documentRef: DocumentReference&lt;AppModelType, DbModelType&gt;
+  ): Promise&lt;DocumentSnapshot&lt;AppModelType, DbModelType&gt;&gt;;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>documentRef</td>
+<td><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to the document to be read.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="firestore_lite.documentsnapshot">DocumentSnapshot</a><!-- -->&lt;AppModelType, DbModelType&gt;&gt;</p>
+<p>A <code>DocumentSnapshot</code> with the read data.</p>
+<h2 id="transactionset">Transaction.set()</h2>
+<p>Writes to the document referred to by the provided <a href="firestore_lite.documentreference">DocumentReference</a><!-- -->. If the document does not exist yet, it will be created.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">set&lt;AppModelType, DbModelType extends DocumentData&gt;(
+    documentRef: DocumentReference&lt;AppModelType, DbModelType&gt;,
+    data: WithFieldValue&lt;AppModelType&gt;
+  ): this;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>documentRef</td>
+<td><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to the document to be set.</td>
+</tr>
+<tr>
+<td>data</td>
+<td><a href="firestore_lite#withfieldvalue">WithFieldValue</a><!-- -->&lt;AppModelType&gt;</td>
+<td>An object of the fields and values for the document.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>this</p>
+<p>This <code>Transaction</code> instance. Used for chaining method calls.</p>
+<h4 id="exceptions">Exceptions</h4>
+<p>Error - If the provided input is not a valid Firestore document.</p>
+<h2 id="transactionset-1">Transaction.set()</h2>
+<p>Writes to the document referred to by the provided <a href="firestore_lite.documentreference">DocumentReference</a><!-- -->. If the document does not exist yet, it will be created. If you provide <code>merge</code> or <code>mergeFields</code><!-- -->, the provided data can be merged into an existing document.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">set&lt;AppModelType, DbModelType extends DocumentData&gt;(
+    documentRef: DocumentReference&lt;AppModelType, DbModelType&gt;,
+    data: PartialWithFieldValue&lt;AppModelType&gt;,
+    options: SetOptions
+  ): this;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>documentRef</td>
+<td><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to the document to be set.</td>
+</tr>
+<tr>
+<td>data</td>
+<td><a href="firestore_lite#partialwithfieldvalue">PartialWithFieldValue</a><!-- -->&lt;AppModelType&gt;</td>
+<td>An object of the fields and values for the document.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="firestore_lite#setoptions">SetOptions</a></td>
+<td>An object to configure the set behavior.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>this</p>
+<p>This <code>Transaction</code> instance. Used for chaining method calls.</p>
+<h4 id="exceptions-1">Exceptions</h4>
+<p>Error - If the provided input is not a valid Firestore document.</p>
+<h2 id="transactionupdate">Transaction.update()</h2>
+<p>Updates fields in the document referred to by the provided <a href="firestore_lite.documentreference">DocumentReference</a><!-- -->. The update will fail if applied to a document that does not exist.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">update&lt;AppModelType, DbModelType extends DocumentData&gt;(
+    documentRef: DocumentReference&lt;AppModelType, DbModelType&gt;,
+    data: UpdateData&lt;DbModelType&gt;
+  ): this;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>documentRef</td>
+<td><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to the document to be updated.</td>
+</tr>
+<tr>
+<td>data</td>
+<td><a href="firestore_lite#updatedata">UpdateData</a><!-- -->&lt;DbModelType&gt;</td>
+<td>An object containing the fields and values with which to update the document. Fields can contain dots to reference nested fields within the document.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>this</p>
+<p>This <code>Transaction</code> instance. Used for chaining method calls.</p>
+<h4 id="exceptions-2">Exceptions</h4>
+<p>Error - If the provided input is not valid Firestore data.</p>
+<h2 id="transactionupdate-1">Transaction.update()</h2>
+<p>Updates fields in the document referred to by the provided <a href="firestore_lite.documentreference">DocumentReference</a><!-- -->. The update will fail if applied to a document that does not exist.</p>
+<p>Nested fields can be updated by providing dot-separated field path strings or by providing <code>FieldPath</code> objects.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">update&lt;AppModelType, DbModelType extends DocumentData&gt;(
+    documentRef: DocumentReference&lt;AppModelType, DbModelType&gt;,
+    field: string | FieldPath,
+    value: unknown,
+    ...moreFieldsAndValues: unknown[]
+  ): this;</pre>
+<h4 id="parameters-5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>documentRef</td>
+<td><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to the document to be updated.</td>
+</tr>
+<tr>
+<td>field</td>
+<td>string | <a href="firestore_lite.fieldpath">FieldPath</a></td>
+<td>The first field to update.</td>
+</tr>
+<tr>
+<td>value</td>
+<td>unknown</td>
+<td>The first value.</td>
+</tr>
+<tr>
+<td>moreFieldsAndValues</td>
+<td>unknown[]</td>
+<td>Additional key/value pairs.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>this</p>
+<p>This <code>Transaction</code> instance. Used for chaining method calls.</p>
+<h4 id="exceptions-3">Exceptions</h4>
+<p>Error - If the provided input is not valid Firestore data.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_lite.transaction" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_lite.transaction</a>
+  </p>
+</div>

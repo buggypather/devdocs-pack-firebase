@@ -1,0 +1,51 @@
+<h1>Index interface</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Instead of creating cache indexes manually, consider using <code>enablePersistentCacheIndexAutoCreation()</code> to let the SDK decide whether to create cache indexes for queries running locally.</p>
+</blockquote>
+<p>The SDK definition of a Firestore index.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface Index </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.index#indexcollectiongroup">collectionGroup</a></td>
+<td>string</td>
+<td><b><i>(Public Preview)</i></b> The ID of the collection to index.</td>
+</tr>
+<tr>
+<td><a href="firestore.index#indexfields">fields</a></td>
+<td><a href="firestore.indexfield">IndexField</a><!-- -->[]</td>
+<td><b><i>(Public Preview)</i></b> A list of fields to index.</td>
+</tr>
+</tbody></table>
+<h2 id="indexcollectiongroup">Index.collectionGroup</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The ID of the collection to index.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly collectionGroup: string;</pre>
+<h2 id="indexfields">Index.fields</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>A list of fields to index.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly fields?: IndexField[];</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.index" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.index</a>
+  </p>
+</div>

@@ -1,0 +1,111 @@
+<h1>Field class</h1>
+<p>Represents a reference to a field in a Firestore document, or outputs of a <a href="firestore_pipelines.pipeline">Pipeline</a> stage.</p>
+<p>Field references are used to access document field values in expressions and to specify fields for sorting, filtering, and projecting data in Firestore pipelines.<p>You can create a `Field` instance using the static [field](./firestore_pipelines.md#field_1eaaff4) method:<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class Field extends Expression implements Selectable </pre>
+<p><b>Extends:</b> <a href="firestore_lite_pipelines.expression">Expression</a></p>
+<p><b>Implements:</b> <a href="firestore_lite_pipelines.selectable">Selectable</a></p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite_pipelines.field#fieldalias">alias</a></td>
+<td></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite_pipelines.field#fieldexpr">expr</a></td>
+<td></td>
+<td><a href="firestore_lite_pipelines.expression">Expression</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite_pipelines.field#fieldexpressiontype">expressionType</a></td>
+<td></td>
+<td><a href="firestore_lite_pipelines#expressiontype">ExpressionType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite_pipelines.field#fieldfieldname">fieldName</a></td>
+<td></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite_pipelines.field#fieldselectable">selectable</a></td>
+<td></td>
+<td>true</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite_pipelines.field#fieldgeodistance">geoDistance(location)</a></td>
+<td></td>
+<td>Evaluates to the distance in meters between the location specified by this field and the query location.</td>
+</tr>
+</tbody></table>
+<h2 id="fieldalias">Field.alias</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get alias(): string;</pre>
+<h2 id="fieldexpr">Field.expr</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get expr(): Expression;</pre>
+<h2 id="fieldexpressiontype">Field.expressionType</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly expressionType: ExpressionType;</pre>
+<h2 id="fieldfieldname">Field.fieldName</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get fieldName(): string;</pre>
+<h2 id="fieldselectable">Field.selectable</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">selectable: true;</pre>
+<h2 id="fieldgeodistance">Field.geoDistance()</h2>
+<p>Evaluates to the distance in meters between the location specified by this field and the query location.</p>
+<p>This Expression can only be used within a <code>search</code> stage.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">geoDistance(location: GeoPoint | Expression): Expression;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>location</td>
+<td><a href="firestore.geopoint">GeoPoint</a> | <a href="firestore_lite_pipelines.expression">Expression</a></td>
+<td>Compute distance to this GeoPoint.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite_pipelines.expression">Expression</a></p>
+<h3 id="example">Example</h3>
+<pre data-language="typescript">// Create a Field instance for the 'name' field
+const nameField = field(&quot;name&quot;);
+
+// Create a Field instance for a nested field 'address.city'
+const cityField = field(&quot;address.city&quot;);</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_lite_pipelines.field" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_lite_pipelines.field</a>
+  </p>
+</div>

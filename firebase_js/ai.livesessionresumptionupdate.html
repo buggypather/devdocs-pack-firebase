@@ -1,0 +1,71 @@
+<h1>LiveSessionResumptionUpdate interface</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>An update of the session resumption state.</p>
+<p>This message is only sent if <a href="ai.sessionresumptionconfig">SessionResumptionConfig</a> was set in the session setup.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface LiveSessionResumptionUpdate </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.livesessionresumptionupdate#livesessionresumptionupdatelastconsumedclientmessageindex">lastConsumedClientMessageIndex</a></td>
+<td>number</td>
+<td><b><i>(Public Preview)</i></b> The index of the last client message that is included in the state represented by this update.</td>
+</tr>
+<tr>
+<td><a href="ai.livesessionresumptionupdate#livesessionresumptionupdatenewhandle">newHandle</a></td>
+<td>string</td>
+<td><b><i>(Public Preview)</i></b> The new handle that represents the state that can be resumed. Empty if <code>resumable</code> is false.</td>
+</tr>
+<tr>
+<td><a href="ai.livesessionresumptionupdate#livesessionresumptionupdateresumable">resumable</a></td>
+<td>boolean</td>
+<td><b><i>(Public Preview)</i></b> Indicates if the session can be resumed at this point.</td>
+</tr>
+<tr>
+<td><a href="ai.livesessionresumptionupdate#livesessionresumptionupdatetype">type</a></td>
+<td>&#39;sessionResumptionUpdate&#39;</td>
+<td><b><i>(Public Preview)</i></b></td>
+</tr>
+</tbody></table>
+<h2 id="livesessionresumptionupdatelastconsumedclientmessageindex">LiveSessionResumptionUpdate.lastConsumedClientMessageIndex</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The index of the last client message that is included in the state represented by this update.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">lastConsumedClientMessageIndex?: number;</pre>
+<h2 id="livesessionresumptionupdatenewhandle">LiveSessionResumptionUpdate.newHandle</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The new handle that represents the state that can be resumed. Empty if <code>resumable</code> is false.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">newHandle?: string;</pre>
+<h2 id="livesessionresumptionupdateresumable">LiveSessionResumptionUpdate.resumable</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Indicates if the session can be resumed at this point.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">resumable?: boolean;</pre>
+<h2 id="livesessionresumptionupdatetype">LiveSessionResumptionUpdate.type</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">type: 'sessionResumptionUpdate';</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.livesessionresumptionupdate" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.livesessionresumptionupdate</a>
+  </p>
+</div>

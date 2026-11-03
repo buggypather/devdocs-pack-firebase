@@ -1,0 +1,133 @@
+<h1>TemplateChatSession interface</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Interface representing a chat session for use with server prompt templates that enables sending chat messages and maintains conversation history.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface TemplateChatSession </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.templatechatsession#templatechatsessionparams">params</a></td>
+<td><a href="ai.starttemplatechatparams">StartTemplateChatParams</a></td>
+<td><b><i>(Public Preview)</i></b></td>
+</tr>
+<tr>
+<td><a href="ai.templatechatsession#templatechatsessionrequestoptions">requestOptions</a></td>
+<td><a href="ai.requestoptions">RequestOptions</a></td>
+<td><b><i>(Public Preview)</i></b></td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.templatechatsession#templatechatsessiongethistory">getHistory()</a></td>
+<td><b><i>(Public Preview)</i></b> Gets the chat history so far. Blocked prompts are not added to history. Neither blocked candidates nor the prompts that generated them are added to history.</td>
+</tr>
+<tr>
+<td><a href="ai.templatechatsession#templatechatsessionsendmessage">sendMessage(request, singleRequestOptions)</a></td>
+<td><b><i>(Public Preview)</i></b> Sends a chat message and receives a non-streaming <a href="ai.generatecontentresult">GenerateContentResult</a></td>
+</tr>
+<tr>
+<td><a href="ai.templatechatsession#templatechatsessionsendmessagestream">sendMessageStream(request, singleRequestOptions)</a></td>
+<td><b><i>(Public Preview)</i></b> Sends a chat message and receives the response as a <a href="ai.generatecontentstreamresult">GenerateContentStreamResult</a> containing an iterable stream and a response promise.</td>
+</tr>
+</tbody></table>
+<h2 id="templatechatsessionparams">TemplateChatSession.params</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">params: StartTemplateChatParams;</pre>
+<h2 id="templatechatsessionrequestoptions">TemplateChatSession.requestOptions</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">requestOptions?: RequestOptions;</pre>
+<h2 id="templatechatsessiongethistory">TemplateChatSession.getHistory()</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Gets the chat history so far. Blocked prompts are not added to history. Neither blocked candidates nor the prompts that generated them are added to history.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">getHistory(): Promise&lt;Content[]&gt;;</pre>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="ai.content">Content</a><!-- -->[]&gt;</p>
+<h2 id="templatechatsessionsendmessage">TemplateChatSession.sendMessage()</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Sends a chat message and receives a non-streaming <a href="ai.generatecontentresult">GenerateContentResult</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">sendMessage(request: string | Array&lt;string | Part&gt;, singleRequestOptions?: SingleRequestOptions): Promise&lt;GenerateContentResult&gt;;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>request</td>
+<td>string | Array&lt;string | <a href="ai#part">Part</a><!-- -->&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td>singleRequestOptions</td>
+<td><a href="ai.singlerequestoptions">SingleRequestOptions</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="ai.generatecontentresult">GenerateContentResult</a><!-- -->&gt;</p>
+<h2 id="templatechatsessionsendmessagestream">TemplateChatSession.sendMessageStream()</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Sends a chat message and receives the response as a <a href="ai.generatecontentstreamresult">GenerateContentStreamResult</a> containing an iterable stream and a response promise.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">sendMessageStream(request: string | Array&lt;string | Part&gt;, singleRequestOptions?: SingleRequestOptions): Promise&lt;GenerateContentStreamResult&gt;;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>request</td>
+<td>string | Array&lt;string | <a href="ai#part">Part</a><!-- -->&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td>singleRequestOptions</td>
+<td><a href="ai.singlerequestoptions">SingleRequestOptions</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="ai.generatecontentstreamresult">GenerateContentStreamResult</a><!-- -->&gt;</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.templatechatsession" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.templatechatsession</a>
+  </p>
+</div>

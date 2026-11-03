@@ -1,0 +1,29 @@
+<h1>TransactionOptions interface</h1>
+<p>An options object to configure transactions.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface TransactionOptions </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="database.transactionoptions#transactionoptionsapplylocally">applyLocally</a></td>
+<td>boolean</td>
+<td>By default, events are raised each time the transaction update function runs. So if it is run multiple times, you may see intermediate states. You can set this to false to suppress these intermediate states and instead wait until the transaction has completed before events are raised.</td>
+</tr>
+</tbody></table>
+<h2 id="transactionoptionsapplylocally">TransactionOptions.applyLocally</h2>
+<p>By default, events are raised each time the transaction update function runs. So if it is run multiple times, you may see intermediate states. You can set this to false to suppress these intermediate states and instead wait until the transaction has completed before events are raised.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly applyLocally?: boolean;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/database.transactionoptions" class="_attribution-link">https://firebase.google.com/docs/reference/js/database.transactionoptions</a>
+  </p>
+</div>

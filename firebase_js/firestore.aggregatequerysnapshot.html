@@ -1,0 +1,68 @@
+<h1>AggregateQuerySnapshot class</h1>
+<p>The results of executing an aggregation query.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class AggregateQuerySnapshot&lt;
+  AggregateSpecType extends AggregateSpec,
+  AppModelType = DocumentData,
+  DbModelType extends DocumentData = DocumentData
+&gt; </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.aggregatequerysnapshot#aggregatequerysnapshotquery">query</a></td>
+<td></td>
+<td><a href="firestore.query">Query</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>The underlying query over which the aggregations recorded in this <code>AggregateQuerySnapshot</code> were performed.</td>
+</tr>
+<tr>
+<td><a href="firestore.aggregatequerysnapshot#aggregatequerysnapshottype">type</a></td>
+<td></td>
+<td>(not declared)</td>
+<td>A type string to uniquely identify instances of this class.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.aggregatequerysnapshot#aggregatequerysnapshotdata">data()</a></td>
+<td></td>
+<td>Returns the results of the aggregations performed over the underlying query.<!-- -->The keys of the returned object will be the same as those of the <code>AggregateSpec</code> object specified to the aggregation method, and the values will be the corresponding aggregation result.</td>
+</tr>
+</tbody></table>
+<h2 id="aggregatequerysnapshotquery">AggregateQuerySnapshot.query</h2>
+<p>The underlying query over which the aggregations recorded in this <code>AggregateQuerySnapshot</code> were performed.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly query: Query&lt;AppModelType, DbModelType&gt;;</pre>
+<h2 id="aggregatequerysnapshottype">AggregateQuerySnapshot.type</h2>
+<p>A type string to uniquely identify instances of this class.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly type = 'AggregateQuerySnapshot';</pre>
+<h2 id="aggregatequerysnapshotdata">AggregateQuerySnapshot.data()</h2>
+<p>Returns the results of the aggregations performed over the underlying query.</p>
+<p>The keys of the returned object will be the same as those of the <code>AggregateSpec</code> object specified to the aggregation method, and the values will be the corresponding aggregation result.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">data(): AggregateSpecData&lt;AggregateSpecType&gt;;</pre>
+<p><b>Returns:</b></p>
+<p><a href="firestore#aggregatespecdata">AggregateSpecData</a><!-- -->&lt;AggregateSpecType&gt;</p>
+<p>The results of the aggregations performed over the underlying query.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.aggregatequerysnapshot" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.aggregatequerysnapshot</a>
+  </p>
+</div>

@@ -1,0 +1,71 @@
+<h1>TemplateFunctionDeclaration interface</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Structured representation of a template function declaration. Included in this declaration are the function name and parameters. This <code>TemplateFunctionDeclaration</code> is a representation of a block of code that can be used as a Tool by the model and executed by the client. Note: Template function declarations do not support description fields.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface TemplateFunctionDeclaration </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.templatefunctiondeclaration#templatefunctiondeclarationdescription">description</a></td>
+<td>never</td>
+<td><b><i>(Public Preview)</i></b> Description is intentionally unsupported for template function declarations.</td>
+</tr>
+<tr>
+<td><a href="ai.templatefunctiondeclaration#templatefunctiondeclarationfunctionreference">functionReference</a></td>
+<td>Function</td>
+<td><b><i>(Public Preview)</i></b> Reference to an actual function to call. Specifying this will cause the function to be called automatically when requested by the model.</td>
+</tr>
+<tr>
+<td><a href="ai.templatefunctiondeclaration#templatefunctiondeclarationname">name</a></td>
+<td>string</td>
+<td><b><i>(Public Preview)</i></b> The name of the function to call. Must start with a letter or an underscore. Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a max length of 64.</td>
+</tr>
+<tr>
+<td><a href="ai.templatefunctiondeclaration#templatefunctiondeclarationparameters">parameters</a></td>
+<td><a href="ai.objectschema">ObjectSchema</a> | <a href="ai.objectschemarequest">ObjectSchemaRequest</a></td>
+<td><b><i>(Public Preview)</i></b> Optional. Describes the parameters to this function in JSON Schema Object format. Reflects the Open API 3.03 Parameter Object. Parameter names are case-sensitive. For a function with no parameters, this can be left unset.</td>
+</tr>
+</tbody></table>
+<h2 id="templatefunctiondeclarationdescription">TemplateFunctionDeclaration.description</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Description is intentionally unsupported for template function declarations.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">description?: never;</pre>
+<h2 id="templatefunctiondeclarationfunctionreference">TemplateFunctionDeclaration.functionReference</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Reference to an actual function to call. Specifying this will cause the function to be called automatically when requested by the model.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">functionReference?: Function;</pre>
+<h2 id="templatefunctiondeclarationname">TemplateFunctionDeclaration.name</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The name of the function to call. Must start with a letter or an underscore. Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a max length of 64.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">name: string;</pre>
+<h2 id="templatefunctiondeclarationparameters">TemplateFunctionDeclaration.parameters</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Optional. Describes the parameters to this function in JSON Schema Object format. Reflects the Open API 3.03 Parameter Object. Parameter names are case-sensitive. For a function with no parameters, this can be left unset.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">parameters?: ObjectSchema | ObjectSchemaRequest;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.templatefunctiondeclaration" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.templatefunctiondeclaration</a>
+  </p>
+</div>

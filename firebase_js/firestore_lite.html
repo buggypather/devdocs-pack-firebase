@@ -1,0 +1,2495 @@
+<h1>@firebase/firestore/lite</h1>
+<p>Firestore Lite</p>
+<p>Firestore Lite is a small online-only SDK that allows read and write access to your Firestore database. All operations connect directly to the backend, and <code>onSnapshot()</code> APIs are not supported.</p>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><b>function(app, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#getfirestore_cf608e1">getFirestore(app)</a></td>
+<td>Returns the existing default <a href="firestore_lite.firestore">Firestore</a> instance that is associated with the provided <a href="app.firebaseapp">FirebaseApp</a><!-- -->. If no instance exists, initializes a new instance with default settings.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#getfirestore_48de6cb">getFirestore(app, databaseId)</a></td>
+<td><b><i>(Public Preview)</i></b> Returns the existing <a href="firestore_lite.firestore">Firestore</a> instance that is associated with the provided <a href="app.firebaseapp">FirebaseApp</a><!-- -->. If no instance exists, initializes a new instance with default settings.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#initializefirestore_87c6318">initializeFirestore(app, settings)</a></td>
+<td>Initializes a new instance of Cloud Firestore with the provided settings. Can only be called before any other functions, including <a href="firestore_lite#getfirestore">getFirestore()</a><!-- -->. If the custom settings are empty, this function is equivalent to calling <a href="firestore_lite#getfirestore">getFirestore()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#initializefirestore_37baaaf">initializeFirestore(app, settings, databaseId)</a></td>
+<td><b><i>(Public Preview)</i></b> Initializes a new instance of Cloud Firestore with the provided settings. Can only be called before any other functions, including <a href="firestore_lite#getfirestore">getFirestore()</a><!-- -->. If the custom settings are empty, this function is equivalent to calling <a href="firestore_lite#getfirestore">getFirestore()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><b>function(firestore, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#collection_1eb4c23">collection(firestore, path, pathSegments)</a></td>
+<td>Gets a <code>CollectionReference</code> instance that refers to the collection at the specified absolute path.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#collectiongroup_1838fc3">collectionGroup(firestore, collectionId)</a></td>
+<td>Creates and returns a new <code>Query</code> instance that includes all documents in the database that are contained in a collection or subcollection with the given <code>collectionId</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#connectfirestoreemulator_30c0146">connectFirestoreEmulator(firestore, host, port, options)</a></td>
+<td>Modify this instance to communicate with the Cloud Firestore emulator.<!-- -->Note: This must be called before this instance has been used to do any operations.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#doc_1eb4c23">doc(firestore, path, pathSegments)</a></td>
+<td>Gets a <code>DocumentReference</code> instance that refers to the document at the specified absolute path.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#runtransaction_6f03ec4">runTransaction(firestore, updateFunction, options)</a></td>
+<td>Executes the given <code>updateFunction</code> and then attempts to commit the changes applied within the transaction. If any document read within the transaction has changed, Cloud Firestore retries the <code>updateFunction</code>. If it fails to commit after 5 attempts, the transaction fails.<!-- -->The maximum number of writes allowed in a single transaction is 500.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#terminate_231a8e0">terminate(firestore)</a></td>
+<td>Terminates the provided <code>Firestore</code> instance.<!-- -->After calling <code>terminate()</code> only the <code>clearIndexedDbPersistence()</code> functions may be used. Any other function will throw a <code>FirestoreError</code>. Termination does not cancel any pending writes, and any promises that are awaiting a response from the server will not be resolved.<!-- -->To restart after termination, create a new instance of <code>Firestore</code> with <a href="firestore_lite#getfirestore">getFirestore()</a><!-- -->.<!-- -->Note: Under normal circumstances, calling <code>terminate()</code> is not required. This function is useful only when you want to force this instance to release all of its resources or in combination with <a href="firestore#clearindexeddbpersistence_231a8e0">clearIndexedDbPersistence()</a> to ensure that all local state is destroyed between test runs.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#writebatch_231a8e0">writeBatch(firestore)</a></td>
+<td>Creates a write batch, used for performing multiple writes as a single atomic operation. The maximum number of writes allowed in a single WriteBatch is 500.<!-- -->The result of these writes will only be reflected in document reads that occur after the returned promise resolves. If the client is offline, the write fails. If you would like to see local modifications or buffer writes until the client is online, use the full Firestore SDK.</td>
+</tr>
+<tr>
+<td><b>function()</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#count">count()</a></td>
+<td>Create an AggregateField object that can be used to compute the count of documents in the result set of a query.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#deletefield">deleteField()</a></td>
+<td>Returns a sentinel for use with <a href="firestore#updatedoc_51a65e3">updateDoc()</a> or <a href="firestore#setdoc_ee215ad">setDoc()</a> with <code>{merge: true}</code> to mark a field for deletion.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#documentid">documentId()</a></td>
+<td>Returns a special sentinel <code>FieldPath</code> to refer to the ID of a document. It can be used in queries to sort or filter by the document ID.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#getfirestore">getFirestore()</a></td>
+<td>Returns the existing default <a href="firestore_lite.firestore">Firestore</a> instance that is associated with the default <a href="app.firebaseapp">FirebaseApp</a><!-- -->. If no instance exists, initializes a new instance with default settings.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#servertimestamp">serverTimestamp()</a></td>
+<td>Returns a sentinel used with <a href="firestore#setdoc_ee215ad">setDoc()</a> or <a href="firestore#updatedoc_51a65e3">updateDoc()</a> to include a server-generated timestamp in the written data.</td>
+</tr>
+<tr>
+<td><b>function(databaseId, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#getfirestore_53dc891">getFirestore(databaseId)</a></td>
+<td><b><i>(Public Preview)</i></b> Returns the existing <a href="firestore_lite.firestore">Firestore</a> instance that is associated with the default <a href="app.firebaseapp">FirebaseApp</a><!-- -->. If no instance exists, initializes a new instance with default settings.</td>
+</tr>
+<tr>
+<td><b>function(elements, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#arrayremove_7d853aa">arrayRemove(elements)</a></td>
+<td>Returns a special value that can be used with <a href="firestore_lite#setdoc_ee215ad">setDoc()</a> or  that tells the server to remove the given elements from any array value that already exists on the server. All instances of each element specified will be removed from the array. If the field being modified is not already an array it will be overwritten with an empty array.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#arrayunion_7d853aa">arrayUnion(elements)</a></td>
+<td>Returns a special value that can be used with <a href="firestore#setdoc_ee215ad">setDoc()</a> or <a href="firestore#updatedoc_51a65e3">updateDoc()</a> that tells the server to union the given elements with any array value that already exists on the server. Each specified element that doesn&#39;t already exist in the array will be added to the end. If the field being modified is not already an array it will be overwritten with an array containing exactly the specified elements.</td>
+</tr>
+<tr>
+<td><b>function(field, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#average_aacc3a9">average(field)</a></td>
+<td>Create an AggregateField object that can be used to compute the average of a specified field over a range of documents in the result set of a query.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#sum_aacc3a9">sum(field)</a></td>
+<td>Create an AggregateField object that can be used to compute the sum of a specified field over a range of documents in the result set of a query.</td>
+</tr>
+<tr>
+<td><b>function(fieldPath, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#orderby_006d61f">orderBy(fieldPath, directionStr)</a></td>
+<td>Creates a <a href="firestore_lite.queryorderbyconstraint">QueryOrderByConstraint</a> that sorts the query result by the specified field, optionally in descending order instead of ascending.<!-- -->Note: Documents that do not contain the specified field will not be present in the query result.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#where_0fae4bf">where(fieldPath, opStr, value)</a></td>
+<td>Creates a <a href="firestore_lite.queryfieldfilterconstraint">QueryFieldFilterConstraint</a> that enforces that documents must contain the specified field and that the value should satisfy the relation constraint provided.</td>
+</tr>
+<tr>
+<td><b>function(fieldValues, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#endat_8b2f2c8">endAt(fieldValues)</a></td>
+<td>Creates a <a href="firestore_lite.queryendatconstraint">QueryEndAtConstraint</a> that modifies the result set to end at the provided fields relative to the order of the query. The order of the field values must match the order of the order by clauses of the query.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#endbefore_8b2f2c8">endBefore(fieldValues)</a></td>
+<td>Creates a <a href="firestore_lite.queryendatconstraint">QueryEndAtConstraint</a> that modifies the result set to end before the provided fields relative to the order of the query. The order of the field values must match the order of the order by clauses of the query.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#startafter_8b2f2c8">startAfter(fieldValues)</a></td>
+<td>Creates a <a href="firestore_lite.querystartatconstraint">QueryStartAtConstraint</a> that modifies the result set to start after the provided fields relative to the order of the query. The order of the field values must match the order of the order by clauses of the query.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#startat_8b2f2c8">startAt(fieldValues)</a></td>
+<td>Creates a <a href="firestore_lite.querystartatconstraint">QueryStartAtConstraint</a> that modifies the result set to start at the provided fields relative to the order of the query. The order of the field values must match the order of the order by clauses of the query.</td>
+</tr>
+<tr>
+<td><b>function(left, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#aggregatefieldequal_e80a2b2">aggregateFieldEqual(left, right)</a></td>
+<td>Compares two &#39;AggregateField<!-- -->` instances for equality.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#aggregatequerysnapshotequal_1529a20">aggregateQuerySnapshotEqual(left, right)</a></td>
+<td>Compares two <code>AggregateQuerySnapshot</code> instances for equality.<!-- -->Two <code>AggregateQuerySnapshot</code> instances are considered &quot;equal&quot; if they have underlying queries that compare equal, and the same data.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#queryequal_7a1f045">queryEqual(left, right)</a></td>
+<td>Returns true if the provided queries point to the same collection and apply the same constraints.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#refequal_b6f96c9">refEqual(left, right)</a></td>
+<td>Returns true if the provided references are equal.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#snapshotequal_af5ca65">snapshotEqual(left, right)</a></td>
+<td>Returns true if the provided snapshots are equal.</td>
+</tr>
+<tr>
+<td><b>function(limit, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#limit_ec46c78">limit(limit)</a></td>
+<td>Creates a <a href="firestore_lite.querylimitconstraint">QueryLimitConstraint</a> that only returns the first matching documents.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#limittolast_ec46c78">limitToLast(limit)</a></td>
+<td>Creates a <a href="firestore_lite.querylimitconstraint">QueryLimitConstraint</a> that only returns the last matching documents.<!-- -->You must specify at least one <code>orderBy</code> clause for <code>limitToLast</code> queries, otherwise an exception will be thrown during execution.</td>
+</tr>
+<tr>
+<td><b>function(logLevel, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#setloglevel_d02fda2">setLogLevel(logLevel)</a></td>
+<td>Sets the verbosity of Cloud Firestore logs (debug, error, or silent).</td>
+</tr>
+<tr>
+<td><b>function(n, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#increment_5685735">increment(n)</a></td>
+<td>Returns a special value that can be used with <a href="firestore#setdoc_ee215ad">setDoc()</a> or <a href="firestore#updatedoc_51a65e3">updateDoc()</a> that tells the server to increment the field&#39;s current value by the given value.<!-- -->If either the operand or the current field value uses floating point precision, all arithmetic follows IEEE 754 semantics. If both values are integers, values outside of JavaScript&#39;s safe number range (<code>Number.MIN_SAFE_INTEGER</code> to <code>Number.MAX_SAFE_INTEGER</code>) are also subject to precision loss. Furthermore, once processed by the Firestore backend, all integer operations are capped between -2^63 and 2^63-1.<!-- -->If the current field value is not of type <code>number</code>, or if the field does not yet exist, the transformation sets the field to the given value.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#maximum_5685735">maximum(n)</a></td>
+<td>Returns a special value that can be used with <a href="firestore#setdoc_ee215ad">setDoc()</a> or <a href="firestore#updatedoc_51a65e3">updateDoc()</a> that tells the server to set the field to the numeric maximum of the field&#39;s current and the given value.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#minimum_5685735">minimum(n)</a></td>
+<td>Returns a special value that can be used with <a href="firestore#setdoc_ee215ad">setDoc()</a> or <a href="firestore#updatedoc_51a65e3">updateDoc()</a> that tells the server to set the field to the numeric minimum of the field&#39;s current and the given value.</td>
+</tr>
+<tr>
+<td><b>function(query, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#getaggregate_2073a74">getAggregate(query, aggregateSpec)</a></td>
+<td>Calculates the specified aggregations over the documents in the result set of the given query without actually downloading the documents.<!-- -->Using this function to perform aggregations is efficient because only the final aggregation values, not the documents&#39; data, are downloaded. This function can perform aggregations of the documents in cases where the result set is prohibitively large to download entirely (thousands of documents).</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#getcount_4e56953">getCount(query)</a></td>
+<td>Calculates the number of documents in the result set of the given query without actually downloading the documents.<!-- -->Using this function to count the documents is efficient because only the final count, not the documents&#39; data, is downloaded. This function can count the documents in cases where the result set is prohibitively large to download entirely (thousands of documents).</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#getdocs_4e56953">getDocs(query)</a></td>
+<td>Executes the query and returns the results as a <a href="firestore_lite.querysnapshot">QuerySnapshot</a><!-- -->.<!-- -->All queries are executed directly by the server, even if the query was previously executed. Recent modifications are only reflected in the retrieved results if they have already been applied by the backend. If the client is offline, the operation fails. To see previously cached result and local modifications, use the full Firestore SDK.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#query_9f7b0f4">query(query, compositeFilter, queryConstraints)</a></td>
+<td>Creates a new immutable instance of <a href="firestore_lite.query">Query</a> that is extended to also include additional query constraints.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#query_0f46da1">query(query, queryConstraints)</a></td>
+<td>Creates a new immutable instance of <a href="firestore_lite.query">Query</a> that is extended to also include additional query constraints.</td>
+</tr>
+<tr>
+<td><b>function(queryConstraints, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#and_e72c712">and(queryConstraints)</a></td>
+<td>Creates a new <a href="firestore_lite.querycompositefilterconstraint">QueryCompositeFilterConstraint</a> that is a conjunction of the given filter constraints. A conjunction filter includes a document if it satisfies all of the given filters.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#or_e72c712">or(queryConstraints)</a></td>
+<td>Creates a new <a href="firestore_lite.querycompositefilterconstraint">QueryCompositeFilterConstraint</a> that is a disjunction of the given filter constraints. A disjunction filter includes a document if it satisfies any of the given filters.</td>
+</tr>
+<tr>
+<td><b>function(reference, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#adddoc_6e783ff">addDoc(reference, data)</a></td>
+<td>Add a new document to specified <code>CollectionReference</code> with the given data, assigning it a document ID automatically.<!-- -->The result of this write will only be reflected in document reads that occur after the returned promise resolves. If the client is offline, the write fails. If you would like to see local modifications or buffer writes until the client is online, use the full Firestore SDK.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#collection_568f98d">collection(reference, path, pathSegments)</a></td>
+<td>Gets a <code>CollectionReference</code> instance that refers to a subcollection of <code>reference</code> at the specified relative path.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#collection_70b4396">collection(reference, path, pathSegments)</a></td>
+<td>Gets a <code>CollectionReference</code> instance that refers to a subcollection of <code>reference</code> at the specified relative path.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#deletedoc_4569087">deleteDoc(reference)</a></td>
+<td>Deletes the document referred to by the specified <code>DocumentReference</code>.<!-- -->The deletion will only be reflected in document reads that occur after the returned promise resolves. If the client is offline, the delete fails. If you would like to see local modifications or buffer writes until the client is online, use the full Firestore SDK.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#doc_568f98d">doc(reference, path, pathSegments)</a></td>
+<td>Gets a <code>DocumentReference</code> instance that refers to a document within <code>reference</code> at the specified relative path. If no path is specified, an automatically-generated unique ID will be used for the returned <code>DocumentReference</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#doc_70b4396">doc(reference, path, pathSegments)</a></td>
+<td>Gets a <code>DocumentReference</code> instance that refers to a document within <code>reference</code> at the specified relative path.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#getdoc_4569087">getDoc(reference)</a></td>
+<td>Reads the document referred to by the specified document reference.<!-- -->All documents are directly fetched from the server, even if the document was previously read or modified. Recent modifications are only reflected in the retrieved <code>DocumentSnapshot</code> if they have already been applied by the backend. If the client is offline, the read fails. If you like to use caching or see local modifications, please use the full Firestore SDK.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#setdoc_ee215ad">setDoc(reference, data)</a></td>
+<td>Writes to the document referred to by the specified <code>DocumentReference</code>. If the document does not yet exist, it will be created.<!-- -->The result of this write will only be reflected in document reads that occur after the returned promise resolves. If the client is offline, the write fails. If you would like to see local modifications or buffer writes until the client is online, use the full Firestore SDK.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#setdoc_ff80739">setDoc(reference, data, options)</a></td>
+<td>Writes to the document referred to by the specified <code>DocumentReference</code>. If the document does not yet exist, it will be created. If you provide <code>merge</code> or <code>mergeFields</code>, the provided data can be merged into an existing document.<!-- -->The result of this write will only be reflected in document reads that occur after the returned promise resolves. If the client is offline, the write fails. If you would like to see local modifications or buffer writes until the client is online, use the full Firestore SDK.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#updatedoc_51a65e3">updateDoc(reference, data)</a></td>
+<td>Updates fields in the document referred to by the specified <code>DocumentReference</code>. The update will fail if applied to a document that does not exist.<!-- -->The result of this update will only be reflected in document reads that occur after the returned promise resolves. If the client is offline, the update fails. If you would like to see local modifications or buffer writes until the client is online, use the full Firestore SDK.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#updatedoc_7c28659">updateDoc(reference, field, value, moreFieldsAndValues)</a></td>
+<td>Updates fields in the document referred to by the specified <code>DocumentReference</code> The update will fail if applied to a document that does not exist.<!-- -->Nested fields can be updated by providing dot-separated field path strings or by providing <code>FieldPath</code> objects.<!-- -->The result of this update will only be reflected in document reads that occur after the returned promise resolves. If the client is offline, the update fails. If you would like to see local modifications or buffer writes until the client is online, use the full Firestore SDK.</td>
+</tr>
+<tr>
+<td><b>function(snapshot, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#endat_9a4477f">endAt(snapshot)</a></td>
+<td>Creates a <a href="firestore_lite.queryendatconstraint">QueryEndAtConstraint</a> that modifies the result set to end at the provided document (inclusive). The end position is relative to the order of the query. The document must contain all of the fields provided in the orderBy of the query.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#endbefore_9a4477f">endBefore(snapshot)</a></td>
+<td>Creates a <a href="firestore_lite.queryendatconstraint">QueryEndAtConstraint</a> that modifies the result set to end before the provided document (exclusive). The end position is relative to the order of the query. The document must contain all of the fields provided in the orderBy of the query.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#startafter_9a4477f">startAfter(snapshot)</a></td>
+<td>Creates a <a href="firestore_lite.querystartatconstraint">QueryStartAtConstraint</a> that modifies the result set to start after the provided document (exclusive). The starting position is relative to the order of the query. The document must contain all of the fields provided in the orderBy of the query.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#startat_9a4477f">startAt(snapshot)</a></td>
+<td>Creates a <a href="firestore_lite.querystartatconstraint">QueryStartAtConstraint</a> that modifies the result set to start at the provided document (inclusive). The starting position is relative to the order of the query. The document must contain all of the fields provided in the <code>orderBy</code> of this query.</td>
+</tr>
+<tr>
+<td><b>function(values, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#vector_0dbdaf2">vector(values)</a></td>
+<td>Creates a new <code>VectorValue</code> constructed with a copy of the given array of numbers.</td>
+</tr>
+</tbody></table>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite.aggregatefield">AggregateField</a></td>
+<td>Represents an aggregation that can be performed by Firestore.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.aggregatequerysnapshot">AggregateQuerySnapshot</a></td>
+<td>The results of executing an aggregation query.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.bsonobjectid">BsonObjectId</a></td>
+<td>Represents a BSON ObjectId type in Firestore documents. BsonObjectId</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.bsontimestamp">BsonTimestamp</a></td>
+<td>Represents a BSON Timestamp type in Firestore documents. BsonTimestamp</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.bytes">Bytes</a></td>
+<td>An immutable object representing an array of bytes.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.collectionreference">CollectionReference</a></td>
+<td>A <code>CollectionReference</code> object can be used for adding documents, getting document references, and querying for documents (using <a href="firestore_lite#query_9f7b0f4">query()</a><!-- -->).</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.decimal128value">Decimal128Value</a></td>
+<td>Represents a 128-bit decimal type in Firestore documents. Decimal128Value</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.documentreference">DocumentReference</a></td>
+<td>A <code>DocumentReference</code> refers to a document location in a Firestore database and can be used to write, read, or listen to the location. The document at the referenced location may or may not exist.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.documentsnapshot">DocumentSnapshot</a></td>
+<td>A <code>DocumentSnapshot</code> contains data read from a document in your Firestore database. The data can be extracted with <code>.data()</code> or <code>.get(&lt;field&gt;)</code> to get a specific field.<!-- -->For a <code>DocumentSnapshot</code> that points to a non-existing document, any data access will return &#39;undefined&#39;. You can use the <code>exists()</code> method to explicitly verify a document&#39;s existence.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.fieldpath">FieldPath</a></td>
+<td>A <code>FieldPath</code> refers to a field in a document. The path may consist of a single field name (referring to a top-level field in the document), or a list of field names (referring to a nested field in the document).<!-- -->Create a <code>FieldPath</code> by providing field names. If more than one field name is provided, the path will point to a nested field in a document.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.fieldvalue">FieldValue</a></td>
+<td>Sentinel values that can be used when writing document fields with <code>set()</code> or <code>update()</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.firestore">Firestore</a></td>
+<td>The Cloud Firestore service interface.<!-- -->Do not call this constructor directly. Instead, use <a href="firestore_lite#getfirestore">getFirestore()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.firestoreerror">FirestoreError</a></td>
+<td>An error returned by a Firestore operation.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.geopoint">GeoPoint</a></td>
+<td>An immutable object representing a geographic location in Firestore. The location is represented as latitude/longitude pair.<!-- -->Latitude values are in the range of [-90, 90]. Longitude values are in the range of [-180, 180].</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.int32value">Int32Value</a></td>
+<td>Represents a 32-bit integer type in Firestore documents. Int32Value</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.maxkey">MaxKey</a></td>
+<td>Represent a &quot;Max Key&quot; type in Firestore documents. MaxKey</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.minkey">MinKey</a></td>
+<td>Represent a &quot;Min Key&quot; type in Firestore documents. MinKey</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.query">Query</a></td>
+<td>A <code>Query</code> refers to a query which you can read or listen to. You can also construct refined <code>Query</code> objects by adding filters and ordering.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.querycompositefilterconstraint">QueryCompositeFilterConstraint</a></td>
+<td>A <code>QueryCompositeFilterConstraint</code> is used to narrow the set of documents returned by a Firestore query by performing the logical OR or AND of multiple <a href="firestore_lite.queryfieldfilterconstraint">QueryFieldFilterConstraint</a><!-- -->s or <a href="firestore_lite.querycompositefilterconstraint">QueryCompositeFilterConstraint</a><!-- -->s. <code>QueryCompositeFilterConstraint</code>s are created by invoking <a href="firestore_lite#or_e72c712">or()</a> or <a href="firestore_lite#and_e72c712">and()</a> and can then be passed to <a href="firestore_lite#query_9f7b0f4">query()</a> to create a new query instance that also contains the <code>QueryCompositeFilterConstraint</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.queryconstraint">QueryConstraint</a></td>
+<td>A <code>QueryConstraint</code> is used to narrow the set of documents returned by a Firestore query. <code>QueryConstraint</code>s are created by invoking <a href="firestore_lite#where_0fae4bf">where()</a><!-- -->, <a href="firestore_lite#orderby_006d61f">orderBy()</a><!-- -->, <a href="firestore_lite#startat_9a4477f">startAt()</a><!-- -->, <a href="firestore_lite#startafter_9a4477f">startAfter()</a><!-- -->, <a href="firestore_lite#endbefore_9a4477f">endBefore()</a><!-- -->, <a href="firestore_lite#endat_9a4477f">endAt()</a><!-- -->, <a href="firestore_lite#limit_ec46c78">limit()</a><!-- -->, <a href="firestore_lite#limittolast_ec46c78">limitToLast()</a> and can then be passed to <a href="firestore_lite#query_9f7b0f4">query()</a> to create a new query instance that also contains this <code>QueryConstraint</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.querydocumentsnapshot">QueryDocumentSnapshot</a></td>
+<td>A <code>QueryDocumentSnapshot</code> contains data read from a document in your Firestore database as part of a query. The document is guaranteed to exist and its data can be extracted with <code>.data()</code> or <code>.get(&lt;field&gt;)</code> to get a specific field.<!-- -->A <code>QueryDocumentSnapshot</code> offers the same API surface as a <code>DocumentSnapshot</code>. Since query results contain only existing documents, the <code>exists</code> property will always be true and <code>data()</code> will never return &#39;undefined&#39;.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.queryendatconstraint">QueryEndAtConstraint</a></td>
+<td>A <code>QueryEndAtConstraint</code> is used to exclude documents from the end of a result set returned by a Firestore query. <code>QueryEndAtConstraint</code>s are created by invoking <a href="firestore_lite#endat_9a4477f">endAt()</a> or <a href="firestore_lite#endbefore_9a4477f">endBefore()</a> and can then be passed to <a href="firestore_lite#query_9f7b0f4">query()</a> to create a new query instance that also contains this <code>QueryEndAtConstraint</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.queryfieldfilterconstraint">QueryFieldFilterConstraint</a></td>
+<td>A <code>QueryFieldFilterConstraint</code> is used to narrow the set of documents returned by a Firestore query by filtering on one or more document fields. <code>QueryFieldFilterConstraint</code>s are created by invoking <a href="firestore_lite#where_0fae4bf">where()</a> and can then be passed to <a href="firestore_lite#query_9f7b0f4">query()</a> to create a new query instance that also contains this <code>QueryFieldFilterConstraint</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.querylimitconstraint">QueryLimitConstraint</a></td>
+<td>A <code>QueryLimitConstraint</code> is used to limit the number of documents returned by a Firestore query. <code>QueryLimitConstraint</code>s are created by invoking <a href="firestore_lite#limit_ec46c78">limit()</a> or <a href="firestore_lite#limittolast_ec46c78">limitToLast()</a> and can then be passed to <a href="firestore_lite#query_9f7b0f4">query()</a> to create a new query instance that also contains this <code>QueryLimitConstraint</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.queryorderbyconstraint">QueryOrderByConstraint</a></td>
+<td>A <code>QueryOrderByConstraint</code> is used to sort the set of documents returned by a Firestore query. <code>QueryOrderByConstraint</code>s are created by invoking <a href="firestore_lite#orderby_006d61f">orderBy()</a> and can then be passed to <a href="firestore_lite#query_9f7b0f4">query()</a> to create a new query instance that also contains this <code>QueryOrderByConstraint</code>.<!-- -->Note: Documents that do not contain the orderBy field will not be present in the query result.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.querysnapshot">QuerySnapshot</a></td>
+<td>A <code>QuerySnapshot</code> contains zero or more <code>DocumentSnapshot</code> objects representing the results of a query. The documents can be accessed as an array via the <code>docs</code> property or enumerated using the <code>forEach</code> method. The number of documents can be determined via the <code>empty</code> and <code>size</code> properties.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.querystartatconstraint">QueryStartAtConstraint</a></td>
+<td>A <code>QueryStartAtConstraint</code> is used to exclude documents from the start of a result set returned by a Firestore query. <code>QueryStartAtConstraint</code>s are created by invoking <a href="firestore_lite#startat_9a4477f">startAt()</a> or <a href="firestore_lite#startafter_9a4477f">startAfter()</a> and can then be passed to <a href="firestore_lite#query_9f7b0f4">query()</a> to create a new query instance that also contains this <code>QueryStartAtConstraint</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.regexvalue">RegexValue</a></td>
+<td>Represents a regular expression type in Firestore documents. RegexValue</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.timestamp">Timestamp</a></td>
+<td>A <code>Timestamp</code> represents a point in time independent of any time zone or calendar, represented as seconds and fractions of seconds at nanosecond resolution in UTC Epoch time.<!-- -->It is encoded using the Proleptic Gregorian Calendar which extends the Gregorian calendar backwards to year one. It is encoded assuming all minutes are 60 seconds long, i.e. leap seconds are &quot;smeared&quot; so that no leap second table is needed for interpretation. Range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z.<!-- -->For examples and further specifications, refer to the <a href="https://github.com/google/protobuf/blob/master/src/google/protobuf/timestamp.proto">Timestamp definition</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.transaction">Transaction</a></td>
+<td>A reference to a transaction.<!-- -->The <code>Transaction</code> object passed to a transaction&#39;s <code>updateFunction</code> provides the methods to read and write data within the transaction context. See <a href="firestore_lite#runtransaction_6f03ec4">runTransaction()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.vectorvalue">VectorValue</a></td>
+<td>Represents a vector type in Firestore documents. Create an instance with <code><a href="firestore_lite#vector_0dbdaf2">vector()</a></code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.writebatch">WriteBatch</a></td>
+<td>A write batch, used to perform multiple writes as a single atomic unit.<!-- -->A <code>WriteBatch</code> object can be acquired by calling <a href="firestore_lite#writebatch_231a8e0">writeBatch()</a><!-- -->. It provides methods for adding writes to the write batch. None of the writes will be committed (or visible locally) until <a href="firestore_lite.writebatch#writebatchcommit">WriteBatch.commit()</a> is called.</td>
+</tr>
+</tbody></table>
+<h2 id="interfaces">Interfaces</h2>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite.aggregatespec">AggregateSpec</a></td>
+<td>Specifies a set of aggregations and their aliases.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.documentdata">DocumentData</a></td>
+<td>Document data (for use with <a href="firestore#setdoc_ee215ad">setDoc()</a><!-- -->) consists of fields mapped to values.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.firestoredataconverter">FirestoreDataConverter</a></td>
+<td>Converter used by <code>withConverter()</code> to transform user objects of type <code>AppModelType</code> into Firestore data of type <code>DbModelType</code>.<!-- -->Using the converter allows you to specify generic type arguments when storing and retrieving objects from Firestore.<!-- -->In this context, an &quot;AppModel&quot; is a class that is used in an application to package together related information and functionality. Such a class could, for example, have properties with complex, nested data types, properties used for memoization, properties of types not supported by Firestore (such as <code>symbol</code> and <code>bigint</code>), and helper functions that perform compound operations. Such classes are not suitable and/or possible to store into a Firestore database. Instead, instances of such classes need to be converted to &quot;plain old JavaScript objects&quot; (POJOs) with exclusively primitive properties, potentially nested inside other POJOs or arrays of POJOs. In this context, this type is referred to as the &quot;DbModel&quot; and would be an object suitable for persisting into Firestore. For convenience, applications can implement <code>FirestoreDataConverter</code> and register the converter with Firestore objects, such as <code>DocumentReference</code> or <code>Query</code>, to automatically convert <code>AppModel</code> to <code>DbModel</code> when storing into Firestore, and convert <code>DbModel</code> to <code>AppModel</code> when retrieving from Firestore.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.settings">Settings</a></td>
+<td>Specifies custom configurations for your Cloud Firestore instance. You must set these before invoking any other methods.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.transactionoptions">TransactionOptions</a></td>
+<td>Options to customize transaction behavior.</td>
+</tr>
+</tbody></table>
+<h2 id="type-aliases">Type Aliases</h2>
+<table>
+<thead>
+<tr>
+<th>Type Alias</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite#addprefixtokeys">AddPrefixToKeys</a></td>
+<td>Returns a new map where every key is prefixed with the outer key appended to a dot.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#aggregatefieldtype">AggregateFieldType</a></td>
+<td>The union of all <code>AggregateField</code> types that are supported by Firestore.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#aggregatespecdata">AggregateSpecData</a></td>
+<td>A type whose keys are taken from an <code>AggregateSpec</code>, and whose values are the result of the aggregation performed by the corresponding <code>AggregateField</code> from the input <code>AggregateSpec</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#aggregatetype">AggregateType</a></td>
+<td>Union type representing the aggregate type to be performed.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#childtypes">ChildTypes</a></td>
+<td>For the given type, return a union type of T and the types of all child properties of T.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#childupdatefields">ChildUpdateFields</a></td>
+<td>Helper for calculating the nested fields for a given type T1. This is needed to distribute union types such as <code>undefined &#124; {...}</code> (happens for optional props) or <code>{a: A} &#124; {b: B}</code>.<!-- -->In this use case, <code>V</code> is used to distribute the union types of <code>T[K]</code> on <code>Record</code>, since <code>T[K]</code> is evaluated as an expression and not distributed.<!-- -->See <a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html\#distributive-conditional-types">https://www.typescriptlang.org/docs/handbook/advanced-types.html\#distributive-conditional-types</a></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#firestoreerrorcode">FirestoreErrorCode</a></td>
+<td>The set of Firestore status codes. The codes are the same at the ones exposed by gRPC here: <a href="https://github.com/grpc/grpc/blob/master/doc/statuscodes.md">https://github.com/grpc/grpc/blob/master/doc/statuscodes.md</a><!-- -->Possible values: - &#39;cancelled&#39;: The operation was cancelled (typically by the caller). - &#39;unknown&#39;: Unknown error or an error from a different error domain. - &#39;invalid-argument&#39;: Client specified an invalid argument. Note that this differs from &#39;failed-precondition&#39;. &#39;invalid-argument&#39; indicates arguments that are problematic regardless of the state of the system (e.g. an invalid field name). - &#39;deadline-exceeded&#39;: Deadline expired before operation could complete. For operations that change the state of the system, this error may be returned even if the operation has completed successfully. For example, a successful response from a server could have been delayed long enough for the deadline to expire. - &#39;not-found&#39;: Some requested document was not found. - &#39;already-exists&#39;: Some document that we attempted to create already exists. - &#39;permission-denied&#39;: The caller does not have permission to execute the specified operation. - &#39;resource-exhausted&#39;: Some resource has been exhausted, perhaps a per-user quota, or perhaps the entire file system is out of space. - &#39;failed-precondition&#39;: Operation was rejected because the system is not in a state required for the operation&#39;s execution. - &#39;aborted&#39;: The operation was aborted, typically due to a concurrency issue like transaction aborts, etc. - &#39;out-of-range&#39;: Operation was attempted past the valid range. - &#39;unimplemented&#39;: Operation is not implemented or not supported/enabled. - &#39;internal&#39;: Internal errors. Means some invariants expected by underlying system has been broken. If you see one of these errors, something is very broken. - &#39;unavailable&#39;: The service is currently unavailable. This is most likely a transient condition and may be corrected by retrying with a backoff. - &#39;data-loss&#39;: Unrecoverable data loss or corruption. - &#39;unauthenticated&#39;: The request does not have valid authentication credentials for the operation.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#nestedupdatefields">NestedUpdateFields</a></td>
+<td>For each field (e.g. &#39;bar&#39;), find all nested keys (e.g. {<!-- -->&#39;bar.baz&#39;: T1, &#39;bar.qux&#39;: T2<!-- -->}<!-- -->). Intersect them together to make a single map containing all possible keys that are all marked as optional</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#orderbydirection">OrderByDirection</a></td>
+<td>The direction of a <a href="firestore_lite#orderby_006d61f">orderBy()</a> clause is specified as &#39;desc&#39; or &#39;asc&#39; (descending or ascending).</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#partialwithfieldvalue">PartialWithFieldValue</a></td>
+<td>Similar to TypeScript&#39;s <code>Partial&lt;T&gt;</code>, but allows nested fields to be omitted and FieldValues to be passed in as property values.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#primitive">Primitive</a></td>
+<td>Primitive types.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#queryconstrainttype">QueryConstraintType</a></td>
+<td>Describes the different query constraints available in this SDK.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#queryfilterconstraint">QueryFilterConstraint</a></td>
+<td><code>QueryFilterConstraint</code> is a helper union type that represents <a href="firestore_lite.queryfieldfilterconstraint">QueryFieldFilterConstraint</a> and <a href="firestore_lite.querycompositefilterconstraint">QueryCompositeFilterConstraint</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#querynonfilterconstraint">QueryNonFilterConstraint</a></td>
+<td><code>QueryNonFilterConstraint</code> is a helper union type that represents QueryConstraints which are used to narrow or order the set of documents, but that do not explicitly filter on a document field. <code>QueryNonFilterConstraint</code>s are created by invoking <a href="firestore_lite#orderby_006d61f">orderBy()</a><!-- -->, <a href="firestore_lite#startat_9a4477f">startAt()</a><!-- -->, <a href="firestore_lite#startafter_9a4477f">startAfter()</a><!-- -->, <a href="firestore_lite#endbefore_9a4477f">endBefore()</a><!-- -->, <a href="firestore_lite#endat_9a4477f">endAt()</a><!-- -->, <a href="firestore_lite#limit_ec46c78">limit()</a> or <a href="firestore_lite#limittolast_ec46c78">limitToLast()</a> and can then be passed to <a href="firestore_lite#query_9f7b0f4">query()</a> to create a new query instance that also contains the <code>QueryConstraint</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#setoptions">SetOptions</a></td>
+<td>An options object that configures the behavior of <a href="firestore#setdoc_ee215ad">setDoc()</a><!-- -->,  and  calls. These calls can be configured to perform granular merges instead of overwriting the target documents in their entirety by providing a <code>SetOptions</code> with <code>merge: true</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#uniontointersection">UnionToIntersection</a></td>
+<td>Given a union type <code>U = T1 &#124; T2 &#124; ...</code>, returns an intersected type <code>(T1 &amp; T2 &amp; ...)</code>.<!-- -->Uses distributive conditional types and inference from conditional types. This works because multiple candidates for the same type variable in contra-variant positions causes an intersection type to be inferred. <a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html\#type-inference-in-conditional-types">https://www.typescriptlang.org/docs/handbook/advanced-types.html\#type-inference-in-conditional-types</a> <a href="https://stackoverflow.com/questions/50374908/transform-union-type-to-intersection-type">https://stackoverflow.com/questions/50374908/transform-union-type-to-intersection-type</a></td>
+</tr>
+<tr>
+<td><a href="firestore_lite#updatedata">UpdateData</a></td>
+<td>Update data (for use with <a href="firestore_lite#updatedoc_51a65e3">updateDoc()</a><!-- -->) that consists of field paths (e.g. &#39;foo&#39; or &#39;foo.baz&#39;) mapped to values. Fields that contain dots reference nested fields within the document. FieldValues can be passed in as property values.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#wherefilterop">WhereFilterOp</a></td>
+<td>Filter conditions in a <a href="firestore_lite#where_0fae4bf">where()</a> clause are specified using the strings &#39;&amp;lt;&#39;, &#39;&amp;lt;=&#39;, &#39;==&#39;, &#39;!=&#39;, &#39;&amp;gt;=&#39;, &#39;&amp;gt;&#39;, &#39;array-contains&#39;, &#39;in&#39;, &#39;array-contains-any&#39;, and &#39;not-in&#39;.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite#withfieldvalue">WithFieldValue</a></td>
+<td>Allows FieldValues to be passed in as a property value while maintaining type safety.</td>
+</tr>
+</tbody></table>
+<h2 id="functionapp-">function(app, ...)</h2>
+<h3 id="getfirestore_cf608e1">getFirestore(app)</h3>
+<p>Returns the existing default <a href="firestore_lite.firestore">Firestore</a> instance that is associated with the provided <a href="app.firebaseapp">FirebaseApp</a><!-- -->. If no instance exists, initializes a new instance with default settings.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getFirestore(app: FirebaseApp): Firestore;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>app</td>
+<td><a href="app.firebaseapp">FirebaseApp</a></td>
+<td>The <a href="app.firebaseapp">FirebaseApp</a> instance that the returned <a href="firestore_lite.firestore">Firestore</a> instance is associated with.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.firestore">Firestore</a></p>
+<p>The <a href="firestore_lite.firestore">Firestore</a> instance of the provided app.</p>
+<h3 id="getfirestore_48de6cb">getFirestore(app, databaseId)</h3>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Returns the existing <a href="firestore_lite.firestore">Firestore</a> instance that is associated with the provided <a href="app.firebaseapp">FirebaseApp</a><!-- -->. If no instance exists, initializes a new instance with default settings.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getFirestore(
+  app: FirebaseApp,
+  databaseId: string
+): Firestore;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>app</td>
+<td><a href="app.firebaseapp">FirebaseApp</a></td>
+<td>The <a href="app.firebaseapp">FirebaseApp</a> instance that the returned <a href="firestore_lite.firestore">Firestore</a> instance is associated with.</td>
+</tr>
+<tr>
+<td>databaseId</td>
+<td>string</td>
+<td>The name of the database.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.firestore">Firestore</a></p>
+<p>The <a href="firestore_lite.firestore">Firestore</a> instance of the provided app.</p>
+<h3 id="initializefirestore_87c6318">initializeFirestore(app, settings)</h3>
+<p>Initializes a new instance of Cloud Firestore with the provided settings. Can only be called before any other functions, including <a href="firestore_lite#getfirestore">getFirestore()</a><!-- -->. If the custom settings are empty, this function is equivalent to calling <a href="firestore_lite#getfirestore">getFirestore()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function initializeFirestore(
+  app: FirebaseApp,
+  settings: Settings
+): Firestore;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>app</td>
+<td><a href="app.firebaseapp">FirebaseApp</a></td>
+<td>The <a href="app.firebaseapp">FirebaseApp</a> with which the <code>Firestore</code> instance will be associated.</td>
+</tr>
+<tr>
+<td>settings</td>
+<td><a href="firestore_lite.settings">Settings</a></td>
+<td>A settings object to configure the <code>Firestore</code> instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.firestore">Firestore</a></p>
+<p>A newly initialized <code>Firestore</code> instance.</p>
+<h3 id="initializefirestore_37baaaf">initializeFirestore(app, settings, databaseId)</h3>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Initializes a new instance of Cloud Firestore with the provided settings. Can only be called before any other functions, including <a href="firestore_lite#getfirestore">getFirestore()</a><!-- -->. If the custom settings are empty, this function is equivalent to calling <a href="firestore_lite#getfirestore">getFirestore()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function initializeFirestore(
+  app: FirebaseApp,
+  settings: Settings,
+  databaseId?: string
+): Firestore;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>app</td>
+<td><a href="app.firebaseapp">FirebaseApp</a></td>
+<td>The <a href="app.firebaseapp">FirebaseApp</a> with which the <code>Firestore</code> instance will be associated.</td>
+</tr>
+<tr>
+<td>settings</td>
+<td><a href="firestore_lite.settings">Settings</a></td>
+<td>A settings object to configure the <code>Firestore</code> instance.</td>
+</tr>
+<tr>
+<td>databaseId</td>
+<td>string</td>
+<td>The name of the database.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.firestore">Firestore</a></p>
+<p>A newly initialized <code>Firestore</code> instance.</p>
+<h2 id="functionfirestore-">function(firestore, ...)</h2>
+<h3 id="collection_1eb4c23">collection(firestore, path, pathSegments)</h3>
+<p>Gets a <code>CollectionReference</code> instance that refers to the collection at the specified absolute path.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function collection(
+  firestore: Firestore,
+  path: string,
+  ...pathSegments: string[]
+): CollectionReference&lt;DocumentData, DocumentData&gt;;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>firestore</td>
+<td><a href="firestore_lite.firestore">Firestore</a></td>
+<td>A reference to the root <code>Firestore</code> instance.</td>
+</tr>
+<tr>
+<td>path</td>
+<td>string</td>
+<td>A slash-separated path to a collection.</td>
+</tr>
+<tr>
+<td>pathSegments</td>
+<td>string[]</td>
+<td>Additional path segments to apply relative to the first argument.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.collectionreference">CollectionReference</a><!-- -->&lt;<a href="firestore_lite.documentdata">DocumentData</a><!-- -->, <a href="firestore_lite.documentdata">DocumentData</a><!-- -->&gt;</p>
+<p>The <code>CollectionReference</code> instance.</p>
+<h4 id="exceptions">Exceptions</h4>
+<p>If the final path has an even number of segments and does not point to a collection.</p>
+<h3 id="collectiongroup_1838fc3">collectionGroup(firestore, collectionId)</h3>
+<p>Creates and returns a new <code>Query</code> instance that includes all documents in the database that are contained in a collection or subcollection with the given <code>collectionId</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function collectionGroup(
+  firestore: Firestore,
+  collectionId: string
+): Query&lt;DocumentData, DocumentData&gt;;</pre>
+<h4 id="parameters-5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>firestore</td>
+<td><a href="firestore_lite.firestore">Firestore</a></td>
+<td>A reference to the root <code>Firestore</code> instance.</td>
+</tr>
+<tr>
+<td>collectionId</td>
+<td>string</td>
+<td>Identifies the collections to query over. Every collection or subcollection with this ID as the last segment of its path will be included. Cannot contain a slash.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.query">Query</a><!-- -->&lt;<a href="firestore_lite.documentdata">DocumentData</a><!-- -->, <a href="firestore_lite.documentdata">DocumentData</a><!-- -->&gt;</p>
+<p>The created <code>Query</code><!-- -->.</p>
+<h3 id="connectfirestoreemulator_30c0146">connectFirestoreEmulator(firestore, host, port, options)</h3>
+<p>Modify this instance to communicate with the Cloud Firestore emulator.</p>
+<p>Note: This must be called before this instance has been used to do any operations.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function connectFirestoreEmulator(
+  firestore: Firestore,
+  host: string,
+  port: number,
+  options?: {
+    mockUserToken?: EmulatorMockTokenOptions | string;
+  }
+): void;</pre>
+<h4 id="parameters-6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>firestore</td>
+<td><a href="firestore_lite.firestore">Firestore</a></td>
+<td>The <code>Firestore</code> instance to configure to connect to the emulator.</td>
+</tr>
+<tr>
+<td>host</td>
+<td>string</td>
+<td>the emulator host (ex: localhost).</td>
+</tr>
+<tr>
+<td>port</td>
+<td>number</td>
+<td>the emulator port (ex: 9000).</td>
+</tr>
+<tr>
+<td>options</td>
+<td>{ mockUserToken?: <a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#emulatormocktokenoptions">EmulatorMockTokenOptions</a> | string; }</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h3 id="doc_1eb4c23">doc(firestore, path, pathSegments)</h3>
+<p>Gets a <code>DocumentReference</code> instance that refers to the document at the specified absolute path.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function doc(
+  firestore: Firestore,
+  path: string,
+  ...pathSegments: string[]
+): DocumentReference&lt;DocumentData, DocumentData&gt;;</pre>
+<h4 id="parameters-7">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>firestore</td>
+<td><a href="firestore_lite.firestore">Firestore</a></td>
+<td>A reference to the root <code>Firestore</code> instance.</td>
+</tr>
+<tr>
+<td>path</td>
+<td>string</td>
+<td>A slash-separated path to a document.</td>
+</tr>
+<tr>
+<td>pathSegments</td>
+<td>string[]</td>
+<td>Additional path segments that will be applied relative to the first argument.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;<a href="firestore_lite.documentdata">DocumentData</a><!-- -->, <a href="firestore_lite.documentdata">DocumentData</a><!-- -->&gt;</p>
+<p>The <code>DocumentReference</code> instance.</p>
+<h4 id="exceptions-1">Exceptions</h4>
+<p>If the final path has an odd number of segments and does not point to a document.</p>
+<h3 id="runtransaction_6f03ec4">runTransaction(firestore, updateFunction, options)</h3>
+<p>Executes the given <code>updateFunction</code> and then attempts to commit the changes applied within the transaction. If any document read within the transaction has changed, Cloud Firestore retries the <code>updateFunction</code><!-- -->. If it fails to commit after 5 attempts, the transaction fails.</p>
+<p>The maximum number of writes allowed in a single transaction is 500.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function runTransaction&lt;T&gt;(
+  firestore: Firestore,
+  updateFunction: (transaction: Transaction) =&gt; Promise&lt;T&gt;,
+  options?: TransactionOptions
+): Promise&lt;T&gt;;</pre>
+<h4 id="parameters-8">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>firestore</td>
+<td><a href="firestore_lite.firestore">Firestore</a></td>
+<td>A reference to the Firestore database to run this transaction against.</td>
+</tr>
+<tr>
+<td>updateFunction</td>
+<td>(transaction: <a href="firestore_lite.transaction">Transaction</a><!-- -->) =&gt; Promise&lt;T&gt;</td>
+<td>The function to execute within the transaction context.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="firestore_lite.transactionoptions">TransactionOptions</a></td>
+<td>An options object to configure maximum number of attempts to commit.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;T&gt;</p>
+<p>If the transaction completed successfully or was explicitly aborted (the <code>updateFunction</code> returned a failed promise), the promise returned by the <code>updateFunction </code><!-- -->is returned here. Otherwise, if the transaction failed, a rejected promise with the corresponding failure error is returned.</p>
+<h3 id="terminate_231a8e0">terminate(firestore)</h3>
+<p>Terminates the provided <code>Firestore</code> instance.</p>
+<p>After calling <code>terminate()</code> only the <code>clearIndexedDbPersistence()</code> functions may be used. Any other function will throw a <code>FirestoreError</code><!-- -->. Termination does not cancel any pending writes, and any promises that are awaiting a response from the server will not be resolved.</p>
+<p>To restart after termination, create a new instance of <code>Firestore</code> with <a href="firestore_lite#getfirestore">getFirestore()</a><!-- -->.</p>
+<p>Note: Under normal circumstances, calling <code>terminate()</code> is not required. This function is useful only when you want to force this instance to release all of its resources or in combination with <a href="firestore#clearindexeddbpersistence_231a8e0">clearIndexedDbPersistence()</a> to ensure that all local state is destroyed between test runs.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function terminate(firestore: Firestore): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-9">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>firestore</td>
+<td><a href="firestore_lite.firestore">Firestore</a></td>
+<td>The <code>Firestore</code> instance to terminate.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<p>A <code>Promise</code> that is resolved when the instance has been successfully terminated.</p>
+<h3 id="writebatch_231a8e0">writeBatch(firestore)</h3>
+<p>Creates a write batch, used for performing multiple writes as a single atomic operation. The maximum number of writes allowed in a single WriteBatch is 500.</p>
+<p>The result of these writes will only be reflected in document reads that occur after the returned promise resolves. If the client is offline, the write fails. If you would like to see local modifications or buffer writes until the client is online, use the full Firestore SDK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function writeBatch(firestore: Firestore): WriteBatch;</pre>
+<h4 id="parameters-10">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>firestore</td>
+<td><a href="firestore_lite.firestore">Firestore</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.writebatch">WriteBatch</a></p>
+<p>A <code>WriteBatch</code> that can be used to atomically execute multiple writes.</p>
+<h2 id="function">function()</h2>
+<h3 id="count">count()</h3>
+<p>Create an AggregateField object that can be used to compute the count of documents in the result set of a query.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function count(): AggregateField&lt;number&gt;;</pre>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.aggregatefield">AggregateField</a><!-- -->&lt;number&gt;</p>
+<h3 id="deletefield">deleteField()</h3>
+<p>Returns a sentinel for use with <a href="firestore#updatedoc_51a65e3">updateDoc()</a> or <a href="firestore#setdoc_ee215ad">setDoc()</a> with <code>{merge: true}</code> to mark a field for deletion.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function deleteField(): FieldValue;</pre>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.fieldvalue">FieldValue</a></p>
+<h3 id="documentid">documentId()</h3>
+<p>Returns a special sentinel <code>FieldPath</code> to refer to the ID of a document. It can be used in queries to sort or filter by the document ID.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function documentId(): FieldPath;</pre>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.fieldpath">FieldPath</a></p>
+<h3 id="getfirestore">getFirestore()</h3>
+<p>Returns the existing default <a href="firestore_lite.firestore">Firestore</a> instance that is associated with the default <a href="app.firebaseapp">FirebaseApp</a><!-- -->. If no instance exists, initializes a new instance with default settings.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getFirestore(): Firestore;</pre>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.firestore">Firestore</a></p>
+<p>The <a href="firestore_lite.firestore">Firestore</a> instance of the provided app.</p>
+<h3 id="servertimestamp">serverTimestamp()</h3>
+<p>Returns a sentinel used with <a href="firestore#setdoc_ee215ad">setDoc()</a> or <a href="firestore#updatedoc_51a65e3">updateDoc()</a> to include a server-generated timestamp in the written data.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function serverTimestamp(): FieldValue;</pre>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.fieldvalue">FieldValue</a></p>
+<h2 id="functiondatabaseid-">function(databaseId, ...)</h2>
+<h3 id="getfirestore_53dc891">getFirestore(databaseId)</h3>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Returns the existing <a href="firestore_lite.firestore">Firestore</a> instance that is associated with the default <a href="app.firebaseapp">FirebaseApp</a><!-- -->. If no instance exists, initializes a new instance with default settings.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getFirestore(databaseId: string): Firestore;</pre>
+<h4 id="parameters-11">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>databaseId</td>
+<td>string</td>
+<td>The name of the database.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.firestore">Firestore</a></p>
+<p>The <a href="firestore_lite.firestore">Firestore</a> instance of the provided app.</p>
+<h2 id="functionelements-">function(elements, ...)</h2>
+<h3 id="arrayremove_7d853aa">arrayRemove(elements)</h3>
+<p>Returns a special value that can be used with <a href="firestore_lite#setdoc_ee215ad">setDoc()</a> or  that tells the server to remove the given elements from any array value that already exists on the server. All instances of each element specified will be removed from the array. If the field being modified is not already an array it will be overwritten with an empty array.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function arrayRemove(...elements: unknown[]): FieldValue;</pre>
+<h4 id="parameters-12">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>elements</td>
+<td>unknown[]</td>
+<td>The elements to remove from the array.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.fieldvalue">FieldValue</a></p>
+<p>The <code>FieldValue</code> sentinel for use in a call to <code>setDoc()</code> or <code>updateDoc()</code></p>
+<h3 id="arrayunion_7d853aa">arrayUnion(elements)</h3>
+<p>Returns a special value that can be used with <a href="firestore#setdoc_ee215ad">setDoc()</a> or <a href="firestore#updatedoc_51a65e3">updateDoc()</a> that tells the server to union the given elements with any array value that already exists on the server. Each specified element that doesn&#39;t already exist in the array will be added to the end. If the field being modified is not already an array it will be overwritten with an array containing exactly the specified elements.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function arrayUnion(...elements: unknown[]): FieldValue;</pre>
+<h4 id="parameters-13">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>elements</td>
+<td>unknown[]</td>
+<td>The elements to union into the array.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.fieldvalue">FieldValue</a></p>
+<p>The <code>FieldValue</code> sentinel for use in a call to <code>setDoc()</code> or <code>updateDoc()</code><!-- -->.</p>
+<h2 id="functionfield-">function(field, ...)</h2>
+<h3 id="average_aacc3a9">average(field)</h3>
+<p>Create an AggregateField object that can be used to compute the average of a specified field over a range of documents in the result set of a query.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function average(
+  field: string | FieldPath
+): AggregateField&lt;number | null&gt;;</pre>
+<h4 id="parameters-14">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>field</td>
+<td>string | <a href="firestore_lite.fieldpath">FieldPath</a></td>
+<td>Specifies the field to average across the result set.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.aggregatefield">AggregateField</a><!-- -->&lt;number | null&gt;</p>
+<h3 id="sum_aacc3a9">sum(field)</h3>
+<p>Create an AggregateField object that can be used to compute the sum of a specified field over a range of documents in the result set of a query.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function sum(field: string | FieldPath): AggregateField&lt;number&gt;;</pre>
+<h4 id="parameters-15">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>field</td>
+<td>string | <a href="firestore_lite.fieldpath">FieldPath</a></td>
+<td>Specifies the field to sum across the result set.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.aggregatefield">AggregateField</a><!-- -->&lt;number&gt;</p>
+<h2 id="functionfieldpath-">function(fieldPath, ...)</h2>
+<h3 id="orderby_006d61f">orderBy(fieldPath, directionStr)</h3>
+<p>Creates a <a href="firestore_lite.queryorderbyconstraint">QueryOrderByConstraint</a> that sorts the query result by the specified field, optionally in descending order instead of ascending.</p>
+<p>Note: Documents that do not contain the specified field will not be present in the query result.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function orderBy(
+  fieldPath: string | FieldPath,
+  directionStr?: OrderByDirection
+): QueryOrderByConstraint;</pre>
+<h4 id="parameters-16">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fieldPath</td>
+<td>string | <a href="firestore_lite.fieldpath">FieldPath</a></td>
+<td>The field to sort by.</td>
+</tr>
+<tr>
+<td>directionStr</td>
+<td><a href="firestore_lite#orderbydirection">OrderByDirection</a></td>
+<td>Optional direction to sort by (&#39;asc&#39; or &#39;desc&#39;). If not specified, order will be ascending.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.queryorderbyconstraint">QueryOrderByConstraint</a></p>
+<p>The created <a href="firestore_lite.queryorderbyconstraint">QueryOrderByConstraint</a><!-- -->.</p>
+<h3 id="where_0fae4bf">where(fieldPath, opStr, value)</h3>
+<p>Creates a <a href="firestore_lite.queryfieldfilterconstraint">QueryFieldFilterConstraint</a> that enforces that documents must contain the specified field and that the value should satisfy the relation constraint provided.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function where(
+  fieldPath: string | FieldPath,
+  opStr: WhereFilterOp,
+  value: unknown
+): QueryFieldFilterConstraint;</pre>
+<h4 id="parameters-17">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fieldPath</td>
+<td>string | <a href="firestore_lite.fieldpath">FieldPath</a></td>
+<td>The path to compare</td>
+</tr>
+<tr>
+<td>opStr</td>
+<td><a href="firestore_lite#wherefilterop">WhereFilterOp</a></td>
+<td>The operation string (e.g &quot;&amp;lt;&quot;, &quot;&amp;lt;=&quot;, &quot;==&quot;, &quot;&amp;lt;&quot;, &quot;&amp;lt;=&quot;, &quot;!=&quot;).</td>
+</tr>
+<tr>
+<td>value</td>
+<td>unknown</td>
+<td>The value for comparison</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.queryfieldfilterconstraint">QueryFieldFilterConstraint</a></p>
+<p>The created <a href="firestore_lite.queryfieldfilterconstraint">QueryFieldFilterConstraint</a><!-- -->.</p>
+<h2 id="functionfieldvalues-">function(fieldValues, ...)</h2>
+<h3 id="endat_8b2f2c8">endAt(fieldValues)</h3>
+<p>Creates a <a href="firestore_lite.queryendatconstraint">QueryEndAtConstraint</a> that modifies the result set to end at the provided fields relative to the order of the query. The order of the field values must match the order of the order by clauses of the query.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function endAt(...fieldValues: unknown[]): QueryEndAtConstraint;</pre>
+<h4 id="parameters-18">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fieldValues</td>
+<td>unknown[]</td>
+<td>The field values to end this query at, in order of the query&#39;s order by.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.queryendatconstraint">QueryEndAtConstraint</a></p>
+<p>A <a href="firestore_lite.queryendatconstraint">QueryEndAtConstraint</a> to pass to <code>query()</code></p>
+<h3 id="endbefore_8b2f2c8">endBefore(fieldValues)</h3>
+<p>Creates a <a href="firestore_lite.queryendatconstraint">QueryEndAtConstraint</a> that modifies the result set to end before the provided fields relative to the order of the query. The order of the field values must match the order of the order by clauses of the query.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function endBefore(
+  ...fieldValues: unknown[]
+): QueryEndAtConstraint;</pre>
+<h4 id="parameters-19">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fieldValues</td>
+<td>unknown[]</td>
+<td>The field values to end this query before, in order of the query&#39;s order by.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.queryendatconstraint">QueryEndAtConstraint</a></p>
+<p>A <a href="firestore_lite.queryendatconstraint">QueryEndAtConstraint</a> to pass to <code>query()</code></p>
+<h3 id="startafter_8b2f2c8">startAfter(fieldValues)</h3>
+<p>Creates a <a href="firestore_lite.querystartatconstraint">QueryStartAtConstraint</a> that modifies the result set to start after the provided fields relative to the order of the query. The order of the field values must match the order of the order by clauses of the query.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function startAfter(
+  ...fieldValues: unknown[]
+): QueryStartAtConstraint;</pre>
+<h4 id="parameters-20">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fieldValues</td>
+<td>unknown[]</td>
+<td>The field values to start this query after, in order of the query&#39;s order by.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.querystartatconstraint">QueryStartAtConstraint</a></p>
+<p>A <a href="firestore_lite.querystartatconstraint">QueryStartAtConstraint</a> to pass to <code>query()</code></p>
+<h3 id="startat_8b2f2c8">startAt(fieldValues)</h3>
+<p>Creates a <a href="firestore_lite.querystartatconstraint">QueryStartAtConstraint</a> that modifies the result set to start at the provided fields relative to the order of the query. The order of the field values must match the order of the order by clauses of the query.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function startAt(
+  ...fieldValues: unknown[]
+): QueryStartAtConstraint;</pre>
+<h4 id="parameters-21">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fieldValues</td>
+<td>unknown[]</td>
+<td>The field values to start this query at, in order of the query&#39;s order by.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.querystartatconstraint">QueryStartAtConstraint</a></p>
+<p>A <a href="firestore_lite.querystartatconstraint">QueryStartAtConstraint</a> to pass to <code>query()</code><!-- -->.</p>
+<h2 id="functionleft-">function(left, ...)</h2>
+<h3 id="aggregatefieldequal_e80a2b2">aggregateFieldEqual(left, right)</h3>
+<p>Compares two &#39;AggregateField<!-- -->` instances for equality.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function aggregateFieldEqual(
+  left: AggregateField&lt;unknown&gt;,
+  right: AggregateField&lt;unknown&gt;
+): boolean;</pre>
+<h4 id="parameters-22">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>left</td>
+<td><a href="firestore_lite.aggregatefield">AggregateField</a><!-- -->&lt;unknown&gt;</td>
+<td>Compare this AggregateField to the <code>right</code>.</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="firestore_lite.aggregatefield">AggregateField</a><!-- -->&lt;unknown&gt;</td>
+<td>Compare this AggregateField to the <code>left</code>.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<h3 id="aggregatequerysnapshotequal_1529a20">aggregateQuerySnapshotEqual(left, right)</h3>
+<p>Compares two <code>AggregateQuerySnapshot</code> instances for equality.</p>
+<p>Two <code>AggregateQuerySnapshot</code> instances are considered &quot;equal&quot; if they have underlying queries that compare equal, and the same data.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function aggregateQuerySnapshotEqual&lt;
+  AggregateSpecType extends AggregateSpec,
+  AppModelType,
+  DbModelType extends DocumentData
+&gt;(
+  left: AggregateQuerySnapshot&lt;AggregateSpecType, AppModelType, DbModelType&gt;,
+  right: AggregateQuerySnapshot&lt;AggregateSpecType, AppModelType, DbModelType&gt;
+): boolean;</pre>
+<h4 id="parameters-23">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>left</td>
+<td><a href="firestore_lite.aggregatequerysnapshot">AggregateQuerySnapshot</a><!-- -->&lt;AggregateSpecType, AppModelType, DbModelType&gt;</td>
+<td>The first <code>AggregateQuerySnapshot</code> to compare.</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="firestore_lite.aggregatequerysnapshot">AggregateQuerySnapshot</a><!-- -->&lt;AggregateSpecType, AppModelType, DbModelType&gt;</td>
+<td>The second <code>AggregateQuerySnapshot</code> to compare.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<p><code>true</code> if the objects are &quot;equal&quot;, as defined above, or <code>false</code> otherwise.</p>
+<h3 id="queryequal_7a1f045">queryEqual(left, right)</h3>
+<p>Returns true if the provided queries point to the same collection and apply the same constraints.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function queryEqual&lt;
+  AppModelType,
+  DbModelType extends DocumentData
+&gt;(
+  left: Query&lt;AppModelType, DbModelType&gt;,
+  right: Query&lt;AppModelType, DbModelType&gt;
+): boolean;</pre>
+<h4 id="parameters-24">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>left</td>
+<td><a href="firestore_lite.query">Query</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A <code>Query</code> to compare.</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="firestore_lite.query">Query</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A <code>Query</code> to compare.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<p>true if the references point to the same location in the same Firestore database.</p>
+<h3 id="refequal_b6f96c9">refEqual(left, right)</h3>
+<p>Returns true if the provided references are equal.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function refEqual&lt;
+  AppModelType,
+  DbModelType extends DocumentData
+&gt;(
+  left:
+    | DocumentReference&lt;AppModelType, DbModelType&gt;
+    | CollectionReference&lt;AppModelType, DbModelType&gt;,
+  right:
+    | DocumentReference&lt;AppModelType, DbModelType&gt;
+    | CollectionReference&lt;AppModelType, DbModelType&gt;
+): boolean;</pre>
+<h4 id="parameters-25">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>left</td>
+<td>| <a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt; | <a href="firestore_lite.collectionreference">CollectionReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to compare.</td>
+</tr>
+<tr>
+<td>right</td>
+<td>| <a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt; | <a href="firestore_lite.collectionreference">CollectionReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to compare.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<p>true if the references point to the same location in the same Firestore database.</p>
+<h3 id="snapshotequal_af5ca65">snapshotEqual(left, right)</h3>
+<p>Returns true if the provided snapshots are equal.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function snapshotEqual&lt;
+  AppModelType,
+  DbModelType extends DocumentData
+&gt;(
+  left:
+    | DocumentSnapshot&lt;AppModelType, DbModelType&gt;
+    | QuerySnapshot&lt;AppModelType, DbModelType&gt;,
+  right:
+    | DocumentSnapshot&lt;AppModelType, DbModelType&gt;
+    | QuerySnapshot&lt;AppModelType, DbModelType&gt;
+): boolean;</pre>
+<h4 id="parameters-26">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>left</td>
+<td>| <a href="firestore_lite.documentsnapshot">DocumentSnapshot</a><!-- -->&lt;AppModelType, DbModelType&gt; | <a href="firestore_lite.querysnapshot">QuerySnapshot</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A snapshot to compare.</td>
+</tr>
+<tr>
+<td>right</td>
+<td>| <a href="firestore_lite.documentsnapshot">DocumentSnapshot</a><!-- -->&lt;AppModelType, DbModelType&gt; | <a href="firestore_lite.querysnapshot">QuerySnapshot</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A snapshot to compare.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<p>true if the snapshots are equal.</p>
+<h2 id="functionlimit-">function(limit, ...)</h2>
+<h3 id="limit_ec46c78">limit(limit)</h3>
+<p>Creates a <a href="firestore_lite.querylimitconstraint">QueryLimitConstraint</a> that only returns the first matching documents.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function limit(limit: number): QueryLimitConstraint;</pre>
+<h4 id="parameters-27">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>limit</td>
+<td>number</td>
+<td>The maximum number of items to return.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.querylimitconstraint">QueryLimitConstraint</a></p>
+<p>The created <a href="firestore_lite.querylimitconstraint">QueryLimitConstraint</a><!-- -->.</p>
+<h3 id="limittolast_ec46c78">limitToLast(limit)</h3>
+<p>Creates a <a href="firestore_lite.querylimitconstraint">QueryLimitConstraint</a> that only returns the last matching documents.</p>
+<p>You must specify at least one <code>orderBy</code> clause for <code>limitToLast</code> queries, otherwise an exception will be thrown during execution.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function limitToLast(limit: number): QueryLimitConstraint;</pre>
+<h4 id="parameters-28">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>limit</td>
+<td>number</td>
+<td>The maximum number of items to return.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.querylimitconstraint">QueryLimitConstraint</a></p>
+<p>The created <a href="firestore_lite.querylimitconstraint">QueryLimitConstraint</a><!-- -->.</p>
+<h2 id="functionloglevel-">function(logLevel, ...)</h2>
+<h3 id="setloglevel_d02fda2">setLogLevel(logLevel)</h3>
+<p>Sets the verbosity of Cloud Firestore logs (debug, error, or silent).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function setLogLevel(logLevel: LogLevel): void;</pre>
+<h4 id="parameters-29">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>logLevel</td>
+<td>LogLevel</td>
+<td>The verbosity you set for activity and error logging. Can be any of the following values:<ul> <li><code>debug</code> for the most verbose logging level, primarily for debugging.</li> <li><code>error</code> to log errors only.</li> <li><code><code>silent</code> to turn off logging.</li> </ul></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h2 id="functionn-">function(n, ...)</h2>
+<h3 id="increment_5685735">increment(n)</h3>
+<p>Returns a special value that can be used with <a href="firestore#setdoc_ee215ad">setDoc()</a> or <a href="firestore#updatedoc_51a65e3">updateDoc()</a> that tells the server to increment the field&#39;s current value by the given value.</p>
+<p>If either the operand or the current field value uses floating point precision, all arithmetic follows IEEE 754 semantics. If both values are integers, values outside of JavaScript&#39;s safe number range (<code>Number.MIN_SAFE_INTEGER</code> to <code>Number.MAX_SAFE_INTEGER</code><!-- -->) are also subject to precision loss. Furthermore, once processed by the Firestore backend, all integer operations are capped between -2^63 and 2^63-1.</p>
+<p>If the current field value is not of type <code>number</code><!-- -->, or if the field does not yet exist, the transformation sets the field to the given value.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function increment(n: number): FieldValue;</pre>
+<h4 id="parameters-30">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>n</td>
+<td>number</td>
+<td>The value to increment by.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.fieldvalue">FieldValue</a></p>
+<p>The <code>FieldValue</code> sentinel for use in a call to <code>setDoc()</code> or <code>updateDoc()</code></p>
+<h3 id="maximum_5685735">maximum(n)</h3>
+<p>Returns a special value that can be used with <a href="firestore#setdoc_ee215ad">setDoc()</a> or <a href="firestore#updatedoc_51a65e3">updateDoc()</a> that tells the server to set the field to the numeric maximum of the field&#39;s current and the given value.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function maximum(n: number): FieldValue;</pre>
+<h4 id="parameters-31">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>n</td>
+<td>number</td>
+<td>The value to compare to the existing field value.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.fieldvalue">FieldValue</a></p>
+<p>The <code>FieldValue</code> sentinel for use in a call to <code>setDoc()</code> or <code>updateDoc()</code></p>
+<h3 id="minimum_5685735">minimum(n)</h3>
+<p>Returns a special value that can be used with <a href="firestore#setdoc_ee215ad">setDoc()</a> or <a href="firestore#updatedoc_51a65e3">updateDoc()</a> that tells the server to set the field to the numeric minimum of the field&#39;s current and the given value.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function minimum(n: number): FieldValue;</pre>
+<h4 id="parameters-32">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>n</td>
+<td>number</td>
+<td>The value to compare to the existing field value.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.fieldvalue">FieldValue</a></p>
+<p>The <code>FieldValue</code> sentinel for use in a call to <code>setDoc()</code> or <code>updateDoc()</code></p>
+<h2 id="functionquery-">function(query, ...)</h2>
+<h3 id="getaggregate_2073a74">getAggregate(query, aggregateSpec)</h3>
+<p>Calculates the specified aggregations over the documents in the result set of the given query without actually downloading the documents.</p>
+<p>Using this function to perform aggregations is efficient because only the final aggregation values, not the documents&#39; data, are downloaded. This function can perform aggregations of the documents in cases where the result set is prohibitively large to download entirely (thousands of documents).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getAggregate&lt;
+  AggregateSpecType extends AggregateSpec,
+  AppModelType,
+  DbModelType extends DocumentData
+&gt;(
+  query: Query&lt;AppModelType, DbModelType&gt;,
+  aggregateSpec: AggregateSpecType
+): Promise&lt;
+  AggregateQuerySnapshot&lt;AggregateSpecType, AppModelType, DbModelType&gt;
+&gt;;</pre>
+<h4 id="parameters-33">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>query</td>
+<td><a href="firestore_lite.query">Query</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>The query whose result set is aggregated over.</td>
+</tr>
+<tr>
+<td>aggregateSpec</td>
+<td>AggregateSpecType</td>
+<td>An <code>AggregateSpec</code> object that specifies the aggregates to perform over the result set. The AggregateSpec specifies aliases for each aggregate, which can be used to retrieve the aggregate result.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt; <a href="firestore_lite.aggregatequerysnapshot">AggregateQuerySnapshot</a><!-- -->&lt;AggregateSpecType, AppModelType, DbModelType&gt; &gt;</p>
+<h3 id="example">Example</h3>
+<pre data-language="typescript">const aggregateSnapshot = await getAggregate(query, {
+  countOfDocs: count(),
+  totalHours: sum('hours'),
+  averageScore: average('score')
+});
+
+const countOfDocs: number = aggregateSnapshot.data().countOfDocs;
+const totalHours: number = aggregateSnapshot.data().totalHours;
+const averageScore: number | null = aggregateSnapshot.data().averageScore;</pre>
+<h3 id="getcount_4e56953">getCount(query)</h3>
+<p>Calculates the number of documents in the result set of the given query without actually downloading the documents.</p>
+<p>Using this function to count the documents is efficient because only the final count, not the documents&#39; data, is downloaded. This function can count the documents in cases where the result set is prohibitively large to download entirely (thousands of documents).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getCount&lt;
+  AppModelType,
+  DbModelType extends DocumentData
+&gt;(
+  query: Query&lt;AppModelType, DbModelType&gt;
+): Promise&lt;
+  AggregateQuerySnapshot&lt;
+    {
+      count: AggregateField&lt;number&gt;;
+    },
+    AppModelType,
+    DbModelType
+  &gt;
+&gt;;</pre>
+<h4 id="parameters-34">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>query</td>
+<td><a href="firestore_lite.query">Query</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>The query whose result set size is calculated.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt; <a href="firestore_lite.aggregatequerysnapshot">AggregateQuerySnapshot</a><!-- -->&lt; { count: <a href="firestore_lite.aggregatefield">AggregateField</a><!-- -->&lt;number&gt;; }, AppModelType, DbModelType &gt; &gt;</p>
+<p>A Promise that will be resolved with the count; the count can be retrieved from <code>snapshot.data().count</code><!-- -->, where <code>snapshot</code> is the <code>AggregateQuerySnapshot</code> to which the returned Promise resolves.</p>
+<h3 id="getdocs_4e56953">getDocs(query)</h3>
+<p>Executes the query and returns the results as a <a href="firestore_lite.querysnapshot">QuerySnapshot</a><!-- -->.</p>
+<p>All queries are executed directly by the server, even if the query was previously executed. Recent modifications are only reflected in the retrieved results if they have already been applied by the backend. If the client is offline, the operation fails. To see previously cached result and local modifications, use the full Firestore SDK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getDocs&lt;AppModelType, DbModelType extends DocumentData&gt;(
+  query: Query&lt;AppModelType, DbModelType&gt;
+): Promise&lt;QuerySnapshot&lt;AppModelType, DbModelType&gt;&gt;;</pre>
+<h4 id="parameters-35">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>query</td>
+<td><a href="firestore_lite.query">Query</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>The <code>Query</code> to execute.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="firestore_lite.querysnapshot">QuerySnapshot</a><!-- -->&lt;AppModelType, DbModelType&gt;&gt;</p>
+<p>A Promise that will be resolved with the results of the query.</p>
+<h3 id="query_9f7b0f4">query(query, compositeFilter, queryConstraints)</h3>
+<p>Creates a new immutable instance of <a href="firestore_lite.query">Query</a> that is extended to also include additional query constraints.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function query&lt;AppModelType, DbModelType extends DocumentData&gt;(
+  query: Query&lt;AppModelType, DbModelType&gt;,
+  compositeFilter: QueryCompositeFilterConstraint,
+  ...queryConstraints: QueryNonFilterConstraint[]
+): Query&lt;AppModelType, DbModelType&gt;;</pre>
+<h4 id="parameters-36">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>query</td>
+<td><a href="firestore_lite.query">Query</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>The <a href="firestore_lite.query">Query</a> instance to use as a base for the new constraints.</td>
+</tr>
+<tr>
+<td>compositeFilter</td>
+<td><a href="firestore_lite.querycompositefilterconstraint">QueryCompositeFilterConstraint</a></td>
+<td>The <a href="firestore_lite.querycompositefilterconstraint">QueryCompositeFilterConstraint</a> to apply. Create <a href="firestore_lite.querycompositefilterconstraint">QueryCompositeFilterConstraint</a> using <a href="firestore_lite#and_e72c712">and()</a> or <a href="firestore_lite#or_e72c712">or()</a><!-- -->.</td>
+</tr>
+<tr>
+<td>queryConstraints</td>
+<td><a href="firestore_lite#querynonfilterconstraint">QueryNonFilterConstraint</a><!-- -->[]</td>
+<td>Additional <a href="firestore_lite#querynonfilterconstraint">QueryNonFilterConstraint</a><!-- -->s to apply (e.g. <a href="firestore_lite#orderby_006d61f">orderBy()</a><!-- -->, <a href="firestore_lite#limit_ec46c78">limit()</a><!-- -->).</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.query">Query</a><!-- -->&lt;AppModelType, DbModelType&gt;</p>
+<h4 id="exceptions-2">Exceptions</h4>
+<p>if any of the provided query constraints cannot be combined with the existing or new constraints.</p>
+<h3 id="query_0f46da1">query(query, queryConstraints)</h3>
+<p>Creates a new immutable instance of <a href="firestore_lite.query">Query</a> that is extended to also include additional query constraints.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function query&lt;AppModelType, DbModelType extends DocumentData&gt;(
+  query: Query&lt;AppModelType, DbModelType&gt;,
+  ...queryConstraints: QueryConstraint[]
+): Query&lt;AppModelType, DbModelType&gt;;</pre>
+<h4 id="parameters-37">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>query</td>
+<td><a href="firestore_lite.query">Query</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>The <a href="firestore_lite.query">Query</a> instance to use as a base for the new constraints.</td>
+</tr>
+<tr>
+<td>queryConstraints</td>
+<td><a href="firestore_lite.queryconstraint">QueryConstraint</a><!-- -->[]</td>
+<td>The list of <a href="firestore_lite.queryconstraint">QueryConstraint</a><!-- -->s to apply.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.query">Query</a><!-- -->&lt;AppModelType, DbModelType&gt;</p>
+<h4 id="exceptions-3">Exceptions</h4>
+<p>if any of the provided query constraints cannot be combined with the existing or new constraints.</p>
+<h2 id="functionqueryconstraints-">function(queryConstraints, ...)</h2>
+<h3 id="and_e72c712">and(queryConstraints)</h3>
+<p>Creates a new <a href="firestore_lite.querycompositefilterconstraint">QueryCompositeFilterConstraint</a> that is a conjunction of the given filter constraints. A conjunction filter includes a document if it satisfies all of the given filters.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function and(
+  ...queryConstraints: QueryFilterConstraint[]
+): QueryCompositeFilterConstraint;</pre>
+<h4 id="parameters-38">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>queryConstraints</td>
+<td><a href="firestore_lite#queryfilterconstraint">QueryFilterConstraint</a><!-- -->[]</td>
+<td>Optional. The list of <a href="firestore_lite#queryfilterconstraint">QueryFilterConstraint</a><!-- -->s to perform a conjunction for. These must be created with calls to <a href="firestore_lite#where_0fae4bf">where()</a><!-- -->, <a href="firestore_lite#or_e72c712">or()</a><!-- -->, or <a href="firestore_lite#and_e72c712">and()</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.querycompositefilterconstraint">QueryCompositeFilterConstraint</a></p>
+<p>The newly created <a href="firestore_lite.querycompositefilterconstraint">QueryCompositeFilterConstraint</a><!-- -->.</p>
+<h3 id="or_e72c712">or(queryConstraints)</h3>
+<p>Creates a new <a href="firestore_lite.querycompositefilterconstraint">QueryCompositeFilterConstraint</a> that is a disjunction of the given filter constraints. A disjunction filter includes a document if it satisfies any of the given filters.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function or(
+  ...queryConstraints: QueryFilterConstraint[]
+): QueryCompositeFilterConstraint;</pre>
+<h4 id="parameters-39">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>queryConstraints</td>
+<td><a href="firestore_lite#queryfilterconstraint">QueryFilterConstraint</a><!-- -->[]</td>
+<td>Optional. The list of <a href="firestore_lite#queryfilterconstraint">QueryFilterConstraint</a><!-- -->s to perform a disjunction for. These must be created with calls to <a href="firestore_lite#where_0fae4bf">where()</a><!-- -->, <a href="firestore_lite#or_e72c712">or()</a><!-- -->, or <a href="firestore_lite#and_e72c712">and()</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.querycompositefilterconstraint">QueryCompositeFilterConstraint</a></p>
+<p>The newly created <a href="firestore_lite.querycompositefilterconstraint">QueryCompositeFilterConstraint</a><!-- -->.</p>
+<h2 id="functionreference-">function(reference, ...)</h2>
+<h3 id="adddoc_6e783ff">addDoc(reference, data)</h3>
+<p>Add a new document to specified <code>CollectionReference</code> with the given data, assigning it a document ID automatically.</p>
+<p>The result of this write will only be reflected in document reads that occur after the returned promise resolves. If the client is offline, the write fails. If you would like to see local modifications or buffer writes until the client is online, use the full Firestore SDK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function addDoc&lt;AppModelType, DbModelType extends DocumentData&gt;(
+  reference: CollectionReference&lt;AppModelType, DbModelType&gt;,
+  data: WithFieldValue&lt;AppModelType&gt;
+): Promise&lt;DocumentReference&lt;AppModelType, DbModelType&gt;&gt;;</pre>
+<h4 id="parameters-40">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>reference</td>
+<td><a href="firestore_lite.collectionreference">CollectionReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to the collection to add this document to.</td>
+</tr>
+<tr>
+<td>data</td>
+<td><a href="firestore_lite#withfieldvalue">WithFieldValue</a><!-- -->&lt;AppModelType&gt;</td>
+<td>An Object containing the data for the new document.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt;&gt;</p>
+<p>A <code>Promise</code> resolved with a <code>DocumentReference</code> pointing to the newly created document after it has been written to the backend.</p>
+<h4 id="exceptions-4">Exceptions</h4>
+<p>Error - If the provided input is not a valid Firestore document.</p>
+<h3 id="collection_568f98d">collection(reference, path, pathSegments)</h3>
+<p>Gets a <code>CollectionReference</code> instance that refers to a subcollection of <code>reference</code> at the specified relative path.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function collection&lt;
+  AppModelType,
+  DbModelType extends DocumentData
+&gt;(
+  reference: CollectionReference&lt;AppModelType, DbModelType&gt;,
+  path: string,
+  ...pathSegments: string[]
+): CollectionReference&lt;DocumentData, DocumentData&gt;;</pre>
+<h4 id="parameters-41">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>reference</td>
+<td><a href="firestore_lite.collectionreference">CollectionReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to a collection.</td>
+</tr>
+<tr>
+<td>path</td>
+<td>string</td>
+<td>A slash-separated path to a collection.</td>
+</tr>
+<tr>
+<td>pathSegments</td>
+<td>string[]</td>
+<td>Additional path segments to apply relative to the first argument.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.collectionreference">CollectionReference</a><!-- -->&lt;<a href="firestore_lite.documentdata">DocumentData</a><!-- -->, <a href="firestore_lite.documentdata">DocumentData</a><!-- -->&gt;</p>
+<p>The <code>CollectionReference</code> instance.</p>
+<h4 id="exceptions-5">Exceptions</h4>
+<p>If the final path has an even number of segments and does not point to a collection.</p>
+<h3 id="collection_70b4396">collection(reference, path, pathSegments)</h3>
+<p>Gets a <code>CollectionReference</code> instance that refers to a subcollection of <code>reference</code> at the specified relative path.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function collection&lt;
+  AppModelType,
+  DbModelType extends DocumentData
+&gt;(
+  reference: DocumentReference&lt;AppModelType, DbModelType&gt;,
+  path: string,
+  ...pathSegments: string[]
+): CollectionReference&lt;DocumentData, DocumentData&gt;;</pre>
+<h4 id="parameters-42">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>reference</td>
+<td><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to a Firestore document.</td>
+</tr>
+<tr>
+<td>path</td>
+<td>string</td>
+<td>A slash-separated path to a collection.</td>
+</tr>
+<tr>
+<td>pathSegments</td>
+<td>string[]</td>
+<td>Additional path segments that will be applied relative to the first argument.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.collectionreference">CollectionReference</a><!-- -->&lt;<a href="firestore_lite.documentdata">DocumentData</a><!-- -->, <a href="firestore_lite.documentdata">DocumentData</a><!-- -->&gt;</p>
+<p>The <code>CollectionReference</code> instance.</p>
+<h4 id="exceptions-6">Exceptions</h4>
+<p>If the final path has an even number of segments and does not point to a collection.</p>
+<h3 id="deletedoc_4569087">deleteDoc(reference)</h3>
+<p>Deletes the document referred to by the specified <code>DocumentReference</code><!-- -->.</p>
+<p>The deletion will only be reflected in document reads that occur after the returned promise resolves. If the client is offline, the delete fails. If you would like to see local modifications or buffer writes until the client is online, use the full Firestore SDK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function deleteDoc&lt;
+  AppModelType,
+  DbModelType extends DocumentData
+&gt;(reference: DocumentReference&lt;AppModelType, DbModelType&gt;): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-43">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>reference</td>
+<td><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to the document to delete.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<p>A <code>Promise</code> resolved once the document has been successfully deleted from the backend.</p>
+<h3 id="doc_568f98d">doc(reference, path, pathSegments)</h3>
+<p>Gets a <code>DocumentReference</code> instance that refers to a document within <code>reference</code> at the specified relative path. If no path is specified, an automatically-generated unique ID will be used for the returned <code>DocumentReference</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function doc&lt;AppModelType, DbModelType extends DocumentData&gt;(
+  reference: CollectionReference&lt;AppModelType, DbModelType&gt;,
+  path?: string,
+  ...pathSegments: string[]
+): DocumentReference&lt;AppModelType, DbModelType&gt;;</pre>
+<h4 id="parameters-44">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>reference</td>
+<td><a href="firestore_lite.collectionreference">CollectionReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to a collection.</td>
+</tr>
+<tr>
+<td>path</td>
+<td>string</td>
+<td>A slash-separated path to a document. Has to be omitted to use auto-generated IDs.</td>
+</tr>
+<tr>
+<td>pathSegments</td>
+<td>string[]</td>
+<td>Additional path segments that will be applied relative to the first argument.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</p>
+<p>The <code>DocumentReference</code> instance.</p>
+<h4 id="exceptions-7">Exceptions</h4>
+<p>If the final path has an odd number of segments and does not point to a document.</p>
+<h3 id="doc_70b4396">doc(reference, path, pathSegments)</h3>
+<p>Gets a <code>DocumentReference</code> instance that refers to a document within <code>reference</code> at the specified relative path.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function doc&lt;AppModelType, DbModelType extends DocumentData&gt;(
+  reference: DocumentReference&lt;AppModelType, DbModelType&gt;,
+  path: string,
+  ...pathSegments: string[]
+): DocumentReference&lt;DocumentData, DocumentData&gt;;</pre>
+<h4 id="parameters-45">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>reference</td>
+<td><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to a Firestore document.</td>
+</tr>
+<tr>
+<td>path</td>
+<td>string</td>
+<td>A slash-separated path to a document.</td>
+</tr>
+<tr>
+<td>pathSegments</td>
+<td>string[]</td>
+<td>Additional path segments that will be applied relative to the first argument.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;<a href="firestore_lite.documentdata">DocumentData</a><!-- -->, <a href="firestore_lite.documentdata">DocumentData</a><!-- -->&gt;</p>
+<p>The <code>DocumentReference</code> instance.</p>
+<h4 id="exceptions-8">Exceptions</h4>
+<p>If the final path has an odd number of segments and does not point to a document.</p>
+<h3 id="getdoc_4569087">getDoc(reference)</h3>
+<p>Reads the document referred to by the specified document reference.</p>
+<p>All documents are directly fetched from the server, even if the document was previously read or modified. Recent modifications are only reflected in the retrieved <code>DocumentSnapshot</code> if they have already been applied by the backend. If the client is offline, the read fails. If you like to use caching or see local modifications, please use the full Firestore SDK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getDoc&lt;AppModelType, DbModelType extends DocumentData&gt;(
+  reference: DocumentReference&lt;AppModelType, DbModelType&gt;
+): Promise&lt;DocumentSnapshot&lt;AppModelType, DbModelType&gt;&gt;;</pre>
+<h4 id="parameters-46">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>reference</td>
+<td><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>The reference of the document to fetch.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="firestore_lite.documentsnapshot">DocumentSnapshot</a><!-- -->&lt;AppModelType, DbModelType&gt;&gt;</p>
+<p>A Promise resolved with a <code>DocumentSnapshot</code> containing the current document contents.</p>
+<h3 id="setdoc_ee215ad">setDoc(reference, data)</h3>
+<p>Writes to the document referred to by the specified <code>DocumentReference</code><!-- -->. If the document does not yet exist, it will be created.</p>
+<p>The result of this write will only be reflected in document reads that occur after the returned promise resolves. If the client is offline, the write fails. If you would like to see local modifications or buffer writes until the client is online, use the full Firestore SDK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function setDoc&lt;AppModelType, DbModelType extends DocumentData&gt;(
+  reference: DocumentReference&lt;AppModelType, DbModelType&gt;,
+  data: WithFieldValue&lt;AppModelType&gt;
+): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-47">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>reference</td>
+<td><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to the document to write.</td>
+</tr>
+<tr>
+<td>data</td>
+<td><a href="firestore_lite#withfieldvalue">WithFieldValue</a><!-- -->&lt;AppModelType&gt;</td>
+<td>A map of the fields and values for the document.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<p>A <code>Promise</code> resolved once the data has been successfully written to the backend.</p>
+<h4 id="exceptions-9">Exceptions</h4>
+<p>Error - If the provided input is not a valid Firestore document.</p>
+<h3 id="setdoc_ff80739">setDoc(reference, data, options)</h3>
+<p>Writes to the document referred to by the specified <code>DocumentReference</code><!-- -->. If the document does not yet exist, it will be created. If you provide <code>merge</code> or <code>mergeFields</code><!-- -->, the provided data can be merged into an existing document.</p>
+<p>The result of this write will only be reflected in document reads that occur after the returned promise resolves. If the client is offline, the write fails. If you would like to see local modifications or buffer writes until the client is online, use the full Firestore SDK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function setDoc&lt;AppModelType, DbModelType extends DocumentData&gt;(
+  reference: DocumentReference&lt;AppModelType, DbModelType&gt;,
+  data: PartialWithFieldValue&lt;AppModelType&gt;,
+  options: SetOptions
+): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-48">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>reference</td>
+<td><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to the document to write.</td>
+</tr>
+<tr>
+<td>data</td>
+<td><a href="firestore_lite#partialwithfieldvalue">PartialWithFieldValue</a><!-- -->&lt;AppModelType&gt;</td>
+<td>A map of the fields and values for the document.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="firestore_lite#setoptions">SetOptions</a></td>
+<td>An object to configure the set behavior.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<p>A <code>Promise</code> resolved once the data has been successfully written to the backend.</p>
+<h4 id="exceptions-10">Exceptions</h4>
+<p>Error - If the provided input is not a valid Firestore document.</p>
+<h3 id="updatedoc_51a65e3">updateDoc(reference, data)</h3>
+<p>Updates fields in the document referred to by the specified <code>DocumentReference</code><!-- -->. The update will fail if applied to a document that does not exist.</p>
+<p>The result of this update will only be reflected in document reads that occur after the returned promise resolves. If the client is offline, the update fails. If you would like to see local modifications or buffer writes until the client is online, use the full Firestore SDK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function updateDoc&lt;
+  AppModelType,
+  DbModelType extends DocumentData
+&gt;(
+  reference: DocumentReference&lt;AppModelType, DbModelType&gt;,
+  data: UpdateData&lt;DbModelType&gt;
+): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-49">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>reference</td>
+<td><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to the document to update.</td>
+</tr>
+<tr>
+<td>data</td>
+<td><a href="firestore_lite#updatedata">UpdateData</a><!-- -->&lt;DbModelType&gt;</td>
+<td>An object containing the fields and values with which to update the document. Fields can contain dots to reference nested fields within the document.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<p>A <code>Promise</code> resolved once the data has been successfully written to the backend.</p>
+<h4 id="exceptions-11">Exceptions</h4>
+<p>Error - If the provided input is not valid Firestore data.</p>
+<h3 id="updatedoc_7c28659">updateDoc(reference, field, value, moreFieldsAndValues)</h3>
+<p>Updates fields in the document referred to by the specified <code>DocumentReference</code> The update will fail if applied to a document that does not exist.</p>
+<p>Nested fields can be updated by providing dot-separated field path strings or by providing <code>FieldPath</code> objects.</p>
+<p>The result of this update will only be reflected in document reads that occur after the returned promise resolves. If the client is offline, the update fails. If you would like to see local modifications or buffer writes until the client is online, use the full Firestore SDK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function updateDoc&lt;
+  AppModelType,
+  DbModelType extends DocumentData
+&gt;(
+  reference: DocumentReference&lt;AppModelType, DbModelType&gt;,
+  field: string | FieldPath,
+  value: unknown,
+  ...moreFieldsAndValues: unknown[]
+): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-50">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>reference</td>
+<td><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>A reference to the document to update.</td>
+</tr>
+<tr>
+<td>field</td>
+<td>string | <a href="firestore_lite.fieldpath">FieldPath</a></td>
+<td>The first field to update.</td>
+</tr>
+<tr>
+<td>value</td>
+<td>unknown</td>
+<td>The first value.</td>
+</tr>
+<tr>
+<td>moreFieldsAndValues</td>
+<td>unknown[]</td>
+<td>Additional key value pairs.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<p>A <code>Promise</code> resolved once the data has been successfully written to the backend.</p>
+<h4 id="exceptions-12">Exceptions</h4>
+<p>Error - If the provided input is not valid Firestore data.</p>
+<h2 id="functionsnapshot-">function(snapshot, ...)</h2>
+<h3 id="endat_9a4477f">endAt(snapshot)</h3>
+<p>Creates a <a href="firestore_lite.queryendatconstraint">QueryEndAtConstraint</a> that modifies the result set to end at the provided document (inclusive). The end position is relative to the order of the query. The document must contain all of the fields provided in the orderBy of the query.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function endAt&lt;AppModelType, DbModelType extends DocumentData&gt;(
+  snapshot: DocumentSnapshot&lt;AppModelType, DbModelType&gt;
+): QueryEndAtConstraint;</pre>
+<h4 id="parameters-51">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>snapshot</td>
+<td><a href="firestore_lite.documentsnapshot">DocumentSnapshot</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>The snapshot of the document to end at.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.queryendatconstraint">QueryEndAtConstraint</a></p>
+<p>A <a href="firestore_lite.queryendatconstraint">QueryEndAtConstraint</a> to pass to <code>query()</code></p>
+<h3 id="endbefore_9a4477f">endBefore(snapshot)</h3>
+<p>Creates a <a href="firestore_lite.queryendatconstraint">QueryEndAtConstraint</a> that modifies the result set to end before the provided document (exclusive). The end position is relative to the order of the query. The document must contain all of the fields provided in the orderBy of the query.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function endBefore&lt;
+  AppModelType,
+  DbModelType extends DocumentData
+&gt;(snapshot: DocumentSnapshot&lt;AppModelType, DbModelType&gt;): QueryEndAtConstraint;</pre>
+<h4 id="parameters-52">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>snapshot</td>
+<td><a href="firestore_lite.documentsnapshot">DocumentSnapshot</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>The snapshot of the document to end before.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.queryendatconstraint">QueryEndAtConstraint</a></p>
+<p>A <a href="firestore_lite.queryendatconstraint">QueryEndAtConstraint</a> to pass to <code>query()</code></p>
+<h3 id="startafter_9a4477f">startAfter(snapshot)</h3>
+<p>Creates a <a href="firestore_lite.querystartatconstraint">QueryStartAtConstraint</a> that modifies the result set to start after the provided document (exclusive). The starting position is relative to the order of the query. The document must contain all of the fields provided in the orderBy of the query.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function startAfter&lt;
+  AppModelType,
+  DbModelType extends DocumentData
+&gt;(
+  snapshot: DocumentSnapshot&lt;AppModelType, DbModelType&gt;
+): QueryStartAtConstraint;</pre>
+<h4 id="parameters-53">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>snapshot</td>
+<td><a href="firestore_lite.documentsnapshot">DocumentSnapshot</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>The snapshot of the document to start after.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.querystartatconstraint">QueryStartAtConstraint</a></p>
+<p>A <a href="firestore_lite.querystartatconstraint">QueryStartAtConstraint</a> to pass to <code>query()</code></p>
+<h3 id="startat_9a4477f">startAt(snapshot)</h3>
+<p>Creates a <a href="firestore_lite.querystartatconstraint">QueryStartAtConstraint</a> that modifies the result set to start at the provided document (inclusive). The starting position is relative to the order of the query. The document must contain all of the fields provided in the <code>orderBy</code> of this query.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function startAt&lt;AppModelType, DbModelType extends DocumentData&gt;(
+  snapshot: DocumentSnapshot&lt;AppModelType, DbModelType&gt;
+): QueryStartAtConstraint;</pre>
+<h4 id="parameters-54">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>snapshot</td>
+<td><a href="firestore_lite.documentsnapshot">DocumentSnapshot</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>The snapshot of the document to start at.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.querystartatconstraint">QueryStartAtConstraint</a></p>
+<p>A <a href="firestore_lite.querystartatconstraint">QueryStartAtConstraint</a> to pass to <code>query()</code><!-- -->.</p>
+<h2 id="functionvalues-">function(values, ...)</h2>
+<h3 id="vector_0dbdaf2">vector(values)</h3>
+<p>Creates a new <code>VectorValue</code> constructed with a copy of the given array of numbers.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function vector(values?: number[]): VectorValue;</pre>
+<h4 id="parameters-55">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>values</td>
+<td>number[]</td>
+<td>Create a <code>VectorValue</code> instance with a copy of this array of numbers.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.vectorvalue">VectorValue</a></p>
+<p>A new <code>VectorValue</code> constructed with a copy of the given array of numbers.</p>
+<h2 id="addprefixtokeys">AddPrefixToKeys</h2>
+<p>Returns a new map where every key is prefixed with the outer key appended to a dot.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type AddPrefixToKeys&lt;
+  Prefix extends string,
+  T extends Record&lt;string, unknown&gt;
+&gt; = {
+  [K in keyof T &amp; string as `${Prefix}.${K}`]+?: string extends K
+    ? PartialWithFieldValue&lt;ChildTypes&lt;T[K]&gt;&gt; | FieldValue
+    : T[K];
+};</pre>
+<h2 id="aggregatefieldtype">AggregateFieldType</h2>
+<p>The union of all <code>AggregateField</code> types that are supported by Firestore.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type AggregateFieldType =
+  | ReturnType&lt;typeof sum&gt;
+  | ReturnType&lt;typeof average&gt;
+  | ReturnType&lt;typeof count&gt;;</pre>
+<h2 id="aggregatespecdata">AggregateSpecData</h2>
+<p>A type whose keys are taken from an <code>AggregateSpec</code><!-- -->, and whose values are the result of the aggregation performed by the corresponding <code>AggregateField</code> from the input <code>AggregateSpec</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type AggregateSpecData&lt;T extends AggregateSpec&gt; = {
+  [P in keyof T]: T[P] extends AggregateField&lt;infer U&gt; ? U : never;
+};</pre>
+<h2 id="aggregatetype">AggregateType</h2>
+<p>Union type representing the aggregate type to be performed.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type AggregateType = 'count' | 'avg' | 'sum';</pre>
+<h2 id="childtypes">ChildTypes</h2>
+<p>For the given type, return a union type of T and the types of all child properties of T.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type ChildTypes&lt;T&gt; = T extends Record&lt;string, unknown&gt;
+  ?
+      | {
+          [K in keyof T &amp; string]: ChildTypes&lt;T[K]&gt;;
+        }[keyof T &amp; string]
+      | T
+  : T;</pre>
+<h2 id="childupdatefields">ChildUpdateFields</h2>
+<p>Helper for calculating the nested fields for a given type T1. This is needed to distribute union types such as <code>undefined | {...}</code> (happens for optional props) or <code>{a: A} | {b: B}</code><!-- -->.</p>
+<p>In this use case, <code>V</code> is used to distribute the union types of <code>T[K]</code> on <code>Record</code><!-- -->, since <code>T[K]</code> is evaluated as an expression and not distributed.</p>
+<p>See <a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html\#distributive-conditional-types">https://www.typescriptlang.org/docs/handbook/advanced-types.html\#distributive-conditional-types</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type ChildUpdateFields&lt;K extends string, V&gt; = V extends Record&lt;
+  string,
+  unknown
+&gt;
+  ? AddPrefixToKeys&lt;K, UpdateData&lt;V&gt;&gt;
+  : never;</pre>
+<h2 id="firestoreerrorcode">FirestoreErrorCode</h2>
+<p>The set of Firestore status codes. The codes are the same at the ones exposed by gRPC here: <a href="https://github.com/grpc/grpc/blob/master/doc/statuscodes.md">https://github.com/grpc/grpc/blob/master/doc/statuscodes.md</a></p>
+<p>Possible values: - &#39;cancelled&#39;: The operation was cancelled (typically by the caller). - &#39;unknown&#39;: Unknown error or an error from a different error domain. - &#39;invalid-argument&#39;: Client specified an invalid argument. Note that this differs from &#39;failed-precondition&#39;. &#39;invalid-argument&#39; indicates arguments that are problematic regardless of the state of the system (e.g. an invalid field name). - &#39;deadline-exceeded&#39;: Deadline expired before operation could complete. For operations that change the state of the system, this error may be returned even if the operation has completed successfully. For example, a successful response from a server could have been delayed long enough for the deadline to expire. - &#39;not-found&#39;: Some requested document was not found. - &#39;already-exists&#39;: Some document that we attempted to create already exists. - &#39;permission-denied&#39;: The caller does not have permission to execute the specified operation. - &#39;resource-exhausted&#39;: Some resource has been exhausted, perhaps a per-user quota, or perhaps the entire file system is out of space. - &#39;failed-precondition&#39;: Operation was rejected because the system is not in a state required for the operation&#39;s execution. - &#39;aborted&#39;: The operation was aborted, typically due to a concurrency issue like transaction aborts, etc. - &#39;out-of-range&#39;: Operation was attempted past the valid range. - &#39;unimplemented&#39;: Operation is not implemented or not supported/enabled. - &#39;internal&#39;: Internal errors. Means some invariants expected by underlying system has been broken. If you see one of these errors, something is very broken. - &#39;unavailable&#39;: The service is currently unavailable. This is most likely a transient condition and may be corrected by retrying with a backoff. - &#39;data-loss&#39;: Unrecoverable data loss or corruption. - &#39;unauthenticated&#39;: The request does not have valid authentication credentials for the operation.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type FirestoreErrorCode =
+  | 'cancelled'
+  | 'unknown'
+  | 'invalid-argument'
+  | 'deadline-exceeded'
+  | 'not-found'
+  | 'already-exists'
+  | 'permission-denied'
+  | 'resource-exhausted'
+  | 'failed-precondition'
+  | 'aborted'
+  | 'out-of-range'
+  | 'unimplemented'
+  | 'internal'
+  | 'unavailable'
+  | 'data-loss'
+  | 'unauthenticated';</pre>
+<h2 id="nestedupdatefields">NestedUpdateFields</h2>
+<p>For each field (e.g. &#39;bar&#39;), find all nested keys (e.g. {<!-- -->&#39;bar.baz&#39;: T1, &#39;bar.qux&#39;: T2<!-- -->}<!-- -->). Intersect them together to make a single map containing all possible keys that are all marked as optional</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type NestedUpdateFields&lt;T extends Record&lt;string, unknown&gt;&gt; =
+  UnionToIntersection&lt;
+    {
+      [K in keyof T &amp; string]: string extends K
+        ? never
+        : ChildUpdateFields&lt;K, T[K]&gt;;
+    }[keyof T &amp; string]
+  &gt;;</pre>
+<h2 id="orderbydirection">OrderByDirection</h2>
+<p>The direction of a <a href="firestore_lite#orderby_006d61f">orderBy()</a> clause is specified as &#39;desc&#39; or &#39;asc&#39; (descending or ascending).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type OrderByDirection = 'desc' | 'asc';</pre>
+<h2 id="partialwithfieldvalue">PartialWithFieldValue</h2>
+<p>Similar to TypeScript&#39;s <code>Partial&lt;T&gt;</code><!-- -->, but allows nested fields to be omitted and FieldValues to be passed in as property values.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type PartialWithFieldValue&lt;T&gt; =
+  | Partial&lt;T&gt;
+  | (T extends Primitive
+      ? T
+      : T extends {}
+      ? {
+          [K in keyof T]?: PartialWithFieldValue&lt;T[K]&gt; | FieldValue;
+        }
+      : never);</pre>
+<h2 id="primitive">Primitive</h2>
+<p>Primitive types.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type Primitive = string | number | boolean | undefined | null;</pre>
+<h2 id="queryconstrainttype">QueryConstraintType</h2>
+<p>Describes the different query constraints available in this SDK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type QueryConstraintType =
+  | 'where'
+  | 'orderBy'
+  | 'limit'
+  | 'limitToLast'
+  | 'startAt'
+  | 'startAfter'
+  | 'endAt'
+  | 'endBefore';</pre>
+<h2 id="queryfilterconstraint">QueryFilterConstraint</h2>
+<p><code>QueryFilterConstraint</code> is a helper union type that represents <a href="firestore_lite.queryfieldfilterconstraint">QueryFieldFilterConstraint</a> and <a href="firestore_lite.querycompositefilterconstraint">QueryCompositeFilterConstraint</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type QueryFilterConstraint =
+  | QueryFieldFilterConstraint
+  | QueryCompositeFilterConstraint;</pre>
+<h2 id="querynonfilterconstraint">QueryNonFilterConstraint</h2>
+<p><code>QueryNonFilterConstraint</code> is a helper union type that represents QueryConstraints which are used to narrow or order the set of documents, but that do not explicitly filter on a document field. <code>QueryNonFilterConstraint</code><!-- -->s are created by invoking <a href="firestore_lite#orderby_006d61f">orderBy()</a><!-- -->, <a href="firestore_lite#startat_9a4477f">startAt()</a><!-- -->, <a href="firestore_lite#startafter_9a4477f">startAfter()</a><!-- -->, <a href="firestore_lite#endbefore_9a4477f">endBefore()</a><!-- -->, <a href="firestore_lite#endat_9a4477f">endAt()</a><!-- -->, <a href="firestore_lite#limit_ec46c78">limit()</a> or <a href="firestore_lite#limittolast_ec46c78">limitToLast()</a> and can then be passed to <a href="firestore_lite#query_9f7b0f4">query()</a> to create a new query instance that also contains the <code>QueryConstraint</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type QueryNonFilterConstraint =
+  | QueryOrderByConstraint
+  | QueryLimitConstraint
+  | QueryStartAtConstraint
+  | QueryEndAtConstraint;</pre>
+<h2 id="setoptions">SetOptions</h2>
+<p>An options object that configures the behavior of <a href="firestore#setdoc_ee215ad">setDoc()</a><!-- -->,  and  calls. These calls can be configured to perform granular merges instead of overwriting the target documents in their entirety by providing a <code>SetOptions</code> with <code>merge: true</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type SetOptions =
+  | {
+      readonly merge?: boolean;
+    }
+  | {
+      readonly mergeFields?: Array&lt;string | FieldPath&gt;;
+    };</pre>
+<h2 id="uniontointersection">UnionToIntersection</h2>
+<p>Given a union type <code>U = T1 | T2 | ...</code><!-- -->, returns an intersected type <code>(T1 &amp; T2 &amp; ...)</code><!-- -->.</p>
+<p>Uses distributive conditional types and inference from conditional types. This works because multiple candidates for the same type variable in contra-variant positions causes an intersection type to be inferred. <a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html\#type-inference-in-conditional-types">https://www.typescriptlang.org/docs/handbook/advanced-types.html\#type-inference-in-conditional-types</a> <a href="https://stackoverflow.com/questions/50374908/transform-union-type-to-intersection-type">https://stackoverflow.com/questions/50374908/transform-union-type-to-intersection-type</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type UnionToIntersection&lt;U&gt; = (
+  U extends unknown ? (k: U) =&gt; void : never
+) extends (k: infer I) =&gt; void
+  ? I
+  : never;</pre>
+<h2 id="updatedata">UpdateData</h2>
+<p>Update data (for use with <a href="firestore_lite#updatedoc_51a65e3">updateDoc()</a><!-- -->) that consists of field paths (e.g. &#39;foo&#39; or &#39;foo.baz&#39;) mapped to values. Fields that contain dots reference nested fields within the document. FieldValues can be passed in as property values.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type UpdateData&lt;T&gt; = T extends Primitive
+  ? T
+  : T extends {}
+  ? {
+      [K in keyof T]?: string extends K
+        ? PartialWithFieldValue&lt;ChildTypes&lt;T[K]&gt;&gt; | FieldValue
+        : UpdateData&lt;T[K]&gt; | FieldValue;
+    } &amp; NestedUpdateFields&lt;T&gt;
+  : Partial&lt;T&gt;;</pre>
+<h2 id="wherefilterop">WhereFilterOp</h2>
+<p>Filter conditions in a <a href="firestore_lite#where_0fae4bf">where()</a> clause are specified using the strings &#39;&amp;lt;&#39;, &#39;&amp;lt;=&#39;, &#39;==&#39;, &#39;!=&#39;, &#39;&amp;gt;=&#39;, &#39;&amp;gt;&#39;, &#39;array-contains&#39;, &#39;in&#39;, &#39;array-contains-any&#39;, and &#39;not-in&#39;.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type WhereFilterOp =
+  | '&lt;'
+  | '&lt;='
+  | '=='
+  | '!='
+  | '&gt;='
+  | '&gt;'
+  | 'array-contains'
+  | 'in'
+  | 'array-contains-any'
+  | 'not-in';</pre>
+<h2 id="withfieldvalue">WithFieldValue</h2>
+<p>Allows FieldValues to be passed in as a property value while maintaining type safety.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare type WithFieldValue&lt;T&gt; =
+  | T
+  | (T extends Primitive
+      ? T
+      : T extends {}
+      ? {
+          [K in keyof T]: WithFieldValue&lt;T[K]&gt; | FieldValue;
+        }
+      : never);</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_lite" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_lite</a>
+  </p>
+</div>

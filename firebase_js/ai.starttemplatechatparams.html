@@ -1,0 +1,60 @@
+<h1>StartTemplateChatParams interface</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Parameters for starting a template-based chat session with <a href="ai.templategenerativemodel#templategenerativemodelstartchat">TemplateGenerativeModel.startChat()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface StartTemplateChatParams extends Omit&lt;StartChatParams, 'tools'&gt; </pre>
+<p><b>Extends:</b> Omit&lt;<a href="ai.startchatparams">StartChatParams</a><!-- -->, &#39;tools&#39;&gt;</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.starttemplatechatparams#starttemplatechatparamstemplateid">templateId</a></td>
+<td>string</td>
+<td><b><i>(Public Preview)</i></b> The ID of the server prompt template to use.</td>
+</tr>
+<tr>
+<td><a href="ai.starttemplatechatparams#starttemplatechatparamstemplatevariables">templateVariables</a></td>
+<td>Record&lt;string, unknown&gt;</td>
+<td><b><i>(Public Preview)</i></b> A key-value map of variables to populate the template with.</td>
+</tr>
+<tr>
+<td><a href="ai.starttemplatechatparams#starttemplatechatparamstools">tools</a></td>
+<td><a href="ai#templatetool">TemplateTool</a><!-- -->[]</td>
+<td><b><i>(Public Preview)</i></b> Optional. A list of template tools that the model can use to access external systems or execute client functions.</td>
+</tr>
+</tbody></table>
+<h2 id="starttemplatechatparamstemplateid">StartTemplateChatParams.templateId</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The ID of the server prompt template to use.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">templateId: string;</pre>
+<h2 id="starttemplatechatparamstemplatevariables">StartTemplateChatParams.templateVariables</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>A key-value map of variables to populate the template with.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">templateVariables: Record&lt;string, unknown&gt;;</pre>
+<h2 id="starttemplatechatparamstools">StartTemplateChatParams.tools</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Optional. A list of template tools that the model can use to access external systems or execute client functions.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">tools?: TemplateTool[];</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.starttemplatechatparams" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.starttemplatechatparams</a>
+  </p>
+</div>

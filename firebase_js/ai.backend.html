@@ -1,0 +1,65 @@
+<h1>Backend class</h1>
+<p>Abstract base class representing the configuration for an AI service backend. This class should not be instantiated directly. Use its subclasses; <a href="ai.googleaibackend">GoogleAIBackend</a> for the Gemini Developer API (via <a href="https://ai.google/">Google AI</a><!-- -->) and <a href="ai.agentplatformbackend">AgentPlatformBackend</a> for the Agent Platform Gemini API.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare abstract class Backend </pre>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.backend#backendconstructor">(constructor)(type)</a></td>
+<td></td>
+<td>Protected constructor for use by subclasses.</td>
+</tr>
+</tbody></table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.backend#backendbackendtype">backendType</a></td>
+<td></td>
+<td><a href="ai#backendtype">BackendType</a></td>
+<td>Specifies the backend type.</td>
+</tr>
+</tbody></table>
+<h2 id="backendconstructor">Backend.(constructor)</h2>
+<p>Protected constructor for use by subclasses.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">protected constructor(type: BackendType);</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>type</td>
+<td><a href="ai#backendtype">BackendType</a></td>
+<td>The backend type.</td>
+</tr>
+</tbody></table>
+<h2 id="backendbackendtype">Backend.backendType</h2>
+<p>Specifies the backend type.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly backendType: BackendType;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.backend" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.backend</a>
+  </p>
+</div>

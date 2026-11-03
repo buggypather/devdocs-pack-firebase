@@ -1,0 +1,55 @@
+<h1>CountTokensRequest interface</h1>
+<p>Params for calling <a href="ai.generativemodel#generativemodelcounttokens">GenerativeModel.countTokens()</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface CountTokensRequest </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.counttokensrequest#counttokensrequestcontents">contents</a></td>
+<td><a href="ai.content">Content</a><!-- -->[]</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.counttokensrequest#counttokensrequestgenerationconfig">generationConfig</a></td>
+<td><a href="ai.generationconfig">GenerationConfig</a></td>
+<td>Configuration options that control how the model generates a response.</td>
+</tr>
+<tr>
+<td><a href="ai.counttokensrequest#counttokensrequestsysteminstruction">systemInstruction</a></td>
+<td>string | <a href="ai#part">Part</a> | <a href="ai.content">Content</a></td>
+<td>Instructions that direct the model to behave a certain way.</td>
+</tr>
+<tr>
+<td><a href="ai.counttokensrequest#counttokensrequesttools">tools</a></td>
+<td><a href="ai#tool">Tool</a><!-- -->[]</td>
+<td><a href="ai#tool">Tool</a> configuration.</td>
+</tr>
+</tbody></table>
+<h2 id="counttokensrequestcontents">CountTokensRequest.contents</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">contents: Content[];</pre>
+<h2 id="counttokensrequestgenerationconfig">CountTokensRequest.generationConfig</h2>
+<p>Configuration options that control how the model generates a response.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">generationConfig?: GenerationConfig;</pre>
+<h2 id="counttokensrequestsysteminstruction">CountTokensRequest.systemInstruction</h2>
+<p>Instructions that direct the model to behave a certain way.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">systemInstruction?: string | Part | Content;</pre>
+<h2 id="counttokensrequesttools">CountTokensRequest.tools</h2>
+<p><a href="ai#tool">Tool</a> configuration.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">tools?: Tool[];</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.counttokensrequest" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.counttokensrequest</a>
+  </p>
+</div>

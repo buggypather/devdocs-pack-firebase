@@ -1,0 +1,38 @@
+<h1>GroundingChunk interface</h1>
+<p>Represents a chunk of retrieved data that supports a claim in the model&#39;s response. This is part of the grounding information provided when grounding is enabled.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface GroundingChunk </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.groundingchunk#groundingchunkmaps">maps</a></td>
+<td><a href="ai.googlemapsgroundingchunk">GoogleMapsGroundingChunk</a></td>
+<td>Contains details if the grounding chunk is from a Google Maps source.</td>
+</tr>
+<tr>
+<td><a href="ai.groundingchunk#groundingchunkweb">web</a></td>
+<td><a href="ai.webgroundingchunk">WebGroundingChunk</a></td>
+<td>Contains details if the grounding chunk is from a web source.</td>
+</tr>
+</tbody></table>
+<h2 id="groundingchunkmaps">GroundingChunk.maps</h2>
+<p>Contains details if the grounding chunk is from a Google Maps source.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">maps?: GoogleMapsGroundingChunk;</pre>
+<h2 id="groundingchunkweb">GroundingChunk.web</h2>
+<p>Contains details if the grounding chunk is from a web source.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">web?: WebGroundingChunk;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.groundingchunk" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.groundingchunk</a>
+  </p>
+</div>

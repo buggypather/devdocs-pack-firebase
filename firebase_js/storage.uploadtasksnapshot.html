@@ -1,0 +1,74 @@
+<h1>UploadTaskSnapshot interface</h1>
+<p>Holds data about the current state of the upload task.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface UploadTaskSnapshot </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="storage.uploadtasksnapshot#uploadtasksnapshotbytestransferred">bytesTransferred</a></td>
+<td>number</td>
+<td>The number of bytes that have been successfully uploaded so far.</td>
+</tr>
+<tr>
+<td><a href="storage.uploadtasksnapshot#uploadtasksnapshotmetadata">metadata</a></td>
+<td><a href="storage.fullmetadata">FullMetadata</a></td>
+<td>Before the upload completes, contains the metadata sent to the server. After the upload completes, contains the metadata sent back from the server.</td>
+</tr>
+<tr>
+<td><a href="storage.uploadtasksnapshot#uploadtasksnapshotref">ref</a></td>
+<td><a href="storage.storagereference">StorageReference</a></td>
+<td>The reference that spawned this snapshot&#39;s upload task.</td>
+</tr>
+<tr>
+<td><a href="storage.uploadtasksnapshot#uploadtasksnapshotstate">state</a></td>
+<td><a href="storage#taskstate">TaskState</a></td>
+<td>The current state of the task.</td>
+</tr>
+<tr>
+<td><a href="storage.uploadtasksnapshot#uploadtasksnapshottask">task</a></td>
+<td><a href="storage.uploadtask">UploadTask</a></td>
+<td>The task of which this is a snapshot.</td>
+</tr>
+<tr>
+<td><a href="storage.uploadtasksnapshot#uploadtasksnapshottotalbytes">totalBytes</a></td>
+<td>number</td>
+<td>The total number of bytes to be uploaded.</td>
+</tr>
+</tbody></table>
+<h2 id="uploadtasksnapshotbytestransferred">UploadTaskSnapshot.bytesTransferred</h2>
+<p>The number of bytes that have been successfully uploaded so far.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">bytesTransferred: number;</pre>
+<h2 id="uploadtasksnapshotmetadata">UploadTaskSnapshot.metadata</h2>
+<p>Before the upload completes, contains the metadata sent to the server. After the upload completes, contains the metadata sent back from the server.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">metadata: FullMetadata;</pre>
+<h2 id="uploadtasksnapshotref">UploadTaskSnapshot.ref</h2>
+<p>The reference that spawned this snapshot&#39;s upload task.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">ref: StorageReference;</pre>
+<h2 id="uploadtasksnapshotstate">UploadTaskSnapshot.state</h2>
+<p>The current state of the task.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">state: TaskState;</pre>
+<h2 id="uploadtasksnapshottask">UploadTaskSnapshot.task</h2>
+<p>The task of which this is a snapshot.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">task: UploadTask;</pre>
+<h2 id="uploadtasksnapshottotalbytes">UploadTaskSnapshot.totalBytes</h2>
+<p>The total number of bytes to be uploaded.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">totalBytes: number;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/storage.uploadtasksnapshot" class="_attribution-link">https://firebase.google.com/docs/reference/js/storage.uploadtasksnapshot</a>
+  </p>
+</div>

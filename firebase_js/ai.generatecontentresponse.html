@@ -1,0 +1,44 @@
+<h1>GenerateContentResponse interface</h1>
+<p>Individual response from <a href="ai.generativemodel#generativemodelgeneratecontent">GenerativeModel.generateContent()</a> and <a href="ai.generativemodel#generativemodelgeneratecontentstream">GenerativeModel.generateContentStream()</a><!-- -->. <code>generateContentStream()</code> will return one in each chunk until the stream is done.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface GenerateContentResponse </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.generatecontentresponse#generatecontentresponsecandidates">candidates</a></td>
+<td><a href="ai.generatecontentcandidate">GenerateContentCandidate</a><!-- -->[]</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generatecontentresponse#generatecontentresponsepromptfeedback">promptFeedback</a></td>
+<td><a href="ai.promptfeedback">PromptFeedback</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generatecontentresponse#generatecontentresponseusagemetadata">usageMetadata</a></td>
+<td><a href="ai.usagemetadata">UsageMetadata</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="generatecontentresponsecandidates">GenerateContentResponse.candidates</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">candidates?: GenerateContentCandidate[];</pre>
+<h2 id="generatecontentresponsepromptfeedback">GenerateContentResponse.promptFeedback</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">promptFeedback?: PromptFeedback;</pre>
+<h2 id="generatecontentresponseusagemetadata">GenerateContentResponse.usageMetadata</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">usageMetadata?: UsageMetadata;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.generatecontentresponse" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.generatecontentresponse</a>
+  </p>
+</div>

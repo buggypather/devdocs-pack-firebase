@@ -1,0 +1,40 @@
+<h1>PersistentCacheSettings interface</h1>
+<p>An settings object to configure an <code>PersistentLocalCache</code> instance.</p>
+<p>Persistent cache cannot be used in a Node.js environment.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface PersistentCacheSettings </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.persistentcachesettings#persistentcachesettingscachesizebytes">cacheSizeBytes</a></td>
+<td>number</td>
+<td>An approximate cache size threshold for the on-disk data. If the cache grows beyond this size, Firestore will start removing data that hasn&#39;t been recently used. The SDK does not guarantee that the cache will stay below that size, only that if the cache exceeds the given size, cleanup will be attempted.<!-- -->The default value is 40 MB. The threshold must be set to at least 1 MB, and can be set to <code>CACHE_SIZE_UNLIMITED</code> to disable garbage collection.</td>
+</tr>
+<tr>
+<td><a href="firestore.persistentcachesettings#persistentcachesettingstabmanager">tabManager</a></td>
+<td><a href="firestore#persistenttabmanager">PersistentTabManager</a></td>
+<td>Specifies how multiple tabs/windows will be managed by the SDK.</td>
+</tr>
+</tbody></table>
+<h2 id="persistentcachesettingscachesizebytes">PersistentCacheSettings.cacheSizeBytes</h2>
+<p>An approximate cache size threshold for the on-disk data. If the cache grows beyond this size, Firestore will start removing data that hasn&#39;t been recently used. The SDK does not guarantee that the cache will stay below that size, only that if the cache exceeds the given size, cleanup will be attempted.</p>
+<p>The default value is 40 MB. The threshold must be set to at least 1 MB, and can be set to <code>CACHE_SIZE_UNLIMITED</code> to disable garbage collection.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">cacheSizeBytes?: number;</pre>
+<h2 id="persistentcachesettingstabmanager">PersistentCacheSettings.tabManager</h2>
+<p>Specifies how multiple tabs/windows will be managed by the SDK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">tabManager?: PersistentTabManager;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.persistentcachesettings" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.persistentcachesettings</a>
+  </p>
+</div>

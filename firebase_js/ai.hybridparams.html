@@ -1,0 +1,47 @@
+<h1>HybridParams interface</h1>
+<p>Configures hybrid inference.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface HybridParams </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.hybridparams#hybridparamsincloudparams">inCloudParams</a></td>
+<td><a href="ai.modelparams">ModelParams</a></td>
+<td>Optional. Specifies advanced params for in-cloud inference.</td>
+</tr>
+<tr>
+<td><a href="ai.hybridparams#hybridparamsmode">mode</a></td>
+<td><a href="ai#inferencemode">InferenceMode</a></td>
+<td>Specifies on-device or in-cloud inference. Defaults to prefer on-device.</td>
+</tr>
+<tr>
+<td><a href="ai.hybridparams#hybridparamsondeviceparams">onDeviceParams</a></td>
+<td><a href="ai.ondeviceparams">OnDeviceParams</a></td>
+<td>Optional. Specifies advanced params for on-device inference.</td>
+</tr>
+</tbody></table>
+<h2 id="hybridparamsincloudparams">HybridParams.inCloudParams</h2>
+<p>Optional. Specifies advanced params for in-cloud inference.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">inCloudParams?: ModelParams;</pre>
+<h2 id="hybridparamsmode">HybridParams.mode</h2>
+<p>Specifies on-device or in-cloud inference. Defaults to prefer on-device.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">mode: InferenceMode;</pre>
+<h2 id="hybridparamsondeviceparams">HybridParams.onDeviceParams</h2>
+<p>Optional. Specifies advanced params for on-device inference.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">onDeviceParams?: OnDeviceParams;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.hybridparams" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.hybridparams</a>
+  </p>
+</div>

@@ -1,0 +1,119 @@
+<h1>ActionCodeURL class</h1>
+<p>A utility class to parse email action URLs such as password reset, email verification, email link sign in, etc.</p>
+<p>The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the <code>ActionCodeURL</code> class.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class ActionCodeURL </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.actioncodeurl#actioncodeurlapikey">apiKey</a></td>
+<td></td>
+<td>string</td>
+<td>The API key of the email action link.</td>
+</tr>
+<tr>
+<td><a href="auth.actioncodeurl#actioncodeurlcode">code</a></td>
+<td></td>
+<td>string</td>
+<td>The action code of the email action link.</td>
+</tr>
+<tr>
+<td><a href="auth.actioncodeurl#actioncodeurlcontinueurl">continueUrl</a></td>
+<td></td>
+<td>string | null</td>
+<td>The continue URL of the email action link. Null if not provided.</td>
+</tr>
+<tr>
+<td><a href="auth.actioncodeurl#actioncodeurllanguagecode">languageCode</a></td>
+<td></td>
+<td>string | null</td>
+<td>The language code of the email action link. Null if not provided.</td>
+</tr>
+<tr>
+<td><a href="auth.actioncodeurl#actioncodeurloperation">operation</a></td>
+<td></td>
+<td>string</td>
+<td>The action performed by the email action link. It returns from one of the types from <a href="auth.actioncodeinfo">ActionCodeInfo</a></td>
+</tr>
+<tr>
+<td><a href="auth.actioncodeurl#actioncodeurltenantid">tenantId</a></td>
+<td></td>
+<td>string | null</td>
+<td>The tenant ID of the email action link. Null if the email action is from the parent project.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.actioncodeurl#actioncodeurlparselink">parseLink(link)</a></td>
+<td><code>static</code></td>
+<td>Parses the email action link string and returns an <a href="auth.actioncodeurl">ActionCodeURL</a> if the link is valid, otherwise returns null.</td>
+</tr>
+</tbody></table>
+<h2 id="actioncodeurlapikey">ActionCodeURL.apiKey</h2>
+<p>The API key of the email action link.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly apiKey: string;</pre>
+<h2 id="actioncodeurlcode">ActionCodeURL.code</h2>
+<p>The action code of the email action link.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly code: string;</pre>
+<h2 id="actioncodeurlcontinueurl">ActionCodeURL.continueUrl</h2>
+<p>The continue URL of the email action link. Null if not provided.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly continueUrl: string | null;</pre>
+<h2 id="actioncodeurllanguagecode">ActionCodeURL.languageCode</h2>
+<p>The language code of the email action link. Null if not provided.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly languageCode: string | null;</pre>
+<h2 id="actioncodeurloperation">ActionCodeURL.operation</h2>
+<p>The action performed by the email action link. It returns from one of the types from <a href="auth.actioncodeinfo">ActionCodeInfo</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly operation: string;</pre>
+<h2 id="actioncodeurltenantid">ActionCodeURL.tenantId</h2>
+<p>The tenant ID of the email action link. Null if the email action is from the parent project.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly tenantId: string | null;</pre>
+<h2 id="actioncodeurlparselink">ActionCodeURL.parseLink()</h2>
+<p>Parses the email action link string and returns an <a href="auth.actioncodeurl">ActionCodeURL</a> if the link is valid, otherwise returns null.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static parseLink(link: string): ActionCodeURL | null;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>link</td>
+<td>string</td>
+<td>The email action link string.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="auth.actioncodeurl">ActionCodeURL</a> | null</p>
+<p>The <a href="auth.actioncodeurl">ActionCodeURL</a> object, or null if the link is invalid.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.actioncodeurl" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.actioncodeurl</a>
+  </p>
+</div>

@@ -1,0 +1,76 @@
+<h1>MessagePayload interface</h1>
+<p>Message payload that contains the notification payload that is represented with <a href="messaging.notificationpayload">NotificationPayload</a> and the data payload that contains an arbitrary number of key-value pairs sent by developers through the <a href="https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#notification">Send API</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface MessagePayload </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="messaging.messagepayload#messagepayloadcollapsekey">collapseKey</a></td>
+<td>string</td>
+<td>The collapse key of the message. See <a href="https://firebase.google.com/docs/cloud-messaging/concept-options#collapsible_and_non-collapsible_messages">Non-collapsible and collapsible messages</a></td>
+</tr>
+<tr>
+<td><a href="messaging.messagepayload#messagepayloaddata">data</a></td>
+<td>{ [key: string]: string; }</td>
+<td>Arbitrary key/value payload.</td>
+</tr>
+<tr>
+<td><a href="messaging.messagepayload#messagepayloadfcmoptions">fcmOptions</a></td>
+<td><a href="messaging.fcmoptions">FcmOptions</a></td>
+<td>Options for features provided by the FCM SDK for Web. See <a href="https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#webpushfcmoptions">WebpushFcmOptions</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="messaging.messagepayload#messagepayloadfrom">from</a></td>
+<td>string</td>
+<td>The sender of this message.</td>
+</tr>
+<tr>
+<td><a href="messaging.messagepayload#messagepayloadmessageid">messageId</a></td>
+<td>string</td>
+<td>The message ID of a message.</td>
+</tr>
+<tr>
+<td><a href="messaging.messagepayload#messagepayloadnotification">notification</a></td>
+<td><a href="messaging.notificationpayload">NotificationPayload</a></td>
+<td>Display notification details. Details are sent through the <a href="https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#notification">Send API</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="messagepayloadcollapsekey">MessagePayload.collapseKey</h2>
+<p>The collapse key of the message. See <a href="https://firebase.google.com/docs/cloud-messaging/concept-options#collapsible_and_non-collapsible_messages">Non-collapsible and collapsible messages</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">collapseKey: string;</pre>
+<h2 id="messagepayloaddata">MessagePayload.data</h2>
+<p>Arbitrary key/value payload.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">data?: {
+        [key: string]: string;
+    };</pre>
+<h2 id="messagepayloadfcmoptions">MessagePayload.fcmOptions</h2>
+<p>Options for features provided by the FCM SDK for Web. See <a href="https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#webpushfcmoptions">WebpushFcmOptions</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">fcmOptions?: FcmOptions;</pre>
+<h2 id="messagepayloadfrom">MessagePayload.from</h2>
+<p>The sender of this message.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">from: string;</pre>
+<h2 id="messagepayloadmessageid">MessagePayload.messageId</h2>
+<p>The message ID of a message.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">messageId: string;</pre>
+<h2 id="messagepayloadnotification">MessagePayload.notification</h2>
+<p>Display notification details. Details are sent through the <a href="https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#notification">Send API</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">notification?: NotificationPayload;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/messaging.messagepayload" class="_attribution-link">https://firebase.google.com/docs/reference/js/messaging.messagepayload</a>
+  </p>
+</div>

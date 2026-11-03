@@ -1,0 +1,111 @@
+<h1>FullMetadata interface</h1>
+<p>The full set of object metadata, including read-only properties.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface FullMetadata extends UploadMetadata </pre>
+<p><b>Extends:</b> <a href="storage.uploadmetadata">UploadMetadata</a></p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="storage.fullmetadata#fullmetadatabucket">bucket</a></td>
+<td>string</td>
+<td>The bucket this object is contained in.</td>
+</tr>
+<tr>
+<td><a href="storage.fullmetadata#fullmetadatadownloadtokens">downloadTokens</a></td>
+<td>string[] | undefined</td>
+<td>Tokens to allow access to the download URL.</td>
+</tr>
+<tr>
+<td><a href="storage.fullmetadata#fullmetadatafullpath">fullPath</a></td>
+<td>string</td>
+<td>The full path of this object.</td>
+</tr>
+<tr>
+<td><a href="storage.fullmetadata#fullmetadatageneration">generation</a></td>
+<td>string</td>
+<td>The object&#39;s generation. <a href="https://cloud.google.com/storage/docs/metadata#generation-number">https://cloud.google.com/storage/docs/metadata#generation-number</a></td>
+</tr>
+<tr>
+<td><a href="storage.fullmetadata#fullmetadatametageneration">metageneration</a></td>
+<td>string</td>
+<td>The object&#39;s metageneration. <a href="https://cloud.google.com/storage/docs/metadata#generation-number">https://cloud.google.com/storage/docs/metadata#generation-number</a></td>
+</tr>
+<tr>
+<td><a href="storage.fullmetadata#fullmetadataname">name</a></td>
+<td>string</td>
+<td>The short name of this object, which is the last component of the full path. For example, if fullPath is &#39;full/path/image.png&#39;, name is &#39;image.png&#39;.</td>
+</tr>
+<tr>
+<td><a href="storage.fullmetadata#fullmetadataref">ref</a></td>
+<td><a href="storage.storagereference">StorageReference</a> | undefined</td>
+<td><code>StorageReference</code> associated with this upload.</td>
+</tr>
+<tr>
+<td><a href="storage.fullmetadata#fullmetadatasize">size</a></td>
+<td>number</td>
+<td>The size of this object, in bytes.</td>
+</tr>
+<tr>
+<td><a href="storage.fullmetadata#fullmetadatatimecreated">timeCreated</a></td>
+<td>string</td>
+<td>A date string representing when this object was created.</td>
+</tr>
+<tr>
+<td><a href="storage.fullmetadata#fullmetadataupdated">updated</a></td>
+<td>string</td>
+<td>A date string representing when this object was last updated.</td>
+</tr>
+</tbody></table>
+<h2 id="fullmetadatabucket">FullMetadata.bucket</h2>
+<p>The bucket this object is contained in.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">bucket: string;</pre>
+<h2 id="fullmetadatadownloadtokens">FullMetadata.downloadTokens</h2>
+<p>Tokens to allow access to the download URL.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">downloadTokens: string[] | undefined;</pre>
+<h2 id="fullmetadatafullpath">FullMetadata.fullPath</h2>
+<p>The full path of this object.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">fullPath: string;</pre>
+<h2 id="fullmetadatageneration">FullMetadata.generation</h2>
+<p>The object&#39;s generation. <a href="https://cloud.google.com/storage/docs/metadata#generation-number">https://cloud.google.com/storage/docs/metadata#generation-number</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">generation: string;</pre>
+<h2 id="fullmetadatametageneration">FullMetadata.metageneration</h2>
+<p>The object&#39;s metageneration. <a href="https://cloud.google.com/storage/docs/metadata#generation-number">https://cloud.google.com/storage/docs/metadata#generation-number</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">metageneration: string;</pre>
+<h2 id="fullmetadataname">FullMetadata.name</h2>
+<p>The short name of this object, which is the last component of the full path. For example, if fullPath is &#39;full/path/image.png&#39;, name is &#39;image.png&#39;.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">name: string;</pre>
+<h2 id="fullmetadataref">FullMetadata.ref</h2>
+<p><code>StorageReference</code> associated with this upload.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">ref?: StorageReference | undefined;</pre>
+<h2 id="fullmetadatasize">FullMetadata.size</h2>
+<p>The size of this object, in bytes.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">size: number;</pre>
+<h2 id="fullmetadatatimecreated">FullMetadata.timeCreated</h2>
+<p>A date string representing when this object was created.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">timeCreated: string;</pre>
+<h2 id="fullmetadataupdated">FullMetadata.updated</h2>
+<p>A date string representing when this object was last updated.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">updated: string;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/storage.fullmetadata" class="_attribution-link">https://firebase.google.com/docs/reference/js/storage.fullmetadata</a>
+  </p>
+</div>

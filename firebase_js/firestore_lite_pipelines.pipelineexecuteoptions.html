@@ -1,0 +1,83 @@
+<h1>PipelineExecuteOptions interface</h1>
+<p>Options defining Pipeline execution.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface PipelineExecuteOptions </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite_pipelines.pipelineexecuteoptions#pipelineexecuteoptionsatomic">atomic</a></td>
+<td>boolean</td>
+<td>If <code>true</code>, the pipeline is executed in a new read-write transaction that is committed automatically when the pipeline completes, so all writes made by DML stages (<code>insert</code>, <code>upsert</code>, <code>update</code>, <code>delete</code>) succeed or fail together.<!-- -->If <code>false</code> or omitted, DML writes are applied per document without a transaction, and the pipeline may partially succeed. Some DML pipelines (e.g. an <code>upsert</code> from a <code>literals()</code> source) can only be executed atomically, and are otherwise rejected with &quot;The non-transactional DML operation was rejected because it was impossible to guarantee document-level atomicity.&quot;</td>
+</tr>
+<tr>
+<td><a href="firestore_lite_pipelines.pipelineexecuteoptions#pipelineexecuteoptionsindexmode">indexMode</a></td>
+<td>&#39;recommended&#39;</td>
+<td>Specify the index mode.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite_pipelines.pipelineexecuteoptions#pipelineexecuteoptionspipeline">pipeline</a></td>
+<td><a href="firestore_lite_pipelines.pipeline">Pipeline</a></td>
+<td>Pipeline to be evaluated.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite_pipelines.pipelineexecuteoptions#pipelineexecuteoptionsrawoptions">rawOptions</a></td>
+<td>{ [name: string]: unknown; }</td>
+<td>An escape hatch to set options not known at SDK build time. These values will be passed directly to the Firestore backend and not used by the SDK.<!-- -->The option name will be used as provided. And must match the name format used by the backend (hint: use a snake_case_name).<!-- -->Custom option values can be any type supported by Firestore (for example: string, boolean, number, map, …). Value types not known to the SDK will be rejected.<!-- -->Values specified in rawOptions will take precedence over any options with the same name set by the SDK.</td>
+</tr>
+</tbody></table>
+<h2 id="pipelineexecuteoptionsatomic">PipelineExecuteOptions.atomic</h2>
+<p>If <code>true</code><!-- -->, the pipeline is executed in a new read-write transaction that is committed automatically when the pipeline completes, so all writes made by DML stages (<code>insert</code><!-- -->, <code>upsert</code><!-- -->, <code>update</code><!-- -->, <code>delete</code><!-- -->) succeed or fail together.</p>
+<p>If <code>false</code> or omitted, DML writes are applied per document without a transaction, and the pipeline may partially succeed. Some DML pipelines (e.g. an <code>upsert</code> from a <code>literals()</code> source) can only be executed atomically, and are otherwise rejected with &quot;The non-transactional DML operation was rejected because it was impossible to guarantee document-level atomicity.&quot;</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">atomic?: boolean;</pre>
+<h2 id="pipelineexecuteoptionsindexmode">PipelineExecuteOptions.indexMode</h2>
+<p>Specify the index mode.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">indexMode?: 'recommended';</pre>
+<h2 id="pipelineexecuteoptionspipeline">PipelineExecuteOptions.pipeline</h2>
+<p>Pipeline to be evaluated.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">pipeline: Pipeline;</pre>
+<h2 id="pipelineexecuteoptionsrawoptions">PipelineExecuteOptions.rawOptions</h2>
+<p>An escape hatch to set options not known at SDK build time. These values will be passed directly to the Firestore backend and not used by the SDK.</p>
+<p>The option name will be used as provided. And must match the name format used by the backend (hint: use a snake_case_name).</p>
+<p>Custom option values can be any type supported by Firestore (for example: string, boolean, number, map, …). Value types not known to the SDK will be rejected.</p>
+<p>Values specified in rawOptions will take precedence over any options with the same name set by the SDK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">rawOptions?: {
+    [name: string]: unknown;
+  };</pre>
+<h3 id="example">Example</h3>
+<p>Override the <code>example_option</code><!-- -->:</p>
+<pre>  execute({
+    pipeline: myPipeline,
+    rawOptions: {
+      // Override `example_option`. This will not
+      // merge with the existing `example_option` object.
+      &quot;example_option&quot;: {
+        foo: &quot;bar&quot;
+      }
+    }
+  }</pre>
+<p><code>rawOptions</code> supports dot notation, if you want to override a nested option.</p>
+<pre>  execute({
+    pipeline: myPipeline,
+    rawOptions: {
+      // Override `example_option.foo` and do not override
+      // any other properties of `example_option`.
+      &quot;example_option.foo&quot;: &quot;bar&quot;
+    }
+  }</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_lite_pipelines.pipelineexecuteoptions" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_lite_pipelines.pipelineexecuteoptions</a>
+  </p>
+</div>

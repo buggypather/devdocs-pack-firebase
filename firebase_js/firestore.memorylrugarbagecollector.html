@@ -1,0 +1,30 @@
+<h1>MemoryLruGarbageCollector interface</h1>
+<p>A garbage collector deletes Least-Recently-Used documents in multiple batches.</p>
+<p>This collector is configured with a target size, and will only perform collection when the cached documents exceed the target size. It avoids querying backend repeated for the same query or document, at the risk of having a larger memory footprint.</p>
+<p>Use factory function  to create a instance of this collector.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface MemoryLruGarbageCollector </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.memorylrugarbagecollector#memorylrugarbagecollectorkind">kind</a></td>
+<td>&#39;memoryLru&#39;</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="memorylrugarbagecollectorkind">MemoryLruGarbageCollector.kind</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">kind: 'memoryLru';</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.memorylrugarbagecollector" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.memorylrugarbagecollector</a>
+  </p>
+</div>

@@ -1,0 +1,100 @@
+<h1>PipelineSnapshot class</h1>
+<p>Represents the results of a Firestore pipeline execution.</p>
+<p>A <code>PipelineSnapshot</code> contains zero or more <a href="firestore_pipelines.pipelineresult">PipelineResult</a> objects representing the documents returned by a pipeline query. It provides methods to iterate over the documents and access metadata about the query results.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class PipelineSnapshot </pre>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite_pipelines.pipelinesnapshot#pipelinesnapshotconstructor">(constructor)(pipeline, results, executionTime)</a></td>
+<td></td>
+<td>Constructs a new instance of the <code>PipelineSnapshot</code> class</td>
+</tr>
+</tbody></table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite_pipelines.pipelinesnapshot#pipelinesnapshotexecutiontime">executionTime</a></td>
+<td></td>
+<td><a href="firestore.timestamp">Timestamp</a></td>
+<td>The time at which the pipeline producing this result is executed.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite_pipelines.pipelinesnapshot#pipelinesnapshotresults">results</a></td>
+<td></td>
+<td><a href="firestore_lite_pipelines.pipelineresult">PipelineResult</a><!-- -->[]</td>
+<td>An array of all the results in the <code>PipelineSnapshot</code>.</td>
+</tr>
+</tbody></table>
+<h2 id="pipelinesnapshotconstructor">PipelineSnapshot.(constructor)</h2>
+<p>Constructs a new instance of the <code>PipelineSnapshot</code> class</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">constructor(
+    pipeline: Pipeline,
+    results: PipelineResult[],
+    executionTime?: Timestamp
+  );</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>pipeline</td>
+<td><a href="firestore_lite_pipelines.pipeline">Pipeline</a></td>
+<td></td>
+</tr>
+<tr>
+<td>results</td>
+<td><a href="firestore_lite_pipelines.pipelineresult">PipelineResult</a><!-- -->[]</td>
+<td></td>
+</tr>
+<tr>
+<td>executionTime</td>
+<td><a href="firestore.timestamp">Timestamp</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="pipelinesnapshotexecutiontime">PipelineSnapshot.executionTime</h2>
+<p>The time at which the pipeline producing this result is executed.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get executionTime(): Timestamp;</pre>
+<h2 id="pipelinesnapshotresults">PipelineSnapshot.results</h2>
+<p>An array of all the results in the <code>PipelineSnapshot</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get results(): PipelineResult[];</pre>
+<h3 id="example">Example</h3>
+<pre data-language="typescript">const snapshot: PipelineSnapshot = await firestore
+  .pipeline()
+  .collection('myCollection')
+  .where(field('value').greaterThan(10))
+  .execute();
+
+snapshot.results.forEach(doc =&gt; {
+  console.log(doc.id, '=&gt;', doc.data());
+});</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_lite_pipelines.pipelinesnapshot" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_lite_pipelines.pipelinesnapshot</a>
+  </p>
+</div>

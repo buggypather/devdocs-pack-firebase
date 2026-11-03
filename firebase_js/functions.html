@@ -1,0 +1,235 @@
+<h1>@firebase/functions</h1>
+<p>Cloud Functions for Firebase</p>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><b>function(app, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="functions#getfunctions_60f2095">getFunctions(app, regionOrCustomDomain)</a></td>
+<td>Returns a <a href="functions.functions">Functions</a> instance for the given app.</td>
+</tr>
+<tr>
+<td><b>function(functionsInstance, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="functions#connectfunctionsemulator_505c08d">connectFunctionsEmulator(functionsInstance, host, port)</a></td>
+<td>Modify this instance to communicate with the Cloud Functions emulator.<!-- -->Note: this must be called before this instance has been used to do any operations.</td>
+</tr>
+<tr>
+<td><a href="functions#httpscallable_1dd297c">httpsCallable(functionsInstance, name, options)</a></td>
+<td>Returns a reference to the callable HTTPS trigger with the given name.</td>
+</tr>
+<tr>
+<td><a href="functions#httpscallablefromurl_7af6987">httpsCallableFromURL(functionsInstance, url, options)</a></td>
+<td>Returns a reference to the callable HTTPS trigger with the specified url.</td>
+</tr>
+</tbody></table>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="functions.functionserror">FunctionsError</a></td>
+<td>An error returned by the Firebase Functions client SDK.<!-- -->See <a href="functions#functionserrorcode">FunctionsErrorCode</a> for full documentation of codes.</td>
+</tr>
+</tbody></table>
+<h2 id="interfaces">Interfaces</h2>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="functions.functions">Functions</a></td>
+<td>A <code>Functions</code> instance.</td>
+</tr>
+<tr>
+<td><a href="functions.httpscallable">HttpsCallable</a></td>
+<td>A reference to a &quot;callable&quot; HTTP trigger in Cloud Functions.</td>
+</tr>
+<tr>
+<td><a href="functions.httpscallableoptions">HttpsCallableOptions</a></td>
+<td>An interface for metadata about how calls should be executed.</td>
+</tr>
+<tr>
+<td><a href="functions.httpscallableresult">HttpsCallableResult</a></td>
+<td>An <code>HttpsCallableResult</code> wraps a single result from a function call.</td>
+</tr>
+<tr>
+<td><a href="functions.httpscallablestreamoptions">HttpsCallableStreamOptions</a></td>
+<td>An interface for metadata about how a stream call should be executed.</td>
+</tr>
+<tr>
+<td><a href="functions.httpscallablestreamresult">HttpsCallableStreamResult</a></td>
+<td>An <code>HttpsCallableStreamResult</code> wraps a single streaming result from a function call.</td>
+</tr>
+</tbody></table>
+<h2 id="type-aliases">Type Aliases</h2>
+<table>
+<thead>
+<tr>
+<th>Type Alias</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="functions#functionserrorcode">FunctionsErrorCode</a></td>
+<td>The set of Firebase Functions status codes. The codes are the same at the ones exposed by gRPC here: <a href="https://github.com/grpc/grpc/blob/master/doc/statuscodes.md">https://github.com/grpc/grpc/blob/master/doc/statuscodes.md</a><!-- -->Possible values: - &#39;cancelled&#39;: The operation was cancelled (typically by the caller). - &#39;unknown&#39;: Unknown error or an error from a different error domain. - &#39;invalid-argument&#39;: Client specified an invalid argument. Note that this differs from &#39;failed-precondition&#39;. &#39;invalid-argument&#39; indicates arguments that are problematic regardless of the state of the system (e.g. an invalid field name). - &#39;deadline-exceeded&#39;: Deadline expired before operation could complete. For operations that change the state of the system, this error may be returned even if the operation has completed successfully. For example, a successful response from a server could have been delayed long enough for the deadline to expire. - &#39;not-found&#39;: Some requested document was not found. - &#39;already-exists&#39;: Some document that we attempted to create already exists. - &#39;permission-denied&#39;: The caller does not have permission to execute the specified operation. - &#39;resource-exhausted&#39;: Some resource has been exhausted, perhaps a per-user quota, or perhaps the entire file system is out of space. - &#39;failed-precondition&#39;: Operation was rejected because the system is not in a state required for the operation&#39;s execution. - &#39;aborted&#39;: The operation was aborted, typically due to a concurrency issue like transaction aborts, etc. - &#39;out-of-range&#39;: Operation was attempted past the valid range. - &#39;unimplemented&#39;: Operation is not implemented or not supported/enabled. - &#39;internal&#39;: Internal errors. Means some invariants expected by underlying system has been broken. If you see one of these errors, something is very broken. - &#39;unavailable&#39;: The service is currently unavailable. This is most likely a transient condition and may be corrected by retrying with a backoff. - &#39;data-loss&#39;: Unrecoverable data loss or corruption. - &#39;unauthenticated&#39;: The request does not have valid authentication credentials for the operation.</td>
+</tr>
+<tr>
+<td><a href="functions#functionserrorcodecore">FunctionsErrorCodeCore</a></td>
+<td>Functions error code string appended after &quot;functions/&quot; product prefix. See <a href="functions#functionserrorcode">FunctionsErrorCode</a> for full documentation of codes.</td>
+</tr>
+</tbody></table>
+<h2 id="functionapp-">function(app, ...)</h2>
+<h3 id="getfunctions_60f2095">getFunctions(app, regionOrCustomDomain)</h3>
+<p>Returns a <a href="functions.functions">Functions</a> instance for the given app.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getFunctions(app?: FirebaseApp, regionOrCustomDomain?: string): Functions;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>app</td>
+<td><a href="app.firebaseapp">FirebaseApp</a></td>
+<td>The <a href="app.firebaseapp">FirebaseApp</a> to use.</td>
+</tr>
+<tr>
+<td>regionOrCustomDomain</td>
+<td>string</td>
+<td>one of: a) The region the callable functions are located in (ex: us-central1) b) A custom domain hosting the callable functions (ex: <a href="https://mydomain.com">https://mydomain.com</a>)</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="functions.functions">Functions</a></p>
+<h2 id="functionfunctionsinstance-">function(functionsInstance, ...)</h2>
+<h3 id="connectfunctionsemulator_505c08d">connectFunctionsEmulator(functionsInstance, host, port)</h3>
+<p>Modify this instance to communicate with the Cloud Functions emulator.</p>
+<p>Note: this must be called before this instance has been used to do any operations.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function connectFunctionsEmulator(functionsInstance: Functions, host: string, port: number): void;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>functionsInstance</td>
+<td><a href="functions.functions">Functions</a></td>
+<td></td>
+</tr>
+<tr>
+<td>host</td>
+<td>string</td>
+<td>The emulator host (ex: localhost)</td>
+</tr>
+<tr>
+<td>port</td>
+<td>number</td>
+<td>The emulator port (ex: 5001)</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h3 id="httpscallable_1dd297c">httpsCallable(functionsInstance, name, options)</h3>
+<p>Returns a reference to the callable HTTPS trigger with the given name.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function httpsCallable&lt;RequestData = unknown, ResponseData = unknown, StreamData = unknown&gt;(functionsInstance: Functions, name: string, options?: HttpsCallableOptions): HttpsCallable&lt;RequestData, ResponseData, StreamData&gt;;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>functionsInstance</td>
+<td><a href="functions.functions">Functions</a></td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>The name of the trigger.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="functions.httpscallableoptions">HttpsCallableOptions</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="functions.httpscallable">HttpsCallable</a><!-- -->&lt;RequestData, ResponseData, StreamData&gt;</p>
+<h3 id="httpscallablefromurl_7af6987">httpsCallableFromURL(functionsInstance, url, options)</h3>
+<p>Returns a reference to the callable HTTPS trigger with the specified url.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function httpsCallableFromURL&lt;RequestData = unknown, ResponseData = unknown, StreamData = unknown&gt;(functionsInstance: Functions, url: string, options?: HttpsCallableOptions): HttpsCallable&lt;RequestData, ResponseData, StreamData&gt;;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>functionsInstance</td>
+<td><a href="functions.functions">Functions</a></td>
+<td></td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>The url of the trigger.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="functions.httpscallableoptions">HttpsCallableOptions</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="functions.httpscallable">HttpsCallable</a><!-- -->&lt;RequestData, ResponseData, StreamData&gt;</p>
+<h2 id="functionserrorcode">FunctionsErrorCode</h2>
+<p>The set of Firebase Functions status codes. The codes are the same at the ones exposed by gRPC here: <a href="https://github.com/grpc/grpc/blob/master/doc/statuscodes.md">https://github.com/grpc/grpc/blob/master/doc/statuscodes.md</a></p>
+<p>Possible values: - &#39;cancelled&#39;: The operation was cancelled (typically by the caller). - &#39;unknown&#39;: Unknown error or an error from a different error domain. - &#39;invalid-argument&#39;: Client specified an invalid argument. Note that this differs from &#39;failed-precondition&#39;. &#39;invalid-argument&#39; indicates arguments that are problematic regardless of the state of the system (e.g. an invalid field name). - &#39;deadline-exceeded&#39;: Deadline expired before operation could complete. For operations that change the state of the system, this error may be returned even if the operation has completed successfully. For example, a successful response from a server could have been delayed long enough for the deadline to expire. - &#39;not-found&#39;: Some requested document was not found. - &#39;already-exists&#39;: Some document that we attempted to create already exists. - &#39;permission-denied&#39;: The caller does not have permission to execute the specified operation. - &#39;resource-exhausted&#39;: Some resource has been exhausted, perhaps a per-user quota, or perhaps the entire file system is out of space. - &#39;failed-precondition&#39;: Operation was rejected because the system is not in a state required for the operation&#39;s execution. - &#39;aborted&#39;: The operation was aborted, typically due to a concurrency issue like transaction aborts, etc. - &#39;out-of-range&#39;: Operation was attempted past the valid range. - &#39;unimplemented&#39;: Operation is not implemented or not supported/enabled. - &#39;internal&#39;: Internal errors. Means some invariants expected by underlying system has been broken. If you see one of these errors, something is very broken. - &#39;unavailable&#39;: The service is currently unavailable. This is most likely a transient condition and may be corrected by retrying with a backoff. - &#39;data-loss&#39;: Unrecoverable data loss or corruption. - &#39;unauthenticated&#39;: The request does not have valid authentication credentials for the operation.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type FunctionsErrorCode = `functions/${FunctionsErrorCodeCore}`;</pre>
+<h2 id="functionserrorcodecore">FunctionsErrorCodeCore</h2>
+<p>Functions error code string appended after &quot;functions/&quot; product prefix. See <a href="functions#functionserrorcode">FunctionsErrorCode</a> for full documentation of codes.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type FunctionsErrorCodeCore = 'ok' | 'cancelled' | 'unknown' | 'invalid-argument' | 'deadline-exceeded' | 'not-found' | 'already-exists' | 'permission-denied' | 'resource-exhausted' | 'failed-precondition' | 'aborted' | 'out-of-range' | 'unimplemented' | 'internal' | 'unavailable' | 'data-loss' | 'unauthenticated';</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/functions" class="_attribution-link">https://firebase.google.com/docs/reference/js/functions</a>
+  </p>
+</div>

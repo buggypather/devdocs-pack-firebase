@@ -1,0 +1,50 @@
+<h1>ApplicationVerifier interface</h1>
+<p>A verifier for domain verification and abuse prevention.</p>
+<p>Currently, the only implementation is <a href="auth.recaptchaverifier">RecaptchaVerifier</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface ApplicationVerifier </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.applicationverifier#applicationverifiertype">type</a></td>
+<td>string</td>
+<td>Identifies the type of application verifier (e.g. &quot;recaptcha&quot;).</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.applicationverifier#applicationverifierverify">verify()</a></td>
+<td>Executes the verification process.</td>
+</tr>
+</tbody></table>
+<h2 id="applicationverifiertype">ApplicationVerifier.type</h2>
+<p>Identifies the type of application verifier (e.g. &quot;recaptcha&quot;).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly type: string;</pre>
+<h2 id="applicationverifierverify">ApplicationVerifier.verify()</h2>
+<p>Executes the verification process.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">verify(): Promise&lt;string&gt;;</pre>
+<p><b>Returns:</b></p>
+<p>Promise&lt;string&gt;</p>
+<p>A Promise for a token that can be used to assert the validity of a request.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.applicationverifier" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.applicationverifier</a>
+  </p>
+</div>

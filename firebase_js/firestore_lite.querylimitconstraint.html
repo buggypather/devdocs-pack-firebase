@@ -1,0 +1,32 @@
+<h1>QueryLimitConstraint class</h1>
+<p>A <code>QueryLimitConstraint</code> is used to limit the number of documents returned by a Firestore query. <code>QueryLimitConstraint</code><!-- -->s are created by invoking <a href="firestore_lite#limit_ec46c78">limit()</a> or <a href="firestore_lite#limittolast_ec46c78">limitToLast()</a> and can then be passed to <a href="firestore_lite#query_9f7b0f4">query()</a> to create a new query instance that also contains this <code>QueryLimitConstraint</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class QueryLimitConstraint extends QueryConstraint </pre>
+<p><b>Extends:</b> <a href="firestore_lite.queryconstraint">QueryConstraint</a></p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite.querylimitconstraint#querylimitconstrainttype">type</a></td>
+<td></td>
+<td>&#39;limit&#39; | &#39;limitToLast&#39;</td>
+<td>The type of this query constraint</td>
+</tr>
+</tbody></table>
+<h2 id="querylimitconstrainttype">QueryLimitConstraint.type</h2>
+<p>The type of this query constraint</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly type: 'limit' | 'limitToLast';</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_lite.querylimitconstraint" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_lite.querylimitconstraint</a>
+  </p>
+</div>

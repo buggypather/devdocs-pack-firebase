@@ -1,0 +1,30 @@
+<h1>SchemaInterface interface</h1>
+<p>Interface for <a href="ai.schema">Schema</a> class.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface SchemaInterface extends SchemaShared&lt;SchemaInterface&gt; </pre>
+<p><b>Extends:</b> <a href="ai.schemashared">SchemaShared</a><!-- -->&lt;<a href="ai.schemainterface">SchemaInterface</a><!-- -->&gt;</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.schemainterface#schemainterfacetype">type</a></td>
+<td><a href="ai#schematype">SchemaType</a></td>
+<td>The type of the property. this can only be undefined when using <code>anyof</code> schemas, which do not have an explicit type in the <a href="https://swagger.io/docs/specification/v3_0/data-models/data-types/#any-type">OpenAPI Specification</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="schemainterfacetype">SchemaInterface.type</h2>
+<p>The type of the property. this can only be undefined when using <code>anyof</code> schemas, which do not have an explicit type in the <a href="https://swagger.io/docs/specification/v3_0/data-models/data-types/#any-type">OpenAPI Specification</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">type?: SchemaType;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.schemainterface" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.schemainterface</a>
+  </p>
+</div>

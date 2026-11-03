@@ -1,0 +1,29 @@
+<h1>FunctionDeclarationsTool interface</h1>
+<p>A <code>FunctionDeclarationsTool</code> is a piece of code that enables the system to interact with external systems to perform an action, or set of actions, outside of knowledge and scope of the model.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface FunctionDeclarationsTool </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.functiondeclarationstool#functiondeclarationstoolfunctiondeclarations">functionDeclarations</a></td>
+<td><a href="ai.functiondeclaration">FunctionDeclaration</a><!-- -->[]</td>
+<td>Optional. One or more function declarations to be passed to the model along with the current user query. Model may decide to call a subset of these functions by populating <a href="ai.functioncall">FunctionCall</a> in the response. User should provide a <a href="ai.functionresponse">FunctionResponse</a> for each function call in the next turn. Based on the function responses, the model will generate the final response back to the user. Maximum 64 function declarations can be provided.</td>
+</tr>
+</tbody></table>
+<h2 id="functiondeclarationstoolfunctiondeclarations">FunctionDeclarationsTool.functionDeclarations</h2>
+<p>Optional. One or more function declarations to be passed to the model along with the current user query. Model may decide to call a subset of these functions by populating <a href="ai.functioncall">FunctionCall</a> in the response. User should provide a <a href="ai.functionresponse">FunctionResponse</a> for each function call in the next turn. Based on the function responses, the model will generate the final response back to the user. Maximum 64 function declarations can be provided.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">functionDeclarations?: FunctionDeclaration[];</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.functiondeclarationstool" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.functiondeclarationstool</a>
+  </p>
+</div>

@@ -1,0 +1,76 @@
+<h1>FetchResponse interface</h1>
+<p>Defines a successful response (200 or 304).</p>
+<p>Modeled after the native `Response` interface, but simplified for Remote Config's use case.<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface FetchResponse </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="remote-config.fetchresponse#fetchresponseconfig">config</a></td>
+<td><a href="remote-config.firebaseremoteconfigobject">FirebaseRemoteConfigObject</a></td>
+<td>Defines the map of parameters returned as &quot;entries&quot; in the fetch response body.<p>Only defined for 200 responses.</td>
+</tr>
+<tr>
+<td><a href="remote-config.fetchresponse#fetchresponseetag">eTag</a></td>
+<td>string</td>
+<td>Defines the ETag response header value.<p>Only defined for 200 and 304 responses.</td>
+</tr>
+<tr>
+<td><a href="remote-config.fetchresponse#fetchresponseexperiments">experiments</a></td>
+<td><a href="remote-config.firebaseexperimentdescription">FirebaseExperimentDescription</a><!-- -->[]</td>
+<td>Metadata for A/B testing and Remote Config Rollout experiments.</td>
+</tr>
+<tr>
+<td><a href="remote-config.fetchresponse#fetchresponserollouts">rollouts</a></td>
+<td><a href="remote-config.firebaserolloutmetadata">FirebaseRolloutMetadata</a><!-- -->[]</td>
+<td>Metadata for Remote Config Rollout experiments.</td>
+</tr>
+<tr>
+<td><a href="remote-config.fetchresponse#fetchresponsestatus">status</a></td>
+<td>number</td>
+<td>The HTTP status, which is useful for differentiating success responses with data from those without.<p>The Remote Config client is modeled after the native <code>Fetch</code> interface, so HTTP status is first-class.<p>Disambiguation: the fetch response returns a legacy &quot;state&quot; value that is redundant with the HTTP status code. The former is normalized into the latter.</td>
+</tr>
+<tr>
+<td><a href="remote-config.fetchresponse#fetchresponsetemplateversion">templateVersion</a></td>
+<td>number</td>
+<td>The version number of the config template fetched from the server.</td>
+</tr>
+</tbody></table>
+<h2 id="fetchresponseconfig">FetchResponse.config</h2>
+<p>Defines the map of parameters returned as &quot;entries&quot; in the fetch response body.</p>
+<p>Only defined for 200 responses.<p><b>Signature:</b></p>
+<pre data-language="typescript">config?: FirebaseRemoteConfigObject;</pre>
+<h2 id="fetchresponseetag">FetchResponse.eTag</h2>
+<p>Defines the ETag response header value.</p>
+<p>Only defined for 200 and 304 responses.<p><b>Signature:</b></p>
+<pre data-language="typescript">eTag?: string;</pre>
+<h2 id="fetchresponseexperiments">FetchResponse.experiments</h2>
+<p>Metadata for A/B testing and Remote Config Rollout experiments.</p>
+<p>Only defined for 200 responses.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">experiments?: FirebaseExperimentDescription[];</pre>
+<h2 id="fetchresponserollouts">FetchResponse.rollouts</h2>
+<p>Metadata for Remote Config Rollout experiments.</p>
+<p>Only defined for 200 responses.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">rollouts?: FirebaseRolloutMetadata[];</pre>
+<h2 id="fetchresponsestatus">FetchResponse.status</h2>
+<p>The HTTP status, which is useful for differentiating success responses with data from those without.</p>
+<p>The Remote Config client is modeled after the native `Fetch` interface, so HTTP status is first-class.<p>Disambiguation: the fetch response returns a legacy "state" value that is redundant with the HTTP status code. The former is normalized into the latter.<p><b>Signature:</b></p>
+<pre data-language="typescript">status: number;</pre>
+<h2 id="fetchresponsetemplateversion">FetchResponse.templateVersion</h2>
+<p>The version number of the config template fetched from the server.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">templateVersion?: number;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/remote-config.fetchresponse" class="_attribution-link">https://firebase.google.com/docs/reference/js/remote-config.fetchresponse</a>
+  </p>
+</div>

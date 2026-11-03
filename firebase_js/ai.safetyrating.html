@@ -1,0 +1,74 @@
+<h1>SafetyRating interface</h1>
+<p>A safety rating associated with a <a href="ai.generatecontentcandidate">GenerateContentCandidate</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface SafetyRating </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.safetyrating#safetyratingblocked">blocked</a></td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.safetyrating#safetyratingcategory">category</a></td>
+<td><a href="ai#harmcategory">HarmCategory</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.safetyrating#safetyratingprobability">probability</a></td>
+<td><a href="ai#harmprobability">HarmProbability</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.safetyrating#safetyratingprobabilityscore">probabilityScore</a></td>
+<td>number</td>
+<td>The probability score of the harm category.<!-- -->This property is only supported when using the Agent Platform Gemini API (<a href="ai.agentplatformbackend">AgentPlatformBackend</a><!-- -->). When using the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->), this property is not supported and will default to 0.</td>
+</tr>
+<tr>
+<td><a href="ai.safetyrating#safetyratingseverity">severity</a></td>
+<td><a href="ai#harmseverity">HarmSeverity</a></td>
+<td>The harm severity level.<!-- -->This property is only supported when using the Agent Platform Gemini API (<a href="ai.agentplatformbackend">AgentPlatformBackend</a><!-- -->). When using the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->), this property is not supported and will default to <code>HarmSeverity.UNSUPPORTED</code>.</td>
+</tr>
+<tr>
+<td><a href="ai.safetyrating#safetyratingseverityscore">severityScore</a></td>
+<td>number</td>
+<td>The severity score of the harm category.<!-- -->This property is only supported when using the Agent Platform Gemini API (<a href="ai.agentplatformbackend">AgentPlatformBackend</a><!-- -->). When using the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->), this property is not supported and will default to 0.</td>
+</tr>
+</tbody></table>
+<h2 id="safetyratingblocked">SafetyRating.blocked</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">blocked: boolean;</pre>
+<h2 id="safetyratingcategory">SafetyRating.category</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">category: HarmCategory;</pre>
+<h2 id="safetyratingprobability">SafetyRating.probability</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">probability: HarmProbability;</pre>
+<h2 id="safetyratingprobabilityscore">SafetyRating.probabilityScore</h2>
+<p>The probability score of the harm category.</p>
+<p>This property is only supported when using the Agent Platform Gemini API (<a href="ai.agentplatformbackend">AgentPlatformBackend</a><!-- -->). When using the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->), this property is not supported and will default to 0.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">probabilityScore: number;</pre>
+<h2 id="safetyratingseverity">SafetyRating.severity</h2>
+<p>The harm severity level.</p>
+<p>This property is only supported when using the Agent Platform Gemini API (<a href="ai.agentplatformbackend">AgentPlatformBackend</a><!-- -->). When using the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->), this property is not supported and will default to <code>HarmSeverity.UNSUPPORTED</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">severity: HarmSeverity;</pre>
+<h2 id="safetyratingseverityscore">SafetyRating.severityScore</h2>
+<p>The severity score of the harm category.</p>
+<p>This property is only supported when using the Agent Platform Gemini API (<a href="ai.agentplatformbackend">AgentPlatformBackend</a><!-- -->). When using the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->), this property is not supported and will default to 0.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">severityScore: number;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.safetyrating" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.safetyrating</a>
+  </p>
+</div>

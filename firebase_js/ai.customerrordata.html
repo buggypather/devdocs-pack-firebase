@@ -1,0 +1,56 @@
+<h1>CustomErrorData interface</h1>
+<p>Details object that contains data originating from a bad HTTP response.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface CustomErrorData </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.customerrordata#customerrordataerrordetails">errorDetails</a></td>
+<td><a href="ai.errordetails">ErrorDetails</a><!-- -->[]</td>
+<td>Optional additional details about the error.</td>
+</tr>
+<tr>
+<td><a href="ai.customerrordata#customerrordataresponse">response</a></td>
+<td><a href="ai.generatecontentresponse">GenerateContentResponse</a></td>
+<td>Response from a <a href="ai.generatecontentrequest">GenerateContentRequest</a></td>
+</tr>
+<tr>
+<td><a href="ai.customerrordata#customerrordatastatus">status</a></td>
+<td>number</td>
+<td>HTTP status code of the error response.</td>
+</tr>
+<tr>
+<td><a href="ai.customerrordata#customerrordatastatustext">statusText</a></td>
+<td>string</td>
+<td>HTTP status text of the error response.</td>
+</tr>
+</tbody></table>
+<h2 id="customerrordataerrordetails">CustomErrorData.errorDetails</h2>
+<p>Optional additional details about the error.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">errorDetails?: ErrorDetails[];</pre>
+<h2 id="customerrordataresponse">CustomErrorData.response</h2>
+<p>Response from a <a href="ai.generatecontentrequest">GenerateContentRequest</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">response?: GenerateContentResponse;</pre>
+<h2 id="customerrordatastatus">CustomErrorData.status</h2>
+<p>HTTP status code of the error response.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">status?: number;</pre>
+<h2 id="customerrordatastatustext">CustomErrorData.statusText</h2>
+<p>HTTP status text of the error response.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">statusText?: string;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.customerrordata" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.customerrordata</a>
+  </p>
+</div>

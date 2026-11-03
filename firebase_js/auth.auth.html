@@ -1,0 +1,303 @@
+<h1>Auth interface</h1>
+<p>Interface representing Firebase Auth service.</p>
+<p>See <a href="https://firebase.google.com/docs/auth/">Firebase Authentication</a> for a full guide on how to use the Firebase Auth service.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface Auth </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.auth#authapp">app</a></td>
+<td><a href="app.firebaseapp">FirebaseApp</a></td>
+<td>The <a href="app.firebaseapp">FirebaseApp</a> associated with the <code>Auth</code> service instance.</td>
+</tr>
+<tr>
+<td><a href="auth.auth#authconfig">config</a></td>
+<td><a href="auth.config">Config</a></td>
+<td>The <a href="auth.config">Config</a> used to initialize this instance.</td>
+</tr>
+<tr>
+<td><a href="auth.auth#authcurrentuser">currentUser</a></td>
+<td><a href="auth.user">User</a> | null</td>
+<td>The currently signed-in user (or null).</td>
+</tr>
+<tr>
+<td><a href="auth.auth#authemulatorconfig">emulatorConfig</a></td>
+<td><a href="auth.emulatorconfig">EmulatorConfig</a> | null</td>
+<td>The current emulator configuration (or null).</td>
+</tr>
+<tr>
+<td><a href="auth.auth#authlanguagecode">languageCode</a></td>
+<td>string | null</td>
+<td>The <a href="auth.auth">Auth</a> instance&#39;s language code.</td>
+</tr>
+<tr>
+<td><a href="auth.auth#authname">name</a></td>
+<td>string</td>
+<td>The name of the app associated with the <code>Auth</code> service instance.</td>
+</tr>
+<tr>
+<td><a href="auth.auth#authsettings">settings</a></td>
+<td><a href="auth.authsettings">AuthSettings</a></td>
+<td>The <a href="auth.auth">Auth</a> instance&#39;s settings.</td>
+</tr>
+<tr>
+<td><a href="auth.auth#authtenantid">tenantId</a></td>
+<td>string | null</td>
+<td>The <a href="auth.auth">Auth</a> instance&#39;s tenant ID.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.auth#authauthstateready">authStateReady()</a></td>
+<td>returns a promise that resolves immediately when the initial auth state is settled. When the promise resolves, the current user might be a valid user or <code>null</code> if the user signed out.</td>
+</tr>
+<tr>
+<td><a href="auth.auth#authbeforeauthstatechanged">beforeAuthStateChanged(callback, onAbort)</a></td>
+<td>Adds a blocking callback that runs before an auth state change sets a new user.</td>
+</tr>
+<tr>
+<td><a href="auth.auth#authonauthstatechanged">onAuthStateChanged(nextOrObserver, error, completed)</a></td>
+<td>Adds an observer for changes to the user&#39;s sign-in state.</td>
+</tr>
+<tr>
+<td><a href="auth.auth#authonidtokenchanged">onIdTokenChanged(nextOrObserver, error, completed)</a></td>
+<td>Adds an observer for changes to the signed-in user&#39;s ID token.</td>
+</tr>
+<tr>
+<td><a href="auth.auth#authsetpersistence">setPersistence(persistence)</a></td>
+<td>Changes the type of persistence on the <code>Auth</code> instance.</td>
+</tr>
+<tr>
+<td><a href="auth.auth#authsignout">signOut()</a></td>
+<td>Signs out the current user. This does not automatically revoke the user&#39;s ID token.</td>
+</tr>
+<tr>
+<td><a href="auth.auth#authupdatecurrentuser">updateCurrentUser(user)</a></td>
+<td>Asynchronously sets the provided user as <a href="auth.auth#authcurrentuser">Auth.currentUser</a> on the <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td><a href="auth.auth#authusedevicelanguage">useDeviceLanguage()</a></td>
+<td>Sets the current language to the default device/browser preference.</td>
+</tr>
+</tbody></table>
+<h2 id="authapp">Auth.app</h2>
+<p>The <a href="app.firebaseapp">FirebaseApp</a> associated with the <code>Auth</code> service instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly app: FirebaseApp;</pre>
+<h2 id="authconfig">Auth.config</h2>
+<p>The <a href="auth.config">Config</a> used to initialize this instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly config: Config;</pre>
+<h2 id="authcurrentuser">Auth.currentUser</h2>
+<p>The currently signed-in user (or null).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly currentUser: User | null;</pre>
+<h2 id="authemulatorconfig">Auth.emulatorConfig</h2>
+<p>The current emulator configuration (or null).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly emulatorConfig: EmulatorConfig | null;</pre>
+<h2 id="authlanguagecode">Auth.languageCode</h2>
+<p>The <a href="auth.auth">Auth</a> instance&#39;s language code.</p>
+<p>This is a readable/writable property. When set to null, the default Firebase Console language setting is applied. The language code will propagate to email action templates (password reset, email verification and email change revocation), SMS templates for phone authentication, reCAPTCHA verifier and OAuth popup/redirect operations provided the specified providers support localization with the language code specified.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">languageCode: string | null;</pre>
+<h2 id="authname">Auth.name</h2>
+<p>The name of the app associated with the <code>Auth</code> service instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly name: string;</pre>
+<h2 id="authsettings">Auth.settings</h2>
+<p>The <a href="auth.auth">Auth</a> instance&#39;s settings.</p>
+<p>This is used to edit/read configuration related options such as app verification mode for phone authentication.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly settings: AuthSettings;</pre>
+<h2 id="authtenantid">Auth.tenantId</h2>
+<p>The <a href="auth.auth">Auth</a> instance&#39;s tenant ID.</p>
+<p>This is a readable/writable property. When you set the tenant ID of an <a href="auth.auth">Auth</a> instance, all future sign-in/sign-up operations will pass this tenant ID and sign in or sign up users to the specified tenant project. When set to null, users are signed in to the parent project.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">tenantId: string | null;</pre>
+<h3 id="example">Example</h3>
+<pre data-language="javascript">// Set the tenant ID on Auth instance.
+auth.tenantId = 'TENANT_PROJECT_ID';
+
+// All future sign-in request now include tenant ID.
+const result = await signInWithEmailAndPassword(auth, email, password);
+// result.user.tenantId should be 'TENANT_PROJECT_ID'.</pre>
+<h2 id="authauthstateready">Auth.authStateReady()</h2>
+<p>returns a promise that resolves immediately when the initial auth state is settled. When the promise resolves, the current user might be a valid user or <code>null</code> if the user signed out.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">authStateReady(): Promise&lt;void&gt;;</pre>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h2 id="authbeforeauthstatechanged">Auth.beforeAuthStateChanged()</h2>
+<p>Adds a blocking callback that runs before an auth state change sets a new user.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">beforeAuthStateChanged(callback: (user: User | null) =&gt; void | Promise&lt;void&gt;, onAbort?: () =&gt; void): Unsubscribe;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>callback</td>
+<td>(user: <a href="auth.user">User</a> | null) =&gt; void | Promise&lt;void&gt;</td>
+<td>callback triggered before new user value is set. If this throws, it blocks the user from being set.</td>
+</tr>
+<tr>
+<td>onAbort</td>
+<td>() =&gt; void</td>
+<td>callback triggered if a later <code>beforeAuthStateChanged()</code> callback throws, allowing you to undo any side effects.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#unsubscribe">Unsubscribe</a></p>
+<h2 id="authonauthstatechanged">Auth.onAuthStateChanged()</h2>
+<p>Adds an observer for changes to the user&#39;s sign-in state.</p>
+<p>To keep the old behavior, see <a href="auth.auth#authonidtokenchanged">Auth.onIdTokenChanged()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">onAuthStateChanged(nextOrObserver: NextOrObserver&lt;User | null&gt;, error?: ErrorFn, completed?: CompleteFn): Unsubscribe;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nextOrObserver</td>
+<td><a href="auth#nextorobserver">NextOrObserver</a><!-- -->&lt;<a href="auth.user">User</a> | null&gt;</td>
+<td>callback triggered on change.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#errorfn">ErrorFn</a></td>
+<td>Deprecated. This callback is never triggered. Errors on signing in/out can be caught in promises returned from sign-in/sign-out functions.</td>
+</tr>
+<tr>
+<td>completed</td>
+<td><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#completefn">CompleteFn</a></td>
+<td>Deprecated. This callback is never triggered.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#unsubscribe">Unsubscribe</a></p>
+<h2 id="authonidtokenchanged">Auth.onIdTokenChanged()</h2>
+<p>Adds an observer for changes to the signed-in user&#39;s ID token.</p>
+<p>This includes sign-in, sign-out, and token refresh events.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">onIdTokenChanged(nextOrObserver: NextOrObserver&lt;User | null&gt;, error?: ErrorFn, completed?: CompleteFn): Unsubscribe;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nextOrObserver</td>
+<td><a href="auth#nextorobserver">NextOrObserver</a><!-- -->&lt;<a href="auth.user">User</a> | null&gt;</td>
+<td>callback triggered on change.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#errorfn">ErrorFn</a></td>
+<td>Deprecated. This callback is never triggered. Errors on signing in/out can be caught in promises returned from sign-in/sign-out functions.</td>
+</tr>
+<tr>
+<td>completed</td>
+<td><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#completefn">CompleteFn</a></td>
+<td>Deprecated. This callback is never triggered.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#unsubscribe">Unsubscribe</a></p>
+<h2 id="authsetpersistence">Auth.setPersistence()</h2>
+<p>Changes the type of persistence on the <code>Auth</code> instance.</p>
+<p>This will affect the currently saved Auth session and applies this type of persistence for future sign-in requests, including sign-in with redirect requests.</p>
+<p>This makes it easy for a user signing in to specify whether their session should be remembered or not. It also makes it easier to never persist the Auth state for applications that are shared by other users or have sensitive data.</p>
+<p>This method does not work in a Node.js environment.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">setPersistence(persistence: Persistence): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>persistence</td>
+<td><a href="auth.persistence">Persistence</a></td>
+<td>The <a href="auth.persistence">Persistence</a> to use.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="example-1">Example</h3>
+<pre data-language="javascript">auth.setPersistence(browserSessionPersistence);</pre>
+<h2 id="authsignout">Auth.signOut()</h2>
+<p>Signs out the current user. This does not automatically revoke the user&#39;s ID token.</p>
+<p>This method is not supported by <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">signOut(): Promise&lt;void&gt;;</pre>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h2 id="authupdatecurrentuser">Auth.updateCurrentUser()</h2>
+<p>Asynchronously sets the provided user as <a href="auth.auth#authcurrentuser">Auth.currentUser</a> on the <a href="auth.auth">Auth</a> instance.</p>
+<p>A new instance copy of the user provided will be made and set as currentUser.</p>
+<p>This will trigger <a href="auth.auth#authonauthstatechanged">Auth.onAuthStateChanged()</a> and <a href="auth.auth#authonidtokenchanged">Auth.onIdTokenChanged()</a> listeners like other sign in methods.</p>
+<p>The operation fails with an error if the user to be updated belongs to a different Firebase project.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">updateCurrentUser(user: User | null): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a> | null</td>
+<td>The new <a href="auth.user">User</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h2 id="authusedevicelanguage">Auth.useDeviceLanguage()</h2>
+<p>Sets the current language to the default device/browser preference.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">useDeviceLanguage(): void;</pre>
+<p><b>Returns:</b></p>
+<p>void</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.auth" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.auth</a>
+  </p>
+</div>

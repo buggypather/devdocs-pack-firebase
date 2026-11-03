@@ -1,0 +1,31 @@
+<h1>QueryConstraint class</h1>
+<p>A <code>QueryConstraint</code> is used to narrow the set of documents returned by a Firestore query. <code>QueryConstraint</code><!-- -->s are created by invoking <a href="firestore#where_0fae4bf">where()</a><!-- -->, <a href="firestore#orderby_006d61f">orderBy()</a><!-- -->, <a href="firestore#startat_9a4477f">startAt()</a><!-- -->, <a href="firestore#startafter_9a4477f">startAfter()</a><!-- -->, <a href="firestore#endbefore_9a4477f">endBefore()</a><!-- -->, <a href="firestore#endat_9a4477f">endAt()</a><!-- -->, <a href="firestore#limit_ec46c78">limit()</a><!-- -->, <a href="firestore#limittolast_ec46c78">limitToLast()</a> and can then be passed to <a href="firestore#query_9f7b0f4">query()</a> to create a new query instance that also contains this <code>QueryConstraint</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare abstract class QueryConstraint </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.queryconstraint#queryconstrainttype">type</a></td>
+<td></td>
+<td><a href="firestore#queryconstrainttype">QueryConstraintType</a></td>
+<td>The type of this query constraint</td>
+</tr>
+</tbody></table>
+<h2 id="queryconstrainttype">QueryConstraint.type</h2>
+<p>The type of this query constraint</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">abstract readonly type: QueryConstraintType;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.queryconstraint" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.queryconstraint</a>
+  </p>
+</div>

@@ -1,0 +1,68 @@
+<h1>EnhancedGenerateContentResponse interface</h1>
+<p>Response object wrapped with helper methods.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface EnhancedGenerateContentResponse extends GenerateContentResponse </pre>
+<p><b>Extends:</b> <a href="ai.generatecontentresponse">GenerateContentResponse</a></p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.enhancedgeneratecontentresponse#enhancedgeneratecontentresponsefunctioncalls">functionCalls</a></td>
+<td>() =&gt; <a href="ai.functioncall">FunctionCall</a><!-- -->[] | undefined</td>
+<td>Aggregates and returns every <a href="ai.functioncall">FunctionCall</a> from the first candidate of <a href="ai.generatecontentresponse">GenerateContentResponse</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.enhancedgeneratecontentresponse#enhancedgeneratecontentresponseinferencesource">inferenceSource</a></td>
+<td><a href="ai#inferencesource">InferenceSource</a></td>
+<td>Indicates whether inference happened on-device or in-cloud.</td>
+</tr>
+<tr>
+<td><a href="ai.enhancedgeneratecontentresponse#enhancedgeneratecontentresponseinlinedataparts">inlineDataParts</a></td>
+<td>() =&gt; <a href="ai.inlinedatapart">InlineDataPart</a><!-- -->[] | undefined</td>
+<td>Aggregates and returns every <a href="ai.inlinedatapart">InlineDataPart</a> from the first candidate of <a href="ai.generatecontentresponse">GenerateContentResponse</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.enhancedgeneratecontentresponse#enhancedgeneratecontentresponsetext">text</a></td>
+<td>() =&gt; string</td>
+<td>Returns the text string from the response, if available. Throws if the prompt or candidate was blocked.</td>
+</tr>
+<tr>
+<td><a href="ai.enhancedgeneratecontentresponse#enhancedgeneratecontentresponsethoughtsummary">thoughtSummary</a></td>
+<td>() =&gt; string | undefined</td>
+<td>Aggregates and returns every <a href="ai.textpart">TextPart</a> with their <code>thought</code> property set to <code>true</code> from the first candidate of <a href="ai.generatecontentresponse">GenerateContentResponse</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="enhancedgeneratecontentresponsefunctioncalls">EnhancedGenerateContentResponse.functionCalls</h2>
+<p>Aggregates and returns every <a href="ai.functioncall">FunctionCall</a> from the first candidate of <a href="ai.generatecontentresponse">GenerateContentResponse</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">functionCalls: () =&gt; FunctionCall[] | undefined;</pre>
+<h2 id="enhancedgeneratecontentresponseinferencesource">EnhancedGenerateContentResponse.inferenceSource</h2>
+<p>Indicates whether inference happened on-device or in-cloud.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">inferenceSource?: InferenceSource;</pre>
+<h2 id="enhancedgeneratecontentresponseinlinedataparts">EnhancedGenerateContentResponse.inlineDataParts</h2>
+<p>Aggregates and returns every <a href="ai.inlinedatapart">InlineDataPart</a> from the first candidate of <a href="ai.generatecontentresponse">GenerateContentResponse</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">inlineDataParts: () =&gt; InlineDataPart[] | undefined;</pre>
+<h2 id="enhancedgeneratecontentresponsetext">EnhancedGenerateContentResponse.text</h2>
+<p>Returns the text string from the response, if available. Throws if the prompt or candidate was blocked.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">text: () =&gt; string;</pre>
+<h2 id="enhancedgeneratecontentresponsethoughtsummary">EnhancedGenerateContentResponse.thoughtSummary</h2>
+<p>Aggregates and returns every <a href="ai.textpart">TextPart</a> with their <code>thought</code> property set to <code>true</code> from the first candidate of <a href="ai.generatecontentresponse">GenerateContentResponse</a><!-- -->.</p>
+<p>Thought summaries provide a brief overview of the model&#39;s internal thinking process, offering insight into how it arrived at the final answer. This can be useful for debugging, understanding the model&#39;s reasoning, and verifying its accuracy.</p>
+<p>Thoughts will only be included if <a href="ai.thinkingconfig#thinkingconfigincludethoughts">ThinkingConfig.includeThoughts</a> is set to <code>true</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">thoughtSummary: () =&gt; string | undefined;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.enhancedgeneratecontentresponse" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.enhancedgeneratecontentresponse</a>
+  </p>
+</div>

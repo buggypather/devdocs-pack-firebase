@@ -1,0 +1,69 @@
+<h1>PhoneMultiFactorGenerator class</h1>
+<p>Provider for generating a <a href="auth.phonemultifactorassertion">PhoneMultiFactorAssertion</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class PhoneMultiFactorGenerator </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.phonemultifactorgenerator#phonemultifactorgeneratorfactor_id">FACTOR_ID</a></td>
+<td><code>static</code></td>
+<td>string</td>
+<td>The identifier of the phone second factor: <code>phone</code>.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.phonemultifactorgenerator#phonemultifactorgeneratorassertion">assertion(credential)</a></td>
+<td><code>static</code></td>
+<td>Provides a <a href="auth.phonemultifactorassertion">PhoneMultiFactorAssertion</a> to confirm ownership of the phone second factor.</td>
+</tr>
+</tbody></table>
+<h2 id="phonemultifactorgeneratorfactor_id">PhoneMultiFactorGenerator.FACTOR_ID</h2>
+<p>The identifier of the phone second factor: <code>phone</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static FACTOR_ID: string;</pre>
+<h2 id="phonemultifactorgeneratorassertion">PhoneMultiFactorGenerator.assertion()</h2>
+<p>Provides a <a href="auth.phonemultifactorassertion">PhoneMultiFactorAssertion</a> to confirm ownership of the phone second factor.</p>
+<p>This method does not work in a Node.js environment.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static assertion(credential: PhoneAuthCredential): PhoneMultiFactorAssertion;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>credential</td>
+<td><a href="auth.phoneauthcredential">PhoneAuthCredential</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="auth.phonemultifactorassertion">PhoneMultiFactorAssertion</a></p>
+<p>A <a href="auth.phonemultifactorassertion">PhoneMultiFactorAssertion</a> which can be used with <a href="auth.multifactorresolver#multifactorresolverresolvesignin">MultiFactorResolver.resolveSignIn()</a></p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.phonemultifactorgenerator" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.phonemultifactorgenerator</a>
+  </p>
+</div>

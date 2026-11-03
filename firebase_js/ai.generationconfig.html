@@ -1,0 +1,183 @@
+<h1>GenerationConfig interface</h1>
+<p>Config options for content-related requests</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface GenerationConfig </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.generationconfig#generationconfigcandidatecount">candidateCount</a></td>
+<td>number</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generationconfig#generationconfigfrequencypenalty">frequencyPenalty</a></td>
+<td>number</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generationconfig#generationconfigimageconfig">imageConfig</a></td>
+<td><a href="ai.imageconfig">ImageConfig</a></td>
+<td>Configuration options for generating images with Gemini models.</td>
+</tr>
+<tr>
+<td><a href="ai.generationconfig#generationconfigmaxoutputtokens">maxOutputTokens</a></td>
+<td>number</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generationconfig#generationconfigpresencepenalty">presencePenalty</a></td>
+<td>number</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generationconfig#generationconfigresponsejsonschema">responseJsonSchema</a></td>
+<td>{ [key: string]: unknown; }</td>
+<td>Output schema of the generated response. This is an alternative to <code>responseSchema</code> that accepts [JSON Schema](<a href="https://json-schema.org/">https://json-schema.org/</a>).<!-- -->If set, <code>responseSchema</code> must be omitted, but <code>responseMimeType</code> is required and must be set to <code>application/json</code>.</td>
+</tr>
+<tr>
+<td><a href="ai.generationconfig#generationconfigresponsemimetype">responseMimeType</a></td>
+<td>string</td>
+<td>Output response MIME type of the generated candidate text. Supported MIME types are <code>text/plain</code> (default, text output), <code>application/json</code> (JSON response in the candidates), and <code>text/x.enum</code>.</td>
+</tr>
+<tr>
+<td><a href="ai.generationconfig#generationconfigresponsemodalities">responseModalities</a></td>
+<td><a href="ai#responsemodality">ResponseModality</a><!-- -->[]</td>
+<td><b><i>(Public Preview)</i></b> Generation modalities to be returned in generation responses.</td>
+</tr>
+<tr>
+<td><a href="ai.generationconfig#generationconfigresponseschema">responseSchema</a></td>
+<td><a href="ai#typedschema">TypedSchema</a> | <a href="ai.schemarequest">SchemaRequest</a></td>
+<td>Output response schema of the generated candidate text. This value can be a class generated with a <a href="ai.schema">Schema</a> static method like <code>Schema.string()</code> or <code>Schema.object()</code> or it can be a plain JS object matching the <a href="ai.schemarequest">SchemaRequest</a> interface. <br/>Note: This only applies when the specified <code>responseMimeType</code> supports a schema; currently this is limited to <code>application/json</code> and <code>text/x.enum</code>.</td>
+</tr>
+<tr>
+<td><a href="ai.generationconfig#generationconfigspeechconfig">speechConfig</a></td>
+<td><a href="ai#speechconfig">SpeechConfig</a></td>
+<td><b><i>(Public Preview)</i></b> Configuration for speech synthesis for text-to-speech (TTS) models.</td>
+</tr>
+<tr>
+<td><a href="ai.generationconfig#generationconfigstopsequences">stopSequences</a></td>
+<td>string[]</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generationconfig#generationconfigtemperature">temperature</a></td>
+<td>number</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generationconfig#generationconfigthinkingconfig">thinkingConfig</a></td>
+<td><a href="ai.thinkingconfig">ThinkingConfig</a></td>
+<td>Configuration for &quot;thinking&quot; behavior of compatible Gemini models.</td>
+</tr>
+<tr>
+<td><a href="ai.generationconfig#generationconfigtopk">topK</a></td>
+<td>number</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generationconfig#generationconfigtopp">topP</a></td>
+<td>number</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="generationconfigcandidatecount">GenerationConfig.candidateCount</h2>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Not supported in Gemini 3.x and later models. The model will ignore this parameter if it&#39;s included in a request. Make parallel requests instead.</p>
+</blockquote>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">candidateCount?: number;</pre>
+<h2 id="generationconfigfrequencypenalty">GenerationConfig.frequencyPenalty</h2>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Not supported in Gemini 3.x and later models. Requests that include this parameter will fail with a 400 error. Omit this parameter.</p>
+</blockquote>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">frequencyPenalty?: number;</pre>
+<h2 id="generationconfigimageconfig">GenerationConfig.imageConfig</h2>
+<p>Configuration options for generating images with Gemini models.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">imageConfig?: ImageConfig;</pre>
+<h2 id="generationconfigmaxoutputtokens">GenerationConfig.maxOutputTokens</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">maxOutputTokens?: number;</pre>
+<h2 id="generationconfigpresencepenalty">GenerationConfig.presencePenalty</h2>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Not supported in Gemini 3.x and later models. Requests that include this parameter will fail with a 400 error. Omit this parameter.</p>
+</blockquote>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">presencePenalty?: number;</pre>
+<h2 id="generationconfigresponsejsonschema">GenerationConfig.responseJsonSchema</h2>
+<p>Output schema of the generated response. This is an alternative to <code>responseSchema</code> that accepts [JSON Schema](<a href="https://json-schema.org/">https://json-schema.org/</a>).</p>
+<p>If set, <code>responseSchema</code> must be omitted, but <code>responseMimeType</code> is required and must be set to <code>application/json</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">responseJsonSchema?: {
+        [key: string]: unknown;
+    };</pre>
+<h2 id="generationconfigresponsemimetype">GenerationConfig.responseMimeType</h2>
+<p>Output response MIME type of the generated candidate text. Supported MIME types are <code>text/plain</code> (default, text output), <code>application/json</code> (JSON response in the candidates), and <code>text/x.enum</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">responseMimeType?: string;</pre>
+<h2 id="generationconfigresponsemodalities">GenerationConfig.responseModalities</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Generation modalities to be returned in generation responses.</p>
+<ul>
+<li>Multimodal response generation is only supported by some Gemini models and versions; see <a href="https://firebase.google.com/docs/ai-logic/models">model versions</a><!-- -->. - Only image generation (<code>ResponseModality.IMAGE</code><!-- -->) is supported.</li>
+</ul>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">responseModalities?: ResponseModality[];</pre>
+<h2 id="generationconfigresponseschema">GenerationConfig.responseSchema</h2>
+<p>Output response schema of the generated candidate text. This value can be a class generated with a <a href="ai.schema">Schema</a> static method like <code>Schema.string()</code> or <code>Schema.object()</code> or it can be a plain JS object matching the <a href="ai.schemarequest">SchemaRequest</a> interface. <br/>Note: This only applies when the specified <code>responseMimeType</code> supports a schema; currently this is limited to <code>application/json</code> and <code>text/x.enum</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">responseSchema?: TypedSchema | SchemaRequest;</pre>
+<h2 id="generationconfigspeechconfig">GenerationConfig.speechConfig</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Configuration for speech synthesis for text-to-speech (TTS) models.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">speechConfig?: SpeechConfig;</pre>
+<h2 id="generationconfigstopsequences">GenerationConfig.stopSequences</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">stopSequences?: string[];</pre>
+<h2 id="generationconfigtemperature">GenerationConfig.temperature</h2>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Not supported in Gemini 3.x and later models. The model will ignore this parameter if it&#39;s included in a request. Omit this parameter and let the model manage sampling automatically.</p>
+</blockquote>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">temperature?: number;</pre>
+<h2 id="generationconfigthinkingconfig">GenerationConfig.thinkingConfig</h2>
+<p>Configuration for &quot;thinking&quot; behavior of compatible Gemini models.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">thinkingConfig?: ThinkingConfig;</pre>
+<h2 id="generationconfigtopk">GenerationConfig.topK</h2>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Not supported in Gemini 3.x and later models. The model will ignore this parameter if it&#39;s included in a request. Omit this parameter and let the model manage sampling automatically.</p>
+</blockquote>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">topK?: number;</pre>
+<h2 id="generationconfigtopp">GenerationConfig.topP</h2>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Not supported in Gemini 3.x and later models. The model will ignore this parameter if it&#39;s included in a request. Omit this parameter and let the model manage sampling automatically.</p>
+</blockquote>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">topP?: number;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.generationconfig" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.generationconfig</a>
+  </p>
+</div>

@@ -1,0 +1,56 @@
+<h1>MultiFactorInfo interface</h1>
+<p>A structure containing the information of a second factor entity.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface MultiFactorInfo </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.multifactorinfo#multifactorinfodisplayname">displayName</a></td>
+<td>string | null</td>
+<td>The user friendly name of the current second factor.</td>
+</tr>
+<tr>
+<td><a href="auth.multifactorinfo#multifactorinfoenrollmenttime">enrollmentTime</a></td>
+<td>string</td>
+<td>The enrollment date of the second factor formatted as a UTC string.</td>
+</tr>
+<tr>
+<td><a href="auth.multifactorinfo#multifactorinfofactorid">factorId</a></td>
+<td>(typeof <a href="auth#factorid">FactorIdMap</a><!-- -->)[keyof typeof <a href="auth#factorid">FactorIdMap</a><!-- -->]</td>
+<td>The identifier of the second factor.</td>
+</tr>
+<tr>
+<td><a href="auth.multifactorinfo#multifactorinfouid">uid</a></td>
+<td>string</td>
+<td>The multi-factor enrollment ID.</td>
+</tr>
+</tbody></table>
+<h2 id="multifactorinfodisplayname">MultiFactorInfo.displayName</h2>
+<p>The user friendly name of the current second factor.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly displayName?: string | null;</pre>
+<h2 id="multifactorinfoenrollmenttime">MultiFactorInfo.enrollmentTime</h2>
+<p>The enrollment date of the second factor formatted as a UTC string.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly enrollmentTime: string;</pre>
+<h2 id="multifactorinfofactorid">MultiFactorInfo.factorId</h2>
+<p>The identifier of the second factor.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly factorId: (typeof FactorIdMap)[keyof typeof FactorIdMap];</pre>
+<h2 id="multifactorinfouid">MultiFactorInfo.uid</h2>
+<p>The multi-factor enrollment ID.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly uid: string;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.multifactorinfo" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.multifactorinfo</a>
+  </p>
+</div>

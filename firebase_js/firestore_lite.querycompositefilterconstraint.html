@@ -1,0 +1,31 @@
+<h1>QueryCompositeFilterConstraint class</h1>
+<p>A <code>QueryCompositeFilterConstraint</code> is used to narrow the set of documents returned by a Firestore query by performing the logical OR or AND of multiple <a href="firestore_lite.queryfieldfilterconstraint">QueryFieldFilterConstraint</a><!-- -->s or <a href="firestore_lite.querycompositefilterconstraint">QueryCompositeFilterConstraint</a><!-- -->s. <code>QueryCompositeFilterConstraint</code><!-- -->s are created by invoking <a href="firestore_lite#or_e72c712">or()</a> or <a href="firestore_lite#and_e72c712">and()</a> and can then be passed to <a href="firestore_lite#query_9f7b0f4">query()</a> to create a new query instance that also contains the <code>QueryCompositeFilterConstraint</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class QueryCompositeFilterConstraint </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite.querycompositefilterconstraint#querycompositefilterconstrainttype">type</a></td>
+<td></td>
+<td>&#39;or&#39; | &#39;and&#39;</td>
+<td>The type of this query constraint</td>
+</tr>
+</tbody></table>
+<h2 id="querycompositefilterconstrainttype">QueryCompositeFilterConstraint.type</h2>
+<p>The type of this query constraint</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly type: 'or' | 'and';</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_lite.querycompositefilterconstraint" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_lite.querycompositefilterconstraint</a>
+  </p>
+</div>

@@ -1,0 +1,94 @@
+<h1>StorageReference interface</h1>
+<p>Represents a reference to a Google Cloud Storage object. Developers can upload, download, and delete objects, as well as get/set object metadata.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface StorageReference </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="storage.storagereference#storagereferencebucket">bucket</a></td>
+<td>string</td>
+<td>The name of the bucket containing this reference&#39;s object.</td>
+</tr>
+<tr>
+<td><a href="storage.storagereference#storagereferencefullpath">fullPath</a></td>
+<td>string</td>
+<td>The full path of this object.</td>
+</tr>
+<tr>
+<td><a href="storage.storagereference#storagereferencename">name</a></td>
+<td>string</td>
+<td>The short name of this object, which is the last component of the full path. For example, if fullPath is &#39;full/path/image.png&#39;, name is &#39;image.png&#39;.</td>
+</tr>
+<tr>
+<td><a href="storage.storagereference#storagereferenceparent">parent</a></td>
+<td><a href="storage.storagereference">StorageReference</a> | null</td>
+<td>A reference pointing to the parent location of this reference, or null if this reference is the root.</td>
+</tr>
+<tr>
+<td><a href="storage.storagereference#storagereferenceroot">root</a></td>
+<td><a href="storage.storagereference">StorageReference</a></td>
+<td>A reference to the root of this object&#39;s bucket.</td>
+</tr>
+<tr>
+<td><a href="storage.storagereference#storagereferencestorage">storage</a></td>
+<td><a href="storage.firebasestorage">FirebaseStorage</a></td>
+<td>The <a href="storage.firebasestorage">FirebaseStorage</a> instance associated with this reference.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="storage.storagereference#storagereferencetostring">toString()</a></td>
+<td>Returns a gs:// URL for this object in the form <code>gs://&lt;bucket&gt;/&lt;path&gt;/&lt;to&gt;/&lt;object&gt;</code></td>
+</tr>
+</tbody></table>
+<h2 id="storagereferencebucket">StorageReference.bucket</h2>
+<p>The name of the bucket containing this reference&#39;s object.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">bucket: string;</pre>
+<h2 id="storagereferencefullpath">StorageReference.fullPath</h2>
+<p>The full path of this object.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">fullPath: string;</pre>
+<h2 id="storagereferencename">StorageReference.name</h2>
+<p>The short name of this object, which is the last component of the full path. For example, if fullPath is &#39;full/path/image.png&#39;, name is &#39;image.png&#39;.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">name: string;</pre>
+<h2 id="storagereferenceparent">StorageReference.parent</h2>
+<p>A reference pointing to the parent location of this reference, or null if this reference is the root.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">parent: StorageReference | null;</pre>
+<h2 id="storagereferenceroot">StorageReference.root</h2>
+<p>A reference to the root of this object&#39;s bucket.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">root: StorageReference;</pre>
+<h2 id="storagereferencestorage">StorageReference.storage</h2>
+<p>The <a href="storage.firebasestorage">FirebaseStorage</a> instance associated with this reference.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">storage: FirebaseStorage;</pre>
+<h2 id="storagereferencetostring">StorageReference.toString()</h2>
+<p>Returns a gs:// URL for this object in the form <code>gs://&lt;bucket&gt;/&lt;path&gt;/&lt;to&gt;/&lt;object&gt;</code></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">toString(): string;</pre>
+<p><b>Returns:</b></p>
+<p>string</p>
+<p>The gs:// URL.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/storage.storagereference" class="_attribution-link">https://firebase.google.com/docs/reference/js/storage.storagereference</a>
+  </p>
+</div>

@@ -1,0 +1,49 @@
+<h1>PhoneMultiFactorSignInInfoOptions interface</h1>
+<p>Options used for signing in with a second factor.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface PhoneMultiFactorSignInInfoOptions </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.phonemultifactorsignininfooptions#phonemultifactorsignininfooptionsmultifactorhint">multiFactorHint</a></td>
+<td><a href="auth.multifactorinfo">MultiFactorInfo</a></td>
+<td>The <a href="auth.multifactorinfo">MultiFactorInfo</a> obtained via <a href="auth.multifactorresolver#multifactorresolverhints">MultiFactorResolver.hints</a><!-- -->.<!-- -->One of <code>multiFactorHint</code> or <code>multiFactorUid</code> is required.</td>
+</tr>
+<tr>
+<td><a href="auth.phonemultifactorsignininfooptions#phonemultifactorsignininfooptionsmultifactoruid">multiFactorUid</a></td>
+<td>string</td>
+<td>The uid of the second factor.<!-- -->One of <code>multiFactorHint</code> or <code>multiFactorUid</code> is required.</td>
+</tr>
+<tr>
+<td><a href="auth.phonemultifactorsignininfooptions#phonemultifactorsignininfooptionssession">session</a></td>
+<td><a href="auth.multifactorsession">MultiFactorSession</a></td>
+<td>The <a href="auth.multifactorsession">MultiFactorSession</a> obtained via <a href="auth.multifactorresolver#multifactorresolversession">MultiFactorResolver.session</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="phonemultifactorsignininfooptionsmultifactorhint">PhoneMultiFactorSignInInfoOptions.multiFactorHint</h2>
+<p>The <a href="auth.multifactorinfo">MultiFactorInfo</a> obtained via <a href="auth.multifactorresolver#multifactorresolverhints">MultiFactorResolver.hints</a><!-- -->.</p>
+<p>One of <code>multiFactorHint</code> or <code>multiFactorUid</code> is required.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">multiFactorHint?: MultiFactorInfo;</pre>
+<h2 id="phonemultifactorsignininfooptionsmultifactoruid">PhoneMultiFactorSignInInfoOptions.multiFactorUid</h2>
+<p>The uid of the second factor.</p>
+<p>One of <code>multiFactorHint</code> or <code>multiFactorUid</code> is required.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">multiFactorUid?: string;</pre>
+<h2 id="phonemultifactorsignininfooptionssession">PhoneMultiFactorSignInInfoOptions.session</h2>
+<p>The <a href="auth.multifactorsession">MultiFactorSession</a> obtained via <a href="auth.multifactorresolver#multifactorresolversession">MultiFactorResolver.session</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">session: MultiFactorSession;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.phonemultifactorsignininfooptions" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.phonemultifactorsignininfooptions</a>
+  </p>
+</div>

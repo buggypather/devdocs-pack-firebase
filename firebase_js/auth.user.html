@@ -1,0 +1,177 @@
+<h1>User interface</h1>
+<p>A user account.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface User extends UserInfo </pre>
+<p><b>Extends:</b> <a href="auth.userinfo">UserInfo</a></p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.user#useremailverified">emailVerified</a></td>
+<td>boolean</td>
+<td>Whether the email has been verified with <a href="auth#sendemailverification_6a885d6">sendEmailVerification()</a> and <a href="auth#applyactioncode_d2ae15a">applyActionCode()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.user#userisanonymous">isAnonymous</a></td>
+<td>boolean</td>
+<td>Whether the user is authenticated using the <a href="auth#providerid">ProviderId</a><!-- -->.ANONYMOUS provider.</td>
+</tr>
+<tr>
+<td><a href="auth.user#usermetadata">metadata</a></td>
+<td><a href="auth.usermetadata">UserMetadata</a></td>
+<td>Additional metadata around user creation and sign-in times.</td>
+</tr>
+<tr>
+<td><a href="auth.user#userproviderdata">providerData</a></td>
+<td><a href="auth.userinfo">UserInfo</a><!-- -->[]</td>
+<td>Additional per provider such as displayName and profile information.</td>
+</tr>
+<tr>
+<td><a href="auth.user#userrefreshtoken">refreshToken</a></td>
+<td>string</td>
+<td>Refresh token used to reauthenticate the user. Avoid using this directly and prefer <a href="auth.user#usergetidtoken">User.getIdToken()</a> to refresh the ID token instead.</td>
+</tr>
+<tr>
+<td><a href="auth.user#usertenantid">tenantId</a></td>
+<td>string | null</td>
+<td>The user&#39;s tenant ID.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.user#userdelete">delete()</a></td>
+<td>Deletes and signs out the user.</td>
+</tr>
+<tr>
+<td><a href="auth.user#usergetidtoken">getIdToken(forceRefresh)</a></td>
+<td>Returns a JSON Web Token (JWT) used to identify the user to a Firebase service.</td>
+</tr>
+<tr>
+<td><a href="auth.user#usergetidtokenresult">getIdTokenResult(forceRefresh)</a></td>
+<td>Returns a deserialized JSON Web Token (JWT) used to identify the user to a Firebase service.</td>
+</tr>
+<tr>
+<td><a href="auth.user#userreload">reload()</a></td>
+<td>Refreshes the user, if signed in.</td>
+</tr>
+<tr>
+<td><a href="auth.user#usertojson">toJSON()</a></td>
+<td>Returns a JSON-serializable representation of this object.</td>
+</tr>
+</tbody></table>
+<h2 id="useremailverified">User.emailVerified</h2>
+<p>Whether the email has been verified with <a href="auth#sendemailverification_6a885d6">sendEmailVerification()</a> and <a href="auth#applyactioncode_d2ae15a">applyActionCode()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly emailVerified: boolean;</pre>
+<h2 id="userisanonymous">User.isAnonymous</h2>
+<p>Whether the user is authenticated using the <a href="auth#providerid">ProviderId</a><!-- -->.ANONYMOUS provider.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly isAnonymous: boolean;</pre>
+<h2 id="usermetadata">User.metadata</h2>
+<p>Additional metadata around user creation and sign-in times.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly metadata: UserMetadata;</pre>
+<h2 id="userproviderdata">User.providerData</h2>
+<p>Additional per provider such as displayName and profile information.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly providerData: UserInfo[];</pre>
+<h2 id="userrefreshtoken">User.refreshToken</h2>
+<p>Refresh token used to reauthenticate the user. Avoid using this directly and prefer <a href="auth.user#usergetidtoken">User.getIdToken()</a> to refresh the ID token instead.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly refreshToken: string;</pre>
+<h2 id="usertenantid">User.tenantId</h2>
+<p>The user&#39;s tenant ID.</p>
+<p>This is a read-only property, which indicates the tenant ID used to sign in the user. This is null if the user is signed in from the parent project.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly tenantId: string | null;</pre>
+<h3 id="example">Example</h3>
+<pre data-language="javascript">// Set the tenant ID on Auth instance.
+auth.tenantId = 'TENANT_PROJECT_ID';
+
+// All future sign-in request now include tenant ID.
+const result = await signInWithEmailAndPassword(auth, email, password);
+// result.user.tenantId should be 'TENANT_PROJECT_ID'.</pre>
+<h2 id="userdelete">User.delete()</h2>
+<p>Deletes and signs out the user.</p>
+<p>Important: this is a security-sensitive operation that requires the user to have recently signed in. If this requirement isn&#39;t met, ask the user to authenticate again and then call one of the reauthentication methods like <a href="auth#reauthenticatewithcredential_60f8043">reauthenticateWithCredential()</a><!-- -->.</p>
+<p>This method is not supported on any <a href="auth.user">User</a> signed in by <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">delete(): Promise&lt;void&gt;;</pre>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h2 id="usergetidtoken">User.getIdToken()</h2>
+<p>Returns a JSON Web Token (JWT) used to identify the user to a Firebase service.</p>
+<p>Returns the current token if it has not expired or if it will not expire in the next five minutes. Otherwise, this will refresh the token and return a new one.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">getIdToken(forceRefresh?: boolean): Promise&lt;string&gt;;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>forceRefresh</td>
+<td>boolean</td>
+<td>Force refresh regardless of token expiration.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;string&gt;</p>
+<h2 id="usergetidtokenresult">User.getIdTokenResult()</h2>
+<p>Returns a deserialized JSON Web Token (JWT) used to identify the user to a Firebase service.</p>
+<p>Returns the current token if it has not expired or if it will not expire in the next five minutes. Otherwise, this will refresh the token and return a new one.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">getIdTokenResult(forceRefresh?: boolean): Promise&lt;IdTokenResult&gt;;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>forceRefresh</td>
+<td>boolean</td>
+<td>Force refresh regardless of token expiration.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.idtokenresult">IdTokenResult</a><!-- -->&gt;</p>
+<h2 id="userreload">User.reload()</h2>
+<p>Refreshes the user, if signed in.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">reload(): Promise&lt;void&gt;;</pre>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h2 id="usertojson">User.toJSON()</h2>
+<p>Returns a JSON-serializable representation of this object.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">toJSON(): object;</pre>
+<p><b>Returns:</b></p>
+<p>object</p>
+<p>A JSON-serializable representation of this object.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.user" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.user</a>
+  </p>
+</div>

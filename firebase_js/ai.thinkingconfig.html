@@ -1,0 +1,55 @@
+<h1>ThinkingConfig interface</h1>
+<p>Configuration for &quot;thinking&quot; behavior of compatible Gemini models.</p>
+<p>Certain models utilize a thinking process before generating a response. This allows them to reason through complex problems and plan a more coherent and accurate answer.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface ThinkingConfig </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.thinkingconfig#thinkingconfigincludethoughts">includeThoughts</a></td>
+<td>boolean</td>
+<td>Whether to include &quot;thought summaries&quot; in the model&#39;s response.</td>
+</tr>
+<tr>
+<td><a href="ai.thinkingconfig#thinkingconfigthinkingbudget">thinkingBudget</a></td>
+<td>number</td>
+<td>The thinking budget, in tokens.</td>
+</tr>
+<tr>
+<td><a href="ai.thinkingconfig#thinkingconfigthinkinglevel">thinkingLevel</a></td>
+<td><a href="ai#thinkinglevel">ThinkingLevel</a></td>
+<td>If not specified, Gemini will use the model&#39;s default dynamic thinking level.</td>
+</tr>
+</tbody></table>
+<h2 id="thinkingconfigincludethoughts">ThinkingConfig.includeThoughts</h2>
+<p>Whether to include &quot;thought summaries&quot; in the model&#39;s response.</p>
+<p>Thought summaries provide a brief overview of the model&#39;s internal thinking process, offering insight into how it arrived at the final answer. This can be useful for debugging, understanding the model&#39;s reasoning, and verifying its accuracy.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">includeThoughts?: boolean;</pre>
+<h2 id="thinkingconfigthinkingbudget">ThinkingConfig.thinkingBudget</h2>
+<p>The thinking budget, in tokens.</p>
+<p>This parameter sets an upper limit on the number of tokens the model can use for its internal &quot;thinking&quot; process. A higher budget may result in higher quality responses for complex tasks but can also increase latency and cost.</p>
+<p>The range of supported thinking budget values depends on the model.</p>
+<ul> <li>To use the default thinking budget for a model, leave this value undefined.</li><li>To disable thinking, when supported by the model, set this value to `0`<!-- -->.</li><li>To use dynamic thinking, which allows the model to decide on the thinking budget based on the task, set this value to `-1`<!-- -->.</li> </ul><p>An error will be thrown if you set a thinking budget for a model that does not support this feature or if the specified budget is not within the model&#39;s supported range.</p>
+<p>The model will also error if <code>thinkingLevel</code> and <code>thinkingBudget</code> are both set.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">thinkingBudget?: number;</pre>
+<h2 id="thinkingconfigthinkinglevel">ThinkingConfig.thinkingLevel</h2>
+<p>If not specified, Gemini will use the model&#39;s default dynamic thinking level.</p>
+<p>Note: The model will error if <code>thinkingLevel</code> and <code>thinkingBudget</code> are both set.</p>
+<p>Important: Gemini 2.5 series models do not support thinking levels; use <code>thinkingBudget</code> to set a thinking budget instead.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">thinkingLevel?: ThinkingLevel;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.thinkingconfig" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.thinkingconfig</a>
+  </p>
+</div>

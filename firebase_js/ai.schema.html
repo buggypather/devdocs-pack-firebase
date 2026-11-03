@@ -1,0 +1,357 @@
+<h1>Schema class</h1>
+<p>Parent class encompassing all Schema types, with static methods that allow building specific Schema types. This class can be converted with <code>JSON.stringify()</code> into a JSON string accepted by Agent Platform Gemini API and Gemini Developer API REST endpoints. (This string conversion is automatically done when calling SDK methods.)</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare abstract class Schema implements SchemaInterface </pre>
+<p><b>Implements:</b> <a href="ai.schemainterface">SchemaInterface</a></p>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.schema#schemaconstructor">(constructor)(schemaParams)</a></td>
+<td></td>
+<td>Constructs a new instance of the <code>Schema</code> class</td>
+</tr>
+</tbody></table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.schema#schemadescription">description</a></td>
+<td></td>
+<td>string</td>
+<td>Optional. The description of the property.</td>
+</tr>
+<tr>
+<td><a href="ai.schema#schemaexample">example</a></td>
+<td></td>
+<td>unknown</td>
+<td>Optional. The example of the property.</td>
+</tr>
+<tr>
+<td><a href="ai.schema#schemaformat">format</a></td>
+<td></td>
+<td>string</td>
+<td>Optional. The format of the property. Supported formats:<br/> <ul> <li>for NUMBER type: &quot;float&quot;, &quot;double&quot;</li> <li>for INTEGER type: &quot;int32&quot;, &quot;int64&quot;</li> <li>for STRING type: &quot;email&quot;, &quot;byte&quot;, etc</li> </ul></td>
+</tr>
+<tr>
+<td><a href="ai.schema#schemaitems">items</a></td>
+<td></td>
+<td><a href="ai.schemainterface">SchemaInterface</a></td>
+<td>Optional. The items of the property.</td>
+</tr>
+<tr>
+<td><a href="ai.schema#schemamaxitems">maxItems</a></td>
+<td></td>
+<td>number</td>
+<td>The maximum number of items (elements) in a schema of <a href="ai#schematype">SchemaType</a> <code>array</code>.</td>
+</tr>
+<tr>
+<td><a href="ai.schema#schemaminitems">minItems</a></td>
+<td></td>
+<td>number</td>
+<td>The minimum number of items (elements) in a schema of <a href="ai#schematype">SchemaType</a> <code>array</code>.</td>
+</tr>
+<tr>
+<td><a href="ai.schema#schemanullable">nullable</a></td>
+<td></td>
+<td>boolean</td>
+<td>Optional. Whether the property is nullable. Defaults to false.</td>
+</tr>
+<tr>
+<td><a href="ai.schema#schematype">type</a></td>
+<td></td>
+<td><a href="ai#schematype">SchemaType</a></td>
+<td>Optional. The type of the property. This can only be undefined when using <code>anyOf</code> schemas, which do not have an explicit type in the <a href="https://swagger.io/docs/specification/v3_0/data-models/data-types/#any-type">OpenAPI specification</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.schema#schemaanyof">anyOf(anyOfParams)</a></td>
+<td><code>static</code></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.schema#schemaarray">array(arrayParams)</a></td>
+<td><code>static</code></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.schema#schemaboolean">boolean(booleanParams)</a></td>
+<td><code>static</code></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.schema#schemaenumstring">enumString(stringParams)</a></td>
+<td><code>static</code></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.schema#schemainteger">integer(integerParams)</a></td>
+<td><code>static</code></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.schema#schemanumber">number(numberParams)</a></td>
+<td><code>static</code></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.schema#schemaobject">object(objectParams)</a></td>
+<td><code>static</code></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.schema#schemastring">string(stringParams)</a></td>
+<td><code>static</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="schemaconstructor">Schema.(constructor)</h2>
+<p>Constructs a new instance of the <code>Schema</code> class</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">constructor(schemaParams: SchemaInterface);</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>schemaParams</td>
+<td><a href="ai.schemainterface">SchemaInterface</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="schemadescription">Schema.description</h2>
+<p>Optional. The description of the property.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">description?: string;</pre>
+<h2 id="schemaexample">Schema.example</h2>
+<p>Optional. The example of the property.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">example?: unknown;</pre>
+<h2 id="schemaformat">Schema.format</h2>
+<p>Optional. The format of the property. Supported formats:<br/> <ul> <li>for NUMBER type: &quot;float&quot;, &quot;double&quot;</li> <li>for INTEGER type: &quot;int32&quot;, &quot;int64&quot;</li> <li>for STRING type: &quot;email&quot;, &quot;byte&quot;, etc</li> </ul></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">format?: string;</pre>
+<h2 id="schemaitems">Schema.items</h2>
+<p>Optional. The items of the property.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">items?: SchemaInterface;</pre>
+<h2 id="schemamaxitems">Schema.maxItems</h2>
+<p>The maximum number of items (elements) in a schema of <a href="ai#schematype">SchemaType</a> <code>array</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">maxItems?: number;</pre>
+<h2 id="schemaminitems">Schema.minItems</h2>
+<p>The minimum number of items (elements) in a schema of <a href="ai#schematype">SchemaType</a> <code>array</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">minItems?: number;</pre>
+<h2 id="schemanullable">Schema.nullable</h2>
+<p>Optional. Whether the property is nullable. Defaults to false.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">nullable: boolean;</pre>
+<h2 id="schematype">Schema.type</h2>
+<p>Optional. The type of the property. This can only be undefined when using <code>anyOf</code> schemas, which do not have an explicit type in the <a href="https://swagger.io/docs/specification/v3_0/data-models/data-types/#any-type">OpenAPI specification</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">type?: SchemaType;</pre>
+<h2 id="schemaanyof">Schema.anyOf()</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static anyOf(anyOfParams: SchemaParams &amp; {
+        anyOf: TypedSchema[];
+    }): AnyOfSchema;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>anyOfParams</td>
+<td><a href="ai.schemaparams">SchemaParams</a> &amp; { anyOf: <a href="ai#typedschema">TypedSchema</a><!-- -->[]; }</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="ai.anyofschema">AnyOfSchema</a></p>
+<h2 id="schemaarray">Schema.array()</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static array(arrayParams: SchemaParams &amp; {
+        items: Schema;
+    }): ArraySchema;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>arrayParams</td>
+<td><a href="ai.schemaparams">SchemaParams</a> &amp; { items: <a href="ai.schema">Schema</a><!-- -->; }</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="ai.arrayschema">ArraySchema</a></p>
+<h2 id="schemaboolean">Schema.boolean()</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static boolean(booleanParams?: SchemaParams): BooleanSchema;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>booleanParams</td>
+<td><a href="ai.schemaparams">SchemaParams</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="ai.booleanschema">BooleanSchema</a></p>
+<h2 id="schemaenumstring">Schema.enumString()</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static enumString(stringParams: SchemaParams &amp; {
+        enum: string[];
+    }): StringSchema;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>stringParams</td>
+<td><a href="ai.schemaparams">SchemaParams</a> &amp; { enum: string[]; }</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="ai.stringschema">StringSchema</a></p>
+<h2 id="schemainteger">Schema.integer()</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static integer(integerParams?: SchemaParams): IntegerSchema;</pre>
+<h4 id="parameters-5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>integerParams</td>
+<td><a href="ai.schemaparams">SchemaParams</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="ai.integerschema">IntegerSchema</a></p>
+<h2 id="schemanumber">Schema.number()</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static number(numberParams?: SchemaParams): NumberSchema;</pre>
+<h4 id="parameters-6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>numberParams</td>
+<td><a href="ai.schemaparams">SchemaParams</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="ai.numberschema">NumberSchema</a></p>
+<h2 id="schemaobject">Schema.object()</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static object(objectParams: SchemaParams &amp; {
+        properties: {
+            [k: string]: Schema;
+        };
+        optionalProperties?: string[];
+    }): ObjectSchema;</pre>
+<h4 id="parameters-7">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>objectParams</td>
+<td><a href="ai.schemaparams">SchemaParams</a> &amp; { properties: { [k: string]: <a href="ai.schema">Schema</a><!-- -->; }; optionalProperties?: string[]; }</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="ai.objectschema">ObjectSchema</a></p>
+<h2 id="schemastring">Schema.string()</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static string(stringParams?: SchemaParams): StringSchema;</pre>
+<h4 id="parameters-8">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>stringParams</td>
+<td><a href="ai.schemaparams">SchemaParams</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="ai.stringschema">StringSchema</a></p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.schema" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.schema</a>
+  </p>
+</div>

@@ -1,0 +1,38 @@
+<h1>GroundingSupport interface</h1>
+<p>Provides information about how a specific segment of the model&#39;s response is supported by the retrieved grounding chunks.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface GroundingSupport </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.groundingsupport#groundingsupportgroundingchunkindices">groundingChunkIndices</a></td>
+<td>number[]</td>
+<td>A list of indices that refer to specific <a href="ai.groundingchunk">GroundingChunk</a> objects within the <a href="ai.groundingmetadata#groundingmetadatagroundingchunks">GroundingMetadata.groundingChunks</a> array. These referenced chunks are the sources that support the claim made in the associated <code>segment</code> of the response. For example, an array <code>[1, 3, 4]</code> means that <code>groundingChunks[1]</code>, <code>groundingChunks[3]</code>, and <code>groundingChunks[4]</code> are the retrieved content supporting this part of the response.</td>
+</tr>
+<tr>
+<td><a href="ai.groundingsupport#groundingsupportsegment">segment</a></td>
+<td><a href="ai.segment">Segment</a></td>
+<td>Specifies the segment of the model&#39;s response content that this grounding support pertains to.</td>
+</tr>
+</tbody></table>
+<h2 id="groundingsupportgroundingchunkindices">GroundingSupport.groundingChunkIndices</h2>
+<p>A list of indices that refer to specific <a href="ai.groundingchunk">GroundingChunk</a> objects within the <a href="ai.groundingmetadata#groundingmetadatagroundingchunks">GroundingMetadata.groundingChunks</a> array. These referenced chunks are the sources that support the claim made in the associated <code>segment</code> of the response. For example, an array <code>[1, 3, 4]</code> means that <code>groundingChunks[1]</code><!-- -->, <code>groundingChunks[3]</code><!-- -->, and <code>groundingChunks[4]</code> are the retrieved content supporting this part of the response.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">groundingChunkIndices?: number[];</pre>
+<h2 id="groundingsupportsegment">GroundingSupport.segment</h2>
+<p>Specifies the segment of the model&#39;s response content that this grounding support pertains to.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">segment?: Segment;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.groundingsupport" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.groundingsupport</a>
+  </p>
+</div>

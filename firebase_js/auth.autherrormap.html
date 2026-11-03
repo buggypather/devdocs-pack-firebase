@@ -1,0 +1,13 @@
+<h1>AuthErrorMap interface</h1>
+<p>A mapping of error codes to error messages.</p>
+<p>While error messages are useful for debugging (providing verbose textual context around what went wrong), these strings take up a lot of space in the compiled code. When deploying code in production, using <a href="auth#proderrormap">prodErrorMap</a> will save you roughly 10k compressed/gzipped over <a href="auth#debugerrormap">debugErrorMap</a><!-- -->. You can select the error map during initialization:</p>
+<pre data-language="javascript">initializeAuth(app, {errorMap: debugErrorMap})</pre>
+<p>When initializing Auth, <a href="auth#proderrormap">prodErrorMap</a> is default.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface AuthErrorMap </pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.autherrormap" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.autherrormap</a>
+  </p>
+</div>

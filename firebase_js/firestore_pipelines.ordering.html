@@ -1,0 +1,88 @@
+<h1>Ordering class</h1>
+<p>Represents an ordering criterion for sorting documents in a Firestore pipeline.</p>
+<p>You create <code>Ordering</code> instances using the <code>ascending</code> and <code>descending</code> helper functions.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class Ordering </pre>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_pipelines.ordering#orderingconstructor">(constructor)(expr, direction, _methodName)</a></td>
+<td></td>
+<td>Constructs a new instance of the <code>Ordering</code> class</td>
+</tr>
+</tbody></table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_pipelines.ordering#orderingdirection">direction</a></td>
+<td></td>
+<td>&#39;ascending&#39; | &#39;descending&#39;</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.ordering#orderingexpr">expr</a></td>
+<td></td>
+<td><a href="firestore_pipelines.expression">Expression</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="orderingconstructor">Ordering.(constructor)</h2>
+<p>Constructs a new instance of the <code>Ordering</code> class</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">constructor(
+    expr: Expression,
+    direction: 'ascending' | 'descending',
+    _methodName: string | undefined
+  );</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>expr</td>
+<td><a href="firestore_pipelines.expression">Expression</a></td>
+<td></td>
+</tr>
+<tr>
+<td>direction</td>
+<td>&#39;ascending&#39; | &#39;descending&#39;</td>
+<td></td>
+</tr>
+<tr>
+<td>_methodName</td>
+<td>string | undefined</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="orderingdirection">Ordering.direction</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly direction: 'ascending' | 'descending';</pre>
+<h2 id="orderingexpr">Ordering.expr</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly expr: Expression;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_pipelines.ordering" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_pipelines.ordering</a>
+  </p>
+</div>

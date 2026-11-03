@@ -1,0 +1,110 @@
+<h1>GtagConfigParams interface</h1>
+<p>A set of common Google Analytics config settings recognized by <code>gtag.js</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface GtagConfigParams </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="analytics.gtagconfigparams#gtagconfigparamsallow_ad_personalization_signals">allow_ad_personalization_signals</a></td>
+<td>boolean</td>
+<td>If set to false, disables all advertising personalization with <code>gtag.js</code>. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/display-features">Disable advertising features</a></td>
+</tr>
+<tr>
+<td><a href="analytics.gtagconfigparams#gtagconfigparamsallow_google_signals">allow_google_signals</a></td>
+<td>boolean</td>
+<td>If set to false, disables all advertising features with <code>gtag.js</code>. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/display-features">Disable advertising features</a></td>
+</tr>
+<tr>
+<td><a href="analytics.gtagconfigparams#gtagconfigparamscookie_domain">cookie_domain</a></td>
+<td>string</td>
+<td>Defaults to <code>auto</code>. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/cookies-user-id">Cookies and user identification</a></td>
+</tr>
+<tr>
+<td><a href="analytics.gtagconfigparams#gtagconfigparamscookie_expires">cookie_expires</a></td>
+<td>number</td>
+<td>Defaults to 63072000 (two years, in seconds). See <a href="https://developers.google.com/analytics/devguides/collection/ga4/cookies-user-id">Cookies and user identification</a></td>
+</tr>
+<tr>
+<td><a href="analytics.gtagconfigparams#gtagconfigparamscookie_flags">cookie_flags</a></td>
+<td>string</td>
+<td>Appends additional flags to the cookie when set. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/cookies-user-id">Cookies and user identification</a></td>
+</tr>
+<tr>
+<td><a href="analytics.gtagconfigparams#gtagconfigparamscookie_prefix">cookie_prefix</a></td>
+<td>string</td>
+<td>Defaults to <code>_ga</code>. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/cookies-user-id">Cookies and user identification</a></td>
+</tr>
+<tr>
+<td><a href="analytics.gtagconfigparams#gtagconfigparamscookie_update">cookie_update</a></td>
+<td>boolean</td>
+<td>If set to true, will update cookies on each page load. Defaults to true. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/cookies-user-id">Cookies and user identification</a></td>
+</tr>
+<tr>
+<td><a href="analytics.gtagconfigparams#gtagconfigparamspage_location">page_location</a></td>
+<td>string</td>
+<td>The URL of the page. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/views">Page views</a></td>
+</tr>
+<tr>
+<td><a href="analytics.gtagconfigparams#gtagconfigparamspage_title">page_title</a></td>
+<td>string</td>
+<td>The title of the page. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/views">Page views</a></td>
+</tr>
+<tr>
+<td><a href="analytics.gtagconfigparams#gtagconfigparamssend_page_view">send_page_view</a></td>
+<td>boolean</td>
+<td>Whether or not a page view should be sent. If set to true (default), a page view is automatically sent upon initialization of analytics. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/views">Page views</a></td>
+</tr>
+</tbody></table>
+<h2 id="gtagconfigparamsallow_ad_personalization_signals">GtagConfigParams.allow_ad_personalization_signals</h2>
+<p>If set to false, disables all advertising personalization with <code>gtag.js</code><!-- -->. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/display-features">Disable advertising features</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">'allow_ad_personalization_signals'?: boolean;</pre>
+<h2 id="gtagconfigparamsallow_google_signals">GtagConfigParams.allow_google_signals</h2>
+<p>If set to false, disables all advertising features with <code>gtag.js</code><!-- -->. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/display-features">Disable advertising features</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">'allow_google_signals'?: boolean;</pre>
+<h2 id="gtagconfigparamscookie_domain">GtagConfigParams.cookie_domain</h2>
+<p>Defaults to <code>auto</code><!-- -->. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/cookies-user-id">Cookies and user identification</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">'cookie_domain'?: string;</pre>
+<h2 id="gtagconfigparamscookie_expires">GtagConfigParams.cookie_expires</h2>
+<p>Defaults to 63072000 (two years, in seconds). See <a href="https://developers.google.com/analytics/devguides/collection/ga4/cookies-user-id">Cookies and user identification</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">'cookie_expires'?: number;</pre>
+<h2 id="gtagconfigparamscookie_flags">GtagConfigParams.cookie_flags</h2>
+<p>Appends additional flags to the cookie when set. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/cookies-user-id">Cookies and user identification</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">'cookie_flags'?: string;</pre>
+<h2 id="gtagconfigparamscookie_prefix">GtagConfigParams.cookie_prefix</h2>
+<p>Defaults to <code>_ga</code><!-- -->. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/cookies-user-id">Cookies and user identification</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">'cookie_prefix'?: string;</pre>
+<h2 id="gtagconfigparamscookie_update">GtagConfigParams.cookie_update</h2>
+<p>If set to true, will update cookies on each page load. Defaults to true. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/cookies-user-id">Cookies and user identification</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">'cookie_update'?: boolean;</pre>
+<h2 id="gtagconfigparamspage_location">GtagConfigParams.page_location</h2>
+<p>The URL of the page. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/views">Page views</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">'page_location'?: string;</pre>
+<h2 id="gtagconfigparamspage_title">GtagConfigParams.page_title</h2>
+<p>The title of the page. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/views">Page views</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">'page_title'?: string;</pre>
+<h2 id="gtagconfigparamssend_page_view">GtagConfigParams.send_page_view</h2>
+<p>Whether or not a page view should be sent. If set to true (default), a page view is automatically sent upon initialization of analytics. See <a href="https://developers.google.com/analytics/devguides/collection/ga4/views">Page views</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">'send_page_view'?: boolean;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/analytics.gtagconfigparams" class="_attribution-link">https://firebase.google.com/docs/reference/js/analytics.gtagconfigparams</a>
+  </p>
+</div>

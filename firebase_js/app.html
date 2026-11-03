@@ -1,0 +1,450 @@
+<h1>@firebase/app</h1>
+<p>Firebase App</p>
+<p>This package coordinates the communication between the different Firebase components</p>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><b>function(app, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="app#deleteapp_cf608e1">deleteApp(app)</a></td>
+<td>Renders this app unusable and frees the resources of all associated services.</td>
+</tr>
+<tr>
+<td><b>function()</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="app#getapps">getApps()</a></td>
+<td>A (read-only) array of all initialized apps.</td>
+</tr>
+<tr>
+<td><a href="app#initializeapp">initializeApp()</a></td>
+<td>Creates and initializes a FirebaseApp instance.</td>
+</tr>
+<tr>
+<td><b>function(config, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="app#initializeserverapp_e7d0728">initializeServerApp(config)</a></td>
+<td>Creates and initializes a <a href="app.firebaseserverapp">FirebaseServerApp</a> instance.</td>
+</tr>
+<tr>
+<td><b>function(libraryKeyOrName, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="app#registerversion_f673248">registerVersion(libraryKeyOrName, version, variant)</a></td>
+<td>Registers a library&#39;s name and version for platform logging purposes.</td>
+</tr>
+<tr>
+<td><b>function(logCallback, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="app#onlog_fd46eae">onLog(logCallback, options)</a></td>
+<td>Sets log handler for all Firebase SDKs.</td>
+</tr>
+<tr>
+<td><b>function(logLevel, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="app#setloglevel_697d53a">setLogLevel(logLevel)</a></td>
+<td>Sets log level for all Firebase SDKs.<!-- -->All of the log types above the current log level are captured (i.e. if you set the log level to <code>info</code>, errors are logged, but <code>debug</code> and <code>verbose</code> logs are not).</td>
+</tr>
+<tr>
+<td><b>function(name, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="app#getapp_1eaaff4">getApp(name)</a></td>
+<td>Retrieves a <a href="app.firebaseapp">FirebaseApp</a> instance.<!-- -->When called with no arguments, the default app is returned. When an app name is provided, the app corresponding to that name is returned.<!-- -->An exception is thrown if the app being retrieved has not yet been initialized.</td>
+</tr>
+<tr>
+<td><b>function(options, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="app#initializeapp_cb2f5e1">initializeApp(options, name)</a></td>
+<td>Creates and initializes a <a href="app.firebaseapp">FirebaseApp</a> instance.<!-- -->See <a href="https://firebase.google.com/docs/web/setup#add_firebase_to_your_app">Add Firebase to your app</a> and <a href="https://firebase.google.com/docs/web/setup#multiple-projects">Initialize multiple projects</a> for detailed documentation.</td>
+</tr>
+<tr>
+<td><a href="app#initializeapp_079e917">initializeApp(options, config)</a></td>
+<td>Creates and initializes a FirebaseApp instance.</td>
+</tr>
+<tr>
+<td><a href="app#initializeserverapp_30ab697">initializeServerApp(options, config)</a></td>
+<td>Creates and initializes a <a href="app.firebaseserverapp">FirebaseServerApp</a> instance.<!-- -->The <code>FirebaseServerApp</code> is similar to <code>FirebaseApp</code>, but is intended for execution in server side rendering environments only. Initialization will fail if invoked from a browser environment.<!-- -->See <a href="https://firebase.google.com/docs/web/setup#add_firebase_to_your_app">Add Firebase to your app</a> and <a href="https://firebase.google.com/docs/web/setup#multiple-projects">Initialize multiple projects</a> for detailed documentation.</td>
+</tr>
+</tbody></table>
+<h2 id="interfaces">Interfaces</h2>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="app.firebaseapp">FirebaseApp</a></td>
+<td>A <a href="app.firebaseapp">FirebaseApp</a> holds the initialization information for a collection of services.<!-- -->Do not call this constructor directly. Instead, use <a href="app#initializeapp_cb2f5e1">initializeApp()</a> to create an app.</td>
+</tr>
+<tr>
+<td><a href="app.firebaseappsettings">FirebaseAppSettings</a></td>
+<td>Configuration options given to <a href="app#initializeapp_cb2f5e1">initializeApp()</a></td>
+</tr>
+<tr>
+<td><a href="app.firebaseoptions">FirebaseOptions</a></td>
+<td>Firebase configuration object. Contains a set of parameters required by services in order to successfully communicate with Firebase server APIs and to associate client data with your Firebase project and Firebase application. Typically this object is populated by the Firebase console at project setup. See also: <a href="https://firebase.google.com/docs/web/setup#config-object">Learn about the Firebase config object</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="app.firebaseserverapp">FirebaseServerApp</a></td>
+<td>A <a href="app.firebaseserverapp">FirebaseServerApp</a> holds the initialization information for a collection of services running in server environments.<!-- -->Do not call this constructor directly. Instead, use <a href="app#initializeserverapp_30ab697">initializeServerApp()</a> to create an app.</td>
+</tr>
+<tr>
+<td><a href="app.firebaseserverappsettings">FirebaseServerAppSettings</a></td>
+<td>Configuration options given to <a href="app#initializeserverapp_30ab697">initializeServerApp()</a></td>
+</tr>
+</tbody></table>
+<h2 id="variables">Variables</h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="app#sdk_version">SDK_VERSION</a></td>
+<td>The current SDK version.</td>
+</tr>
+</tbody></table>
+<h2 id="functionapp-">function(app, ...)</h2>
+<h3 id="deleteapp_cf608e1">deleteApp(app)</h3>
+<p>Renders this app unusable and frees the resources of all associated services.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function deleteApp(app: FirebaseApp): Promise&lt;void&gt;;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>app</td>
+<td><a href="app.firebaseapp">FirebaseApp</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="example">Example</h3>
+<pre data-language="javascript">deleteApp(app)
+  .then(function() {
+    console.log(&quot;App deleted successfully&quot;);
+  })
+  .catch(function(error) {
+    console.log(&quot;Error deleting app:&quot;, error);
+  });</pre>
+<h2 id="function">function()</h2>
+<h3 id="getapps">getApps()</h3>
+<p>A (read-only) array of all initialized apps.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getApps(): FirebaseApp[];</pre>
+<p><b>Returns:</b></p>
+<p><a href="app.firebaseapp">FirebaseApp</a><!-- -->[]</p>
+<h3 id="initializeapp">initializeApp()</h3>
+<p>Creates and initializes a FirebaseApp instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function initializeApp(): FirebaseApp;</pre>
+<p><b>Returns:</b></p>
+<p><a href="app.firebaseapp">FirebaseApp</a></p>
+<h2 id="functionconfig-">function(config, ...)</h2>
+<h3 id="initializeserverapp_e7d0728">initializeServerApp(config)</h3>
+<p>Creates and initializes a <a href="app.firebaseserverapp">FirebaseServerApp</a> instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function initializeServerApp(config?: FirebaseServerAppSettings): FirebaseServerApp;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>config</td>
+<td><a href="app.firebaseserverappsettings">FirebaseServerAppSettings</a></td>
+<td>Optional <code>FirebaseServerApp</code> settings.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="app.firebaseserverapp">FirebaseServerApp</a></p>
+<p>The initialized <code>FirebaseServerApp</code><!-- -->.</p>
+<h4 id="exceptions">Exceptions</h4>
+<p>If invoked in an unsupported non-server environment such as a browser.</p>
+<p>If <a href="app.firebaseserverappsettings#firebaseserverappsettingsreleaseonderef">FirebaseServerAppSettings.releaseOnDeref</a> is defined but the runtime doesn&#39;t provide Finalization Registry support.</p>
+<p>If the <code>FIREBASE_OPTIONS</code> environment variable does not contain a valid project configuration required for auto-initialization.</p>
+<h2 id="functionlibrarykeyorname-">function(libraryKeyOrName, ...)</h2>
+<h3 id="registerversion_f673248">registerVersion(libraryKeyOrName, version, variant)</h3>
+<p>Registers a library&#39;s name and version for platform logging purposes.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function registerVersion(libraryKeyOrName: string, version: string, variant?: string): void;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>libraryKeyOrName</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>version</td>
+<td>string</td>
+<td>Current version of that library.</td>
+</tr>
+<tr>
+<td>variant</td>
+<td>string</td>
+<td>Bundle variant, e.g., node, rn, etc.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h2 id="functionlogcallback-">function(logCallback, ...)</h2>
+<h3 id="onlog_fd46eae">onLog(logCallback, options)</h3>
+<p>Sets log handler for all Firebase SDKs.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function onLog(logCallback: LogCallback | null, options?: LogOptions): void;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>logCallback</td>
+<td>LogCallback | null</td>
+<td>An optional custom log handler that executes user code whenever the Firebase SDK makes a logging call.</td>
+</tr>
+<tr>
+<td>options</td>
+<td>LogOptions</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h2 id="functionloglevel-">function(logLevel, ...)</h2>
+<h3 id="setloglevel_697d53a">setLogLevel(logLevel)</h3>
+<p>Sets log level for all Firebase SDKs.</p>
+<p>All of the log types above the current log level are captured (i.e. if you set the log level to <code>info</code><!-- -->, errors are logged, but <code>debug</code> and <code>verbose</code> logs are not).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function setLogLevel(logLevel: LogLevelString): void;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>logLevel</td>
+<td>LogLevelString</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h2 id="functionname-">function(name, ...)</h2>
+<h3 id="getapp_1eaaff4">getApp(name)</h3>
+<p>Retrieves a <a href="app.firebaseapp">FirebaseApp</a> instance.</p>
+<p>When called with no arguments, the default app is returned. When an app name is provided, the app corresponding to that name is returned.</p>
+<p>An exception is thrown if the app being retrieved has not yet been initialized.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getApp(name?: string): FirebaseApp;</pre>
+<h4 id="parameters-5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>string</td>
+<td>Optional name of the app to return. If no name is provided, the default is <code>&quot;[DEFAULT]&quot;</code>.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="app.firebaseapp">FirebaseApp</a></p>
+<p>The app corresponding to the provided app name. If no app name is provided, the default app is returned.</p>
+<h3 id="example-1">Example 1</h3>
+<pre data-language="javascript">// Return the default app
+const app = getApp();</pre>
+<h3 id="example-2">Example 2</h3>
+<pre data-language="javascript">// Return a named app
+const otherApp = getApp(&quot;otherApp&quot;);</pre>
+<h2 id="functionoptions-">function(options, ...)</h2>
+<h3 id="initializeapp_cb2f5e1">initializeApp(options, name)</h3>
+<p>Creates and initializes a <a href="app.firebaseapp">FirebaseApp</a> instance.</p>
+<p>See <a href="https://firebase.google.com/docs/web/setup#add_firebase_to_your_app">Add Firebase to your app</a> and <a href="https://firebase.google.com/docs/web/setup#multiple-projects">Initialize multiple projects</a> for detailed documentation.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function initializeApp(options: FirebaseOptions, name?: string): FirebaseApp;</pre>
+<h4 id="parameters-6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>options</td>
+<td><a href="app.firebaseoptions">FirebaseOptions</a></td>
+<td>Options to configure the app&#39;s services.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Optional name of the app to initialize. If no name is provided, the default is <code>&quot;[DEFAULT]&quot;</code>.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="app.firebaseapp">FirebaseApp</a></p>
+<p>The initialized app.</p>
+<h4 id="exceptions-1">Exceptions</h4>
+<p>If the optional <code>name</code> parameter is malformed or empty.</p>
+<p>If a <code>FirebaseApp</code> already exists with the same name but with a different configuration.</p>
+<h3 id="example-1-1">Example 1</h3>
+<pre data-language="javascript">
+// Initialize default app
+// Retrieve your own options values by adding a web app on
+// https://console.firebase.google.com
+initializeApp({
+  apiKey: &quot;AIza....&quot;,                             // Auth / General Use
+  authDomain: &quot;YOUR_APP.firebaseapp.com&quot;,         // Auth with popup/redirect
+  databaseURL: &quot;https://YOUR_APP.firebaseio.com&quot;, // Realtime Database
+  storageBucket: &quot;YOUR_APP.appspot.com&quot;,          // Storage
+  messagingSenderId: &quot;123456789&quot;                  // Cloud Messaging
+});</pre>
+<h3 id="example-2-1">Example 2</h3>
+<pre data-language="javascript">
+// Initialize another app
+const otherApp = initializeApp({
+  databaseURL: &quot;https://&lt;OTHER_DATABASE_NAME&gt;.firebaseio.com&quot;,
+  storageBucket: &quot;&lt;OTHER_STORAGE_BUCKET&gt;.appspot.com&quot;
+}, &quot;otherApp&quot;);</pre>
+<h3 id="initializeapp_079e917">initializeApp(options, config)</h3>
+<p>Creates and initializes a FirebaseApp instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function initializeApp(options: FirebaseOptions, config?: FirebaseAppSettings): FirebaseApp;</pre>
+<h4 id="parameters-7">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>options</td>
+<td><a href="app.firebaseoptions">FirebaseOptions</a></td>
+<td>Options to configure the app&#39;s services.</td>
+</tr>
+<tr>
+<td>config</td>
+<td><a href="app.firebaseappsettings">FirebaseAppSettings</a></td>
+<td>FirebaseApp Configuration</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="app.firebaseapp">FirebaseApp</a></p>
+<h4 id="exceptions-2">Exceptions</h4>
+<p>If <a href="app.firebaseappsettings#firebaseappsettingsname">FirebaseAppSettings.name</a> is defined but the value is malformed or empty.</p>
+<p>If a <code>FirebaseApp</code> already exists with the same name but with a different configuration.</p>
+<h3 id="initializeserverapp_30ab697">initializeServerApp(options, config)</h3>
+<p>Creates and initializes a <a href="app.firebaseserverapp">FirebaseServerApp</a> instance.</p>
+<p>The <code>FirebaseServerApp</code> is similar to <code>FirebaseApp</code><!-- -->, but is intended for execution in server side rendering environments only. Initialization will fail if invoked from a browser environment.</p>
+<p>See <a href="https://firebase.google.com/docs/web/setup#add_firebase_to_your_app">Add Firebase to your app</a> and <a href="https://firebase.google.com/docs/web/setup#multiple-projects">Initialize multiple projects</a> for detailed documentation.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function initializeServerApp(options: FirebaseOptions | FirebaseApp, config?: FirebaseServerAppSettings): FirebaseServerApp;</pre>
+<h4 id="parameters-8">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>options</td>
+<td><a href="app.firebaseoptions">FirebaseOptions</a> | <a href="app.firebaseapp">FirebaseApp</a></td>
+<td><code>Firebase.AppOptions</code> to configure the app&#39;s services, or a a <code>FirebaseApp</code> instance which contains the <code>AppOptions</code> within.</td>
+</tr>
+<tr>
+<td>config</td>
+<td><a href="app.firebaseserverappsettings">FirebaseServerAppSettings</a></td>
+<td>Optional <code>FirebaseServerApp</code> settings.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="app.firebaseserverapp">FirebaseServerApp</a></p>
+<p>The initialized <code>FirebaseServerApp</code><!-- -->.</p>
+<h4 id="exceptions-3">Exceptions</h4>
+<p>If invoked in an unsupported non-server environment such as a browser.</p>
+<p>If <a href="app.firebaseserverappsettings#firebaseserverappsettingsreleaseonderef">FirebaseServerAppSettings.releaseOnDeref</a> is defined but the runtime doesn&#39;t provide Finalization Registry support.</p>
+<h3 id="example-1">Example</h3>
+<pre data-language="javascript">
+// Initialize an instance of `FirebaseServerApp`.
+// Retrieve your own options values by adding a web app on
+// https://console.firebase.google.com
+initializeServerApp({
+    apiKey: &quot;AIza....&quot;,                             // Auth / General Use
+    authDomain: &quot;YOUR_APP.firebaseapp.com&quot;,         // Auth with popup/redirect
+    databaseURL: &quot;https://YOUR_APP.firebaseio.com&quot;, // Realtime Database
+    storageBucket: &quot;YOUR_APP.appspot.com&quot;,          // Storage
+    messagingSenderId: &quot;123456789&quot;                  // Cloud Messaging
+  },
+  {
+   authIdToken: &quot;Your Auth ID Token&quot;
+  });</pre>
+<h2 id="sdk_version">SDK_VERSION</h2>
+<p>The current SDK version.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">SDK_VERSION: string</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/app" class="_attribution-link">https://firebase.google.com/docs/reference/js/app</a>
+  </p>
+</div>

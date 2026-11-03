@@ -1,0 +1,38 @@
+<h1>HttpsCallableStreamOptions interface</h1>
+<p>An interface for metadata about how a stream call should be executed.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface HttpsCallableStreamOptions </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="functions.httpscallablestreamoptions#httpscallablestreamoptionslimiteduseappchecktokens">limitedUseAppCheckTokens</a></td>
+<td>boolean</td>
+<td>If set to true, uses a limited-use App Check token for callable function requests from this instance of <a href="functions.functions">Functions</a><!-- -->. You must use limited-use tokens to call functions with replay protection enabled. By default, this is false.</td>
+</tr>
+<tr>
+<td><a href="functions.httpscallablestreamoptions#httpscallablestreamoptionssignal">signal</a></td>
+<td>AbortSignal</td>
+<td>An <code>AbortSignal</code> that can be used to cancel the streaming response. When the signal is aborted, the underlying HTTP connection will be terminated.</td>
+</tr>
+</tbody></table>
+<h2 id="httpscallablestreamoptionslimiteduseappchecktokens">HttpsCallableStreamOptions.limitedUseAppCheckTokens</h2>
+<p>If set to true, uses a limited-use App Check token for callable function requests from this instance of <a href="functions.functions">Functions</a><!-- -->. You must use limited-use tokens to call functions with replay protection enabled. By default, this is false.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">limitedUseAppCheckTokens?: boolean;</pre>
+<h2 id="httpscallablestreamoptionssignal">HttpsCallableStreamOptions.signal</h2>
+<p>An <code>AbortSignal</code> that can be used to cancel the streaming response. When the signal is aborted, the underlying HTTP connection will be terminated.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">signal?: AbortSignal;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/functions.httpscallablestreamoptions" class="_attribution-link">https://firebase.google.com/docs/reference/js/functions.httpscallablestreamoptions</a>
+  </p>
+</div>

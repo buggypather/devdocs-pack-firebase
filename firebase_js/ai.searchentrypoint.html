@@ -1,0 +1,34 @@
+<h1>SearchEntrypoint interface</h1>
+<p>Google search entry point.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface SearchEntrypoint </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.searchentrypoint#searchentrypointrenderedcontent">renderedContent</a></td>
+<td>string</td>
+<td>HTML/CSS snippet that must be embedded in a web page. The snippet is designed to avoid undesired interaction with the rest of the page&#39;s CSS.<!-- -->To ensure proper rendering and prevent CSS conflicts, it is recommended to encapsulate this <code>renderedContent</code> within a shadow DOM when embedding it into a webpage. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">MDN: Using shadow DOM</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="searchentrypointrenderedcontent">SearchEntrypoint.renderedContent</h2>
+<p>HTML/CSS snippet that must be embedded in a web page. The snippet is designed to avoid undesired interaction with the rest of the page&#39;s CSS.</p>
+<p>To ensure proper rendering and prevent CSS conflicts, it is recommended to encapsulate this <code>renderedContent</code> within a shadow DOM when embedding it into a webpage. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">MDN: Using shadow DOM</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">renderedContent?: string;</pre>
+<h3 id="example">Example</h3>
+<pre data-language="javascript">const container = document.createElement('div');
+document.body.appendChild(container);
+container.attachShadow({ mode: 'open' }).innerHTML = renderedContent;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.searchentrypoint" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.searchentrypoint</a>
+  </p>
+</div>

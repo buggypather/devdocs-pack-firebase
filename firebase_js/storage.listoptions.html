@@ -1,0 +1,38 @@
+<h1>ListOptions interface</h1>
+<p>The options <code>list()</code> accepts.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface ListOptions </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="storage.listoptions#listoptionsmaxresults">maxResults</a></td>
+<td>number | null</td>
+<td>If set, limits the total number of <code>prefixes</code> and <code>items</code> to return. The default and maximum maxResults is 1000.</td>
+</tr>
+<tr>
+<td><a href="storage.listoptions#listoptionspagetoken">pageToken</a></td>
+<td>string | null</td>
+<td>The <code>nextPageToken</code> from a previous call to <code>list()</code>. If provided, listing is resumed from the previous position.</td>
+</tr>
+</tbody></table>
+<h2 id="listoptionsmaxresults">ListOptions.maxResults</h2>
+<p>If set, limits the total number of <code>prefixes</code> and <code>items</code> to return. The default and maximum maxResults is 1000.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">maxResults?: number | null;</pre>
+<h2 id="listoptionspagetoken">ListOptions.pageToken</h2>
+<p>The <code>nextPageToken</code> from a previous call to <code>list()</code><!-- -->. If provided, listing is resumed from the previous position.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">pageToken?: string | null;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/storage.listoptions" class="_attribution-link">https://firebase.google.com/docs/reference/js/storage.listoptions</a>
+  </p>
+</div>

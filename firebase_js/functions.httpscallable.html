@@ -1,0 +1,28 @@
+<h1>HttpsCallable interface</h1>
+<p>A reference to a &quot;callable&quot; HTTP trigger in Cloud Functions.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface HttpsCallable&lt;RequestData = unknown, ResponseData = unknown, StreamData = unknown&gt; </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="functions.httpscallable#httpscallablestream">stream</a></td>
+<td>(data?: RequestData | null, options?: <a href="functions.httpscallablestreamoptions">HttpsCallableStreamOptions</a><!-- -->) =&gt; Promise&lt;<a href="functions.httpscallablestreamresult">HttpsCallableStreamResult</a><!-- -->&lt;ResponseData, StreamData&gt;&gt;</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="httpscallablestream">HttpsCallable.stream</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">stream: (data?: RequestData | null, options?: HttpsCallableStreamOptions) =&gt; Promise&lt;HttpsCallableStreamResult&lt;ResponseData, StreamData&gt;&gt;;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/functions.httpscallable" class="_attribution-link">https://firebase.google.com/docs/reference/js/functions.httpscallable</a>
+  </p>
+</div>

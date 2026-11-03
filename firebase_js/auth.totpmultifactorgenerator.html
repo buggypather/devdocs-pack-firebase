@@ -1,0 +1,132 @@
+<h1>TotpMultiFactorGenerator class</h1>
+<p>Provider for generating a <a href="auth.totpmultifactorassertion">TotpMultiFactorAssertion</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class TotpMultiFactorGenerator </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.totpmultifactorgenerator#totpmultifactorgeneratorfactor_id">FACTOR_ID</a></td>
+<td><code>static</code></td>
+<td>&#39;totp&#39;</td>
+<td>The identifier of the TOTP second factor: <code>totp</code>.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.totpmultifactorgenerator#totpmultifactorgeneratorassertionforenrollment">assertionForEnrollment(secret, oneTimePassword)</a></td>
+<td><code>static</code></td>
+<td>Provides a <a href="auth.totpmultifactorassertion">TotpMultiFactorAssertion</a> to confirm ownership of the TOTP (time-based one-time password) second factor. This assertion is used to complete enrollment in TOTP second factor.</td>
+</tr>
+<tr>
+<td><a href="auth.totpmultifactorgenerator#totpmultifactorgeneratorassertionforsignin">assertionForSignIn(enrollmentId, oneTimePassword)</a></td>
+<td><code>static</code></td>
+<td>Provides a <a href="auth.totpmultifactorassertion">TotpMultiFactorAssertion</a> to confirm ownership of the TOTP second factor. This assertion is used to complete signIn with TOTP as the second factor.</td>
+</tr>
+<tr>
+<td><a href="auth.totpmultifactorgenerator#totpmultifactorgeneratorgeneratesecret">generateSecret(session)</a></td>
+<td><code>static</code></td>
+<td>Returns a promise to <a href="auth.totpsecret">TotpSecret</a> which contains the TOTP shared secret key and other parameters. Creates a TOTP secret as part of enrolling a TOTP second factor. Used for generating a QR code URL or inputting into a TOTP app. This method uses the auth instance corresponding to the user in the multiFactorSession.</td>
+</tr>
+</tbody></table>
+<h2 id="totpmultifactorgeneratorfactor_id">TotpMultiFactorGenerator.FACTOR_ID</h2>
+<p>The identifier of the TOTP second factor: <code>totp</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static FACTOR_ID: 'totp';</pre>
+<h2 id="totpmultifactorgeneratorassertionforenrollment">TotpMultiFactorGenerator.assertionForEnrollment()</h2>
+<p>Provides a <a href="auth.totpmultifactorassertion">TotpMultiFactorAssertion</a> to confirm ownership of the TOTP (time-based one-time password) second factor. This assertion is used to complete enrollment in TOTP second factor.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static assertionForEnrollment(secret: TotpSecret, oneTimePassword: string): TotpMultiFactorAssertion;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>secret</td>
+<td><a href="auth.totpsecret">TotpSecret</a></td>
+<td>A <a href="auth.totpsecret">TotpSecret</a> containing the shared secret key and other TOTP parameters.</td>
+</tr>
+<tr>
+<td>oneTimePassword</td>
+<td>string</td>
+<td>One-time password from TOTP App.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="auth.totpmultifactorassertion">TotpMultiFactorAssertion</a></p>
+<p>A <a href="auth.totpmultifactorassertion">TotpMultiFactorAssertion</a> which can be used with <a href="auth.multifactoruser#multifactoruserenroll">MultiFactorUser.enroll()</a><!-- -->.</p>
+<h2 id="totpmultifactorgeneratorassertionforsignin">TotpMultiFactorGenerator.assertionForSignIn()</h2>
+<p>Provides a <a href="auth.totpmultifactorassertion">TotpMultiFactorAssertion</a> to confirm ownership of the TOTP second factor. This assertion is used to complete signIn with TOTP as the second factor.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static assertionForSignIn(enrollmentId: string, oneTimePassword: string): TotpMultiFactorAssertion;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>enrollmentId</td>
+<td>string</td>
+<td>identifies the enrolled TOTP second factor.</td>
+</tr>
+<tr>
+<td>oneTimePassword</td>
+<td>string</td>
+<td>One-time password from TOTP App.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="auth.totpmultifactorassertion">TotpMultiFactorAssertion</a></p>
+<p>A <a href="auth.totpmultifactorassertion">TotpMultiFactorAssertion</a> which can be used with <a href="auth.multifactorresolver#multifactorresolverresolvesignin">MultiFactorResolver.resolveSignIn()</a><!-- -->.</p>
+<h2 id="totpmultifactorgeneratorgeneratesecret">TotpMultiFactorGenerator.generateSecret()</h2>
+<p>Returns a promise to <a href="auth.totpsecret">TotpSecret</a> which contains the TOTP shared secret key and other parameters. Creates a TOTP secret as part of enrolling a TOTP second factor. Used for generating a QR code URL or inputting into a TOTP app. This method uses the auth instance corresponding to the user in the multiFactorSession.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static generateSecret(session: MultiFactorSession): Promise&lt;TotpSecret&gt;;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>session</td>
+<td><a href="auth.multifactorsession">MultiFactorSession</a></td>
+<td>The <a href="auth.multifactorsession">MultiFactorSession</a> that the user is part of.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.totpsecret">TotpSecret</a><!-- -->&gt;</p>
+<p>A promise to <a href="auth.totpsecret">TotpSecret</a><!-- -->.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.totpmultifactorgenerator" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.totpmultifactorgenerator</a>
+  </p>
+</div>

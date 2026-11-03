@@ -1,0 +1,68 @@
+<h1>GroundingMetadata interface</h1>
+<p>Metadata returned when grounding is enabled.</p>
+<p>Currently, only Grounding with Google Search and Grounding with Google Maps are supported (see <a href="ai.googlesearchtool">GoogleSearchTool</a> and <a href="ai.googlemapstool">GoogleMapsTool</a><!-- -->, respectively).</p>
+<p>Important: If using Grounding with Google Search, you are required to comply with the &quot;Grounding with Google Search&quot; usage requirements for your chosen API provider: <a href="https://ai.google.dev/gemini-api/terms#grounding-with-google-search">Gemini Developer API</a> or Agent Platform Gemini API (see <a href="https://cloud.google.com/terms/service-terms">Service Terms</a> section within the Service Specific Terms).</p>
+<p>Important: If using Grounding with Google Maps, you are required to comply with the &quot;Grounding with Google Maps&quot; usage requirements for your chosen API provider: <a href="https://ai.google.dev/gemini-api/terms#grounding-with-google-maps">Gemini Developer API</a> or Agent Platform Gemini API (see <a href="https://cloud.google.com/terms/service-terms">Service Terms</a> section within the Service Specific Terms).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface GroundingMetadata </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.groundingmetadata#groundingmetadatagooglemapswidgetcontexttoken">googleMapsWidgetContextToken</a></td>
+<td>string</td>
+<td>Resource name of the Google Maps widget context token that can be used with the <code>PlacesContextElement</code> widget in order to render contextual data. Only populated in the case that grounding with Google Maps is enabled.</td>
+</tr>
+<tr>
+<td><a href="ai.groundingmetadata#groundingmetadatagroundingchunks">groundingChunks</a></td>
+<td><a href="ai.groundingchunk">GroundingChunk</a><!-- -->[]</td>
+<td>A list of <a href="ai.groundingchunk">GroundingChunk</a> objects. Each chunk represents a piece of retrieved content (for example, from a web page). that the model used to ground its response.</td>
+</tr>
+<tr>
+<td><a href="ai.groundingmetadata#groundingmetadatagroundingsupports">groundingSupports</a></td>
+<td><a href="ai.groundingsupport">GroundingSupport</a><!-- -->[]</td>
+<td>A list of <a href="ai.groundingsupport">GroundingSupport</a> objects. Each object details how specific segments of the model&#39;s response are supported by the <code>groundingChunks</code>.</td>
+</tr>
+<tr>
+<td><a href="ai.groundingmetadata#groundingmetadatasearchentrypoint">searchEntryPoint</a></td>
+<td><a href="ai.searchentrypoint">SearchEntrypoint</a></td>
+<td>Google Search entry point for web searches. This contains an HTML/CSS snippet that must be embedded in an app to display a Google Search entry point for follow-up web searches related to a model&#39;s &quot;Grounded Response&quot;.</td>
+</tr>
+<tr>
+<td><a href="ai.groundingmetadata#groundingmetadatawebsearchqueries">webSearchQueries</a></td>
+<td>string[]</td>
+<td>A list of web search queries that the model performed to gather the grounding information. These can be used to allow users to explore the search results themselves.</td>
+</tr>
+</tbody></table>
+<h2 id="groundingmetadatagooglemapswidgetcontexttoken">GroundingMetadata.googleMapsWidgetContextToken</h2>
+<p>Resource name of the Google Maps widget context token that can be used with the <code>PlacesContextElement</code> widget in order to render contextual data. Only populated in the case that grounding with Google Maps is enabled.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">googleMapsWidgetContextToken?: string;</pre>
+<h2 id="groundingmetadatagroundingchunks">GroundingMetadata.groundingChunks</h2>
+<p>A list of <a href="ai.groundingchunk">GroundingChunk</a> objects. Each chunk represents a piece of retrieved content (for example, from a web page). that the model used to ground its response.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">groundingChunks?: GroundingChunk[];</pre>
+<h2 id="groundingmetadatagroundingsupports">GroundingMetadata.groundingSupports</h2>
+<p>A list of <a href="ai.groundingsupport">GroundingSupport</a> objects. Each object details how specific segments of the model&#39;s response are supported by the <code>groundingChunks</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">groundingSupports?: GroundingSupport[];</pre>
+<h2 id="groundingmetadatasearchentrypoint">GroundingMetadata.searchEntryPoint</h2>
+<p>Google Search entry point for web searches. This contains an HTML/CSS snippet that must be embedded in an app to display a Google Search entry point for follow-up web searches related to a model&#39;s &quot;Grounded Response&quot;.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">searchEntryPoint?: SearchEntrypoint;</pre>
+<h2 id="groundingmetadatawebsearchqueries">GroundingMetadata.webSearchQueries</h2>
+<p>A list of web search queries that the model performed to gather the grounding information. These can be used to allow users to explore the search results themselves.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">webSearchQueries?: string[];</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.groundingmetadata" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.groundingmetadata</a>
+  </p>
+</div>

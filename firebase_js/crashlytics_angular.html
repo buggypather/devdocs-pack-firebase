@@ -1,0 +1,100 @@
+<h1>@firebase/crashlytics/angular</h1>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="crashlytics_angular#providecrashlytics_e50c31b">provideCrashlytics(getAppFn, options)</a></td>
+<td><b><i>(Public Preview)</i></b> Registers Firebase Crashlytics error handling and route tracking providers for an Angular application.</td>
+</tr>
+</tbody></table>
+<h2 id="interfaces">Interfaces</h2>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="crashlytics_angular.crashlytics">Crashlytics</a></td>
+<td><b><i>(Public Preview)</i></b> An instance of the Firebase Crashlytics SDK.<!-- -->Do not create this instance directly. Instead, use <a href="crashlytics#getcrashlytics_a9d22a1">getCrashlytics()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="crashlytics_angular.crashlyticsfeature">CrashlyticsFeature</a></td>
+<td><b>(EXPERIMENTAL)</b> An opaque feature plugin object returned by Crashlytics feature factory functions such as <a href="crashlytics#breadcrumbs">breadcrumbs()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="crashlytics_angular.crashlyticsoptions">CrashlyticsOptions</a></td>
+<td><b><i>(Public Preview)</i></b> Options for initializing the Crashlytics service using <a href="crashlytics#getcrashlytics_a9d22a1">getCrashlytics()</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="functiongetappfn-">function(getAppFn, ...)</h2>
+<h3 id="providecrashlytics_e50c31b">provideCrashlytics(getAppFn, options)</h3>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Registers Firebase Crashlytics error handling and route tracking providers for an Angular application.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function provideCrashlytics(getAppFn: () =&gt; FirebaseApp, options?: CrashlyticsOptions): EnvironmentProviders;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getAppFn</td>
+<td>() =&gt; <a href="app.firebaseapp">FirebaseApp</a></td>
+<td>A factory function that returns the <a href="app.firebaseapp">FirebaseApp</a> instance to use.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="crashlytics_angular.crashlyticsoptions">CrashlyticsOptions</a></td>
+<td>Optional. <a href="crashlytics_angular.crashlyticsoptions">CrashlyticsOptions</a> that configure the Crashlytics instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>EnvironmentProviders</p>
+<p>An EnvironmentProviders instance to include in <code>ApplicationConfig.providers</code><!-- -->.</p>
+<h3 id="example-1">Example 1</h3>
+<p>Basic usage:</p>
+<pre data-language="typescript">import { ApplicationConfig } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { provideCrashlytics } from 'firebase/crashlytics/angular';
+import { app } from '../lib/firebase';
+import { routes } from './app.routes';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideRouter(routes),
+    provideCrashlytics(() =&gt; app)
+  ]
+};</pre>
+<h3 id="example-2">Example 2</h3>
+<p>Providing telemetry options:</p>
+<pre data-language="typescript">import { ApplicationConfig } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { provideCrashlytics } from 'firebase/crashlytics/angular';
+import { app } from '../lib/firebase';
+import { routes } from './app.routes';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideRouter(routes),
+    provideCrashlytics(() =&gt; app, { appVersion: '1.2.3' })
+  ]
+};</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/crashlytics_angular" class="_attribution-link">https://firebase.google.com/docs/reference/js/crashlytics_angular</a>
+  </p>
+</div>

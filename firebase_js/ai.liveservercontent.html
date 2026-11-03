@@ -1,0 +1,94 @@
+<h1>LiveServerContent interface</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>An incremental content update from the model.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface LiveServerContent </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.liveservercontent#liveservercontentinputtranscription">inputTranscription</a></td>
+<td><a href="ai.transcription">Transcription</a></td>
+<td><b><i>(Public Preview)</i></b> Transcription of the audio that was input to the model.</td>
+</tr>
+<tr>
+<td><a href="ai.liveservercontent#liveservercontentinterrupted">interrupted</a></td>
+<td>boolean</td>
+<td><b><i>(Public Preview)</i></b> Indicates whether the model was interrupted by the client. An interruption occurs when the client sends a message before the model finishes it&#39;s turn. This is <code>undefined</code> if the model was not interrupted.</td>
+</tr>
+<tr>
+<td><a href="ai.liveservercontent#liveservercontentmodelturn">modelTurn</a></td>
+<td><a href="ai.content">Content</a></td>
+<td><b><i>(Public Preview)</i></b> The content that the model has generated as part of the current conversation with the user.</td>
+</tr>
+<tr>
+<td><a href="ai.liveservercontent#liveservercontentoutputtranscription">outputTranscription</a></td>
+<td><a href="ai.transcription">Transcription</a></td>
+<td><b><i>(Public Preview)</i></b> Transcription of the audio output from the model.</td>
+</tr>
+<tr>
+<td><a href="ai.liveservercontent#liveservercontentturncomplete">turnComplete</a></td>
+<td>boolean</td>
+<td><b><i>(Public Preview)</i></b> Indicates whether the turn is complete. This is <code>undefined</code> if the turn is not complete.</td>
+</tr>
+<tr>
+<td><a href="ai.liveservercontent#liveservercontenttype">type</a></td>
+<td>&#39;serverContent&#39;</td>
+<td><b><i>(Public Preview)</i></b></td>
+</tr>
+</tbody></table>
+<h2 id="liveservercontentinputtranscription">LiveServerContent.inputTranscription</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Transcription of the audio that was input to the model.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">inputTranscription?: Transcription;</pre>
+<h2 id="liveservercontentinterrupted">LiveServerContent.interrupted</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Indicates whether the model was interrupted by the client. An interruption occurs when the client sends a message before the model finishes it&#39;s turn. This is <code>undefined</code> if the model was not interrupted.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">interrupted?: boolean;</pre>
+<h2 id="liveservercontentmodelturn">LiveServerContent.modelTurn</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The content that the model has generated as part of the current conversation with the user.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">modelTurn?: Content;</pre>
+<h2 id="liveservercontentoutputtranscription">LiveServerContent.outputTranscription</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Transcription of the audio output from the model.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">outputTranscription?: Transcription;</pre>
+<h2 id="liveservercontentturncomplete">LiveServerContent.turnComplete</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Indicates whether the turn is complete. This is <code>undefined</code> if the turn is not complete.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">turnComplete?: boolean;</pre>
+<h2 id="liveservercontenttype">LiveServerContent.type</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">type: 'serverContent';</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.liveservercontent" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.liveservercontent</a>
+  </p>
+</div>

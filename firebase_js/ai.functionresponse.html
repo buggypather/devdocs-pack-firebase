@@ -1,0 +1,54 @@
+<h1>FunctionResponse interface</h1>
+<p>The result output from a <a href="ai.functioncall">FunctionCall</a> that contains a string representing the <a href="ai.functiondeclaration#functiondeclarationname">FunctionDeclaration.name</a> and a structured JSON object containing any output from the function is used as context to the model. This should contain the result of a <a href="ai.functioncall">FunctionCall</a> made based on model prediction.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface FunctionResponse </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.functionresponse#functionresponseid">id</a></td>
+<td>string</td>
+<td>The id of the <a href="ai.functioncall">FunctionCall</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.functionresponse#functionresponsename">name</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.functionresponse#functionresponseparts">parts</a></td>
+<td><a href="ai#part">Part</a><!-- -->[]</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.functionresponse#functionresponseresponse">response</a></td>
+<td>object</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="functionresponseid">FunctionResponse.id</h2>
+<p>The id of the <a href="ai.functioncall">FunctionCall</a><!-- -->.</p>
+<p>This property is only supported in the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->). When using the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->), this property will be <code>undefined</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">id?: string;</pre>
+<h2 id="functionresponsename">FunctionResponse.name</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">name: string;</pre>
+<h2 id="functionresponseparts">FunctionResponse.parts</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">parts?: Part[];</pre>
+<h2 id="functionresponseresponse">FunctionResponse.response</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">response: object;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.functionresponse" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.functionresponse</a>
+  </p>
+</div>

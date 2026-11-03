@@ -1,0 +1,38 @@
+<h1>QueryDocumentSnapshot class</h1>
+<p>A <code>QueryDocumentSnapshot</code> contains data read from a document in your Firestore database as part of a query. The document is guaranteed to exist and its data can be extracted with <code>.data()</code> or <code>.get(&lt;field&gt;)</code> to get a specific field.</p>
+<p>A <code>QueryDocumentSnapshot</code> offers the same API surface as a <code>DocumentSnapshot</code><!-- -->. Since query results contain only existing documents, the <code>exists</code> property will always be true and <code>data()</code> will never return &#39;undefined&#39;.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class QueryDocumentSnapshot&lt;
+  AppModelType = DocumentData,
+  DbModelType extends DocumentData = DocumentData
+&gt; extends DocumentSnapshot&lt;AppModelType, DbModelType&gt; </pre>
+<p><b>Extends:</b> <a href="firestore_lite.documentsnapshot">DocumentSnapshot</a><!-- -->&lt;AppModelType, DbModelType&gt;</p>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite.querydocumentsnapshot#querydocumentsnapshotdata">data()</a></td>
+<td></td>
+<td>Retrieves all fields in the document as an <code>Object</code>.</td>
+</tr>
+</tbody></table>
+<h2 id="querydocumentsnapshotdata">QueryDocumentSnapshot.data()</h2>
+<p>Retrieves all fields in the document as an <code>Object</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">/** @override */
+data(): AppModelType;</pre>
+<p><b>Returns:</b></p>
+<p>AppModelType</p>
+<p>An <code>Object</code> containing all fields in the document.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_lite.querydocumentsnapshot" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_lite.querydocumentsnapshot</a>
+  </p>
+</div>

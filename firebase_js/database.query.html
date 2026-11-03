@@ -1,0 +1,92 @@
+<h1>Query interface</h1>
+<p>A <code>Query</code> sorts and filters the data at a Database location so only a subset of the child data is included. This can be used to order a collection of data by some attribute (for example, height of dinosaurs) as well as to restrict a large list of items (for example, chat messages) down to a number suitable for synchronizing to the client. Queries are created by chaining together one or more of the filter methods defined here.</p>
+<p>Just as with a <code>DatabaseReference</code><!-- -->, you can receive data from a <code>Query</code> by using the <code>on*()</code> methods. You will only receive events and <code>DataSnapshot</code><!-- -->s for the subset of the data that matches your query.</p>
+<p>See <a href="https://firebase.google.com/docs/database/web/lists-of-data#sorting_and_filtering_data">https://firebase.google.com/docs/database/web/lists-of-data#sorting_and_filtering_data</a> for more information.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface Query </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="database.query#queryref">ref</a></td>
+<td><a href="database.databasereference">DatabaseReference</a></td>
+<td>The <code>DatabaseReference</code> for the <code>Query</code>&#39;s location.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="database.query#queryisequal">isEqual(other)</a></td>
+<td>Returns whether or not the current and provided queries represent the same location, have the same query parameters, and are from the same instance of <code>FirebaseApp</code>.<!-- -->Two <code>DatabaseReference</code> objects are equivalent if they represent the same location and are from the same instance of <code>FirebaseApp</code>.<!-- -->Two <code>Query</code> objects are equivalent if they represent the same location, have the same query parameters, and are from the same instance of <code>FirebaseApp</code>. Equivalent queries share the same sort order, limits, and starting and ending points.</td>
+</tr>
+<tr>
+<td><a href="database.query#querytojson">toJSON()</a></td>
+<td>Returns a JSON-serializable representation of this object.</td>
+</tr>
+<tr>
+<td><a href="database.query#querytostring">toString()</a></td>
+<td>Gets the absolute URL for this location.<!-- -->The <code>toString()</code> method returns a URL that is ready to be put into a browser, curl command, or a <code>refFromURL()</code> call. Since all of those expect the URL to be url-encoded, <code>toString()</code> returns an encoded URL.<!-- -->Append &#39;.json&#39; to the returned URL when typed into a browser to download JSON-formatted data. If the location is secured (that is, not publicly readable), you will get a permission-denied error.</td>
+</tr>
+</tbody></table>
+<h2 id="queryref">Query.ref</h2>
+<p>The <code>DatabaseReference</code> for the <code>Query</code><!-- -->&#39;s location.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly ref: DatabaseReference;</pre>
+<h2 id="queryisequal">Query.isEqual()</h2>
+<p>Returns whether or not the current and provided queries represent the same location, have the same query parameters, and are from the same instance of <code>FirebaseApp</code><!-- -->.</p>
+<p>Two <code>DatabaseReference</code> objects are equivalent if they represent the same location and are from the same instance of <code>FirebaseApp</code><!-- -->.</p>
+<p>Two <code>Query</code> objects are equivalent if they represent the same location, have the same query parameters, and are from the same instance of <code>FirebaseApp</code><!-- -->. Equivalent queries share the same sort order, limits, and starting and ending points.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">isEqual(other: Query | null): boolean;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>other</td>
+<td><a href="database.query">Query</a> | null</td>
+<td>The query to compare against.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<p>Whether or not the current and provided queries are equivalent.</p>
+<h2 id="querytojson">Query.toJSON()</h2>
+<p>Returns a JSON-serializable representation of this object.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">toJSON(): string;</pre>
+<p><b>Returns:</b></p>
+<p>string</p>
+<p>A JSON-serializable representation of this object.</p>
+<h2 id="querytostring">Query.toString()</h2>
+<p>Gets the absolute URL for this location.</p>
+<p>The <code>toString()</code> method returns a URL that is ready to be put into a browser, curl command, or a <code>refFromURL()</code> call. Since all of those expect the URL to be url-encoded, <code>toString()</code> returns an encoded URL.</p>
+<p>Append &#39;.json&#39; to the returned URL when typed into a browser to download JSON-formatted data. If the location is secured (that is, not publicly readable), you will get a permission-denied error.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">toString(): string;</pre>
+<p><b>Returns:</b></p>
+<p>string</p>
+<p>The absolute URL for this location.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/database.query" class="_attribution-link">https://firebase.google.com/docs/reference/js/database.query</a>
+  </p>
+</div>

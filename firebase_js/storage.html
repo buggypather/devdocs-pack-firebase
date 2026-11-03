@@ -1,0 +1,824 @@
+<h1>@firebase/storage</h1>
+<p>Cloud Storage for Firebase</p>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><b>function(app, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="storage#getstorage_25f3a57">getStorage(app, bucketUrl)</a></td>
+<td>Gets a <a href="storage.firebasestorage">FirebaseStorage</a> instance for the given Firebase app.</td>
+</tr>
+<tr>
+<td><b>function(storage, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="storage#connectstorageemulator_e9039de">connectStorageEmulator(storage, host, port, options)</a></td>
+<td>Modify this <a href="storage.firebasestorage">FirebaseStorage</a> instance to communicate with the Cloud Storage emulator.</td>
+</tr>
+<tr>
+<td><a href="storage#ref_5672fc1">ref(storage, url)</a></td>
+<td>Returns a <a href="storage.storagereference">StorageReference</a> for the given url.</td>
+</tr>
+<tr>
+<td><b>function(ref, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="storage#deleteobject_30df0b2">deleteObject(ref)</a></td>
+<td>Deletes the object at this location.</td>
+</tr>
+<tr>
+<td><a href="storage#getblob_1c7a935">getBlob(ref, maxDownloadSizeBytes)</a></td>
+<td>Downloads the data at the object&#39;s location. Returns an error if the object is not found.<!-- -->To use this functionality, you have to whitelist your app&#39;s origin in your Cloud Storage bucket. See also <a href="https://cloud.google.com/storage/docs/configuring-cors">https://cloud.google.com/storage/docs/configuring-cors</a><!-- -->This API is not available in Node.</td>
+</tr>
+<tr>
+<td><a href="storage#getbytes_1c7a935">getBytes(ref, maxDownloadSizeBytes)</a></td>
+<td>Downloads the data at the object&#39;s location. Returns an error if the object is not found.<!-- -->To use this functionality, you have to whitelist your app&#39;s origin in your Cloud Storage bucket. See also <a href="https://cloud.google.com/storage/docs/configuring-cors">https://cloud.google.com/storage/docs/configuring-cors</a></td>
+</tr>
+<tr>
+<td><a href="storage#getdownloadurl_30df0b2">getDownloadURL(ref)</a></td>
+<td>Returns the download URL for the given <a href="storage.storagereference">StorageReference</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="storage#getmetadata_30df0b2">getMetadata(ref)</a></td>
+<td>A <code>Promise</code> that resolves with the metadata for this object. If this object doesn&#39;t exist or metadata cannot be retrieved, the promise is rejected.</td>
+</tr>
+<tr>
+<td><a href="storage#getstream_1c7a935">getStream(ref, maxDownloadSizeBytes)</a></td>
+<td>Downloads the data at the object&#39;s location. Raises an error event if the object is not found.<!-- -->This API is only available in Node.</td>
+</tr>
+<tr>
+<td><a href="storage#list_36af757">list(ref, options)</a></td>
+<td>List items (files) and prefixes (folders) under this storage reference.<!-- -->List API is only available for Firebase Rules Version 2.<!-- -->GCS is a key-blob store. Firebase Storage imposes the semantic of &#39;/&#39; delimited folder structure. Refer to GCS&#39;s List API if you want to learn more.<!-- -->To adhere to Firebase Rules&#39;s Semantics, Firebase Storage does not support objects whose paths end with &quot;/&quot; or contain two consecutive &quot;/&quot;s. Firebase Storage List API will filter these unsupported objects. list() may fail if there are too many unsupported objects in the bucket.</td>
+</tr>
+<tr>
+<td><a href="storage#listall_30df0b2">listAll(ref)</a></td>
+<td>List all items (files) and prefixes (folders) under this storage reference.<!-- -->This is a helper method for calling list() repeatedly until there are no more results. The default pagination size is 1000.<!-- -->Note: The results may not be consistent if objects are changed while this operation is running.<!-- -->Warning: <code>listAll</code> may potentially consume too many resources if there are too many results.</td>
+</tr>
+<tr>
+<td><a href="storage#updatemetadata_a634608">updateMetadata(ref, metadata)</a></td>
+<td>Updates the metadata for this object.</td>
+</tr>
+<tr>
+<td><a href="storage#uploadbytes_02686b1">uploadBytes(ref, data, metadata)</a></td>
+<td>Uploads data to this object&#39;s location. The upload is not resumable.</td>
+</tr>
+<tr>
+<td><a href="storage#uploadbytesresumable_02686b1">uploadBytesResumable(ref, data, metadata)</a></td>
+<td>Uploads data to this object&#39;s location. The upload can be paused and resumed, and exposes progress updates.</td>
+</tr>
+<tr>
+<td><a href="storage#uploadstring_277829d">uploadString(ref, value, format, metadata)</a></td>
+<td>Uploads a string to this object&#39;s location. The upload is not resumable.</td>
+</tr>
+<tr>
+<td><b>function(storageOrRef, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="storage#ref_41be95d">ref(storageOrRef, path)</a></td>
+<td>Returns a <a href="storage.storagereference">StorageReference</a> for the given path in the default bucket.</td>
+</tr>
+</tbody></table>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="storage.storageerror">StorageError</a></td>
+<td>An error returned by the Firebase Storage SDK.</td>
+</tr>
+</tbody></table>
+<h2 id="enumerations">Enumerations</h2>
+<table>
+<thead>
+<tr>
+<th>Enumeration</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="storage#storageerrorcode">StorageErrorCode</a></td>
+<td>Error codes that can be attached to <code>StorageError</code> objects.</td>
+</tr>
+</tbody></table>
+<h2 id="interfaces">Interfaces</h2>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="storage.firebasestorage">FirebaseStorage</a></td>
+<td>A Firebase Storage instance.</td>
+</tr>
+<tr>
+<td><a href="storage.fullmetadata">FullMetadata</a></td>
+<td>The full set of object metadata, including read-only properties.</td>
+</tr>
+<tr>
+<td><a href="storage.listoptions">ListOptions</a></td>
+<td>The options <code>list()</code> accepts.</td>
+</tr>
+<tr>
+<td><a href="storage.listresult">ListResult</a></td>
+<td>Result returned by list().</td>
+</tr>
+<tr>
+<td><a href="storage.settablemetadata">SettableMetadata</a></td>
+<td>Object metadata that can be set at any time.</td>
+</tr>
+<tr>
+<td><a href="storage.storageobserver">StorageObserver</a></td>
+<td>A stream observer for Firebase Storage.</td>
+</tr>
+<tr>
+<td><a href="storage.storagereference">StorageReference</a></td>
+<td>Represents a reference to a Google Cloud Storage object. Developers can upload, download, and delete objects, as well as get/set object metadata.</td>
+</tr>
+<tr>
+<td><a href="storage.uploadmetadata">UploadMetadata</a></td>
+<td>Object metadata that can be set at upload.</td>
+</tr>
+<tr>
+<td><a href="storage.uploadresult">UploadResult</a></td>
+<td>Result returned from a non-resumable upload.</td>
+</tr>
+<tr>
+<td><a href="storage.uploadtask">UploadTask</a></td>
+<td>Represents the process of uploading an object. Allows you to monitor and manage the upload.</td>
+</tr>
+<tr>
+<td><a href="storage.uploadtasksnapshot">UploadTaskSnapshot</a></td>
+<td>Holds data about the current state of the upload task.</td>
+</tr>
+</tbody></table>
+<h2 id="variables">Variables</h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="storage#stringformat">StringFormat</a></td>
+<td>An enumeration of the possible string formats for upload.</td>
+</tr>
+</tbody></table>
+<h2 id="type-aliases">Type Aliases</h2>
+<table>
+<thead>
+<tr>
+<th>Type Alias</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="storage#stringformat">StringFormat</a></td>
+<td>An enumeration of the possible string formats for upload.</td>
+</tr>
+<tr>
+<td><a href="storage#taskevent">TaskEvent</a></td>
+<td>An event that is triggered on a task.</td>
+</tr>
+<tr>
+<td><a href="storage#taskstate">TaskState</a></td>
+<td>Represents the current state of a running upload.</td>
+</tr>
+</tbody></table>
+<h2 id="functionapp-">function(app, ...)</h2>
+<h3 id="getstorage_25f3a57">getStorage(app, bucketUrl)</h3>
+<p>Gets a <a href="storage.firebasestorage">FirebaseStorage</a> instance for the given Firebase app.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getStorage(app?: FirebaseApp, bucketUrl?: string): FirebaseStorage;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>app</td>
+<td><a href="app.firebaseapp">FirebaseApp</a></td>
+<td>Firebase app to get <a href="storage.firebasestorage">FirebaseStorage</a> instance for.</td>
+</tr>
+<tr>
+<td>bucketUrl</td>
+<td>string</td>
+<td>The gs:// url to your Firebase Storage Bucket. If not passed, uses the app&#39;s default Storage Bucket.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="storage.firebasestorage">FirebaseStorage</a></p>
+<p>A <a href="storage.firebasestorage">FirebaseStorage</a> instance.</p>
+<h2 id="functionstorage-">function(storage, ...)</h2>
+<h3 id="connectstorageemulator_e9039de">connectStorageEmulator(storage, host, port, options)</h3>
+<p>Modify this <a href="storage.firebasestorage">FirebaseStorage</a> instance to communicate with the Cloud Storage emulator.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function connectStorageEmulator(storage: FirebaseStorage, host: string, port: number, options?: {
+    mockUserToken?: EmulatorMockTokenOptions | string;
+}): void;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>storage</td>
+<td><a href="storage.firebasestorage">FirebaseStorage</a></td>
+<td>The <a href="storage.firebasestorage">FirebaseStorage</a> instance</td>
+</tr>
+<tr>
+<td>host</td>
+<td>string</td>
+<td>The emulator host (ex: localhost)</td>
+</tr>
+<tr>
+<td>port</td>
+<td>number</td>
+<td>The emulator port (ex: 5001)</td>
+</tr>
+<tr>
+<td>options</td>
+<td>{ mockUserToken?: <a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#emulatormocktokenoptions">EmulatorMockTokenOptions</a> | string; }</td>
+<td>Emulator options. <code>options.mockUserToken</code> is the mock auth token to use for unit testing Security Rules.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h3 id="ref_5672fc1">ref(storage, url)</h3>
+<p>Returns a <a href="storage.storagereference">StorageReference</a> for the given url.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function ref(storage: FirebaseStorage, url?: string): StorageReference;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>storage</td>
+<td><a href="storage.firebasestorage">FirebaseStorage</a></td>
+<td><a href="storage.firebasestorage">FirebaseStorage</a> instance.</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>URL. If empty, returns root reference.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="storage.storagereference">StorageReference</a></p>
+<h2 id="functionref-">function(ref, ...)</h2>
+<h3 id="deleteobject_30df0b2">deleteObject(ref)</h3>
+<p>Deletes the object at this location.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function deleteObject(ref: StorageReference): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ref</td>
+<td><a href="storage.storagereference">StorageReference</a></td>
+<td><a href="storage.storagereference">StorageReference</a> for object to delete.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<p>A <code>Promise</code> that resolves if the deletion succeeds.</p>
+<h3 id="getblob_1c7a935">getBlob(ref, maxDownloadSizeBytes)</h3>
+<p>Downloads the data at the object&#39;s location. Returns an error if the object is not found.</p>
+<p>To use this functionality, you have to whitelist your app&#39;s origin in your Cloud Storage bucket. See also <a href="https://cloud.google.com/storage/docs/configuring-cors">https://cloud.google.com/storage/docs/configuring-cors</a></p>
+<p>This API is not available in Node.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getBlob(ref: StorageReference, maxDownloadSizeBytes?: number): Promise&lt;Blob&gt;;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ref</td>
+<td><a href="storage.storagereference">StorageReference</a></td>
+<td>StorageReference where data should be downloaded.</td>
+</tr>
+<tr>
+<td>maxDownloadSizeBytes</td>
+<td>number</td>
+<td>If set, the maximum allowed size in bytes to retrieve.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;Blob&gt;</p>
+<p>A Promise that resolves with a Blob containing the object&#39;s bytes</p>
+<h3 id="getbytes_1c7a935">getBytes(ref, maxDownloadSizeBytes)</h3>
+<p>Downloads the data at the object&#39;s location. Returns an error if the object is not found.</p>
+<p>To use this functionality, you have to whitelist your app&#39;s origin in your Cloud Storage bucket. See also <a href="https://cloud.google.com/storage/docs/configuring-cors">https://cloud.google.com/storage/docs/configuring-cors</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getBytes(ref: StorageReference, maxDownloadSizeBytes?: number): Promise&lt;ArrayBuffer&gt;;</pre>
+<h4 id="parameters-5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ref</td>
+<td><a href="storage.storagereference">StorageReference</a></td>
+<td>StorageReference where data should be downloaded.</td>
+</tr>
+<tr>
+<td>maxDownloadSizeBytes</td>
+<td>number</td>
+<td>If set, the maximum allowed size in bytes to retrieve.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;ArrayBuffer&gt;</p>
+<p>A Promise containing the object&#39;s bytes</p>
+<h3 id="getdownloadurl_30df0b2">getDownloadURL(ref)</h3>
+<p>Returns the download URL for the given <a href="storage.storagereference">StorageReference</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getDownloadURL(ref: StorageReference): Promise&lt;string&gt;;</pre>
+<h4 id="parameters-6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ref</td>
+<td><a href="storage.storagereference">StorageReference</a></td>
+<td><a href="storage.storagereference">StorageReference</a> to get the download URL for.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;string&gt;</p>
+<p>A <code>Promise</code> that resolves with the download URL for this object.</p>
+<h3 id="getmetadata_30df0b2">getMetadata(ref)</h3>
+<p>A <code>Promise</code> that resolves with the metadata for this object. If this object doesn&#39;t exist or metadata cannot be retrieved, the promise is rejected.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getMetadata(ref: StorageReference): Promise&lt;FullMetadata&gt;;</pre>
+<h4 id="parameters-7">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ref</td>
+<td><a href="storage.storagereference">StorageReference</a></td>
+<td><a href="storage.storagereference">StorageReference</a> to get metadata from.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="storage.fullmetadata">FullMetadata</a><!-- -->&gt;</p>
+<h3 id="getstream_1c7a935">getStream(ref, maxDownloadSizeBytes)</h3>
+<p>Downloads the data at the object&#39;s location. Raises an error event if the object is not found.</p>
+<p>This API is only available in Node.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getStream(ref: StorageReference, maxDownloadSizeBytes?: number): ReadableStream;</pre>
+<h4 id="parameters-8">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ref</td>
+<td><a href="storage.storagereference">StorageReference</a></td>
+<td>StorageReference where data should be downloaded.</td>
+</tr>
+<tr>
+<td>maxDownloadSizeBytes</td>
+<td>number</td>
+<td>If set, the maximum allowed size in bytes to retrieve.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>ReadableStream</p>
+<p>A stream with the object&#39;s data as bytes</p>
+<h3 id="list_36af757">list(ref, options)</h3>
+<p>List items (files) and prefixes (folders) under this storage reference.</p>
+<p>List API is only available for Firebase Rules Version 2.</p>
+<p>GCS is a key-blob store. Firebase Storage imposes the semantic of &#39;/&#39; delimited folder structure. Refer to GCS&#39;s List API if you want to learn more.</p>
+<p>To adhere to Firebase Rules&#39;s Semantics, Firebase Storage does not support objects whose paths end with &quot;/&quot; or contain two consecutive &quot;/&quot;s. Firebase Storage List API will filter these unsupported objects. list() may fail if there are too many unsupported objects in the bucket.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function list(ref: StorageReference, options?: ListOptions): Promise&lt;ListResult&gt;;</pre>
+<h4 id="parameters-9">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ref</td>
+<td><a href="storage.storagereference">StorageReference</a></td>
+<td><a href="storage.storagereference">StorageReference</a> to get list from.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="storage.listoptions">ListOptions</a></td>
+<td>See <a href="storage.listoptions">ListOptions</a> for details.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="storage.listresult">ListResult</a><!-- -->&gt;</p>
+<p>A <code>Promise</code> that resolves with the items and prefixes. <code>prefixes</code> contains references to sub-folders and <code>items</code> contains references to objects in this folder. <code>nextPageToken</code> can be used to get the rest of the results.</p>
+<h3 id="listall_30df0b2">listAll(ref)</h3>
+<p>List all items (files) and prefixes (folders) under this storage reference.</p>
+<p>This is a helper method for calling list() repeatedly until there are no more results. The default pagination size is 1000.</p>
+<p>Note: The results may not be consistent if objects are changed while this operation is running.</p>
+<p>Warning: <code>listAll</code> may potentially consume too many resources if there are too many results.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function listAll(ref: StorageReference): Promise&lt;ListResult&gt;;</pre>
+<h4 id="parameters-10">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ref</td>
+<td><a href="storage.storagereference">StorageReference</a></td>
+<td><a href="storage.storagereference">StorageReference</a> to get list from.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="storage.listresult">ListResult</a><!-- -->&gt;</p>
+<p>A <code>Promise</code> that resolves with all the items and prefixes under the current storage reference. <code>prefixes</code> contains references to sub-directories and <code>items</code> contains references to objects in this folder. <code>nextPageToken</code> is never returned.</p>
+<h3 id="updatemetadata_a634608">updateMetadata(ref, metadata)</h3>
+<p>Updates the metadata for this object.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function updateMetadata(ref: StorageReference, metadata: SettableMetadata): Promise&lt;FullMetadata&gt;;</pre>
+<h4 id="parameters-11">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ref</td>
+<td><a href="storage.storagereference">StorageReference</a></td>
+<td><a href="storage.storagereference">StorageReference</a> to update metadata for.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td><a href="storage.settablemetadata">SettableMetadata</a></td>
+<td>The new metadata for the object. Only values that have been explicitly set will be changed. Explicitly setting a value to null will remove the metadata.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="storage.fullmetadata">FullMetadata</a><!-- -->&gt;</p>
+<p>A <code>Promise</code> that resolves with the new metadata for this object.</p>
+<h3 id="uploadbytes_02686b1">uploadBytes(ref, data, metadata)</h3>
+<p>Uploads data to this object&#39;s location. The upload is not resumable.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function uploadBytes(ref: StorageReference, data: Blob | Uint8Array | ArrayBuffer, metadata?: UploadMetadata): Promise&lt;UploadResult&gt;;</pre>
+<h4 id="parameters-12">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ref</td>
+<td><a href="storage.storagereference">StorageReference</a></td>
+<td><a href="storage.storagereference">StorageReference</a> where data should be uploaded.</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Blob | Uint8Array | ArrayBuffer</td>
+<td>The data to upload.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td><a href="storage.uploadmetadata">UploadMetadata</a></td>
+<td>Metadata for the data to upload.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="storage.uploadresult">UploadResult</a><!-- -->&gt;</p>
+<p>A Promise containing an UploadResult</p>
+<h3 id="uploadbytesresumable_02686b1">uploadBytesResumable(ref, data, metadata)</h3>
+<p>Uploads data to this object&#39;s location. The upload can be paused and resumed, and exposes progress updates.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function uploadBytesResumable(ref: StorageReference, data: Blob | Uint8Array | ArrayBuffer, metadata?: UploadMetadata): UploadTask;</pre>
+<h4 id="parameters-13">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ref</td>
+<td><a href="storage.storagereference">StorageReference</a></td>
+<td><a href="storage.storagereference">StorageReference</a> where data should be uploaded.</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Blob | Uint8Array | ArrayBuffer</td>
+<td>The data to upload.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td><a href="storage.uploadmetadata">UploadMetadata</a></td>
+<td>Metadata for the data to upload.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="storage.uploadtask">UploadTask</a></p>
+<p>An UploadTask</p>
+<h3 id="uploadstring_277829d">uploadString(ref, value, format, metadata)</h3>
+<p>Uploads a string to this object&#39;s location. The upload is not resumable.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function uploadString(ref: StorageReference, value: string, format?: StringFormat, metadata?: UploadMetadata): Promise&lt;UploadResult&gt;;</pre>
+<h4 id="parameters-14">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ref</td>
+<td><a href="storage.storagereference">StorageReference</a></td>
+<td><a href="storage.storagereference">StorageReference</a> where string should be uploaded.</td>
+</tr>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>The string to upload.</td>
+</tr>
+<tr>
+<td>format</td>
+<td><a href="storage#stringformat">StringFormat</a></td>
+<td>The format of the string to upload.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td><a href="storage.uploadmetadata">UploadMetadata</a></td>
+<td>Metadata for the string to upload.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="storage.uploadresult">UploadResult</a><!-- -->&gt;</p>
+<p>A Promise containing an UploadResult</p>
+<h2 id="functionstorageorref-">function(storageOrRef, ...)</h2>
+<h3 id="ref_41be95d">ref(storageOrRef, path)</h3>
+<p>Returns a <a href="storage.storagereference">StorageReference</a> for the given path in the default bucket.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function ref(storageOrRef: FirebaseStorage | StorageReference, path?: string): StorageReference;</pre>
+<h4 id="parameters-15">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>storageOrRef</td>
+<td><a href="storage.firebasestorage">FirebaseStorage</a> | <a href="storage.storagereference">StorageReference</a></td>
+<td><a href="storage.firebasestorage">FirebaseStorage</a> or <a href="storage.storagereference">StorageReference</a><!-- -->.</td>
+</tr>
+<tr>
+<td>path</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="storage.storagereference">StorageReference</a></p>
+<h2 id="stringformat">StringFormat</h2>
+<p>An enumeration of the possible string formats for upload.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">StringFormat: {
+    readonly RAW: &quot;raw&quot;;
+    readonly BASE64: &quot;base64&quot;;
+    readonly BASE64URL: &quot;base64url&quot;;
+    readonly DATA_URL: &quot;data_url&quot;;
+}</pre>
+<h2 id="stringformat-1">StringFormat</h2>
+<p>An enumeration of the possible string formats for upload.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type StringFormat = (typeof StringFormat)[keyof typeof StringFormat];</pre>
+<h2 id="taskevent">TaskEvent</h2>
+<p>An event that is triggered on a task.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type TaskEvent = 'state_changed';</pre>
+<h2 id="taskstate">TaskState</h2>
+<p>Represents the current state of a running upload.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type TaskState = 'running' | 'paused' | 'success' | 'canceled' | 'error';</pre>
+<h2 id="storageerrorcode">StorageErrorCode</h2>
+<p>Error codes that can be attached to <code>StorageError</code> objects.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare enum StorageErrorCode </pre>
+<h2 id="enumeration-members">Enumeration Members</h2>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>APP_DELETED</td>
+<td><code>&quot;app-deleted&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>BUCKET_NOT_FOUND</td>
+<td><code>&quot;bucket-not-found&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>CANCELED</td>
+<td><code>&quot;canceled&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>CANNOT_SLICE_BLOB</td>
+<td><code>&quot;cannot-slice-blob&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>INTERNAL_ERROR</td>
+<td><code>&quot;internal-error&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>INVALID_ARGUMENT</td>
+<td><code>&quot;invalid-argument&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>INVALID_ARGUMENT_COUNT</td>
+<td><code>&quot;invalid-argument-count&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>INVALID_CHECKSUM</td>
+<td><code>&quot;invalid-checksum&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>INVALID_DEFAULT_BUCKET</td>
+<td><code>&quot;invalid-default-bucket&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>INVALID_EVENT_NAME</td>
+<td><code>&quot;invalid-event-name&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>INVALID_FORMAT</td>
+<td><code>&quot;invalid-format&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>INVALID_ROOT_OPERATION</td>
+<td><code>&quot;invalid-root-operation&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>INVALID_URL</td>
+<td><code>&quot;invalid-url&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>NO_DEFAULT_BUCKET</td>
+<td><code>&quot;no-default-bucket&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>NO_DOWNLOAD_URL</td>
+<td><code>&quot;no-download-url&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>OBJECT_NOT_FOUND</td>
+<td><code>&quot;object-not-found&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>PROJECT_NOT_FOUND</td>
+<td><code>&quot;project-not-found&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>QUOTA_EXCEEDED</td>
+<td><code>&quot;quota-exceeded&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>RETRY_LIMIT_EXCEEDED</td>
+<td><code>&quot;retry-limit-exceeded&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>SERVER_FILE_WRONG_SIZE</td>
+<td><code>&quot;server-file-wrong-size&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>UNAUTHENTICATED</td>
+<td><code>&quot;unauthenticated&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>UNAUTHORIZED</td>
+<td><code>&quot;unauthorized&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>UNAUTHORIZED_APP</td>
+<td><code>&quot;unauthorized-app&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>UNKNOWN</td>
+<td><code>&quot;unknown&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>UNSUPPORTED_ENVIRONMENT</td>
+<td><code>&quot;unsupported-environment&quot;</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/storage" class="_attribution-link">https://firebase.google.com/docs/reference/js/storage</a>
+  </p>
+</div>

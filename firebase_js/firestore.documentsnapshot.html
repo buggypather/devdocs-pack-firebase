@@ -1,0 +1,168 @@
+<h1>DocumentSnapshot class</h1>
+<p>A <code>DocumentSnapshot</code> contains data read from a document in your Firestore database. The data can be extracted with <code>.data()</code> or <code>.get(&lt;field&gt;)</code> to get a specific field.</p>
+<p>For a <code>DocumentSnapshot</code> that points to a non-existing document, any data access will return &#39;undefined&#39;. You can use the <code>exists()</code> method to explicitly verify a document&#39;s existence.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class DocumentSnapshot&lt;
+  AppModelType = DocumentData,
+  DbModelType extends DocumentData = DocumentData
+&gt; </pre>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.documentsnapshot#documentsnapshotconstructor">(constructor)()</a></td>
+<td></td>
+<td>Constructs a new instance of the <code>DocumentSnapshot</code> class</td>
+</tr>
+</tbody></table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.documentsnapshot#documentsnapshotid">id</a></td>
+<td></td>
+<td>string</td>
+<td>Property of the <code>DocumentSnapshot</code> that provides the document&#39;s ID.</td>
+</tr>
+<tr>
+<td><a href="firestore.documentsnapshot#documentsnapshotmetadata">metadata</a></td>
+<td></td>
+<td><a href="firestore.snapshotmetadata">SnapshotMetadata</a></td>
+<td>Metadata about the <code>DocumentSnapshot</code>, including information about its source and local modifications.</td>
+</tr>
+<tr>
+<td><a href="firestore.documentsnapshot#documentsnapshotref">ref</a></td>
+<td></td>
+<td><a href="firestore.documentreference">DocumentReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>The <code>DocumentReference</code> for the document included in the <code>DocumentSnapshot</code>.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.documentsnapshot#documentsnapshotdata">data(options)</a></td>
+<td></td>
+<td>Retrieves all fields in the document as an <code>Object</code>. Returns <code>undefined</code> if the document doesn&#39;t exist.<!-- -->By default, <code>serverTimestamp()</code> values that have not yet been set to their final value will be returned as <code>null</code>. You can override this by passing an options object.</td>
+</tr>
+<tr>
+<td><a href="firestore.documentsnapshot#documentsnapshotexists">exists()</a></td>
+<td></td>
+<td>Returns whether or not the data exists. True if the document exists.</td>
+</tr>
+<tr>
+<td><a href="firestore.documentsnapshot#documentsnapshotget">get(fieldPath, options)</a></td>
+<td></td>
+<td>Retrieves the field specified by <code>fieldPath</code>. Returns <code>undefined</code> if the document or field doesn&#39;t exist.<!-- -->By default, a <code>serverTimestamp()</code> that has not yet been set to its final value will be returned as <code>null</code>. You can override this by passing an options object.</td>
+</tr>
+<tr>
+<td><a href="firestore.documentsnapshot#documentsnapshottojson">toJSON()</a></td>
+<td></td>
+<td>Returns a JSON-serializable representation of this <code>DocumentSnapshot</code> instance.</td>
+</tr>
+</tbody></table>
+<h2 id="documentsnapshotconstructor">DocumentSnapshot.(constructor)</h2>
+<p>Constructs a new instance of the <code>DocumentSnapshot</code> class</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">protected constructor();</pre>
+<h2 id="documentsnapshotid">DocumentSnapshot.id</h2>
+<p>Property of the <code>DocumentSnapshot</code> that provides the document&#39;s ID.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get id(): string;</pre>
+<h2 id="documentsnapshotmetadata">DocumentSnapshot.metadata</h2>
+<p>Metadata about the <code>DocumentSnapshot</code><!-- -->, including information about its source and local modifications.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly metadata: SnapshotMetadata;</pre>
+<h2 id="documentsnapshotref">DocumentSnapshot.ref</h2>
+<p>The <code>DocumentReference</code> for the document included in the <code>DocumentSnapshot</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get ref(): DocumentReference&lt;AppModelType, DbModelType&gt;;</pre>
+<h2 id="documentsnapshotdata">DocumentSnapshot.data()</h2>
+<p>Retrieves all fields in the document as an <code>Object</code><!-- -->. Returns <code>undefined</code> if the document doesn&#39;t exist.</p>
+<p>By default, <code>serverTimestamp()</code> values that have not yet been set to their final value will be returned as <code>null</code><!-- -->. You can override this by passing an options object.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">data(options?: SnapshotOptions): AppModelType | undefined;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>options</td>
+<td><a href="firestore.snapshotoptions">SnapshotOptions</a></td>
+<td>An options object to configure how data is retrieved from the snapshot (for example the desired behavior for server timestamps that have not yet been set to their final value).</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>AppModelType | undefined</p>
+<p>An <code>Object</code> containing all fields in the document or <code>undefined</code> if the document doesn&#39;t exist.</p>
+<h2 id="documentsnapshotexists">DocumentSnapshot.exists()</h2>
+<p>Returns whether or not the data exists. True if the document exists.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">exists(): this is QueryDocumentSnapshot&lt;AppModelType, DbModelType&gt;;</pre>
+<p><b>Returns:</b></p>
+<p>this is <a href="firestore.querydocumentsnapshot">QueryDocumentSnapshot</a><!-- -->&lt;AppModelType, DbModelType&gt;</p>
+<h2 id="documentsnapshotget">DocumentSnapshot.get()</h2>
+<p>Retrieves the field specified by <code>fieldPath</code><!-- -->. Returns <code>undefined</code> if the document or field doesn&#39;t exist.</p>
+<p>By default, a <code>serverTimestamp()</code> that has not yet been set to its final value will be returned as <code>null</code><!-- -->. You can override this by passing an options object.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get(fieldPath: string | FieldPath, options?: SnapshotOptions): any;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fieldPath</td>
+<td>string | <a href="firestore.fieldpath">FieldPath</a></td>
+<td>The path (for example &#39;foo&#39; or &#39;foo.bar&#39;) to a specific field.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="firestore.snapshotoptions">SnapshotOptions</a></td>
+<td>An options object to configure how the field is retrieved from the snapshot (for example the desired behavior for server timestamps that have not yet been set to their final value).</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>any</p>
+<p>The data at the specified field location or undefined if no such field exists in the document.</p>
+<h2 id="documentsnapshottojson">DocumentSnapshot.toJSON()</h2>
+<p>Returns a JSON-serializable representation of this <code>DocumentSnapshot</code> instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">toJSON(): object;</pre>
+<p><b>Returns:</b></p>
+<p>object</p>
+<p>a JSON representation of this object. Throws a <a href="firestore.firestoreerror">FirestoreError</a> if this <code>DocumentSnapshot</code> has pending writes.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.documentsnapshot" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.documentsnapshot</a>
+  </p>
+</div>

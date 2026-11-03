@@ -1,0 +1,89 @@
+<h1>FunctionExpression class</h1>
+<p>This class defines the base class for Firestore <a href="firestore_pipelines.pipeline">Pipeline</a> functions, which can be evaluated within pipeline execution.</p>
+<p>Typically, you would not use this class or its children directly. Use either the functions like <a href="firestore#and_e72c712">and()</a><!-- -->, <a href="firestore_pipelines#equal_b3c3382">equal()</a><!-- -->, or the methods on <a href="firestore_pipelines.expression">Expression</a> (<a href="firestore_pipelines.expression#expressionequal">Expression.equal()</a><!-- -->, <a href="firestore_pipelines.expression#expressionlessthan">Expression.lessThan()</a><!-- -->, etc.) to construct new Function instances.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class FunctionExpression extends Expression </pre>
+<p><b>Extends:</b> <a href="firestore_lite_pipelines.expression">Expression</a></p>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite_pipelines.functionexpression#functionexpressionconstructor">(constructor)(name, params)</a></td>
+<td></td>
+<td>Constructs a new instance of the <code>FunctionExpression</code> class</td>
+</tr>
+</tbody></table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite_pipelines.functionexpression#functionexpressionexpressiontype">expressionType</a></td>
+<td></td>
+<td><a href="firestore_lite_pipelines#expressiontype">ExpressionType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite_pipelines.functionexpression#functionexpressionname">name</a></td>
+<td></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="firestore_lite_pipelines.functionexpression#functionexpressionparams">params</a></td>
+<td></td>
+<td><a href="firestore_lite_pipelines.expression">Expression</a><!-- -->[]</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="functionexpressionconstructor">FunctionExpression.(constructor)</h2>
+<p>Constructs a new instance of the <code>FunctionExpression</code> class</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">constructor(name: string, params: Expression[]);</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>params</td>
+<td><a href="firestore_lite_pipelines.expression">Expression</a><!-- -->[]</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="functionexpressionexpressiontype">FunctionExpression.expressionType</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly expressionType: ExpressionType;</pre>
+<h2 id="functionexpressionname">FunctionExpression.name</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly name: string;</pre>
+<h2 id="functionexpressionparams">FunctionExpression.params</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly params: Expression[];</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_lite_pipelines.functionexpression" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_lite_pipelines.functionexpression</a>
+  </p>
+</div>

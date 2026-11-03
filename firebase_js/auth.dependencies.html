@@ -1,0 +1,50 @@
+<h1>Dependencies interface</h1>
+<p>The dependencies that can be used to initialize an <a href="auth.auth">Auth</a> instance.</p>
+<p>The modular SDK enables tree shaking by allowing explicit declarations of dependencies. For example, a web app does not need to include code that enables Cordova redirect sign in. That functionality is therefore split into <a href="auth#browserpopupredirectresolver">browserPopupRedirectResolver</a> and <a href="auth#cordovapopupredirectresolver">cordovaPopupRedirectResolver</a><!-- -->. The dependencies object is how Auth is configured to reduce bundle sizes.</p>
+<p>There are two ways to initialize an <a href="auth.auth">Auth</a> instance: <a href="auth#getauth_cf608e1">getAuth()</a> and <a href="auth#initializeauth_ca77c9b">initializeAuth()</a><!-- -->. <code>getAuth</code> initializes everything using platform-specific configurations, while <code>initializeAuth</code> takes a <code>Dependencies</code> object directly, giving you more control over what is used.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface Dependencies </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.dependencies#dependencieserrormap">errorMap</a></td>
+<td><a href="auth.autherrormap">AuthErrorMap</a></td>
+<td>Which <a href="auth.autherrormap">AuthErrorMap</a> to use.</td>
+</tr>
+<tr>
+<td><a href="auth.dependencies#dependenciespersistence">persistence</a></td>
+<td><a href="auth.persistence">Persistence</a> | <a href="auth.persistence">Persistence</a><!-- -->[]</td>
+<td>Which <a href="auth.persistence">Persistence</a> to use. If this is an array, the first <code>Persistence</code> that the device supports is used. The SDK searches for an existing account in order and, if one is found in a secondary <code>Persistence</code>, the account is moved to the primary <code>Persistence</code>.<!-- -->If no persistence is provided, the SDK falls back on <a href="auth#inmemorypersistence">inMemoryPersistence</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.dependencies#dependenciespopupredirectresolver">popupRedirectResolver</a></td>
+<td><a href="auth.popupredirectresolver">PopupRedirectResolver</a></td>
+<td>The <a href="auth.popupredirectresolver">PopupRedirectResolver</a> to use. This value depends on the platform. Options are <a href="auth#browserpopupredirectresolver">browserPopupRedirectResolver</a> and <a href="auth#cordovapopupredirectresolver">cordovaPopupRedirectResolver</a><!-- -->. This field is optional if neither <a href="auth#signinwithpopup_770f816">signInWithPopup()</a> or <a href="auth#signinwithredirect_770f816">signInWithRedirect()</a> are being used.</td>
+</tr>
+</tbody></table>
+<h2 id="dependencieserrormap">Dependencies.errorMap</h2>
+<p>Which <a href="auth.autherrormap">AuthErrorMap</a> to use.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">errorMap?: AuthErrorMap;</pre>
+<h2 id="dependenciespersistence">Dependencies.persistence</h2>
+<p>Which <a href="auth.persistence">Persistence</a> to use. If this is an array, the first <code>Persistence</code> that the device supports is used. The SDK searches for an existing account in order and, if one is found in a secondary <code>Persistence</code><!-- -->, the account is moved to the primary <code>Persistence</code><!-- -->.</p>
+<p>If no persistence is provided, the SDK falls back on <a href="auth#inmemorypersistence">inMemoryPersistence</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">persistence?: Persistence | Persistence[];</pre>
+<h2 id="dependenciespopupredirectresolver">Dependencies.popupRedirectResolver</h2>
+<p>The <a href="auth.popupredirectresolver">PopupRedirectResolver</a> to use. This value depends on the platform. Options are <a href="auth#browserpopupredirectresolver">browserPopupRedirectResolver</a> and <a href="auth#cordovapopupredirectresolver">cordovaPopupRedirectResolver</a><!-- -->. This field is optional if neither <a href="auth#signinwithpopup_770f816">signInWithPopup()</a> or <a href="auth#signinwithredirect_770f816">signInWithRedirect()</a> are being used.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">popupRedirectResolver?: PopupRedirectResolver;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.dependencies" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.dependencies</a>
+  </p>
+</div>

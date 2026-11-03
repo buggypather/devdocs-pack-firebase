@@ -1,0 +1,29 @@
+<h1>Persistence interface</h1>
+<p>An interface covering the possible persistence mechanism types.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface Persistence </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.persistence#persistencetype">type</a></td>
+<td>&#39;SESSION&#39; | &#39;LOCAL&#39; | &#39;NONE&#39; | &#39;COOKIE&#39;</td>
+<td>Type of Persistence. - &#39;SESSION&#39; is used for temporary persistence such as <code>sessionStorage</code>. - &#39;LOCAL&#39; is used for long term persistence such as <code>localStorage</code> or <code>IndexedDB</code>. - &#39;NONE&#39; is used for in-memory, or no persistence. - &#39;COOKIE&#39; is used for cookie persistence, useful for server-side rendering.</td>
+</tr>
+</tbody></table>
+<h2 id="persistencetype">Persistence.type</h2>
+<p>Type of Persistence. - &#39;SESSION&#39; is used for temporary persistence such as <code>sessionStorage</code><!-- -->. - &#39;LOCAL&#39; is used for long term persistence such as <code>localStorage</code> or <code>IndexedDB</code><!-- -->. - &#39;NONE&#39; is used for in-memory, or no persistence. - &#39;COOKIE&#39; is used for cookie persistence, useful for server-side rendering.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly type: 'SESSION' | 'LOCAL' | 'NONE' | 'COOKIE';</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.persistence" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.persistence</a>
+  </p>
+</div>

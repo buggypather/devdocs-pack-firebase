@@ -1,0 +1,2609 @@
+<h1>@firebase/auth</h1>
+<p>Firebase Authentication</p>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><b>function(app, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="auth#getauth_cf608e1">getAuth(app)</a></td>
+<td>Returns the Auth instance associated with the provided <a href="app.firebaseapp">FirebaseApp</a><!-- -->. If no instance exists, initializes an Auth instance with platform-specific default dependencies.</td>
+</tr>
+<tr>
+<td><a href="auth#initializeauth_ca77c9b">initializeAuth(app, deps)</a></td>
+<td>Initializes an <a href="auth.auth">Auth</a> instance with fine-grained control over <a href="auth.dependencies">Dependencies</a><!-- -->.</td>
+</tr>
+<tr>
+<td><b>function(storage, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="auth#getreactnativepersistence_bab4ada">getReactNativePersistence(storage)</a></td>
+<td>Returns a persistence object that wraps <code>AsyncStorage</code> imported from <code>react-native</code> or <code>@react-native-async-storage/async-storage</code>, and can be used in the persistence dependency field in <a href="auth#initializeauth_ca77c9b">initializeAuth()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><b>function(auth, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="auth#applyactioncode_d2ae15a">applyActionCode(auth, oobCode)</a></td>
+<td>Applies a verification code sent to the user by email or other out-of-band mechanism.</td>
+</tr>
+<tr>
+<td><a href="auth#beforeauthstatechanged_22f2ab6">beforeAuthStateChanged(auth, callback, onAbort)</a></td>
+<td>Adds a blocking callback that runs before an auth state change sets a new user.</td>
+</tr>
+<tr>
+<td><a href="auth#checkactioncode_d2ae15a">checkActionCode(auth, oobCode)</a></td>
+<td>Checks a verification code sent to the user by email or other out-of-band mechanism.</td>
+</tr>
+<tr>
+<td><a href="auth#confirmpasswordreset_749dad8">confirmPasswordReset(auth, oobCode, newPassword)</a></td>
+<td>Completes the password reset process, given a confirmation code and new password.</td>
+</tr>
+<tr>
+<td><a href="auth#connectauthemulator_657c7e5">connectAuthEmulator(auth, url, options)</a></td>
+<td>Changes the <a href="auth.auth">Auth</a> instance to communicate with the Firebase Auth Emulator, instead of production Firebase Auth services.</td>
+</tr>
+<tr>
+<td><a href="auth#createuserwithemailandpassword_21ad33b">createUserWithEmailAndPassword(auth, email, password)</a></td>
+<td>Creates a new user account associated with the specified email address and password.</td>
+</tr>
+<tr>
+<td><a href="auth#fetchsigninmethodsforemail_efb3887">fetchSignInMethodsForEmail(auth, email)</a></td>
+<td>Gets the list of possible sign in methods for the given email address. This method returns an empty list when <a href="https://cloud.google.com/identity-platform/docs/admin/email-enumeration-protection">Email Enumeration Protection</a> is enabled, irrespective of the number of authentication methods available for the given email.</td>
+</tr>
+<tr>
+<td><a href="auth#getmultifactorresolver_201ba61">getMultiFactorResolver(auth, error)</a></td>
+<td>Provides a <a href="auth.multifactorresolver">MultiFactorResolver</a> suitable for completion of a multi-factor flow.</td>
+</tr>
+<tr>
+<td><a href="auth#getredirectresult_c35dc1f">getRedirectResult(auth, resolver)</a></td>
+<td>Returns a <a href="auth.usercredential">UserCredential</a> from the redirect-based sign-in flow.</td>
+</tr>
+<tr>
+<td><a href="auth#initializerecaptchaconfig_2a61ea7">initializeRecaptchaConfig(auth)</a></td>
+<td>Loads the reCAPTCHA configuration into the <code>Auth</code> instance.</td>
+</tr>
+<tr>
+<td><a href="auth#issigninwithemaillink_db04f1d">isSignInWithEmailLink(auth, emailLink)</a></td>
+<td>Checks if an incoming link is a sign-in with email link suitable for <a href="auth#signinwithemaillink_ed14c53">signInWithEmailLink()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth#onauthstatechanged_b0d07ab">onAuthStateChanged(auth, nextOrObserver, error, completed)</a></td>
+<td>Adds an observer for changes to the user&#39;s sign-in state.</td>
+</tr>
+<tr>
+<td><a href="auth#onidtokenchanged_b0d07ab">onIdTokenChanged(auth, nextOrObserver, error, completed)</a></td>
+<td>Adds an observer for changes to the signed-in user&#39;s ID token.</td>
+</tr>
+<tr>
+<td><a href="auth#revokeaccesstoken_5556ad5">revokeAccessToken(auth, token)</a></td>
+<td>Revokes the given access token. Currently only supports Apple OAuth access tokens.</td>
+</tr>
+<tr>
+<td><a href="auth#sendpasswordresetemail_95b079b">sendPasswordResetEmail(auth, email, actionCodeSettings)</a></td>
+<td>Sends a password reset email to the given email address. This method does not throw an error when there&#39;s no user account with the given email address and <a href="https://cloud.google.com/identity-platform/docs/admin/email-enumeration-protection">Email Enumeration Protection</a> is enabled.</td>
+</tr>
+<tr>
+<td><a href="auth#sendsigninlinktoemail_95b079b">sendSignInLinkToEmail(auth, email, actionCodeSettings)</a></td>
+<td>Sends a sign-in email link to the user with the specified email.</td>
+</tr>
+<tr>
+<td><a href="auth#setpersistence_a3592ac">setPersistence(auth, persistence)</a></td>
+<td>Changes the type of persistence on the <a href="auth.auth">Auth</a> instance for the currently saved <code>Auth</code> session and applies this type of persistence for future sign-in requests, including sign-in with redirect requests.</td>
+</tr>
+<tr>
+<td><a href="auth#signinanonymously_2a61ea7">signInAnonymously(auth)</a></td>
+<td>Asynchronously signs in as an anonymous user.</td>
+</tr>
+<tr>
+<td><a href="auth#signinwithcredential_8074518">signInWithCredential(auth, credential)</a></td>
+<td>Asynchronously signs in with the given credentials.</td>
+</tr>
+<tr>
+<td><a href="auth#signinwithcustomtoken_32af683">signInWithCustomToken(auth, customToken)</a></td>
+<td>Asynchronously signs in using a custom token.</td>
+</tr>
+<tr>
+<td><a href="auth#signinwithemailandpassword_21ad33b">signInWithEmailAndPassword(auth, email, password)</a></td>
+<td>Asynchronously signs in using an email and password.</td>
+</tr>
+<tr>
+<td><a href="auth#signinwithemaillink_ed14c53">signInWithEmailLink(auth, email, emailLink)</a></td>
+<td>Asynchronously signs in using an email and sign-in email link.</td>
+</tr>
+<tr>
+<td><a href="auth#signinwithphonenumber_75b2560">signInWithPhoneNumber(auth, phoneNumber, appVerifier)</a></td>
+<td>Asynchronously signs in using a phone number.</td>
+</tr>
+<tr>
+<td><a href="auth#signinwithpopup_770f816">signInWithPopup(auth, provider, resolver)</a></td>
+<td>Authenticates a Firebase client using a popup-based OAuth authentication flow.</td>
+</tr>
+<tr>
+<td><a href="auth#signinwithredirect_770f816">signInWithRedirect(auth, provider, resolver)</a></td>
+<td>Authenticates a Firebase client using a full-page redirect flow.</td>
+</tr>
+<tr>
+<td><a href="auth#signout_2a61ea7">signOut(auth)</a></td>
+<td>Signs out the current user.</td>
+</tr>
+<tr>
+<td><a href="auth#updatecurrentuser_9d96fff">updateCurrentUser(auth, user)</a></td>
+<td>Asynchronously sets the provided user as <a href="auth.auth#authcurrentuser">Auth.currentUser</a> on the <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td><a href="auth#usedevicelanguage_2a61ea7">useDeviceLanguage(auth)</a></td>
+<td>Sets the current language to the default device/browser preference.</td>
+</tr>
+<tr>
+<td><a href="auth#validatepassword_4dc4ad2">validatePassword(auth, password)</a></td>
+<td>Validates the password against the password policy configured for the project or tenant.</td>
+</tr>
+<tr>
+<td><a href="auth#verifypasswordresetcode_01e0a1a">verifyPasswordResetCode(auth, code)</a></td>
+<td>Checks a password reset code sent to the user by email or other out-of-band mechanism.</td>
+</tr>
+<tr>
+<td><b>function(link, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="auth#parseactioncodeurl_51293c3">parseActionCodeURL(link)</a></td>
+<td>Parses the email action link string and returns an <a href="auth.actioncodeurl">ActionCodeURL</a> if the link is valid, otherwise returns null.</td>
+</tr>
+<tr>
+<td><b>function(user, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="auth#deleteuser_52b2e2e">deleteUser(user)</a></td>
+<td>Deletes and signs out the user.</td>
+</tr>
+<tr>
+<td><a href="auth#getidtoken_ce7d429">getIdToken(user, forceRefresh)</a></td>
+<td>Returns a JSON Web Token (JWT) used to identify the user to a Firebase service.</td>
+</tr>
+<tr>
+<td><a href="auth#getidtokenresult_ce7d429">getIdTokenResult(user, forceRefresh)</a></td>
+<td>Returns a deserialized JSON Web Token (JWT) used to identify the user to a Firebase service.</td>
+</tr>
+<tr>
+<td><a href="auth#linkwithcredential_60f8043">linkWithCredential(user, credential)</a></td>
+<td>Links the user account with the given credentials.</td>
+</tr>
+<tr>
+<td><a href="auth#linkwithphonenumber_9ed75fe">linkWithPhoneNumber(user, phoneNumber, appVerifier)</a></td>
+<td>Links the user account with the given phone number.</td>
+</tr>
+<tr>
+<td><a href="auth#linkwithpopup_41c0b31">linkWithPopup(user, provider, resolver)</a></td>
+<td>Links the authenticated provider to the user account using a pop-up based OAuth flow.</td>
+</tr>
+<tr>
+<td><a href="auth#linkwithredirect_41c0b31">linkWithRedirect(user, provider, resolver)</a></td>
+<td>Links the <a href="auth.oauthprovider">OAuthProvider</a> to the user account using a full-page redirect flow.</td>
+</tr>
+<tr>
+<td><a href="auth#multifactor_52b2e2e">multiFactor(user)</a></td>
+<td>The <a href="auth.multifactoruser">MultiFactorUser</a> corresponding to the user.</td>
+</tr>
+<tr>
+<td><a href="auth#reauthenticatewithcredential_60f8043">reauthenticateWithCredential(user, credential)</a></td>
+<td>Re-authenticates a user using a fresh credential.</td>
+</tr>
+<tr>
+<td><a href="auth#reauthenticatewithphonenumber_9ed75fe">reauthenticateWithPhoneNumber(user, phoneNumber, appVerifier)</a></td>
+<td>Re-authenticates a user using a fresh phone credential.</td>
+</tr>
+<tr>
+<td><a href="auth#reauthenticatewithpopup_41c0b31">reauthenticateWithPopup(user, provider, resolver)</a></td>
+<td>Reauthenticates the current user with the specified <a href="auth.oauthprovider">OAuthProvider</a> using a pop-up based OAuth flow.</td>
+</tr>
+<tr>
+<td><a href="auth#reauthenticatewithredirect_41c0b31">reauthenticateWithRedirect(user, provider, resolver)</a></td>
+<td>Reauthenticates the current user with the specified <a href="auth.oauthprovider">OAuthProvider</a> using a full-page redirect flow.</td>
+</tr>
+<tr>
+<td><a href="auth#reload_52b2e2e">reload(user)</a></td>
+<td>Reloads user account data, if signed in.</td>
+</tr>
+<tr>
+<td><a href="auth#sendemailverification_6a885d6">sendEmailVerification(user, actionCodeSettings)</a></td>
+<td>Sends a verification email to a user.</td>
+</tr>
+<tr>
+<td><a href="auth#unlink_f289a14">unlink(user, providerId)</a></td>
+<td>Unlinks a provider from a user account.</td>
+</tr>
+<tr>
+<td><a href="auth#updateemail_7737d57">updateEmail(user, newEmail)</a></td>
+<td>Updates the user&#39;s email address.</td>
+</tr>
+<tr>
+<td><a href="auth#updatepassword_6df673e">updatePassword(user, newPassword)</a></td>
+<td>Updates the user&#39;s password.</td>
+</tr>
+<tr>
+<td><a href="auth#updatephonenumber_0105c49">updatePhoneNumber(user, credential)</a></td>
+<td>Updates the user&#39;s phone number.</td>
+</tr>
+<tr>
+<td><a href="auth#updateprofile_ed2a696">updateProfile(user, profile)</a></td>
+<td>Updates a user&#39;s profile data.</td>
+</tr>
+<tr>
+<td><a href="auth#verifybeforeupdateemail_09d6f11">verifyBeforeUpdateEmail(user, newEmail, actionCodeSettings)</a></td>
+<td>Sends a verification email to a new email address.</td>
+</tr>
+<tr>
+<td><b>function(userCredential, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="auth#getadditionaluserinfo_838a6bd">getAdditionalUserInfo(userCredential)</a></td>
+<td>Extracts provider specific <a href="auth.additionaluserinfo">AdditionalUserInfo</a> for the given credential.</td>
+</tr>
+</tbody></table>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.actioncodeurl">ActionCodeURL</a></td>
+<td>A utility class to parse email action URLs such as password reset, email verification, email link sign in, etc.</td>
+</tr>
+<tr>
+<td><a href="auth.authcredential">AuthCredential</a></td>
+<td>Interface that represents the credentials returned by an <a href="auth.authprovider">AuthProvider</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.emailauthcredential">EmailAuthCredential</a></td>
+<td>Interface that represents the credentials returned by <a href="auth.emailauthprovider">EmailAuthProvider</a> for <a href="auth#providerid">ProviderId</a><!-- -->.PASSWORD</td>
+</tr>
+<tr>
+<td><a href="auth.emailauthprovider">EmailAuthProvider</a></td>
+<td>Provider for generating <a href="auth.emailauthcredential">EmailAuthCredential</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.facebookauthprovider">FacebookAuthProvider</a></td>
+<td>Provider for generating an <a href="auth.oauthcredential">OAuthCredential</a> for <a href="auth#providerid">ProviderId</a><!-- -->.FACEBOOK.</td>
+</tr>
+<tr>
+<td><a href="auth.githubauthprovider">GithubAuthProvider</a></td>
+<td>Provider for generating an <a href="auth.oauthcredential">OAuthCredential</a> for <a href="auth#providerid">ProviderId</a><!-- -->.GITHUB.</td>
+</tr>
+<tr>
+<td><a href="auth.googleauthprovider">GoogleAuthProvider</a></td>
+<td>Provider for generating an <a href="auth.oauthcredential">OAuthCredential</a> for <a href="auth#providerid">ProviderId</a><!-- -->.GOOGLE.</td>
+</tr>
+<tr>
+<td><a href="auth.oauthcredential">OAuthCredential</a></td>
+<td>Represents the OAuth credentials returned by an <a href="auth.oauthprovider">OAuthProvider</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.oauthprovider">OAuthProvider</a></td>
+<td>Provider for generating generic <a href="auth.oauthcredential">OAuthCredential</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.phoneauthcredential">PhoneAuthCredential</a></td>
+<td>Represents the credentials returned by <a href="auth.phoneauthprovider">PhoneAuthProvider</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.phoneauthprovider">PhoneAuthProvider</a></td>
+<td>Provider for generating an <a href="auth.phoneauthcredential">PhoneAuthCredential</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.phonemultifactorgenerator">PhoneMultiFactorGenerator</a></td>
+<td>Provider for generating a <a href="auth.phonemultifactorassertion">PhoneMultiFactorAssertion</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.recaptchaverifier">RecaptchaVerifier</a></td>
+<td>An <a href="https://www.google.com/recaptcha/">reCAPTCHA</a><!-- -->-based application verifier.</td>
+</tr>
+<tr>
+<td><a href="auth.samlauthprovider">SAMLAuthProvider</a></td>
+<td>An <a href="auth.authprovider">AuthProvider</a> for SAML.</td>
+</tr>
+<tr>
+<td><a href="auth.totpmultifactorgenerator">TotpMultiFactorGenerator</a></td>
+<td>Provider for generating a <a href="auth.totpmultifactorassertion">TotpMultiFactorAssertion</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.totpsecret">TotpSecret</a></td>
+<td>Provider for generating a <a href="auth.totpmultifactorassertion">TotpMultiFactorAssertion</a><!-- -->.<!-- -->Stores the shared secret key and other parameters to generate time-based OTPs. Implements methods to retrieve the shared secret key and generate a QR code URL.</td>
+</tr>
+<tr>
+<td><a href="auth.twitterauthprovider">TwitterAuthProvider</a></td>
+<td>Provider for generating an <a href="auth.oauthcredential">OAuthCredential</a> for <a href="auth#providerid">ProviderId</a><!-- -->.TWITTER.</td>
+</tr>
+</tbody></table>
+<h2 id="interfaces">Interfaces</h2>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.actioncodeinfo">ActionCodeInfo</a></td>
+<td>A response from <a href="auth#checkactioncode_d2ae15a">checkActionCode()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.actioncodesettings">ActionCodeSettings</a></td>
+<td>An interface that defines the required continue/state URL with optional Android and iOS bundle identifiers.</td>
+</tr>
+<tr>
+<td><a href="auth.additionaluserinfo">AdditionalUserInfo</a></td>
+<td>A structure containing additional user information from a federated identity provider.</td>
+</tr>
+<tr>
+<td><a href="auth.applicationverifier">ApplicationVerifier</a></td>
+<td>A verifier for domain verification and abuse prevention.</td>
+</tr>
+<tr>
+<td><a href="auth.auth">Auth</a></td>
+<td>Interface representing Firebase Auth service.</td>
+</tr>
+<tr>
+<td><a href="auth.autherror">AuthError</a></td>
+<td>Interface for an <code>Auth</code> error.</td>
+</tr>
+<tr>
+<td><a href="auth.autherrormap">AuthErrorMap</a></td>
+<td>A mapping of error codes to error messages.</td>
+</tr>
+<tr>
+<td><a href="auth.authprovider">AuthProvider</a></td>
+<td>Interface that represents an auth provider, used to facilitate creating <a href="auth.authcredential">AuthCredential</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.authsettings">AuthSettings</a></td>
+<td>Interface representing an <a href="auth.auth">Auth</a> instance&#39;s settings.</td>
+</tr>
+<tr>
+<td><a href="auth.config">Config</a></td>
+<td>Interface representing the <code>Auth</code> config.</td>
+</tr>
+<tr>
+<td><a href="auth.confirmationresult">ConfirmationResult</a></td>
+<td>A result from a phone number sign-in, link, or reauthenticate call.</td>
+</tr>
+<tr>
+<td><a href="auth.dependencies">Dependencies</a></td>
+<td>The dependencies that can be used to initialize an <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td><a href="auth.emulatorconfig">EmulatorConfig</a></td>
+<td>Configuration of Firebase Authentication Emulator.</td>
+</tr>
+<tr>
+<td><a href="auth.idtokenresult">IdTokenResult</a></td>
+<td>Interface representing ID token result obtained from <a href="auth.user#usergetidtokenresult">User.getIdTokenResult()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.multifactorassertion">MultiFactorAssertion</a></td>
+<td>The base class for asserting ownership of a second factor.</td>
+</tr>
+<tr>
+<td><a href="auth.multifactorerror">MultiFactorError</a></td>
+<td>The error thrown when the user needs to provide a second factor to sign in successfully.</td>
+</tr>
+<tr>
+<td><a href="auth.multifactorinfo">MultiFactorInfo</a></td>
+<td>A structure containing the information of a second factor entity.</td>
+</tr>
+<tr>
+<td><a href="auth.multifactorresolver">MultiFactorResolver</a></td>
+<td>The class used to facilitate recovery from <a href="auth.multifactorerror">MultiFactorError</a> when a user needs to provide a second factor to sign in.</td>
+</tr>
+<tr>
+<td><a href="auth.multifactorsession">MultiFactorSession</a></td>
+<td>An interface defining the multi-factor session object used for enrolling a second factor on a user or helping sign in an enrolled user with a second factor.</td>
+</tr>
+<tr>
+<td><a href="auth.multifactoruser">MultiFactorUser</a></td>
+<td>An interface that defines the multi-factor related properties and operations pertaining to a <a href="auth.user">User</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.oauthcredentialoptions">OAuthCredentialOptions</a></td>
+<td>Defines the options for initializing an <a href="auth.oauthcredential">OAuthCredential</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.parsedtoken">ParsedToken</a></td>
+<td>Interface representing a parsed ID token.</td>
+</tr>
+<tr>
+<td><a href="auth.passwordpolicy">PasswordPolicy</a></td>
+<td>A structure specifying password policy requirements.</td>
+</tr>
+<tr>
+<td><a href="auth.passwordvalidationstatus">PasswordValidationStatus</a></td>
+<td>A structure indicating which password policy requirements were met or violated and what the requirements are.</td>
+</tr>
+<tr>
+<td><a href="auth.persistence">Persistence</a></td>
+<td>An interface covering the possible persistence mechanism types.</td>
+</tr>
+<tr>
+<td><a href="auth.phonemultifactorassertion">PhoneMultiFactorAssertion</a></td>
+<td>The class for asserting ownership of a phone second factor. Provided by <a href="auth.phonemultifactorgenerator#phonemultifactorgeneratorassertion">PhoneMultiFactorGenerator.assertion()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.phonemultifactorenrollinfooptions">PhoneMultiFactorEnrollInfoOptions</a></td>
+<td>Options used for enrolling a second factor.</td>
+</tr>
+<tr>
+<td><a href="auth.phonemultifactorinfo">PhoneMultiFactorInfo</a></td>
+<td>The subclass of the <a href="auth.multifactorinfo">MultiFactorInfo</a> interface for phone number second factors. The <code>factorId</code> of this second factor is <a href="auth#factorid">FactorId</a><!-- -->.PHONE.</td>
+</tr>
+<tr>
+<td><a href="auth.phonemultifactorsignininfooptions">PhoneMultiFactorSignInInfoOptions</a></td>
+<td>Options used for signing in with a second factor.</td>
+</tr>
+<tr>
+<td><a href="auth.phonesinglefactorinfooptions">PhoneSingleFactorInfoOptions</a></td>
+<td>Options used for single-factor sign-in.</td>
+</tr>
+<tr>
+<td><a href="auth.popupredirectresolver">PopupRedirectResolver</a></td>
+<td>A resolver used for handling DOM specific operations like <a href="auth#signinwithpopup_770f816">signInWithPopup()</a> or <a href="auth#signinwithredirect_770f816">signInWithRedirect()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.reactnativeasyncstorage">ReactNativeAsyncStorage</a></td>
+<td>Interface for a supplied <code>AsyncStorage</code>.</td>
+</tr>
+<tr>
+<td><a href="auth.recaptchaparameters">RecaptchaParameters</a></td>
+<td>Interface representing reCAPTCHA parameters.<!-- -->See the <a href="https://developers.google.com/recaptcha/docs/display#render_param">reCAPTCHA docs</a> for the list of accepted parameters. All parameters are accepted except for <code>sitekey</code>: Firebase Auth provisions a reCAPTCHA for each project and will configure the site key upon rendering.<!-- -->For an invisible reCAPTCHA, set the <code>size</code> key to <code>invisible</code>.</td>
+</tr>
+<tr>
+<td><a href="auth.totpmultifactorassertion">TotpMultiFactorAssertion</a></td>
+<td>The class for asserting ownership of a TOTP second factor. Provided by <a href="auth.totpmultifactorgenerator#totpmultifactorgeneratorassertionforenrollment">TotpMultiFactorGenerator.assertionForEnrollment()</a> and <a href="auth.totpmultifactorgenerator#totpmultifactorgeneratorassertionforsignin">TotpMultiFactorGenerator.assertionForSignIn()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.totpmultifactorinfo">TotpMultiFactorInfo</a></td>
+<td>The subclass of the <a href="auth.multifactorinfo">MultiFactorInfo</a> interface for TOTP second factors. The <code>factorId</code> of this second factor is <a href="auth#factorid">FactorId</a><!-- -->.TOTP.</td>
+</tr>
+<tr>
+<td><a href="auth.user">User</a></td>
+<td>A user account.</td>
+</tr>
+<tr>
+<td><a href="auth.usercredential">UserCredential</a></td>
+<td>A structure containing a <a href="auth.user">User</a><!-- -->, the <a href="auth#operationtype">OperationType</a><!-- -->, and the provider ID.</td>
+</tr>
+<tr>
+<td><a href="auth.userinfo">UserInfo</a></td>
+<td>User profile information, visible only to the Firebase project&#39;s apps.</td>
+</tr>
+<tr>
+<td><a href="auth.usermetadata">UserMetadata</a></td>
+<td>Interface representing a user&#39;s metadata.</td>
+</tr>
+</tbody></table>
+<h2 id="variables">Variables</h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth#actioncodeoperation">ActionCodeOperation</a></td>
+<td>An enumeration of the possible email action types.</td>
+</tr>
+<tr>
+<td><a href="auth#autherrorcodes">AuthErrorCodes</a></td>
+<td>A map of potential <code>Auth</code> error codes, for easier comparison with errors thrown by the SDK.</td>
+</tr>
+<tr>
+<td><a href="auth#browsercookiepersistence">browserCookiePersistence</a></td>
+<td><b><i>(Public Preview)</i></b> An implementation of <a href="auth.persistence">Persistence</a> of type <code>COOKIE</code>, for use on the client side in applications leveraging hybrid rendering and middleware.</td>
+</tr>
+<tr>
+<td><a href="auth#browserlocalpersistence">browserLocalPersistence</a></td>
+<td>An implementation of <a href="auth.persistence">Persistence</a> of type <code>LOCAL</code> using <code>localStorage</code> for the underlying storage.</td>
+</tr>
+<tr>
+<td><a href="auth#browserpopupredirectresolver">browserPopupRedirectResolver</a></td>
+<td>An implementation of <a href="auth.popupredirectresolver">PopupRedirectResolver</a> suitable for browser based applications.</td>
+</tr>
+<tr>
+<td><a href="auth#browsersessionpersistence">browserSessionPersistence</a></td>
+<td>An implementation of <a href="auth.persistence">Persistence</a> of <code>SESSION</code> using <code>sessionStorage</code> for the underlying storage.</td>
+</tr>
+<tr>
+<td><a href="auth#cordovapopupredirectresolver">cordovaPopupRedirectResolver</a></td>
+<td>An implementation of <a href="auth.popupredirectresolver">PopupRedirectResolver</a> suitable for Cordova based applications.</td>
+</tr>
+<tr>
+<td><a href="auth#debugerrormap">debugErrorMap</a></td>
+<td>A verbose error map with detailed descriptions for most error codes.<!-- -->See discussion at <a href="auth.autherrormap">AuthErrorMap</a></td>
+</tr>
+<tr>
+<td><a href="auth#factorid">FactorId</a></td>
+<td>An enum of factors that may be used for multifactor authentication.</td>
+</tr>
+<tr>
+<td><a href="auth#indexeddblocalpersistence">indexedDBLocalPersistence</a></td>
+<td>An implementation of <a href="auth.persistence">Persistence</a> of type <code>LOCAL</code> using <code>indexedDB</code> for the underlying storage.</td>
+</tr>
+<tr>
+<td><a href="auth#inmemorypersistence">inMemoryPersistence</a></td>
+<td>An implementation of <a href="auth.persistence">Persistence</a> of type &#39;NONE&#39;.</td>
+</tr>
+<tr>
+<td><a href="auth#operationtype">OperationType</a></td>
+<td>Enumeration of supported operation types.</td>
+</tr>
+<tr>
+<td><a href="auth#proderrormap">prodErrorMap</a></td>
+<td>A minimal error map with all verbose error messages stripped.<!-- -->See discussion at <a href="auth.autherrormap">AuthErrorMap</a></td>
+</tr>
+<tr>
+<td><a href="auth#providerid">ProviderId</a></td>
+<td>Enumeration of supported providers.</td>
+</tr>
+<tr>
+<td><a href="auth#signinmethod">SignInMethod</a></td>
+<td>Enumeration of supported sign-in methods.</td>
+</tr>
+</tbody></table>
+<h2 id="type-aliases">Type Aliases</h2>
+<table>
+<thead>
+<tr>
+<th>Type Alias</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth#customparameters">CustomParameters</a></td>
+<td>Map of OAuth Custom Parameters.</td>
+</tr>
+<tr>
+<td><a href="auth#nextorobserver">NextOrObserver</a></td>
+<td>Type definition for an event callback.</td>
+</tr>
+<tr>
+<td><a href="auth#phoneinfooptions">PhoneInfoOptions</a></td>
+<td>The information required to verify the ownership of a phone number.</td>
+</tr>
+<tr>
+<td><a href="auth#userprofile">UserProfile</a></td>
+<td>User profile used in <a href="auth.additionaluserinfo">AdditionalUserInfo</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="functionapp-">function(app, ...)</h2>
+<h3 id="getauth_cf608e1">getAuth(app)</h3>
+<p>Returns the Auth instance associated with the provided <a href="app.firebaseapp">FirebaseApp</a><!-- -->. If no instance exists, initializes an Auth instance with platform-specific default dependencies.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getAuth(app?: FirebaseApp): Auth;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>app</td>
+<td><a href="app.firebaseapp">FirebaseApp</a></td>
+<td>The Firebase App.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="auth.auth">Auth</a></p>
+<h3 id="initializeauth_ca77c9b">initializeAuth(app, deps)</h3>
+<p>Initializes an <a href="auth.auth">Auth</a> instance with fine-grained control over <a href="auth.dependencies">Dependencies</a><!-- -->.</p>
+<p>This function allows more control over the <a href="auth.auth">Auth</a> instance than <a href="auth#getauth_cf608e1">getAuth()</a><!-- -->. <code>getAuth</code> uses platform-specific defaults to supply the <a href="auth.dependencies">Dependencies</a><!-- -->. In general, <code>getAuth</code> is the easiest way to initialize Auth and works for most use cases. Use <code>initializeAuth</code> if you need control over which persistence layer is used, or to minimize bundle size if you&#39;re not using either <code>signInWithPopup</code> or <code>signInWithRedirect</code><!-- -->.</p>
+<p>For example, if your app only uses anonymous accounts and you only want accounts saved for the current session, initialize <code>Auth</code> with:</p>
+<pre data-language="js">const auth = initializeAuth(app, {
+  persistence: browserSessionPersistence,
+  popupRedirectResolver: undefined,
+});</pre>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function initializeAuth(app: FirebaseApp, deps?: Dependencies): Auth;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>app</td>
+<td><a href="app.firebaseapp">FirebaseApp</a></td>
+<td></td>
+</tr>
+<tr>
+<td>deps</td>
+<td><a href="auth.dependencies">Dependencies</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="auth.auth">Auth</a></p>
+<h2 id="functionstorage-">function(storage, ...)</h2>
+<h3 id="getreactnativepersistence_bab4ada">getReactNativePersistence(storage)</h3>
+<p>Returns a persistence object that wraps <code>AsyncStorage</code> imported from <code>react-native</code> or <code>@react-native-async-storage/async-storage</code><!-- -->, and can be used in the persistence dependency field in <a href="auth#initializeauth_ca77c9b">initializeAuth()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getReactNativePersistence(storage: ReactNativeAsyncStorage): Persistence;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>storage</td>
+<td><a href="auth.reactnativeasyncstorage">ReactNativeAsyncStorage</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="auth.persistence">Persistence</a></p>
+<h3 id="example">Example</h3>
+<pre data-language="javascript">import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
+
+// For @react-native-async-storage/async-storage v3:
+import { createAsyncStorage } from '@react-native-async-storage/async-storage';
+const appStorage = createAsyncStorage('app');
+const persistence = getReactNativePersistence(appStorage);
+
+// For @react-native-async-storage/async-storage v2:
+// import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
+// const persistence = getReactNativePersistence(ReactNativeAsyncStorage);
+
+// Then, initialize auth:
+const auth = initializeAuth(app, {
+  persistence
+});</pre>
+<h2 id="functionauth-">function(auth, ...)</h2>
+<h3 id="applyactioncode_d2ae15a">applyActionCode(auth, oobCode)</h3>
+<p>Applies a verification code sent to the user by email or other out-of-band mechanism.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function applyActionCode(auth: Auth, oobCode: string): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>oobCode</td>
+<td>string</td>
+<td>A verification code sent to the user.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="beforeauthstatechanged_22f2ab6">beforeAuthStateChanged(auth, callback, onAbort)</h3>
+<p>Adds a blocking callback that runs before an auth state change sets a new user.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function beforeAuthStateChanged(auth: Auth, callback: (user: User | null) =&gt; void | Promise&lt;void&gt;, onAbort?: () =&gt; void): Unsubscribe;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>(user: <a href="auth.user">User</a> | null) =&gt; void | Promise&lt;void&gt;</td>
+<td>callback triggered before new user value is set. If this throws, it blocks the user from being set.</td>
+</tr>
+<tr>
+<td>onAbort</td>
+<td>() =&gt; void</td>
+<td>callback triggered if a later <code>beforeAuthStateChanged()</code> callback throws, allowing you to undo any side effects.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#unsubscribe">Unsubscribe</a></p>
+<h3 id="checkactioncode_d2ae15a">checkActionCode(auth, oobCode)</h3>
+<p>Checks a verification code sent to the user by email or other out-of-band mechanism.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function checkActionCode(auth: Auth, oobCode: string): Promise&lt;ActionCodeInfo&gt;;</pre>
+<h4 id="parameters-5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>oobCode</td>
+<td>string</td>
+<td>A verification code sent to the user.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.actioncodeinfo">ActionCodeInfo</a><!-- -->&gt;</p>
+<p>metadata about the code.</p>
+<h3 id="confirmpasswordreset_749dad8">confirmPasswordReset(auth, oobCode, newPassword)</h3>
+<p>Completes the password reset process, given a confirmation code and new password.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function confirmPasswordReset(auth: Auth, oobCode: string, newPassword: string): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>oobCode</td>
+<td>string</td>
+<td>A confirmation code sent to the user.</td>
+</tr>
+<tr>
+<td>newPassword</td>
+<td>string</td>
+<td>The new password.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="connectauthemulator_657c7e5">connectAuthEmulator(auth, url, options)</h3>
+<p>Changes the <a href="auth.auth">Auth</a> instance to communicate with the Firebase Auth Emulator, instead of production Firebase Auth services.</p>
+<p>This must be called synchronously immediately following the first call to <a href="auth#initializeauth_ca77c9b">initializeAuth()</a><!-- -->. Do not use with production credentials as emulator traffic is not encrypted.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function connectAuthEmulator(auth: Auth, url: string, options?: {
+    disableWarnings: boolean;
+}): void;</pre>
+<h4 id="parameters-7">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>The URL at which the emulator is running (eg, &#39;<a href="http://localhost:9099">http://localhost:9099</a>&#39;).</td>
+</tr>
+<tr>
+<td>options</td>
+<td>{ disableWarnings: boolean; }</td>
+<td>Optional. <code>options.disableWarnings</code> defaults to <code>false</code>. Set it to <code>true</code> to disable the warning banner attached to the DOM.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h3 id="example-1">Example</h3>
+<pre data-language="javascript">connectAuthEmulator(auth, 'http://127.0.0.1:9099', { disableWarnings: true });</pre>
+<h3 id="createuserwithemailandpassword_21ad33b">createUserWithEmailAndPassword(auth, email, password)</h3>
+<p>Creates a new user account associated with the specified email address and password.</p>
+<p>On successful creation of the user account, this user will also be signed in to your application.</p>
+<p>User account creation can fail if the account already exists or the password is invalid.</p>
+<p>This method is not supported on <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p>Note: The email address acts as a unique identifier for the user and enables an email-based password reset. This function will create a new user account and set the initial user password.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function createUserWithEmailAndPassword(auth: Auth, email: string, password: string): Promise&lt;UserCredential&gt;;</pre>
+<h4 id="parameters-8">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>The user&#39;s email address.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>The user&#39;s chosen password.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.usercredential">UserCredential</a><!-- -->&gt;</p>
+<h3 id="fetchsigninmethodsforemail_efb3887">fetchSignInMethodsForEmail(auth, email)</h3>
+<p>Gets the list of possible sign in methods for the given email address. This method returns an empty list when <a href="https://cloud.google.com/identity-platform/docs/admin/email-enumeration-protection">Email Enumeration Protection</a> is enabled, irrespective of the number of authentication methods available for the given email.</p>
+<p>This is useful to differentiate methods of sign-in for the same provider, eg. <a href="auth.emailauthprovider">EmailAuthProvider</a> which has 2 methods of sign-in, <a href="auth#signinmethod">SignInMethod</a><!-- -->.EMAIL_PASSWORD and <a href="auth#signinmethod">SignInMethod</a><!-- -->.EMAIL_LINK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function fetchSignInMethodsForEmail(auth: Auth, email: string): Promise&lt;string[]&gt;;</pre>
+<h4 id="parameters-9">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>The user&#39;s email address.<!-- -->Deprecated. Migrating off of this method is recommended as a security best-practice. Learn more in the Identity Platform documentation for <a href="https://cloud.google.com/identity-platform/docs/admin/email-enumeration-protection">Email Enumeration Protection</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;string[]&gt;</p>
+<h3 id="getmultifactorresolver_201ba61">getMultiFactorResolver(auth, error)</h3>
+<p>Provides a <a href="auth.multifactorresolver">MultiFactorResolver</a> suitable for completion of a multi-factor flow.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getMultiFactorResolver(auth: Auth, error: MultiFactorError): MultiFactorResolver;</pre>
+<h4 id="parameters-10">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="auth.multifactorerror">MultiFactorError</a></td>
+<td>The <a href="auth.multifactorerror">MultiFactorError</a> raised during a sign-in, or reauthentication operation.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="auth.multifactorresolver">MultiFactorResolver</a></p>
+<h3 id="getredirectresult_c35dc1f">getRedirectResult(auth, resolver)</h3>
+<p>Returns a <a href="auth.usercredential">UserCredential</a> from the redirect-based sign-in flow.</p>
+<p>If sign-in succeeded, returns the signed in user. If sign-in was unsuccessful, fails with an error. If no redirect operation was called, returns <code>null</code><!-- -->.</p>
+<p>This method does not work in a Node.js environment or with <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getRedirectResult(auth: Auth, resolver?: PopupRedirectResolver): Promise&lt;UserCredential | null&gt;;</pre>
+<h4 id="parameters-11">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>resolver</td>
+<td><a href="auth.popupredirectresolver">PopupRedirectResolver</a></td>
+<td>An instance of <a href="auth.popupredirectresolver">PopupRedirectResolver</a><!-- -->, optional if already supplied to <a href="auth#initializeauth_ca77c9b">initializeAuth()</a> or provided by <a href="auth#getauth_cf608e1">getAuth()</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.usercredential">UserCredential</a> | null&gt;</p>
+<h3 id="example-2">Example</h3>
+<pre data-language="javascript">// Sign in using a redirect.
+const provider = new FacebookAuthProvider();
+// You can add additional scopes to the provider:
+provider.addScope('user_birthday');
+// Start a sign in process for an unauthenticated user.
+await signInWithRedirect(auth, provider);
+// This will trigger a full page redirect away from your app
+
+// After returning from the redirect when your app initializes you can obtain the result
+const result = await getRedirectResult(auth);
+if (result) {
+  // This is the signed-in user
+  const user = result.user;
+  // This gives you a Facebook Access Token.
+  const credential = provider.credentialFromResult(auth, result);
+  const token = credential.accessToken;
+}
+// As this API can be used for sign-in, linking and reauthentication,
+// check the operationType to determine what triggered this redirect
+// operation.
+const operationType = result.operationType;</pre>
+<h3 id="initializerecaptchaconfig_2a61ea7">initializeRecaptchaConfig(auth)</h3>
+<p>Loads the reCAPTCHA configuration into the <code>Auth</code> instance.</p>
+<p>This will load the reCAPTCHA config, which indicates whether the reCAPTCHA verification flow should be triggered for each auth provider, into the current Auth session.</p>
+<p>If initializeRecaptchaConfig() is not invoked, the auth flow will always start without reCAPTCHA verification. If the provider is configured to require reCAPTCHA verification, the SDK will transparently load the reCAPTCHA config and restart the auth flows.</p>
+<p>Thus, by calling this optional method, you will reduce the latency of future auth flows. Loading the reCAPTCHA config early will also enhance the signal collected by reCAPTCHA.</p>
+<p>This method does not work in a Node.js environment.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function initializeRecaptchaConfig(auth: Auth): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-12">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="example-3">Example</h3>
+<pre data-language="javascript">initializeRecaptchaConfig(auth);</pre>
+<h3 id="issigninwithemaillink_db04f1d">isSignInWithEmailLink(auth, emailLink)</h3>
+<p>Checks if an incoming link is a sign-in with email link suitable for <a href="auth#signinwithemaillink_ed14c53">signInWithEmailLink()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function isSignInWithEmailLink(auth: Auth, emailLink: string): boolean;</pre>
+<h4 id="parameters-13">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>emailLink</td>
+<td>string</td>
+<td>The link sent to the user&#39;s email address.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<h3 id="onauthstatechanged_b0d07ab">onAuthStateChanged(auth, nextOrObserver, error, completed)</h3>
+<p>Adds an observer for changes to the user&#39;s sign-in state.</p>
+<p>To keep the old behavior, see <a href="auth#onidtokenchanged_b0d07ab">onIdTokenChanged()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function onAuthStateChanged(auth: Auth, nextOrObserver: NextOrObserver&lt;User&gt;, error?: ErrorFn, completed?: CompleteFn): Unsubscribe;</pre>
+<h4 id="parameters-14">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>nextOrObserver</td>
+<td><a href="auth#nextorobserver">NextOrObserver</a><!-- -->&lt;<a href="auth.user">User</a><!-- -->&gt;</td>
+<td>callback triggered on change.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#errorfn">ErrorFn</a></td>
+<td>Deprecated. This callback is never triggered. Errors on signing in/out can be caught in promises returned from sign-in/sign-out functions.</td>
+</tr>
+<tr>
+<td>completed</td>
+<td><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#completefn">CompleteFn</a></td>
+<td>Deprecated. This callback is never triggered.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#unsubscribe">Unsubscribe</a></p>
+<h3 id="onidtokenchanged_b0d07ab">onIdTokenChanged(auth, nextOrObserver, error, completed)</h3>
+<p>Adds an observer for changes to the signed-in user&#39;s ID token.</p>
+<p>This includes sign-in, sign-out, and token refresh events. This will not be triggered automatically upon ID token expiration. Use <a href="auth.user#usergetidtoken">User.getIdToken()</a> to refresh the ID token.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function onIdTokenChanged(auth: Auth, nextOrObserver: NextOrObserver&lt;User&gt;, error?: ErrorFn, completed?: CompleteFn): Unsubscribe;</pre>
+<h4 id="parameters-15">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>nextOrObserver</td>
+<td><a href="auth#nextorobserver">NextOrObserver</a><!-- -->&lt;<a href="auth.user">User</a><!-- -->&gt;</td>
+<td>callback triggered on change.</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#errorfn">ErrorFn</a></td>
+<td>Deprecated. This callback is never triggered. Errors on signing in/out can be caught in promises returned from sign-in/sign-out functions.</td>
+</tr>
+<tr>
+<td>completed</td>
+<td><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#completefn">CompleteFn</a></td>
+<td>Deprecated. This callback is never triggered.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#unsubscribe">Unsubscribe</a></p>
+<h3 id="revokeaccesstoken_5556ad5">revokeAccessToken(auth, token)</h3>
+<p>Revokes the given access token. Currently only supports Apple OAuth access tokens.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function revokeAccessToken(auth: Auth, token: string): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-16">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>The Apple OAuth access token.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="sendpasswordresetemail_95b079b">sendPasswordResetEmail(auth, email, actionCodeSettings)</h3>
+<p>Sends a password reset email to the given email address. This method does not throw an error when there&#39;s no user account with the given email address and <a href="https://cloud.google.com/identity-platform/docs/admin/email-enumeration-protection">Email Enumeration Protection</a> is enabled.</p>
+<p>To complete the password reset, call <a href="auth#confirmpasswordreset_749dad8">confirmPasswordReset()</a> with the code supplied in the email sent to the user, along with the new password specified by the user.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function sendPasswordResetEmail(auth: Auth, email: string, actionCodeSettings?: ActionCodeSettings): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-17">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>The user&#39;s email address.</td>
+</tr>
+<tr>
+<td>actionCodeSettings</td>
+<td><a href="auth.actioncodesettings">ActionCodeSettings</a></td>
+<td>The <a href="auth.actioncodesettings">ActionCodeSettings</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="example-4">Example</h3>
+<pre data-language="javascript">const actionCodeSettings = {
+  url: 'https://www.example.com/?email=user@example.com',
+  iOS: {
+     bundleId: 'com.example.ios'
+  },
+  android: {
+    packageName: 'com.example.android',
+    installApp: true,
+    minimumVersion: '12'
+  },
+  handleCodeInApp: true
+};
+await sendPasswordResetEmail(auth, 'user@example.com', actionCodeSettings);
+// Obtain code from user.
+await confirmPasswordReset('user@example.com', code);</pre>
+<h3 id="sendsigninlinktoemail_95b079b">sendSignInLinkToEmail(auth, email, actionCodeSettings)</h3>
+<p>Sends a sign-in email link to the user with the specified email.</p>
+<p>The sign-in operation has to always be completed in the app unlike other out of band email actions (password reset and email verifications). This is because, at the end of the flow, the user is expected to be signed in and their Auth state persisted within the app.</p>
+<p>To complete sign in with the email link, call <a href="auth#signinwithemaillink_ed14c53">signInWithEmailLink()</a> with the email address and the email link supplied in the email sent to the user.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function sendSignInLinkToEmail(auth: Auth, email: string, actionCodeSettings: ActionCodeSettings): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-18">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td></td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>The user&#39;s email address.</td>
+</tr>
+<tr>
+<td>actionCodeSettings</td>
+<td><a href="auth.actioncodesettings">ActionCodeSettings</a></td>
+<td>The <a href="auth.actioncodesettings">ActionCodeSettings</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="example-5">Example</h3>
+<pre data-language="javascript">const actionCodeSettings = {
+  url: 'https://www.example.com/?email=user@example.com',
+  iOS: {
+     bundleId: 'com.example.ios'
+  },
+  android: {
+    packageName: 'com.example.android',
+    installApp: true,
+    minimumVersion: '12'
+  },
+  handleCodeInApp: true
+};
+await sendSignInLinkToEmail(auth, 'user@example.com', actionCodeSettings);
+// Obtain emailLink from the user.
+if(isSignInWithEmailLink(auth, emailLink)) {
+  await signInWithEmailLink(auth, 'user@example.com', emailLink);
+}</pre>
+<h3 id="setpersistence_a3592ac">setPersistence(auth, persistence)</h3>
+<p>Changes the type of persistence on the <a href="auth.auth">Auth</a> instance for the currently saved <code>Auth</code> session and applies this type of persistence for future sign-in requests, including sign-in with redirect requests.</p>
+<p>This makes it easy for a user signing in to specify whether their session should be remembered or not. It also makes it easier to never persist the <code>Auth</code> state for applications that are shared by other users or have sensitive data.</p>
+<p>This method does not work in a Node.js environment or with <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function setPersistence(auth: Auth, persistence: Persistence): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-19">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>persistence</td>
+<td><a href="auth.persistence">Persistence</a></td>
+<td>The <a href="auth.persistence">Persistence</a> to use.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<p>A <code>Promise</code> that resolves once the persistence change has completed</p>
+<h3 id="example-6">Example</h3>
+<pre data-language="javascript">setPersistence(auth, browserSessionPersistence);</pre>
+<h3 id="signinanonymously_2a61ea7">signInAnonymously(auth)</h3>
+<p>Asynchronously signs in as an anonymous user.</p>
+<p>If there is already an anonymous user signed in, that user will be returned; otherwise, a new anonymous user identity will be created and returned.</p>
+<p>This method is not supported by <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function signInAnonymously(auth: Auth): Promise&lt;UserCredential&gt;;</pre>
+<h4 id="parameters-20">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.usercredential">UserCredential</a><!-- -->&gt;</p>
+<h3 id="signinwithcredential_8074518">signInWithCredential(auth, credential)</h3>
+<p>Asynchronously signs in with the given credentials.</p>
+<p>An <a href="auth.authprovider">AuthProvider</a> can be used to generate the credential.</p>
+<p>This method is not supported by <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function signInWithCredential(auth: Auth, credential: AuthCredential): Promise&lt;UserCredential&gt;;</pre>
+<h4 id="parameters-21">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>credential</td>
+<td><a href="auth.authcredential">AuthCredential</a></td>
+<td>The auth credential.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.usercredential">UserCredential</a><!-- -->&gt;</p>
+<h3 id="signinwithcustomtoken_32af683">signInWithCustomToken(auth, customToken)</h3>
+<p>Asynchronously signs in using a custom token.</p>
+<p>Custom tokens are used to integrate Firebase Auth with existing auth systems, and must be generated by an auth backend using the <a href="https://firebase.google.com/docs/reference/admin/node/admin.auth.Auth#createcustomtoken">createCustomToken</a> method in the <a href="https://firebase.google.com/docs/auth/admin">Admin SDK</a> .</p>
+<p>Fails with an error if the token is invalid, expired, or not accepted by the Firebase Auth service.</p>
+<p>This method is not supported by <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function signInWithCustomToken(auth: Auth, customToken: string): Promise&lt;UserCredential&gt;;</pre>
+<h4 id="parameters-22">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>customToken</td>
+<td>string</td>
+<td>The custom token to sign in with.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.usercredential">UserCredential</a><!-- -->&gt;</p>
+<h3 id="signinwithemailandpassword_21ad33b">signInWithEmailAndPassword(auth, email, password)</h3>
+<p>Asynchronously signs in using an email and password.</p>
+<p>Fails with an error if the email address and password do not match. When <a href="https://cloud.google.com/identity-platform/docs/admin/email-enumeration-protection">Email Enumeration Protection</a> is enabled, this method fails with &quot;auth/invalid-credential&quot; in case of an invalid email/password.</p>
+<p>This method is not supported on <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p>Note: The user&#39;s password is NOT the password used to access the user&#39;s email account. The email address serves as a unique identifier for the user, and the password is used to access the user&#39;s account in your Firebase project. See also: <a href="auth#createuserwithemailandpassword_21ad33b">createUserWithEmailAndPassword()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function signInWithEmailAndPassword(auth: Auth, email: string, password: string): Promise&lt;UserCredential&gt;;</pre>
+<h4 id="parameters-23">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>The users email address.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>The users password.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.usercredential">UserCredential</a><!-- -->&gt;</p>
+<h3 id="signinwithemaillink_ed14c53">signInWithEmailLink(auth, email, emailLink)</h3>
+<p>Asynchronously signs in using an email and sign-in email link.</p>
+<p>If no link is passed, the link is inferred from the current URL.</p>
+<p>Fails with an error if the email address is invalid or OTP in email link expires.</p>
+<p>This method is not supported by <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p>Note: Confirm the link is a sign-in email link before calling this method firebase.auth.Auth.isSignInWithEmailLink.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function signInWithEmailLink(auth: Auth, email: string, emailLink?: string): Promise&lt;UserCredential&gt;;</pre>
+<h4 id="parameters-24">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>The user&#39;s email address.</td>
+</tr>
+<tr>
+<td>emailLink</td>
+<td>string</td>
+<td>The link sent to the user&#39;s email address.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.usercredential">UserCredential</a><!-- -->&gt;</p>
+<h3 id="example-7">Example</h3>
+<pre data-language="javascript">const actionCodeSettings = {
+  url: 'https://www.example.com/?email=user@example.com',
+  iOS: {
+     bundleId: 'com.example.ios'
+  },
+  android: {
+    packageName: 'com.example.android',
+    installApp: true,
+    minimumVersion: '12'
+  },
+  handleCodeInApp: true
+};
+await sendSignInLinkToEmail(auth, 'user@example.com', actionCodeSettings);
+// Obtain emailLink from the user.
+if(isSignInWithEmailLink(auth, emailLink)) {
+  await signInWithEmailLink(auth, 'user@example.com', emailLink);
+}</pre>
+<h3 id="signinwithphonenumber_75b2560">signInWithPhoneNumber(auth, phoneNumber, appVerifier)</h3>
+<p>Asynchronously signs in using a phone number.</p>
+<p>This method sends a code via SMS to the given phone number, and returns a <a href="auth.confirmationresult">ConfirmationResult</a><!-- -->. After the user provides the code sent to their phone, call <a href="auth.confirmationresult#confirmationresultconfirm">ConfirmationResult.confirm()</a> with the code to sign the user in.</p>
+<p>For abuse prevention, this method requires a <a href="auth.applicationverifier">ApplicationVerifier</a><!-- -->. This SDK includes an implementation based on reCAPTCHA v2, <a href="auth.recaptchaverifier">RecaptchaVerifier</a><!-- -->. This function can work on other platforms that do not support the <a href="auth.recaptchaverifier">RecaptchaVerifier</a> (like React Native), but you need to use a third-party <a href="auth.applicationverifier">ApplicationVerifier</a> implementation.</p>
+<p>If you&#39;ve enabled project-level reCAPTCHA Enterprise bot protection in Enforce mode, you can omit the <a href="auth.applicationverifier">ApplicationVerifier</a><!-- -->.</p>
+<p>This method does not work in a Node.js environment or with <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function signInWithPhoneNumber(auth: Auth, phoneNumber: string, appVerifier?: ApplicationVerifier): Promise&lt;ConfirmationResult&gt;;</pre>
+<h4 id="parameters-25">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>phoneNumber</td>
+<td>string</td>
+<td>The user&#39;s phone number in E.164 format (e.g. +16505550101).</td>
+</tr>
+<tr>
+<td>appVerifier</td>
+<td><a href="auth.applicationverifier">ApplicationVerifier</a></td>
+<td>The <a href="auth.applicationverifier">ApplicationVerifier</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.confirmationresult">ConfirmationResult</a><!-- -->&gt;</p>
+<h3 id="example-8">Example</h3>
+<pre data-language="javascript">// 'recaptcha-container' is the ID of an element in the DOM.
+const applicationVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, applicationVerifier);
+// Obtain a verificationCode from the user.
+const credential = await confirmationResult.confirm(verificationCode);</pre>
+<h3 id="signinwithpopup_770f816">signInWithPopup(auth, provider, resolver)</h3>
+<p>Authenticates a Firebase client using a popup-based OAuth authentication flow.</p>
+<p>If succeeds, returns the signed in user along with the provider&#39;s credential. If sign in was unsuccessful, returns an error object containing additional information about the error.</p>
+<p>This method does not work in a Node.js environment or with <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function signInWithPopup(auth: Auth, provider: AuthProvider, resolver?: PopupRedirectResolver): Promise&lt;UserCredential&gt;;</pre>
+<h4 id="parameters-26">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>provider</td>
+<td><a href="auth.authprovider">AuthProvider</a></td>
+<td>The provider to authenticate. The provider has to be an <a href="auth.oauthprovider">OAuthProvider</a><!-- -->. Non-OAuth providers like <a href="auth.emailauthprovider">EmailAuthProvider</a> will throw an error.</td>
+</tr>
+<tr>
+<td>resolver</td>
+<td><a href="auth.popupredirectresolver">PopupRedirectResolver</a></td>
+<td>An instance of <a href="auth.popupredirectresolver">PopupRedirectResolver</a><!-- -->, optional if already supplied to <a href="auth#initializeauth_ca77c9b">initializeAuth()</a> or provided by <a href="auth#getauth_cf608e1">getAuth()</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.usercredential">UserCredential</a><!-- -->&gt;</p>
+<h3 id="example-9">Example</h3>
+<pre data-language="javascript">// Sign in using a popup.
+const provider = new FacebookAuthProvider();
+const result = await signInWithPopup(auth, provider);
+
+// The signed-in user info.
+const user = result.user;
+// This gives you a Facebook Access Token.
+const credential = provider.credentialFromResult(auth, result);
+const token = credential.accessToken;</pre>
+<h3 id="signinwithredirect_770f816">signInWithRedirect(auth, provider, resolver)</h3>
+<p>Authenticates a Firebase client using a full-page redirect flow.</p>
+<p>To handle the results and errors for this operation, refer to <a href="auth#getredirectresult_c35dc1f">getRedirectResult()</a><!-- -->. Follow the <a href="https://firebase.google.com/docs/auth/web/redirect-best-practices">best practices</a> when using <a href="auth#signinwithredirect_770f816">signInWithRedirect()</a><!-- -->.</p>
+<p>This method does not work in a Node.js environment or with <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function signInWithRedirect(auth: Auth, provider: AuthProvider, resolver?: PopupRedirectResolver): Promise&lt;never&gt;;</pre>
+<h4 id="parameters-27">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>provider</td>
+<td><a href="auth.authprovider">AuthProvider</a></td>
+<td>The provider to authenticate. The provider has to be an <a href="auth.oauthprovider">OAuthProvider</a><!-- -->. Non-OAuth providers like <a href="auth.emailauthprovider">EmailAuthProvider</a> will throw an error.</td>
+</tr>
+<tr>
+<td>resolver</td>
+<td><a href="auth.popupredirectresolver">PopupRedirectResolver</a></td>
+<td>An instance of <a href="auth.popupredirectresolver">PopupRedirectResolver</a><!-- -->, optional if already supplied to <a href="auth#initializeauth_ca77c9b">initializeAuth()</a> or provided by <a href="auth#getauth_cf608e1">getAuth()</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;never&gt;</p>
+<h3 id="example-10">Example</h3>
+<pre data-language="javascript">// Sign in using a redirect.
+const provider = new FacebookAuthProvider();
+// You can add additional scopes to the provider:
+provider.addScope('user_birthday');
+// Start a sign in process for an unauthenticated user.
+await signInWithRedirect(auth, provider);
+// This will trigger a full page redirect away from your app
+
+// After returning from the redirect when your app initializes you can obtain the result
+const result = await getRedirectResult(auth);
+if (result) {
+  // This is the signed-in user
+  const user = result.user;
+  // This gives you a Facebook Access Token.
+  const credential = provider.credentialFromResult(auth, result);
+  const token = credential.accessToken;
+}
+// As this API can be used for sign-in, linking and reauthentication,
+// check the operationType to determine what triggered this redirect
+// operation.
+const operationType = result.operationType;</pre>
+<h3 id="signout_2a61ea7">signOut(auth)</h3>
+<p>Signs out the current user.</p>
+<p>This method is not supported by <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function signOut(auth: Auth): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-28">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="updatecurrentuser_9d96fff">updateCurrentUser(auth, user)</h3>
+<p>Asynchronously sets the provided user as <a href="auth.auth#authcurrentuser">Auth.currentUser</a> on the <a href="auth.auth">Auth</a> instance.</p>
+<p>A new instance copy of the user provided will be made and set as currentUser.</p>
+<p>This will trigger <a href="auth#onauthstatechanged_b0d07ab">onAuthStateChanged()</a> and <a href="auth#onidtokenchanged_b0d07ab">onIdTokenChanged()</a> listeners like other sign in methods.</p>
+<p>The operation fails with an error if the user to be updated belongs to a different Firebase project.</p>
+<p>This method is not supported by <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function updateCurrentUser(auth: Auth, user: User | null): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-29">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>user</td>
+<td><a href="auth.user">User</a> | null</td>
+<td>The new <a href="auth.user">User</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="usedevicelanguage_2a61ea7">useDeviceLanguage(auth)</h3>
+<p>Sets the current language to the default device/browser preference.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function useDeviceLanguage(auth: Auth): void;</pre>
+<h4 id="parameters-30">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h3 id="validatepassword_4dc4ad2">validatePassword(auth, password)</h3>
+<p>Validates the password against the password policy configured for the project or tenant.</p>
+<p>If no tenant ID is set on the <code>Auth</code> instance, then this method will use the password policy configured for the project. Otherwise, this method will use the policy configured for the tenant. If a password policy has not been configured, then the default policy configured for all projects will be used.</p>
+<p>If an auth flow fails because a submitted password does not meet the password policy requirements and this method has previously been called, then this method will use the most recent policy available when called again.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function validatePassword(auth: Auth, password: string): Promise&lt;PasswordValidationStatus&gt;;</pre>
+<h4 id="parameters-31">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>The password to validate.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.passwordvalidationstatus">PasswordValidationStatus</a><!-- -->&gt;</p>
+<h3 id="example-11">Example</h3>
+<pre data-language="javascript">validatePassword(auth, 'some-password');</pre>
+<h3 id="verifypasswordresetcode_01e0a1a">verifyPasswordResetCode(auth, code)</h3>
+<p>Checks a password reset code sent to the user by email or other out-of-band mechanism.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function verifyPasswordResetCode(auth: Auth, code: string): Promise&lt;string&gt;;</pre>
+<h4 id="parameters-32">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>code</td>
+<td>string</td>
+<td>A verification code sent to the user.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;string&gt;</p>
+<p>the user&#39;s email address if valid.</p>
+<h2 id="functionlink-">function(link, ...)</h2>
+<h3 id="parseactioncodeurl_51293c3">parseActionCodeURL(link)</h3>
+<p>Parses the email action link string and returns an <a href="auth.actioncodeurl">ActionCodeURL</a> if the link is valid, otherwise returns null.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function parseActionCodeURL(link: string): ActionCodeURL | null;</pre>
+<h4 id="parameters-33">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>link</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="auth.actioncodeurl">ActionCodeURL</a> | null</p>
+<h2 id="functionuser-">function(user, ...)</h2>
+<h3 id="deleteuser_52b2e2e">deleteUser(user)</h3>
+<p>Deletes and signs out the user.</p>
+<p>Important: this is a security-sensitive operation that requires the user to have recently signed in. If this requirement isn&#39;t met, ask the user to authenticate again and then call <a href="auth#reauthenticatewithcredential_60f8043">reauthenticateWithCredential()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function deleteUser(user: User): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-34">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="getidtoken_ce7d429">getIdToken(user, forceRefresh)</h3>
+<p>Returns a JSON Web Token (JWT) used to identify the user to a Firebase service.</p>
+<p>Returns the current token if it has not expired or if it will not expire in the next five minutes. Otherwise, this will refresh the token and return a new one.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getIdToken(user: User, forceRefresh?: boolean): Promise&lt;string&gt;;</pre>
+<h4 id="parameters-35">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>forceRefresh</td>
+<td>boolean</td>
+<td>Force refresh regardless of token expiration.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;string&gt;</p>
+<h3 id="getidtokenresult_ce7d429">getIdTokenResult(user, forceRefresh)</h3>
+<p>Returns a deserialized JSON Web Token (JWT) used to identify the user to a Firebase service.</p>
+<p>Returns the current token if it has not expired or if it will not expire in the next five minutes. Otherwise, this will refresh the token and return a new one.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getIdTokenResult(user: User, forceRefresh?: boolean): Promise&lt;IdTokenResult&gt;;</pre>
+<h4 id="parameters-36">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>forceRefresh</td>
+<td>boolean</td>
+<td>Force refresh regardless of token expiration.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.idtokenresult">IdTokenResult</a><!-- -->&gt;</p>
+<h3 id="linkwithcredential_60f8043">linkWithCredential(user, credential)</h3>
+<p>Links the user account with the given credentials.</p>
+<p>An <a href="auth.authprovider">AuthProvider</a> can be used to generate the credential.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function linkWithCredential(user: User, credential: AuthCredential): Promise&lt;UserCredential&gt;;</pre>
+<h4 id="parameters-37">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>credential</td>
+<td><a href="auth.authcredential">AuthCredential</a></td>
+<td>The auth credential.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.usercredential">UserCredential</a><!-- -->&gt;</p>
+<h3 id="linkwithphonenumber_9ed75fe">linkWithPhoneNumber(user, phoneNumber, appVerifier)</h3>
+<p>Links the user account with the given phone number.</p>
+<p>This method does not work in a Node.js environment.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function linkWithPhoneNumber(user: User, phoneNumber: string, appVerifier?: ApplicationVerifier): Promise&lt;ConfirmationResult&gt;;</pre>
+<h4 id="parameters-38">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>phoneNumber</td>
+<td>string</td>
+<td>The user&#39;s phone number in E.164 format (e.g. +16505550101).</td>
+</tr>
+<tr>
+<td>appVerifier</td>
+<td><a href="auth.applicationverifier">ApplicationVerifier</a></td>
+<td>The <a href="auth.applicationverifier">ApplicationVerifier</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.confirmationresult">ConfirmationResult</a><!-- -->&gt;</p>
+<h3 id="linkwithpopup_41c0b31">linkWithPopup(user, provider, resolver)</h3>
+<p>Links the authenticated provider to the user account using a pop-up based OAuth flow.</p>
+<p>If the linking is successful, the returned result will contain the user and the provider&#39;s credential.</p>
+<p>This method does not work in a Node.js environment.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function linkWithPopup(user: User, provider: AuthProvider, resolver?: PopupRedirectResolver): Promise&lt;UserCredential&gt;;</pre>
+<h4 id="parameters-39">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>provider</td>
+<td><a href="auth.authprovider">AuthProvider</a></td>
+<td>The provider to authenticate. The provider has to be an <a href="auth.oauthprovider">OAuthProvider</a><!-- -->. Non-OAuth providers like <a href="auth.emailauthprovider">EmailAuthProvider</a> will throw an error.</td>
+</tr>
+<tr>
+<td>resolver</td>
+<td><a href="auth.popupredirectresolver">PopupRedirectResolver</a></td>
+<td>An instance of <a href="auth.popupredirectresolver">PopupRedirectResolver</a><!-- -->, optional if already supplied to <a href="auth#initializeauth_ca77c9b">initializeAuth()</a> or provided by <a href="auth#getauth_cf608e1">getAuth()</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.usercredential">UserCredential</a><!-- -->&gt;</p>
+<h3 id="example-12">Example</h3>
+<pre data-language="javascript">// Sign in using some other provider.
+const result = await signInWithEmailAndPassword(auth, email, password);
+// Link using a popup.
+const provider = new FacebookAuthProvider();
+await linkWithPopup(result.user, provider);</pre>
+<h3 id="linkwithredirect_41c0b31">linkWithRedirect(user, provider, resolver)</h3>
+<p>Links the <a href="auth.oauthprovider">OAuthProvider</a> to the user account using a full-page redirect flow.</p>
+<p>To handle the results and errors for this operation, refer to <a href="auth#getredirectresult_c35dc1f">getRedirectResult()</a><!-- -->. Follow the <a href="https://firebase.google.com/docs/auth/web/redirect-best-practices">best practices</a> when using <a href="auth#linkwithredirect_41c0b31">linkWithRedirect()</a><!-- -->.</p>
+<p>This method does not work in a Node.js environment or with <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function linkWithRedirect(user: User, provider: AuthProvider, resolver?: PopupRedirectResolver): Promise&lt;never&gt;;</pre>
+<h4 id="parameters-40">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>provider</td>
+<td><a href="auth.authprovider">AuthProvider</a></td>
+<td>The provider to authenticate. The provider has to be an <a href="auth.oauthprovider">OAuthProvider</a><!-- -->. Non-OAuth providers like <a href="auth.emailauthprovider">EmailAuthProvider</a> will throw an error.</td>
+</tr>
+<tr>
+<td>resolver</td>
+<td><a href="auth.popupredirectresolver">PopupRedirectResolver</a></td>
+<td>An instance of <a href="auth.popupredirectresolver">PopupRedirectResolver</a><!-- -->, optional if already supplied to <a href="auth#initializeauth_ca77c9b">initializeAuth()</a> or provided by <a href="auth#getauth_cf608e1">getAuth()</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;never&gt;</p>
+<h3 id="example-13">Example</h3>
+<pre data-language="javascript">// Sign in using some other provider.
+const result = await signInWithEmailAndPassword(auth, email, password);
+// Link using a redirect.
+const provider = new FacebookAuthProvider();
+await linkWithRedirect(result.user, provider);
+// This will trigger a full page redirect away from your app
+
+// After returning from the redirect when your app initializes you can obtain the result
+const result = await getRedirectResult(auth);</pre>
+<h3 id="multifactor_52b2e2e">multiFactor(user)</h3>
+<p>The <a href="auth.multifactoruser">MultiFactorUser</a> corresponding to the user.</p>
+<p>This is used to access all multi-factor properties and operations related to the user.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function multiFactor(user: User): MultiFactorUser;</pre>
+<h4 id="parameters-41">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="auth.multifactoruser">MultiFactorUser</a></p>
+<h3 id="reauthenticatewithcredential_60f8043">reauthenticateWithCredential(user, credential)</h3>
+<p>Re-authenticates a user using a fresh credential.</p>
+<p>Use before operations such as <a href="auth#updatepassword_6df673e">updatePassword()</a> that require tokens from recent sign-in attempts. This method can be used to recover from a <code>CREDENTIAL_TOO_OLD_LOGIN_AGAIN</code> error or a <code>TOKEN_EXPIRED</code> error.</p>
+<p>This method is not supported on any <a href="auth.user">User</a> signed in by <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function reauthenticateWithCredential(user: User, credential: AuthCredential): Promise&lt;UserCredential&gt;;</pre>
+<h4 id="parameters-42">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>credential</td>
+<td><a href="auth.authcredential">AuthCredential</a></td>
+<td>The auth credential.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.usercredential">UserCredential</a><!-- -->&gt;</p>
+<h3 id="reauthenticatewithphonenumber_9ed75fe">reauthenticateWithPhoneNumber(user, phoneNumber, appVerifier)</h3>
+<p>Re-authenticates a user using a fresh phone credential.</p>
+<p>Use before operations such as <a href="auth#updatepassword_6df673e">updatePassword()</a> that require tokens from recent sign-in attempts.</p>
+<p>This method does not work in a Node.js environment or on any <a href="auth.user">User</a> signed in by <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function reauthenticateWithPhoneNumber(user: User, phoneNumber: string, appVerifier?: ApplicationVerifier): Promise&lt;ConfirmationResult&gt;;</pre>
+<h4 id="parameters-43">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>phoneNumber</td>
+<td>string</td>
+<td>The user&#39;s phone number in E.164 format (e.g. +16505550101).</td>
+</tr>
+<tr>
+<td>appVerifier</td>
+<td><a href="auth.applicationverifier">ApplicationVerifier</a></td>
+<td>The <a href="auth.applicationverifier">ApplicationVerifier</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.confirmationresult">ConfirmationResult</a><!-- -->&gt;</p>
+<h3 id="reauthenticatewithpopup_41c0b31">reauthenticateWithPopup(user, provider, resolver)</h3>
+<p>Reauthenticates the current user with the specified <a href="auth.oauthprovider">OAuthProvider</a> using a pop-up based OAuth flow.</p>
+<p>If the reauthentication is successful, the returned result will contain the user and the provider&#39;s credential.</p>
+<p>This method does not work in a Node.js environment or on any <a href="auth.user">User</a> signed in by <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function reauthenticateWithPopup(user: User, provider: AuthProvider, resolver?: PopupRedirectResolver): Promise&lt;UserCredential&gt;;</pre>
+<h4 id="parameters-44">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>provider</td>
+<td><a href="auth.authprovider">AuthProvider</a></td>
+<td>The provider to authenticate. The provider has to be an <a href="auth.oauthprovider">OAuthProvider</a><!-- -->. Non-OAuth providers like <a href="auth.emailauthprovider">EmailAuthProvider</a> will throw an error.</td>
+</tr>
+<tr>
+<td>resolver</td>
+<td><a href="auth.popupredirectresolver">PopupRedirectResolver</a></td>
+<td>An instance of <a href="auth.popupredirectresolver">PopupRedirectResolver</a><!-- -->, optional if already supplied to <a href="auth#initializeauth_ca77c9b">initializeAuth()</a> or provided by <a href="auth#getauth_cf608e1">getAuth()</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.usercredential">UserCredential</a><!-- -->&gt;</p>
+<h3 id="example-14">Example</h3>
+<pre data-language="javascript">// Sign in using a popup.
+const provider = new FacebookAuthProvider();
+const result = await signInWithPopup(auth, provider);
+// Reauthenticate using a popup.
+await reauthenticateWithPopup(result.user, provider);</pre>
+<h3 id="reauthenticatewithredirect_41c0b31">reauthenticateWithRedirect(user, provider, resolver)</h3>
+<p>Reauthenticates the current user with the specified <a href="auth.oauthprovider">OAuthProvider</a> using a full-page redirect flow.</p>
+<p>To handle the results and errors for this operation, refer to <a href="auth#getredirectresult_c35dc1f">getRedirectResult()</a><!-- -->. Follow the <a href="https://firebase.google.com/docs/auth/web/redirect-best-practices">best practices</a> when using <a href="auth#reauthenticatewithredirect_41c0b31">reauthenticateWithRedirect()</a><!-- -->.</p>
+<p>This method does not work in a Node.js environment or with <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function reauthenticateWithRedirect(user: User, provider: AuthProvider, resolver?: PopupRedirectResolver): Promise&lt;never&gt;;</pre>
+<h4 id="parameters-45">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>provider</td>
+<td><a href="auth.authprovider">AuthProvider</a></td>
+<td>The provider to authenticate. The provider has to be an <a href="auth.oauthprovider">OAuthProvider</a><!-- -->. Non-OAuth providers like <a href="auth.emailauthprovider">EmailAuthProvider</a> will throw an error.</td>
+</tr>
+<tr>
+<td>resolver</td>
+<td><a href="auth.popupredirectresolver">PopupRedirectResolver</a></td>
+<td>An instance of <a href="auth.popupredirectresolver">PopupRedirectResolver</a><!-- -->, optional if already supplied to <a href="auth#initializeauth_ca77c9b">initializeAuth()</a> or provided by <a href="auth#getauth_cf608e1">getAuth()</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;never&gt;</p>
+<h3 id="example-15">Example</h3>
+<pre data-language="javascript">// Sign in using a redirect.
+const provider = new FacebookAuthProvider();
+const result = await signInWithRedirect(auth, provider);
+// This will trigger a full page redirect away from your app
+
+// After returning from the redirect when your app initializes you can obtain the result
+const result = await getRedirectResult(auth);
+// Reauthenticate using a redirect.
+await reauthenticateWithRedirect(result.user, provider);
+// This will again trigger a full page redirect away from your app
+
+// After returning from the redirect when your app initializes you can obtain the result
+const result = await getRedirectResult(auth);</pre>
+<h3 id="reload_52b2e2e">reload(user)</h3>
+<p>Reloads user account data, if signed in.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function reload(user: User): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-46">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="sendemailverification_6a885d6">sendEmailVerification(user, actionCodeSettings)</h3>
+<p>Sends a verification email to a user.</p>
+<p>The verification process is completed by calling <a href="auth#applyactioncode_d2ae15a">applyActionCode()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function sendEmailVerification(user: User, actionCodeSettings?: ActionCodeSettings | null): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-47">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>actionCodeSettings</td>
+<td><a href="auth.actioncodesettings">ActionCodeSettings</a> | null</td>
+<td>The <a href="auth.actioncodesettings">ActionCodeSettings</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="example-16">Example</h3>
+<pre data-language="javascript">const actionCodeSettings = {
+  url: 'https://www.example.com/?email=user@example.com',
+  iOS: {
+     bundleId: 'com.example.ios'
+  },
+  android: {
+    packageName: 'com.example.android',
+    installApp: true,
+    minimumVersion: '12'
+  },
+  handleCodeInApp: true
+};
+await sendEmailVerification(user, actionCodeSettings);
+// Obtain code from the user.
+await applyActionCode(auth, code);</pre>
+<h3 id="unlink_f289a14">unlink(user, providerId)</h3>
+<p>Unlinks a provider from a user account.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function unlink(user: User, providerId: string): Promise&lt;User&gt;;</pre>
+<h4 id="parameters-48">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>providerId</td>
+<td>string</td>
+<td>The provider to unlink.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.user">User</a><!-- -->&gt;</p>
+<h3 id="updateemail_7737d57">updateEmail(user, newEmail)</h3>
+<p>Updates the user&#39;s email address.</p>
+<p>An email will be sent to the original email address (if it was set) that allows to revoke the email address change, in order to protect them from account hijacking.</p>
+<p>This method is not supported on any <a href="auth.user">User</a> signed in by <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p>Important: this is a security sensitive operation that requires the user to have recently signed in. If this requirement isn&#39;t met, ask the user to authenticate again and then call <a href="auth#reauthenticatewithcredential_60f8043">reauthenticateWithCredential()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function updateEmail(user: User, newEmail: string): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-49">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>newEmail</td>
+<td>string</td>
+<td>The new email address.<!-- -->Throws &quot;auth/operation-not-allowed&quot; error when <a href="https://cloud.google.com/identity-platform/docs/admin/email-enumeration-protection">Email Enumeration Protection</a> is enabled. Deprecated - Use <a href="auth#verifybeforeupdateemail_09d6f11">verifyBeforeUpdateEmail()</a> instead.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="updatepassword_6df673e">updatePassword(user, newPassword)</h3>
+<p>Updates the user&#39;s password.</p>
+<p>Important: this is a security sensitive operation that requires the user to have recently signed in. If this requirement isn&#39;t met, ask the user to authenticate again and then call <a href="auth#reauthenticatewithcredential_60f8043">reauthenticateWithCredential()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function updatePassword(user: User, newPassword: string): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-50">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>newPassword</td>
+<td>string</td>
+<td>The new password.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="updatephonenumber_0105c49">updatePhoneNumber(user, credential)</h3>
+<p>Updates the user&#39;s phone number.</p>
+<p>This method does not work in a Node.js environment or on any <a href="auth.user">User</a> signed in by <a href="auth.auth">Auth</a> instances created with a <a href="app.firebaseserverapp">FirebaseServerApp</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function updatePhoneNumber(user: User, credential: PhoneAuthCredential): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-51">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>credential</td>
+<td><a href="auth.phoneauthcredential">PhoneAuthCredential</a></td>
+<td>A credential authenticating the new phone number.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="example-17">Example</h3>
+<pre>// 'recaptcha-container' is the ID of an element in the DOM.
+const applicationVerifier = new RecaptchaVerifier('recaptcha-container');
+const provider = new PhoneAuthProvider(auth);
+const verificationId = await provider.verifyPhoneNumber('+16505550101', applicationVerifier);
+// Obtain the verificationCode from the user.
+const phoneCredential = PhoneAuthProvider.credential(verificationId, verificationCode);
+await updatePhoneNumber(user, phoneCredential);</pre>
+<h3 id="updateprofile_ed2a696">updateProfile(user, profile)</h3>
+<p>Updates a user&#39;s profile data.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function updateProfile(user: User, profile: {
+    displayName?: string | null;
+    photoURL?: string | null;
+}): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-52">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>profile</td>
+<td>{ displayName?: string | null; photoURL?: string | null; }</td>
+<td>The profile&#39;s <code>displayName</code> and <code>photoURL</code> to update.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="verifybeforeupdateemail_09d6f11">verifyBeforeUpdateEmail(user, newEmail, actionCodeSettings)</h3>
+<p>Sends a verification email to a new email address.</p>
+<p>The user&#39;s email will be updated to the new one after being verified.</p>
+<p>If you have a custom email action handler, you can complete the verification process by calling <a href="auth#applyactioncode_d2ae15a">applyActionCode()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function verifyBeforeUpdateEmail(user: User, newEmail: string, actionCodeSettings?: ActionCodeSettings | null): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-53">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>user</td>
+<td><a href="auth.user">User</a></td>
+<td>The user.</td>
+</tr>
+<tr>
+<td>newEmail</td>
+<td>string</td>
+<td>The new email address to be verified before update.</td>
+</tr>
+<tr>
+<td>actionCodeSettings</td>
+<td><a href="auth.actioncodesettings">ActionCodeSettings</a> | null</td>
+<td>The <a href="auth.actioncodesettings">ActionCodeSettings</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="example-18">Example</h3>
+<pre data-language="javascript">const actionCodeSettings = {
+  url: 'https://www.example.com/?email=user@example.com',
+  iOS: {
+     bundleId: 'com.example.ios'
+  },
+  android: {
+    packageName: 'com.example.android',
+    installApp: true,
+    minimumVersion: '12'
+  },
+  handleCodeInApp: true
+};
+await verifyBeforeUpdateEmail(user, 'newemail@example.com', actionCodeSettings);
+// Obtain code from the user.
+await applyActionCode(auth, code);</pre>
+<h2 id="functionusercredential-">function(userCredential, ...)</h2>
+<h3 id="getadditionaluserinfo_838a6bd">getAdditionalUserInfo(userCredential)</h3>
+<p>Extracts provider specific <a href="auth.additionaluserinfo">AdditionalUserInfo</a> for the given credential.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getAdditionalUserInfo(userCredential: UserCredential): AdditionalUserInfo | null;</pre>
+<h4 id="parameters-54">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>userCredential</td>
+<td><a href="auth.usercredential">UserCredential</a></td>
+<td>The user credential.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="auth.additionaluserinfo">AdditionalUserInfo</a> | null</p>
+<h2 id="actioncodeoperation">ActionCodeOperation</h2>
+<p>An enumeration of the possible email action types.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">ActionCodeOperation: {
+    readonly EMAIL_SIGNIN: &quot;EMAIL_SIGNIN&quot;;
+    readonly PASSWORD_RESET: &quot;PASSWORD_RESET&quot;;
+    readonly RECOVER_EMAIL: &quot;RECOVER_EMAIL&quot;;
+    readonly REVERT_SECOND_FACTOR_ADDITION: &quot;REVERT_SECOND_FACTOR_ADDITION&quot;;
+    readonly VERIFY_AND_CHANGE_EMAIL: &quot;VERIFY_AND_CHANGE_EMAIL&quot;;
+    readonly VERIFY_EMAIL: &quot;VERIFY_EMAIL&quot;;
+}</pre>
+<h2 id="autherrorcodes">AuthErrorCodes</h2>
+<p>A map of potential <code>Auth</code> error codes, for easier comparison with errors thrown by the SDK.</p>
+<p>Note that you can&#39;t tree-shake individual keys in the map, so by using the map you might substantially increase your bundle size.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">AUTH_ERROR_CODES_MAP_DO_NOT_USE_INTERNALLY: {
+    readonly ADMIN_ONLY_OPERATION: &quot;auth/admin-restricted-operation&quot;;
+    readonly ARGUMENT_ERROR: &quot;auth/argument-error&quot;;
+    readonly APP_NOT_AUTHORIZED: &quot;auth/app-not-authorized&quot;;
+    readonly APP_NOT_INSTALLED: &quot;auth/app-not-installed&quot;;
+    readonly CAPTCHA_CHECK_FAILED: &quot;auth/captcha-check-failed&quot;;
+    readonly CODE_EXPIRED: &quot;auth/code-expired&quot;;
+    readonly CORDOVA_NOT_READY: &quot;auth/cordova-not-ready&quot;;
+    readonly CORS_UNSUPPORTED: &quot;auth/cors-unsupported&quot;;
+    readonly CREDENTIAL_ALREADY_IN_USE: &quot;auth/credential-already-in-use&quot;;
+    readonly CREDENTIAL_MISMATCH: &quot;auth/custom-token-mismatch&quot;;
+    readonly CREDENTIAL_TOO_OLD_LOGIN_AGAIN: &quot;auth/requires-recent-login&quot;;
+    readonly DEPENDENT_SDK_INIT_BEFORE_AUTH: &quot;auth/dependent-sdk-initialized-before-auth&quot;;
+    readonly DYNAMIC_LINK_NOT_ACTIVATED: &quot;auth/dynamic-link-not-activated&quot;;
+    readonly EMAIL_CHANGE_NEEDS_VERIFICATION: &quot;auth/email-change-needs-verification&quot;;
+    readonly EMAIL_EXISTS: &quot;auth/email-already-in-use&quot;;
+    readonly EMULATOR_CONFIG_FAILED: &quot;auth/emulator-config-failed&quot;;
+    readonly EXPIRED_OOB_CODE: &quot;auth/expired-action-code&quot;;
+    readonly EXPIRED_POPUP_REQUEST: &quot;auth/cancelled-popup-request&quot;;
+    readonly INTERNAL_ERROR: &quot;auth/internal-error&quot;;
+    readonly INVALID_API_KEY: &quot;auth/invalid-api-key&quot;;
+    readonly INVALID_APP_CREDENTIAL: &quot;auth/invalid-app-credential&quot;;
+    readonly INVALID_APP_ID: &quot;auth/invalid-app-id&quot;;
+    readonly INVALID_AUTH: &quot;auth/invalid-user-token&quot;;
+    readonly INVALID_AUTH_EVENT: &quot;auth/invalid-auth-event&quot;;
+    readonly INVALID_CERT_HASH: &quot;auth/invalid-cert-hash&quot;;
+    readonly INVALID_CODE: &quot;auth/invalid-verification-code&quot;;
+    readonly INVALID_CONTINUE_URI: &quot;auth/invalid-continue-uri&quot;;
+    readonly INVALID_CORDOVA_CONFIGURATION: &quot;auth/invalid-cordova-configuration&quot;;
+    readonly INVALID_CUSTOM_TOKEN: &quot;auth/invalid-custom-token&quot;;
+    readonly INVALID_DYNAMIC_LINK_DOMAIN: &quot;auth/invalid-dynamic-link-domain&quot;;
+    readonly INVALID_EMAIL: &quot;auth/invalid-email&quot;;
+    readonly INVALID_EMULATOR_SCHEME: &quot;auth/invalid-emulator-scheme&quot;;
+    readonly INVALID_IDP_RESPONSE: &quot;auth/invalid-credential&quot;;
+    readonly INVALID_LOGIN_CREDENTIALS: &quot;auth/invalid-credential&quot;;
+    readonly INVALID_MESSAGE_PAYLOAD: &quot;auth/invalid-message-payload&quot;;
+    readonly INVALID_MFA_SESSION: &quot;auth/invalid-multi-factor-session&quot;;
+    readonly INVALID_OAUTH_CLIENT_ID: &quot;auth/invalid-oauth-client-id&quot;;
+    readonly INVALID_OAUTH_PROVIDER: &quot;auth/invalid-oauth-provider&quot;;
+    readonly INVALID_OOB_CODE: &quot;auth/invalid-action-code&quot;;
+    readonly INVALID_ORIGIN: &quot;auth/unauthorized-domain&quot;;
+    readonly INVALID_PASSWORD: &quot;auth/wrong-password&quot;;
+    readonly INVALID_PERSISTENCE: &quot;auth/invalid-persistence-type&quot;;
+    readonly INVALID_PHONE_NUMBER: &quot;auth/invalid-phone-number&quot;;
+    readonly INVALID_PROVIDER_ID: &quot;auth/invalid-provider-id&quot;;
+    readonly INVALID_RECIPIENT_EMAIL: &quot;auth/invalid-recipient-email&quot;;
+    readonly INVALID_SENDER: &quot;auth/invalid-sender&quot;;
+    readonly INVALID_SESSION_INFO: &quot;auth/invalid-verification-id&quot;;
+    readonly INVALID_TENANT_ID: &quot;auth/invalid-tenant-id&quot;;
+    readonly MFA_INFO_NOT_FOUND: &quot;auth/multi-factor-info-not-found&quot;;
+    readonly MFA_REQUIRED: &quot;auth/multi-factor-auth-required&quot;;
+    readonly MISSING_ANDROID_PACKAGE_NAME: &quot;auth/missing-android-pkg-name&quot;;
+    readonly MISSING_APP_CREDENTIAL: &quot;auth/missing-app-credential&quot;;
+    readonly MISSING_AUTH_DOMAIN: &quot;auth/auth-domain-config-required&quot;;
+    readonly MISSING_CODE: &quot;auth/missing-verification-code&quot;;
+    readonly MISSING_CONTINUE_URI: &quot;auth/missing-continue-uri&quot;;
+    readonly MISSING_IFRAME_START: &quot;auth/missing-iframe-start&quot;;
+    readonly MISSING_IOS_BUNDLE_ID: &quot;auth/missing-ios-bundle-id&quot;;
+    readonly MISSING_OR_INVALID_NONCE: &quot;auth/missing-or-invalid-nonce&quot;;
+    readonly MISSING_MFA_INFO: &quot;auth/missing-multi-factor-info&quot;;
+    readonly MISSING_MFA_SESSION: &quot;auth/missing-multi-factor-session&quot;;
+    readonly MISSING_PHONE_NUMBER: &quot;auth/missing-phone-number&quot;;
+    readonly MISSING_PASSWORD: &quot;auth/missing-password&quot;;
+    readonly MISSING_SESSION_INFO: &quot;auth/missing-verification-id&quot;;
+    readonly MODULE_DESTROYED: &quot;auth/app-deleted&quot;;
+    readonly NEED_CONFIRMATION: &quot;auth/account-exists-with-different-credential&quot;;
+    readonly NETWORK_REQUEST_FAILED: &quot;auth/network-request-failed&quot;;
+    readonly NULL_USER: &quot;auth/null-user&quot;;
+    readonly NO_AUTH_EVENT: &quot;auth/no-auth-event&quot;;
+    readonly NO_SUCH_PROVIDER: &quot;auth/no-such-provider&quot;;
+    readonly OPERATION_NOT_ALLOWED: &quot;auth/operation-not-allowed&quot;;
+    readonly OPERATION_NOT_SUPPORTED: &quot;auth/operation-not-supported-in-this-environment&quot;;
+    readonly POPUP_BLOCKED: &quot;auth/popup-blocked&quot;;
+    readonly POPUP_CLOSED_BY_USER: &quot;auth/popup-closed-by-user&quot;;
+    readonly PROVIDER_ALREADY_LINKED: &quot;auth/provider-already-linked&quot;;
+    readonly QUOTA_EXCEEDED: &quot;auth/quota-exceeded&quot;;
+    readonly REDIRECT_CANCELLED_BY_USER: &quot;auth/redirect-cancelled-by-user&quot;;
+    readonly REDIRECT_OPERATION_PENDING: &quot;auth/redirect-operation-pending&quot;;
+    readonly REJECTED_CREDENTIAL: &quot;auth/rejected-credential&quot;;
+    readonly SECOND_FACTOR_ALREADY_ENROLLED: &quot;auth/second-factor-already-in-use&quot;;
+    readonly SECOND_FACTOR_LIMIT_EXCEEDED: &quot;auth/maximum-second-factor-count-exceeded&quot;;
+    readonly TENANT_ID_MISMATCH: &quot;auth/tenant-id-mismatch&quot;;
+    readonly TIMEOUT: &quot;auth/timeout&quot;;
+    readonly TOKEN_EXPIRED: &quot;auth/user-token-expired&quot;;
+    readonly TOO_MANY_ATTEMPTS_TRY_LATER: &quot;auth/too-many-requests&quot;;
+    readonly UNAUTHORIZED_DOMAIN: &quot;auth/unauthorized-continue-uri&quot;;
+    readonly UNSUPPORTED_FIRST_FACTOR: &quot;auth/unsupported-first-factor&quot;;
+    readonly UNSUPPORTED_PERSISTENCE: &quot;auth/unsupported-persistence-type&quot;;
+    readonly UNSUPPORTED_TENANT_OPERATION: &quot;auth/unsupported-tenant-operation&quot;;
+    readonly UNVERIFIED_EMAIL: &quot;auth/unverified-email&quot;;
+    readonly USER_CANCELLED: &quot;auth/user-cancelled&quot;;
+    readonly USER_DELETED: &quot;auth/user-not-found&quot;;
+    readonly USER_DISABLED: &quot;auth/user-disabled&quot;;
+    readonly USER_MISMATCH: &quot;auth/user-mismatch&quot;;
+    readonly USER_SIGNED_OUT: &quot;auth/user-signed-out&quot;;
+    readonly WEAK_PASSWORD: &quot;auth/weak-password&quot;;
+    readonly WEB_STORAGE_UNSUPPORTED: &quot;auth/web-storage-unsupported&quot;;
+    readonly ALREADY_INITIALIZED: &quot;auth/already-initialized&quot;;
+    readonly RECAPTCHA_NOT_ENABLED: &quot;auth/recaptcha-not-enabled&quot;;
+    readonly MISSING_RECAPTCHA_TOKEN: &quot;auth/missing-recaptcha-token&quot;;
+    readonly INVALID_RECAPTCHA_TOKEN: &quot;auth/invalid-recaptcha-token&quot;;
+    readonly INVALID_RECAPTCHA_ACTION: &quot;auth/invalid-recaptcha-action&quot;;
+    readonly MISSING_CLIENT_TYPE: &quot;auth/missing-client-type&quot;;
+    readonly MISSING_RECAPTCHA_VERSION: &quot;auth/missing-recaptcha-version&quot;;
+    readonly INVALID_RECAPTCHA_VERSION: &quot;auth/invalid-recaptcha-version&quot;;
+    readonly INVALID_REQ_TYPE: &quot;auth/invalid-req-type&quot;;
+    readonly INVALID_HOSTING_LINK_DOMAIN: &quot;auth/invalid-hosting-link-domain&quot;;
+}</pre>
+<h2 id="browsercookiepersistence">browserCookiePersistence</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>An implementation of <a href="auth.persistence">Persistence</a> of type <code>COOKIE</code><!-- -->, for use on the client side in applications leveraging hybrid rendering and middleware.</p>
+<p>This persistence method requires companion middleware to function, such as that provided by <a href="https://firebaseopensource.com/projects/firebaseextended/reactfire/">ReactFire</a> for NextJS.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">browserCookiePersistence: Persistence</pre>
+<h2 id="browserlocalpersistence">browserLocalPersistence</h2>
+<p>An implementation of <a href="auth.persistence">Persistence</a> of type <code>LOCAL</code> using <code>localStorage</code> for the underlying storage.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">browserLocalPersistence: Persistence</pre>
+<h2 id="browserpopupredirectresolver">browserPopupRedirectResolver</h2>
+<p>An implementation of <a href="auth.popupredirectresolver">PopupRedirectResolver</a> suitable for browser based applications.</p>
+<p>This method does not work in a Node.js environment.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">browserPopupRedirectResolver: PopupRedirectResolver</pre>
+<h2 id="browsersessionpersistence">browserSessionPersistence</h2>
+<p>An implementation of <a href="auth.persistence">Persistence</a> of <code>SESSION</code> using <code>sessionStorage</code> for the underlying storage.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">browserSessionPersistence: Persistence</pre>
+<h2 id="cordovapopupredirectresolver">cordovaPopupRedirectResolver</h2>
+<p>An implementation of <a href="auth.popupredirectresolver">PopupRedirectResolver</a> suitable for Cordova based applications.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">cordovaPopupRedirectResolver: PopupRedirectResolver</pre>
+<h2 id="debugerrormap">debugErrorMap</h2>
+<p>A verbose error map with detailed descriptions for most error codes.</p>
+<p>See discussion at <a href="auth.autherrormap">AuthErrorMap</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">debugErrorMap: AuthErrorMap</pre>
+<h2 id="factorid">FactorId</h2>
+<p>An enum of factors that may be used for multifactor authentication.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">FactorId: {
+    readonly PHONE: &quot;phone&quot;;
+    readonly TOTP: &quot;totp&quot;;
+}</pre>
+<h2 id="indexeddblocalpersistence">indexedDBLocalPersistence</h2>
+<p>An implementation of <a href="auth.persistence">Persistence</a> of type <code>LOCAL</code> using <code>indexedDB</code> for the underlying storage.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">indexedDBLocalPersistence: Persistence</pre>
+<h2 id="inmemorypersistence">inMemoryPersistence</h2>
+<p>An implementation of <a href="auth.persistence">Persistence</a> of type &#39;NONE&#39;.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">inMemoryPersistence: Persistence</pre>
+<h2 id="operationtype">OperationType</h2>
+<p>Enumeration of supported operation types.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">OperationType: {
+    readonly LINK: &quot;link&quot;;
+    readonly REAUTHENTICATE: &quot;reauthenticate&quot;;
+    readonly SIGN_IN: &quot;signIn&quot;;
+}</pre>
+<h2 id="proderrormap">prodErrorMap</h2>
+<p>A minimal error map with all verbose error messages stripped.</p>
+<p>See discussion at <a href="auth.autherrormap">AuthErrorMap</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">prodErrorMap: AuthErrorMap</pre>
+<h2 id="providerid">ProviderId</h2>
+<p>Enumeration of supported providers.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">ProviderId: {
+    readonly FACEBOOK: &quot;facebook.com&quot;;
+    readonly GITHUB: &quot;github.com&quot;;
+    readonly GOOGLE: &quot;google.com&quot;;
+    readonly PASSWORD: &quot;password&quot;;
+    readonly PHONE: &quot;phone&quot;;
+    readonly TWITTER: &quot;twitter.com&quot;;
+}</pre>
+<h2 id="signinmethod">SignInMethod</h2>
+<p>Enumeration of supported sign-in methods.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">SignInMethod: {
+    readonly EMAIL_LINK: &quot;emailLink&quot;;
+    readonly EMAIL_PASSWORD: &quot;password&quot;;
+    readonly FACEBOOK: &quot;facebook.com&quot;;
+    readonly GITHUB: &quot;github.com&quot;;
+    readonly GOOGLE: &quot;google.com&quot;;
+    readonly PHONE: &quot;phone&quot;;
+    readonly TWITTER: &quot;twitter.com&quot;;
+}</pre>
+<h2 id="customparameters">CustomParameters</h2>
+<p>Map of OAuth Custom Parameters.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type CustomParameters = Record&lt;string, string&gt;;</pre>
+<h2 id="nextorobserver">NextOrObserver</h2>
+<p>Type definition for an event callback.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type NextOrObserver&lt;T&gt; = NextFn&lt;T | null&gt; | Observer&lt;T | null&gt;;</pre>
+<h2 id="phoneinfooptions">PhoneInfoOptions</h2>
+<p>The information required to verify the ownership of a phone number.</p>
+<p>The information that&#39;s required depends on whether you are doing single-factor sign-in, multi-factor enrollment or multi-factor sign-in.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type PhoneInfoOptions = PhoneSingleFactorInfoOptions | PhoneMultiFactorEnrollInfoOptions | PhoneMultiFactorSignInInfoOptions;</pre>
+<h2 id="userprofile">UserProfile</h2>
+<p>User profile used in <a href="auth.additionaluserinfo">AdditionalUserInfo</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type UserProfile = Record&lt;string, unknown&gt;;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth</a>
+  </p>
+</div>

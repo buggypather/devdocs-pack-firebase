@@ -1,0 +1,1380 @@
+<h1>@firebase/ai</h1>
+<p>The Firebase AI Web SDK.</p>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><b>function(app, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai#getai_a94a413">getAI(app, options)</a></td>
+<td>Returns the default <a href="ai.ai">AI</a> instance that is associated with the provided <a href="app.firebaseapp">FirebaseApp</a><!-- -->. If no instance exists, initializes a new instance with the default settings.</td>
+</tr>
+<tr>
+<td><b>function(ai, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai#getgenerativemodel_c63f46a">getGenerativeModel(ai, modelParams, requestOptions)</a></td>
+<td>Returns a <a href="ai.generativemodel">GenerativeModel</a> class with methods for inference and other functionality.</td>
+</tr>
+<tr>
+<td><a href="ai#getlivegenerativemodel_f2099ac">getLiveGenerativeModel(ai, modelParams)</a></td>
+<td><b><i>(Public Preview)</i></b> Returns a <a href="ai.livegenerativemodel">LiveGenerativeModel</a> class for real-time, bidirectional communication.<!-- -->The Live API is only supported in modern browser windows and Node &gt;<!-- -->= 22.</td>
+</tr>
+<tr>
+<td><a href="ai#gettemplategenerativemodel_9476bbc">getTemplateGenerativeModel(ai, requestOptions)</a></td>
+<td><b><i>(Public Preview)</i></b> Returns a <a href="ai.templategenerativemodel">TemplateGenerativeModel</a> class for executing server prompt templates.</td>
+</tr>
+<tr>
+<td><b>function(liveSession, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai#startaudioconversation_01c8e7f">startAudioConversation(liveSession, options)</a></td>
+<td><b><i>(Public Preview)</i></b> Starts a real-time, bidirectional audio conversation with the model. This helper function manages the complexities of microphone access, audio recording, playback, and interruptions.</td>
+</tr>
+</tbody></table>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.agentplatformbackend">AgentPlatformBackend</a></td>
+<td>Configuration class for the Agent Platform Gemini API (formerly known as the Vertex AI Gemini API).<!-- -->Use this with <a href="ai.aioptions">AIOptions</a> when initializing the AI service via <a href="ai#getai_a94a413">getAI()</a> to specify the Agent Platform Gemini API as the backend.</td>
+</tr>
+<tr>
+<td><a href="ai.aierror">AIError</a></td>
+<td>Error class for the Firebase AI SDK.</td>
+</tr>
+<tr>
+<td><a href="ai.aimodel">AIModel</a></td>
+<td>Base class for Firebase AI model APIs.<!-- -->Instances of this class are associated with a specific Firebase AI <a href="ai.backend">Backend</a> and provide methods for interacting with the configured generative model.</td>
+</tr>
+<tr>
+<td><a href="ai.anyofschema">AnyOfSchema</a></td>
+<td>Schema class representing a value that can conform to any of the provided sub-schemas. This is useful when a field can accept multiple distinct types or structures.</td>
+</tr>
+<tr>
+<td><a href="ai.arrayschema">ArraySchema</a></td>
+<td>Schema class for &quot;array&quot; types. The <code>items</code> param should refer to the type of item that can be a member of the array.</td>
+</tr>
+<tr>
+<td><a href="ai.backend">Backend</a></td>
+<td>Abstract base class representing the configuration for an AI service backend. This class should not be instantiated directly. Use its subclasses; <a href="ai.googleaibackend">GoogleAIBackend</a> for the Gemini Developer API (via <a href="https://ai.google/">Google AI</a><!-- -->) and <a href="ai.agentplatformbackend">AgentPlatformBackend</a> for the Agent Platform Gemini API.</td>
+</tr>
+<tr>
+<td><a href="ai.booleanschema">BooleanSchema</a></td>
+<td>Schema class for &quot;boolean&quot; types.</td>
+</tr>
+<tr>
+<td><a href="ai.generativemodel">GenerativeModel</a></td>
+<td>Class for generative model APIs.</td>
+</tr>
+<tr>
+<td><a href="ai.googleaibackend">GoogleAIBackend</a></td>
+<td>Configuration class for the Gemini Developer API.<!-- -->Use this with <a href="ai.aioptions">AIOptions</a> when initializing the AI service via <a href="ai#getai_a94a413">getAI()</a> to specify the Gemini Developer API as the backend.</td>
+</tr>
+<tr>
+<td><a href="ai.integerschema">IntegerSchema</a></td>
+<td>Schema class for &quot;integer&quot; types.</td>
+</tr>
+<tr>
+<td><a href="ai.livegenerativemodel">LiveGenerativeModel</a></td>
+<td><b><i>(Public Preview)</i></b> Class for Live generative model APIs. The Live API enables low-latency, two-way multimodal interactions with Gemini.<!-- -->This class should only be instantiated with <a href="ai#getlivegenerativemodel_f2099ac">getLiveGenerativeModel()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.livesession">LiveSession</a></td>
+<td><b><i>(Public Preview)</i></b> Represents an active, real-time, bidirectional conversation with the model.<!-- -->This class should only be instantiated by calling <a href="ai.livegenerativemodel#livegenerativemodelconnect">LiveGenerativeModel.connect()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.numberschema">NumberSchema</a></td>
+<td>Schema class for &quot;number&quot; types.</td>
+</tr>
+<tr>
+<td><a href="ai.objectschema">ObjectSchema</a></td>
+<td>Schema class for &quot;object&quot; types. The <code>properties</code> param must be a map of <code>Schema</code> objects.</td>
+</tr>
+<tr>
+<td><a href="ai.schema">Schema</a></td>
+<td>Parent class encompassing all Schema types, with static methods that allow building specific Schema types. This class can be converted with <code>JSON.stringify()</code> into a JSON string accepted by Agent Platform Gemini API and Gemini Developer API REST endpoints. (This string conversion is automatically done when calling SDK methods.)</td>
+</tr>
+<tr>
+<td><a href="ai.stringschema">StringSchema</a></td>
+<td>Schema class for &quot;string&quot; types. Can be used with or without enum values.</td>
+</tr>
+<tr>
+<td><a href="ai.templategenerativemodel">TemplateGenerativeModel</a></td>
+<td><b><i>(Public Preview)</i></b> <a href="ai.generativemodel">GenerativeModel</a> APIs that execute on a server prompt template.<!-- -->This class should only be instantiated with <a href="ai#gettemplategenerativemodel_9476bbc">getTemplateGenerativeModel()</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="interfaces">Interfaces</h2>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.ai">AI</a></td>
+<td>An instance of the Firebase AI SDK.<!-- -->Do not create this instance directly. Instead, use <a href="ai#getai_a94a413">getAI()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.aioptions">AIOptions</a></td>
+<td>Options for initializing the AI service using <a href="ai#getai_a94a413">getAI()</a><!-- -->. This allows specifying which backend to use (Gemini Developer API or Agent Platform Gemini API) and configuring its specific options (like location for Agent Platform).</td>
+</tr>
+<tr>
+<td><a href="ai.audioconversationcontroller">AudioConversationController</a></td>
+<td><b><i>(Public Preview)</i></b> A controller for managing an active audio conversation.</td>
+</tr>
+<tr>
+<td><a href="ai.audiotranscriptionconfig">AudioTranscriptionConfig</a></td>
+<td><b><i>(Public Preview)</i></b> The audio transcription configuration.</td>
+</tr>
+<tr>
+<td><a href="ai.baseparams">BaseParams</a></td>
+<td>Base parameters for a number of methods.</td>
+</tr>
+<tr>
+<td><a href="ai.basespeechconfig">BaseSpeechConfig</a></td>
+<td><b><i>(Public Preview)</i></b> Base configuration for speech synthesis.</td>
+</tr>
+<tr>
+<td><a href="ai.chatsession">ChatSession</a></td>
+<td>Interface representing a <code>ChatSession</code> class that enables sending chat messages and stores a history of sent and received messages so far.</td>
+</tr>
+<tr>
+<td><a href="ai.chromeadapter">ChromeAdapter</a></td>
+<td>Defines an inference &quot;backend&quot; that uses Chrome&#39;s on-device model, and encapsulates logic for detecting when on-device inference is possible.<!-- -->These methods should not be called directly by the user.</td>
+</tr>
+<tr>
+<td><a href="ai.citation">Citation</a></td>
+<td>A single citation.</td>
+</tr>
+<tr>
+<td><a href="ai.citationmetadata">CitationMetadata</a></td>
+<td>Citation metadata that may be found on a <a href="ai.generatecontentcandidate">GenerateContentCandidate</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.codeexecutionresult">CodeExecutionResult</a></td>
+<td>The results of code execution run by the model.</td>
+</tr>
+<tr>
+<td><a href="ai.codeexecutionresultpart">CodeExecutionResultPart</a></td>
+<td>Represents the code execution result from the model.</td>
+</tr>
+<tr>
+<td><a href="ai.codeexecutiontool">CodeExecutionTool</a></td>
+<td>A tool that enables the model to use code execution.</td>
+</tr>
+<tr>
+<td><a href="ai.content">Content</a></td>
+<td>Content type for both prompts and response candidates.</td>
+</tr>
+<tr>
+<td><a href="ai.contextwindowcompressionconfig">ContextWindowCompressionConfig</a></td>
+<td><b><i>(Public Preview)</i></b> Enables context window compression to manage the model&#39;s context window.</td>
+</tr>
+<tr>
+<td><a href="ai.counttokensrequest">CountTokensRequest</a></td>
+<td>Params for calling <a href="ai.generativemodel#generativemodelcounttokens">GenerativeModel.countTokens()</a></td>
+</tr>
+<tr>
+<td><a href="ai.counttokensresponse">CountTokensResponse</a></td>
+<td>Response from calling <a href="ai.generativemodel#generativemodelcounttokens">GenerativeModel.countTokens()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.customerrordata">CustomErrorData</a></td>
+<td>Details object that contains data originating from a bad HTTP response.</td>
+</tr>
+<tr>
+<td><a href="ai.date_2">Date_2</a></td>
+<td>Protobuf google.type.Date</td>
+</tr>
+<tr>
+<td><a href="ai.enhancedgeneratecontentresponse">EnhancedGenerateContentResponse</a></td>
+<td>Response object wrapped with helper methods.</td>
+</tr>
+<tr>
+<td><a href="ai.errordetails">ErrorDetails</a></td>
+<td>Details object that may be included in an error response.</td>
+</tr>
+<tr>
+<td><a href="ai.executablecode">ExecutableCode</a></td>
+<td>An interface for executable code returned by the model.</td>
+</tr>
+<tr>
+<td><a href="ai.executablecodepart">ExecutableCodePart</a></td>
+<td>Represents the code that is executed by the model.</td>
+</tr>
+<tr>
+<td><a href="ai.filedata">FileData</a></td>
+<td>Data pointing to a file uploaded on Google Cloud Storage.</td>
+</tr>
+<tr>
+<td><a href="ai.filedatapart">FileDataPart</a></td>
+<td>Content part interface if the part represents <a href="ai.filedata">FileData</a></td>
+</tr>
+<tr>
+<td><a href="ai.functioncall">FunctionCall</a></td>
+<td>A predicted <a href="ai.functioncall">FunctionCall</a> returned from the model that contains a string representing the <a href="ai.functiondeclaration#functiondeclarationname">FunctionDeclaration.name</a> and a structured JSON object containing the parameters and their values.</td>
+</tr>
+<tr>
+<td><a href="ai.functioncallingconfig">FunctionCallingConfig</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.functioncallpart">FunctionCallPart</a></td>
+<td>Content part interface if the part represents a <a href="ai.functioncall">FunctionCall</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.functiondeclaration">FunctionDeclaration</a></td>
+<td>Structured representation of a function declaration as defined by the <a href="https://spec.openapis.org/oas/v3.0.3">OpenAPI 3.0 specification</a><!-- -->. Included in this declaration are the function name and parameters. This <code>FunctionDeclaration</code> is a representation of a block of code that can be used as a Tool by the model and executed by the client.</td>
+</tr>
+<tr>
+<td><a href="ai.functiondeclarationstool">FunctionDeclarationsTool</a></td>
+<td>A <code>FunctionDeclarationsTool</code> is a piece of code that enables the system to interact with external systems to perform an action, or set of actions, outside of knowledge and scope of the model.</td>
+</tr>
+<tr>
+<td><a href="ai.functionresponse">FunctionResponse</a></td>
+<td>The result output from a <a href="ai.functioncall">FunctionCall</a> that contains a string representing the <a href="ai.functiondeclaration#functiondeclarationname">FunctionDeclaration.name</a> and a structured JSON object containing any output from the function is used as context to the model. This should contain the result of a <a href="ai.functioncall">FunctionCall</a> made based on model prediction.</td>
+</tr>
+<tr>
+<td><a href="ai.functionresponsepart">FunctionResponsePart</a></td>
+<td>Content part interface if the part represents <a href="ai.functionresponse">FunctionResponse</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.generatecontentcandidate">GenerateContentCandidate</a></td>
+<td>A candidate returned as part of a <a href="ai.generatecontentresponse">GenerateContentResponse</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.generatecontentrequest">GenerateContentRequest</a></td>
+<td>Request sent through <a href="ai.generativemodel#generativemodelgeneratecontent">GenerativeModel.generateContent()</a></td>
+</tr>
+<tr>
+<td><a href="ai.generatecontentresponse">GenerateContentResponse</a></td>
+<td>Individual response from <a href="ai.generativemodel#generativemodelgeneratecontent">GenerativeModel.generateContent()</a> and <a href="ai.generativemodel#generativemodelgeneratecontentstream">GenerativeModel.generateContentStream()</a><!-- -->. <code>generateContentStream()</code> will return one in each chunk until the stream is done.</td>
+</tr>
+<tr>
+<td><a href="ai.generatecontentresult">GenerateContentResult</a></td>
+<td>Result object returned from <a href="ai.generativemodel#generativemodelgeneratecontent">GenerativeModel.generateContent()</a> call.</td>
+</tr>
+<tr>
+<td><a href="ai.generatecontentstreamresult">GenerateContentStreamResult</a></td>
+<td>Result object returned from <a href="ai.generativemodel#generativemodelgeneratecontentstream">GenerativeModel.generateContentStream()</a> call. Iterate over <code>stream</code> to get chunks as they come in and/or use the <code>response</code> promise to get the aggregated response when the stream is done.</td>
+</tr>
+<tr>
+<td><a href="ai.generationconfig">GenerationConfig</a></td>
+<td>Config options for content-related requests</td>
+</tr>
+<tr>
+<td><a href="ai.generativecontentblob">GenerativeContentBlob</a></td>
+<td>Interface for sending an image.</td>
+</tr>
+<tr>
+<td><a href="ai.googlemaps">GoogleMaps</a></td>
+<td>Specifies the Google Maps configuration.</td>
+</tr>
+<tr>
+<td><a href="ai.googlemapsgroundingchunk">GoogleMapsGroundingChunk</a></td>
+<td>A grounding chunk from Google Maps.<!-- -->Important: If using Grounding with Google Maps, you are required to comply with the <a href="https://cloud.google.com/terms/service-terms">Service Specific Terms</a> for &quot;Grounding with Google Maps&quot;.</td>
+</tr>
+<tr>
+<td><a href="ai.googlemapstool">GoogleMapsTool</a></td>
+<td>A tool that allows a Gemini model to connect to Google Maps to access and incorporate location-based information into its responses.<!-- -->Important: If using Grounding with Google Maps, you are required to comply with the &quot;Grounding with Google Maps&quot; usage requirements for your chosen API provider: <a href="https://ai.google.dev/gemini-api/terms#grounding-with-google-maps">Gemini Developer API</a> or Agent Platform Gemini API (see <a href="https://cloud.google.com/terms/service-terms">Service Terms</a> section within the Service Specific Terms).</td>
+</tr>
+<tr>
+<td><a href="ai.googlesearch">GoogleSearch</a></td>
+<td>Specifies the Google Search configuration.</td>
+</tr>
+<tr>
+<td><a href="ai.googlesearchtool">GoogleSearchTool</a></td>
+<td>A tool that allows a Gemini model to connect to Google Search to access and incorporate up-to-date information from the web into its responses.<!-- -->Important: If using Grounding with Google Search, you are required to comply with the &quot;Grounding with Google Search&quot; usage requirements for your chosen API provider: <a href="https://ai.google.dev/gemini-api/terms#grounding-with-google-search">Gemini Developer API</a> or Agent Platform Gemini API (see <a href="https://cloud.google.com/terms/service-terms">Service Terms</a> section within the Service Specific Terms).</td>
+</tr>
+<tr>
+<td><a href="ai.groundingchunk">GroundingChunk</a></td>
+<td>Represents a chunk of retrieved data that supports a claim in the model&#39;s response. This is part of the grounding information provided when grounding is enabled.</td>
+</tr>
+<tr>
+<td><a href="ai.groundingmetadata">GroundingMetadata</a></td>
+<td>Metadata returned when grounding is enabled.<!-- -->Currently, only Grounding with Google Search and Grounding with Google Maps are supported (see <a href="ai.googlesearchtool">GoogleSearchTool</a> and <a href="ai.googlemapstool">GoogleMapsTool</a><!-- -->, respectively).<!-- -->Important: If using Grounding with Google Search, you are required to comply with the &quot;Grounding with Google Search&quot; usage requirements for your chosen API provider: <a href="https://ai.google.dev/gemini-api/terms#grounding-with-google-search">Gemini Developer API</a> or Agent Platform Gemini API (see <a href="https://cloud.google.com/terms/service-terms">Service Terms</a> section within the Service Specific Terms).<!-- -->Important: If using Grounding with Google Maps, you are required to comply with the &quot;Grounding with Google Maps&quot; usage requirements for your chosen API provider: <a href="https://ai.google.dev/gemini-api/terms#grounding-with-google-maps">Gemini Developer API</a> or Agent Platform Gemini API (see <a href="https://cloud.google.com/terms/service-terms">Service Terms</a> section within the Service Specific Terms).</td>
+</tr>
+<tr>
+<td><a href="ai.groundingsupport">GroundingSupport</a></td>
+<td>Provides information about how a specific segment of the model&#39;s response is supported by the retrieved grounding chunks.</td>
+</tr>
+<tr>
+<td><a href="ai.hybridparams">HybridParams</a></td>
+<td>Configures hybrid inference.</td>
+</tr>
+<tr>
+<td><a href="ai.imageconfig">ImageConfig</a></td>
+<td>Configuration options for generating images with Gemini models.</td>
+</tr>
+<tr>
+<td><a href="ai.inlinedatapart">InlineDataPart</a></td>
+<td>Content part interface if the part represents an image.</td>
+</tr>
+<tr>
+<td><a href="ai.languagemodelcreatecoreoptions">LanguageModelCreateCoreOptions</a></td>
+<td>Configures the creation of an on-device language model session.</td>
+</tr>
+<tr>
+<td><a href="ai.languagemodelcreateoptions">LanguageModelCreateOptions</a></td>
+<td>Configures the creation of an on-device language model session.</td>
+</tr>
+<tr>
+<td><a href="ai.languagemodeldownloadmonitor">LanguageModelDownloadMonitor</a></td>
+<td>Interface representing the Chrome Prompt API&#39;s native download monitor object.</td>
+</tr>
+<tr>
+<td><a href="ai.languagemodelexpected">LanguageModelExpected</a></td>
+<td>Options for the expected inputs for an on-device language model.</td>
+</tr>
+<tr>
+<td><a href="ai.languagemodelmessage">LanguageModelMessage</a></td>
+<td>An on-device language model message.</td>
+</tr>
+<tr>
+<td><a href="ai.languagemodelmessagecontent">LanguageModelMessageContent</a></td>
+<td>An on-device language model content object.</td>
+</tr>
+<tr>
+<td><a href="ai.languagemodelpromptoptions">LanguageModelPromptOptions</a></td>
+<td>Options for an on-device language model prompt.</td>
+</tr>
+<tr>
+<td><a href="ai.latlng">LatLng</a></td>
+<td>An object that represents a latitude/longitude pair.</td>
+</tr>
+<tr>
+<td><a href="ai.livegenerationconfig">LiveGenerationConfig</a></td>
+<td><b><i>(Public Preview)</i></b> Configuration parameters used by <a href="ai.livegenerativemodel">LiveGenerativeModel</a> to control live content generation.</td>
+</tr>
+<tr>
+<td><a href="ai.livemodelparams">LiveModelParams</a></td>
+<td><b><i>(Public Preview)</i></b> Params passed to <a href="ai#getlivegenerativemodel_f2099ac">getLiveGenerativeModel()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.liveservercontent">LiveServerContent</a></td>
+<td><b><i>(Public Preview)</i></b> An incremental content update from the model.</td>
+</tr>
+<tr>
+<td><a href="ai.liveservergoingawaynotice">LiveServerGoingAwayNotice</a></td>
+<td><b><i>(Public Preview)</i></b> Notification that the server will not be able to service the client soon.</td>
+</tr>
+<tr>
+<td><a href="ai.liveservertoolcall">LiveServerToolCall</a></td>
+<td><b><i>(Public Preview)</i></b> A request from the model for the client to execute one or more functions.</td>
+</tr>
+<tr>
+<td><a href="ai.liveservertoolcallcancellation">LiveServerToolCallCancellation</a></td>
+<td><b><i>(Public Preview)</i></b> Notification to cancel a previous function call triggered by <a href="ai.liveservertoolcall">LiveServerToolCall</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.livesessionresumptionupdate">LiveSessionResumptionUpdate</a></td>
+<td><b><i>(Public Preview)</i></b> An update of the session resumption state.<!-- -->This message is only sent if <a href="ai.sessionresumptionconfig">SessionResumptionConfig</a> was set in the session setup.</td>
+</tr>
+<tr>
+<td><a href="ai.modalitytokencount">ModalityTokenCount</a></td>
+<td>Represents token counting info for a single modality.</td>
+</tr>
+<tr>
+<td><a href="ai.modelparams">ModelParams</a></td>
+<td>Params passed to <a href="ai#getgenerativemodel_c63f46a">getGenerativeModel()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.multispeakerspeechconfig">MultiSpeakerSpeechConfig</a></td>
+<td><b><i>(Public Preview)</i></b> Configuration for speech synthesis with multiple speakers.</td>
+</tr>
+<tr>
+<td><a href="ai.multispeakervoiceconfig">MultiSpeakerVoiceConfig</a></td>
+<td><b><i>(Public Preview)</i></b> Configuration for multi-speaker setup.</td>
+</tr>
+<tr>
+<td><a href="ai.objectschemarequest">ObjectSchemaRequest</a></td>
+<td>Interface for JSON parameters in a schema of <a href="ai#schematype">SchemaType</a> &quot;object&quot; when not using the <code>Schema.object()</code> helper.</td>
+</tr>
+<tr>
+<td><a href="ai.ondeviceparams">OnDeviceParams</a></td>
+<td>Encapsulates configuration for on-device inference.</td>
+</tr>
+<tr>
+<td><a href="ai.prebuiltvoiceconfig">PrebuiltVoiceConfig</a></td>
+<td><b><i>(Public Preview)</i></b> Configuration for a pre-built voice.</td>
+</tr>
+<tr>
+<td><a href="ai.promptfeedback">PromptFeedback</a></td>
+<td>If the prompt was blocked, this will be populated with <code>blockReason</code> and the relevant <code>safetyRatings</code>.</td>
+</tr>
+<tr>
+<td><a href="ai.requestoptions">RequestOptions</a></td>
+<td>Params passed to <a href="ai#getgenerativemodel_c63f46a">getGenerativeModel()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.retrievalconfig">RetrievalConfig</a></td>
+<td>Configuration options for data retrieval tools.</td>
+</tr>
+<tr>
+<td><a href="ai.retrievedcontextattribution">RetrievedContextAttribution</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.safetyrating">SafetyRating</a></td>
+<td>A safety rating associated with a <a href="ai.generatecontentcandidate">GenerateContentCandidate</a></td>
+</tr>
+<tr>
+<td><a href="ai.safetysetting">SafetySetting</a></td>
+<td>Safety setting that can be sent as part of request parameters.</td>
+</tr>
+<tr>
+<td><a href="ai.schemainterface">SchemaInterface</a></td>
+<td>Interface for <a href="ai.schema">Schema</a> class.</td>
+</tr>
+<tr>
+<td><a href="ai.schemaparams">SchemaParams</a></td>
+<td>Params passed to <a href="ai.schema">Schema</a> static methods to create specific <a href="ai.schema">Schema</a> classes.</td>
+</tr>
+<tr>
+<td><a href="ai.schemarequest">SchemaRequest</a></td>
+<td>Final format for <a href="ai.schema">Schema</a> params passed to backend requests.</td>
+</tr>
+<tr>
+<td><a href="ai.schemashared">SchemaShared</a></td>
+<td>Basic <a href="ai.schema">Schema</a> properties shared across several Schema-related types.</td>
+</tr>
+<tr>
+<td><a href="ai.searchentrypoint">SearchEntrypoint</a></td>
+<td>Google search entry point.</td>
+</tr>
+<tr>
+<td><a href="ai.segment">Segment</a></td>
+<td>Represents a specific segment within a <a href="ai.content">Content</a> object, often used to pinpoint the exact location of text or data that grounding information refers to.</td>
+</tr>
+<tr>
+<td><a href="ai.sessionresumptionconfig">SessionResumptionConfig</a></td>
+<td><b><i>(Public Preview)</i></b> Configuration for the session resumption mechanism.</td>
+</tr>
+<tr>
+<td><a href="ai.singlerequestoptions">SingleRequestOptions</a></td>
+<td>Options that can be provided per-request. Extends the base <a href="ai.requestoptions">RequestOptions</a> (like <code>timeout</code> and <code>baseUrl</code>) with request-specific controls like cancellation via <code>AbortSignal</code>.<!-- -->Options specified here will override any default <a href="ai.requestoptions">RequestOptions</a> configured on a model (for example, <a href="ai.generativemodel">GenerativeModel</a><!-- -->).</td>
+</tr>
+<tr>
+<td><a href="ai.singlespeakerspeechconfig">SingleSpeakerSpeechConfig</a></td>
+<td><b><i>(Public Preview)</i></b> Configuration for speech synthesis for a single speaker.</td>
+</tr>
+<tr>
+<td><a href="ai.slidingwindow">SlidingWindow</a></td>
+<td><b><i>(Public Preview)</i></b> Configures the sliding window context compression mechanism.</td>
+</tr>
+<tr>
+<td><a href="ai.speakervoiceconfig">SpeakerVoiceConfig</a></td>
+<td><b><i>(Public Preview)</i></b> Configuration for a single speaker&#39;s voice.</td>
+</tr>
+<tr>
+<td><a href="ai.startaudioconversationoptions">StartAudioConversationOptions</a></td>
+<td><b><i>(Public Preview)</i></b> Options for <a href="ai#startaudioconversation_01c8e7f">startAudioConversation()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.startchatparams">StartChatParams</a></td>
+<td>Params for <a href="ai.generativemodel#generativemodelstartchat">GenerativeModel.startChat()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.starttemplatechatparams">StartTemplateChatParams</a></td>
+<td><b><i>(Public Preview)</i></b> Parameters for starting a template-based chat session with <a href="ai.templategenerativemodel#templategenerativemodelstartchat">TemplateGenerativeModel.startChat()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.templatechatsession">TemplateChatSession</a></td>
+<td><b><i>(Public Preview)</i></b> Interface representing a chat session for use with server prompt templates that enables sending chat messages and maintains conversation history.</td>
+</tr>
+<tr>
+<td><a href="ai.templatefunctiondeclaration">TemplateFunctionDeclaration</a></td>
+<td><b><i>(Public Preview)</i></b> Structured representation of a template function declaration. Included in this declaration are the function name and parameters. This <code>TemplateFunctionDeclaration</code> is a representation of a block of code that can be used as a Tool by the model and executed by the client. Note: Template function declarations do not support description fields.</td>
+</tr>
+<tr>
+<td><a href="ai.templatefunctiondeclarationstool">TemplateFunctionDeclarationsTool</a></td>
+<td><b><i>(Public Preview)</i></b> A piece of code that enables the system to interact with external systems.</td>
+</tr>
+<tr>
+<td><a href="ai.templaterequest">TemplateRequest</a></td>
+<td><b><i>(Public Preview)</i></b> Request parameters for using a server prompt template with <a href="ai.templategenerativemodel#templategenerativemodelgeneratecontent">`TemplateGenerativeModel.generateContent()`</a> and <a href="ai.templategenerativemodel#templategenerativemodelgeneratecontentstream">`TemplateGenerativeModel.generateContentStream()`</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.templatetoolconfig">TemplateToolConfig</a></td>
+<td>Tool configuration for <code>TemplateGenerativeModel</code>s. This config is shared for all tools provided in the server prompt template request.</td>
+</tr>
+<tr>
+<td><a href="ai.textpart">TextPart</a></td>
+<td>Content part interface if the part represents a text string.</td>
+</tr>
+<tr>
+<td><a href="ai.thinkingconfig">ThinkingConfig</a></td>
+<td>Configuration for &quot;thinking&quot; behavior of compatible Gemini models.<!-- -->Certain models utilize a thinking process before generating a response. This allows them to reason through complex problems and plan a more coherent and accurate answer.</td>
+</tr>
+<tr>
+<td><a href="ai.toolconfig">ToolConfig</a></td>
+<td>Tool config. This config is shared for all tools provided in the request.</td>
+</tr>
+<tr>
+<td><a href="ai.transcription">Transcription</a></td>
+<td><b><i>(Public Preview)</i></b> Transcription of audio. This can be returned from a <a href="ai.livegenerativemodel">LiveGenerativeModel</a> if transcription is enabled with the <code>inputAudioTranscription</code> or <code>outputAudioTranscription</code> properties on the <a href="ai.livegenerationconfig">LiveGenerationConfig</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.urlcontext">URLContext</a></td>
+<td>Specifies the URL Context configuration.</td>
+</tr>
+<tr>
+<td><a href="ai.urlcontextmetadata">URLContextMetadata</a></td>
+<td>Metadata related to <a href="ai.urlcontexttool">URLContextTool</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.urlcontexttool">URLContextTool</a></td>
+<td>A tool that allows you to provide additional context to the models in the form of public web URLs. By including URLs in your request, the Gemini model will access the content from those pages to inform and enhance its response.</td>
+</tr>
+<tr>
+<td><a href="ai.urlmetadata">URLMetadata</a></td>
+<td>Metadata for a single URL retrieved by the <a href="ai.urlcontexttool">URLContextTool</a> tool.</td>
+</tr>
+<tr>
+<td><a href="ai.usagemetadata">UsageMetadata</a></td>
+<td>Usage metadata about a <a href="ai.generatecontentresponse">GenerateContentResponse</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.videometadata">VideoMetadata</a></td>
+<td>Describes the input video content.</td>
+</tr>
+<tr>
+<td><a href="ai.voiceconfig">VoiceConfig</a></td>
+<td><b><i>(Public Preview)</i></b> Configuration for the voice to be used for speech synthesis.</td>
+</tr>
+<tr>
+<td><a href="ai.webattribution">WebAttribution</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.webgroundingchunk">WebGroundingChunk</a></td>
+<td>A grounding chunk from the web.<!-- -->Important: If using Grounding with Google Search, you are required to comply with the <a href="https://cloud.google.com/terms/service-terms">Service Specific Terms</a> for &quot;Grounding with Google Search&quot;.</td>
+</tr>
+</tbody></table>
+<h2 id="variables">Variables</h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai#aierrorcode">AIErrorCode</a></td>
+<td>Standardized error codes that <a href="ai.aierror">AIError</a> can have.</td>
+</tr>
+<tr>
+<td><a href="ai#backendtype">BackendType</a></td>
+<td>An enum-like object containing constants that represent the supported backends for the Firebase AI SDK. This determines which backend service (Gemini Developer API or Agent Platform Gemini API) the SDK will communicate with.<!-- -->These values are assigned to the <code>backendType</code> property within the specific backend configuration objects (<a href="ai.googleaibackend">GoogleAIBackend</a> or <a href="ai.agentplatformbackend">AgentPlatformBackend</a><!-- -->) to identify which service to target.</td>
+</tr>
+<tr>
+<td><a href="ai#blockreason">BlockReason</a></td>
+<td>Reason that a prompt was blocked.</td>
+</tr>
+<tr>
+<td><a href="ai#finishreason">FinishReason</a></td>
+<td>Reason that a candidate finished.</td>
+</tr>
+<tr>
+<td><a href="ai#functioncallingmode">FunctionCallingMode</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai#harmblockmethod">HarmBlockMethod</a></td>
+<td>This property is not supported in the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->).</td>
+</tr>
+<tr>
+<td><a href="ai#harmblockthreshold">HarmBlockThreshold</a></td>
+<td>Threshold above which a prompt or candidate will be blocked.</td>
+</tr>
+<tr>
+<td><a href="ai#harmcategory">HarmCategory</a></td>
+<td>Harm categories that would cause prompts or candidates to be blocked.</td>
+</tr>
+<tr>
+<td><a href="ai#harmprobability">HarmProbability</a></td>
+<td>Probability that a prompt or candidate matches a harm category.</td>
+</tr>
+<tr>
+<td><a href="ai#harmseverity">HarmSeverity</a></td>
+<td>Harm severity levels.</td>
+</tr>
+<tr>
+<td><a href="ai#imageconfigaspectratio">ImageConfigAspectRatio</a></td>
+<td>Aspect ratios for generated images.</td>
+</tr>
+<tr>
+<td><a href="ai#imageconfigimagesize">ImageConfigImageSize</a></td>
+<td>Sizes for generated images. For example, &#39;1K&#39; is 1024px, &#39;2K&#39; is 2048px, and &#39;4K&#39; is 4096px.</td>
+</tr>
+<tr>
+<td><a href="ai#inferencemode">InferenceMode</a></td>
+<td>Determines whether inference happens on-device or in-cloud.</td>
+</tr>
+<tr>
+<td><a href="ai#inferencesource">InferenceSource</a></td>
+<td>Indicates whether inference happened on-device or in-cloud.</td>
+</tr>
+<tr>
+<td><a href="ai#language">Language</a></td>
+<td>The programming language of the code.</td>
+</tr>
+<tr>
+<td><a href="ai#liveresponsetype">LiveResponseType</a></td>
+<td><b><i>(Public Preview)</i></b> The types of responses that can be returned by <a href="ai.livesession#livesessionreceive">LiveSession.receive()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai#modality">Modality</a></td>
+<td>Content part modality.</td>
+</tr>
+<tr>
+<td><a href="ai#outcome">Outcome</a></td>
+<td>Represents the result of the code execution.</td>
+</tr>
+<tr>
+<td><a href="ai#possible_roles">POSSIBLE_ROLES</a></td>
+<td>Possible roles.</td>
+</tr>
+<tr>
+<td><a href="ai#responsemodality">ResponseModality</a></td>
+<td><b><i>(Public Preview)</i></b> Generation modalities to be returned in generation responses.</td>
+</tr>
+<tr>
+<td><a href="ai#schematype">SchemaType</a></td>
+<td>Contains the list of OpenAPI data types as defined by the <a href="https://swagger.io/docs/specification/data-models/data-types/">OpenAPI specification</a></td>
+</tr>
+<tr>
+<td><a href="ai#thinkinglevel">ThinkingLevel</a></td>
+<td>A preset that controls the model&#39;s &quot;thinking&quot; process. Use <code>ThinkingLevel.LOW</code> for faster responses on less complex tasks, and <code>ThinkingLevel.HIGH</code> for better reasoning on more complex tasks.</td>
+</tr>
+<tr>
+<td><a href="ai#urlretrievalstatus">URLRetrievalStatus</a></td>
+<td>The status of a URL retrieval.</td>
+</tr>
+</tbody></table>
+<h2 id="type-aliases">Type Aliases</h2>
+<table>
+<thead>
+<tr>
+<th>Type Alias</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai#aierrorcode">AIErrorCode</a></td>
+<td>Standardized error codes that <a href="ai.aierror">AIError</a> can have.</td>
+</tr>
+<tr>
+<td><a href="ai#backendtype">BackendType</a></td>
+<td>Type alias representing valid backend types. It should be either <code>'AGENT_PLATFORM'</code> or <code>'GOOGLE_AI'</code>.</td>
+</tr>
+<tr>
+<td><a href="ai#blockreason">BlockReason</a></td>
+<td>Reason that a prompt was blocked.</td>
+</tr>
+<tr>
+<td><a href="ai#finishreason">FinishReason</a></td>
+<td>Reason that a candidate finished.</td>
+</tr>
+<tr>
+<td><a href="ai#functioncallingmode">FunctionCallingMode</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai#harmblockmethod">HarmBlockMethod</a></td>
+<td>This property is not supported in the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->).</td>
+</tr>
+<tr>
+<td><a href="ai#harmblockthreshold">HarmBlockThreshold</a></td>
+<td>Threshold above which a prompt or candidate will be blocked.</td>
+</tr>
+<tr>
+<td><a href="ai#harmcategory">HarmCategory</a></td>
+<td>Harm categories that would cause prompts or candidates to be blocked.</td>
+</tr>
+<tr>
+<td><a href="ai#harmprobability">HarmProbability</a></td>
+<td>Probability that a prompt or candidate matches a harm category.</td>
+</tr>
+<tr>
+<td><a href="ai#harmseverity">HarmSeverity</a></td>
+<td>Harm severity levels.</td>
+</tr>
+<tr>
+<td><a href="ai#imageconfigaspectratio">ImageConfigAspectRatio</a></td>
+<td>Aspect ratios for generated images.</td>
+</tr>
+<tr>
+<td><a href="ai#imageconfigimagesize">ImageConfigImageSize</a></td>
+<td>Sizes for generated images.</td>
+</tr>
+<tr>
+<td><a href="ai#inferencemode">InferenceMode</a></td>
+<td>Determines whether inference happens on-device or in-cloud.</td>
+</tr>
+<tr>
+<td><a href="ai#inferencesource">InferenceSource</a></td>
+<td>Indicates whether inference happened on-device or in-cloud.</td>
+</tr>
+<tr>
+<td><a href="ai#language">Language</a></td>
+<td>The programming language of the code.</td>
+</tr>
+<tr>
+<td><a href="ai#languagemodelmessagecontentvalue">LanguageModelMessageContentValue</a></td>
+<td>Content formats that can be provided as on-device message content.</td>
+</tr>
+<tr>
+<td><a href="ai#languagemodelmessagerole">LanguageModelMessageRole</a></td>
+<td>Allowable roles for on-device language model usage.</td>
+</tr>
+<tr>
+<td><a href="ai#languagemodelmessagetype">LanguageModelMessageType</a></td>
+<td>Allowable types for on-device language model messages.</td>
+</tr>
+<tr>
+<td><a href="ai#liveresponsetype">LiveResponseType</a></td>
+<td><b><i>(Public Preview)</i></b> The types of responses that can be returned by <a href="ai.livesession#livesessionreceive">LiveSession.receive()</a><!-- -->. This is a property on all messages that can be used for type narrowing. This property is not returned by the server, it is assigned to a server message object once it&#39;s parsed.</td>
+</tr>
+<tr>
+<td><a href="ai#modality">Modality</a></td>
+<td>Content part modality.</td>
+</tr>
+<tr>
+<td><a href="ai#outcome">Outcome</a></td>
+<td>Represents the result of the code execution.</td>
+</tr>
+<tr>
+<td><a href="ai#part">Part</a></td>
+<td>Content part - includes text, image/video, or function call/response part types.</td>
+</tr>
+<tr>
+<td><a href="ai#responsemodality">ResponseModality</a></td>
+<td><b><i>(Public Preview)</i></b> Generation modalities to be returned in generation responses.</td>
+</tr>
+<tr>
+<td><a href="ai#role">Role</a></td>
+<td>Role is the producer of the content.</td>
+</tr>
+<tr>
+<td><a href="ai#schematype">SchemaType</a></td>
+<td>Contains the list of OpenAPI data types as defined by the <a href="https://swagger.io/docs/specification/data-models/data-types/">OpenAPI specification</a></td>
+</tr>
+<tr>
+<td><a href="ai#speechconfig">SpeechConfig</a></td>
+<td><b><i>(Public Preview)</i></b> Configures speech synthesis.</td>
+</tr>
+<tr>
+<td><a href="ai#templatetool">TemplateTool</a></td>
+<td><b><i>(Public Preview)</i></b> Defines a tool that a <a href="ai.templategenerativemodel">TemplateGenerativeModel</a> can call to access external knowledge. Only function declarations are currently supported for templates.</td>
+</tr>
+<tr>
+<td><a href="ai#thinkinglevel">ThinkingLevel</a></td>
+<td>A preset that controls the model&#39;s &quot;thinking&quot; process. Use <code>ThinkingLevel.LOW</code> for faster responses on less complex tasks, and <code>ThinkingLevel.HIGH</code> for better reasoning on more complex tasks.</td>
+</tr>
+<tr>
+<td><a href="ai#tool">Tool</a></td>
+<td>Defines a tool that model can call to access external knowledge.</td>
+</tr>
+<tr>
+<td><a href="ai#typedschema">TypedSchema</a></td>
+<td>A type that includes all specific Schema types.</td>
+</tr>
+<tr>
+<td><a href="ai#urlretrievalstatus">URLRetrievalStatus</a></td>
+<td>The status of a URL retrieval.</td>
+</tr>
+</tbody></table>
+<h2 id="functionapp-">function(app, ...)</h2>
+<h3 id="getai_a94a413">getAI(app, options)</h3>
+<p>Returns the default <a href="ai.ai">AI</a> instance that is associated with the provided <a href="app.firebaseapp">FirebaseApp</a><!-- -->. If no instance exists, initializes a new instance with the default settings.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getAI(app?: FirebaseApp, options?: AIOptions): AI;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>app</td>
+<td><a href="app.firebaseapp">FirebaseApp</a></td>
+<td>The <a href="app.firebaseapp">FirebaseApp</a> to use.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="ai.aioptions">AIOptions</a></td>
+<td><a href="ai.aioptions">AIOptions</a> that configure the AI instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="ai.ai">AI</a></p>
+<p>The default <a href="ai.ai">AI</a> instance for the given <a href="app.firebaseapp">FirebaseApp</a><!-- -->.</p>
+<h3 id="example-1">Example 1</h3>
+<pre data-language="javascript">const ai = getAI(app);</pre>
+<h3 id="example-2">Example 2</h3>
+<pre data-language="javascript">// Get an AI instance configured to use the Gemini Developer API (via Google AI).
+const ai = getAI(app, { backend: new GoogleAIBackend() });</pre>
+<h3 id="example-3">Example 3</h3>
+<pre data-language="javascript">// Get an AI instance configured to use the Agent Platform Gemini API.
+const ai = getAI(app, { backend: new AgentPlatformBackend() });</pre>
+<h2 id="functionai-">function(ai, ...)</h2>
+<h3 id="getgenerativemodel_c63f46a">getGenerativeModel(ai, modelParams, requestOptions)</h3>
+<p>Returns a <a href="ai.generativemodel">GenerativeModel</a> class with methods for inference and other functionality.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getGenerativeModel(ai: AI, modelParams: ModelParams | HybridParams, requestOptions?: RequestOptions): GenerativeModel;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ai</td>
+<td><a href="ai.ai">AI</a></td>
+<td></td>
+</tr>
+<tr>
+<td>modelParams</td>
+<td><a href="ai.modelparams">ModelParams</a> | <a href="ai.hybridparams">HybridParams</a></td>
+<td></td>
+</tr>
+<tr>
+<td>requestOptions</td>
+<td><a href="ai.requestoptions">RequestOptions</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="ai.generativemodel">GenerativeModel</a></p>
+<h3 id="getlivegenerativemodel_f2099ac">getLiveGenerativeModel(ai, modelParams)</h3>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Returns a <a href="ai.livegenerativemodel">LiveGenerativeModel</a> class for real-time, bidirectional communication.</p>
+<p>The Live API is only supported in modern browser windows and Node &gt;<!-- -->= 22.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getLiveGenerativeModel(ai: AI, modelParams: LiveModelParams): LiveGenerativeModel;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ai</td>
+<td><a href="ai.ai">AI</a></td>
+<td>An <a href="ai.ai">AI</a> instance.</td>
+</tr>
+<tr>
+<td>modelParams</td>
+<td><a href="ai.livemodelparams">LiveModelParams</a></td>
+<td>Parameters to use when setting up a <a href="ai.livesession">LiveSession</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="ai.livegenerativemodel">LiveGenerativeModel</a></p>
+<h4 id="exceptions">Exceptions</h4>
+<p>If the <code>apiKey</code> or <code>projectId</code> fields are missing in your Firebase config.</p>
+<h3 id="gettemplategenerativemodel_9476bbc">getTemplateGenerativeModel(ai, requestOptions)</h3>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Returns a <a href="ai.templategenerativemodel">TemplateGenerativeModel</a> class for executing server prompt templates.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getTemplateGenerativeModel(ai: AI, requestOptions?: RequestOptions): TemplateGenerativeModel;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ai</td>
+<td><a href="ai.ai">AI</a></td>
+<td>An <a href="ai.ai">AI</a> instance.</td>
+</tr>
+<tr>
+<td>requestOptions</td>
+<td><a href="ai.requestoptions">RequestOptions</a></td>
+<td>Additional options to use when making requests.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="ai.templategenerativemodel">TemplateGenerativeModel</a></p>
+<h2 id="functionlivesession-">function(liveSession, ...)</h2>
+<h3 id="startaudioconversation_01c8e7f">startAudioConversation(liveSession, options)</h3>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Starts a real-time, bidirectional audio conversation with the model. This helper function manages the complexities of microphone access, audio recording, playback, and interruptions.</p>
+<p>Important: This function must be called in response to a user gesture (for example, a button click) to comply with <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Best_practices#autoplay_policy">browser autoplay policies</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function startAudioConversation(liveSession: LiveSession, options?: StartAudioConversationOptions): Promise&lt;AudioConversationController&gt;;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>liveSession</td>
+<td><a href="ai.livesession">LiveSession</a></td>
+<td>An active <a href="ai.livesession">LiveSession</a> instance.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="ai.startaudioconversationoptions">StartAudioConversationOptions</a></td>
+<td>Configuration options for the audio conversation.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="ai.audioconversationcontroller">AudioConversationController</a><!-- -->&gt;</p>
+<p>A <code>Promise</code> that resolves with an <a href="ai.audioconversationcontroller">AudioConversationController</a><!-- -->.</p>
+<h4 id="exceptions-1">Exceptions</h4>
+<p><code>AIError</code> if the environment does not support required Web APIs (<code>UNSUPPORTED</code><!-- -->), if a conversation is already active (<code>REQUEST_ERROR</code><!-- -->), the session is closed (<code>SESSION_CLOSED</code><!-- -->), or if an unexpected initialization error occurs (<code>ERROR</code><!-- -->).</p>
+<p><code>DOMException</code> Thrown by <code>navigator.mediaDevices.getUserMedia()</code> if issues occur with microphone access, such as permissions being denied (<code>NotAllowedError</code><!-- -->) or no compatible hardware being found (<code>NotFoundError</code><!-- -->). See the <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia#exceptions">MDN documentation</a> for a full list of exceptions.</p>
+<h3 id="example">Example</h3>
+<pre data-language="javascript">const liveSession = await model.connect();
+let conversationController;
+
+// This function must be called from within a click handler.
+async function startConversation() {
+  try {
+    conversationController = await startAudioConversation(liveSession);
+  } catch (e) {
+    // Handle AI-specific errors
+    if (e instanceof AIError) {
+      console.error(&quot;AI Error:&quot;, e.message);
+    }
+    // Handle microphone permission and hardware errors
+    else if (e instanceof DOMException) {
+      console.error(&quot;Microphone Error:&quot;, e.message);
+    }
+    // Handle other unexpected errors
+    else {
+      console.error(&quot;An unexpected error occurred:&quot;, e);
+    }
+  }
+}
+
+// Later, to stop the conversation:
+// if (conversationController) {
+//   await conversationController.stop();
+// }</pre>
+<h2 id="aierrorcode">AIErrorCode</h2>
+<p>Standardized error codes that <a href="ai.aierror">AIError</a> can have.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">AIErrorCode: {
+    readonly ERROR: &quot;error&quot;;
+    readonly REQUEST_ERROR: &quot;request-error&quot;;
+    readonly RESPONSE_ERROR: &quot;response-error&quot;;
+    readonly FETCH_ERROR: &quot;fetch-error&quot;;
+    readonly SESSION_CLOSED: &quot;session-closed&quot;;
+    readonly INVALID_CONTENT: &quot;invalid-content&quot;;
+    readonly API_NOT_ENABLED: &quot;api-not-enabled&quot;;
+    readonly INVALID_SCHEMA: &quot;invalid-schema&quot;;
+    readonly NO_API_KEY: &quot;no-api-key&quot;;
+    readonly NO_APP_ID: &quot;no-app-id&quot;;
+    readonly NO_MODEL: &quot;no-model&quot;;
+    readonly NO_PROJECT_ID: &quot;no-project-id&quot;;
+    readonly PARSE_FAILED: &quot;parse-failed&quot;;
+    readonly UNSUPPORTED: &quot;unsupported&quot;;
+}</pre>
+<h2 id="backendtype">BackendType</h2>
+<p>An enum-like object containing constants that represent the supported backends for the Firebase AI SDK. This determines which backend service (Gemini Developer API or Agent Platform Gemini API) the SDK will communicate with.</p>
+<p>These values are assigned to the <code>backendType</code> property within the specific backend configuration objects (<a href="ai.googleaibackend">GoogleAIBackend</a> or <a href="ai.agentplatformbackend">AgentPlatformBackend</a><!-- -->) to identify which service to target.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">BackendType: {
+    readonly AGENT_PLATFORM: &quot;AGENT_PLATFORM&quot;;
+    readonly GOOGLE_AI: &quot;GOOGLE_AI&quot;;
+}</pre>
+<h2 id="blockreason">BlockReason</h2>
+<p>Reason that a prompt was blocked.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">BlockReason: {
+    readonly SAFETY: &quot;SAFETY&quot;;
+    readonly OTHER: &quot;OTHER&quot;;
+    readonly BLOCKLIST: &quot;BLOCKLIST&quot;;
+    readonly PROHIBITED_CONTENT: &quot;PROHIBITED_CONTENT&quot;;
+}</pre>
+<h2 id="finishreason">FinishReason</h2>
+<p>Reason that a candidate finished.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">FinishReason: {
+    readonly STOP: &quot;STOP&quot;;
+    readonly MAX_TOKENS: &quot;MAX_TOKENS&quot;;
+    readonly SAFETY: &quot;SAFETY&quot;;
+    readonly RECITATION: &quot;RECITATION&quot;;
+    readonly OTHER: &quot;OTHER&quot;;
+    readonly BLOCKLIST: &quot;BLOCKLIST&quot;;
+    readonly PROHIBITED_CONTENT: &quot;PROHIBITED_CONTENT&quot;;
+    readonly SPII: &quot;SPII&quot;;
+    readonly MALFORMED_FUNCTION_CALL: &quot;MALFORMED_FUNCTION_CALL&quot;;
+    readonly IMAGE_SAFETY: &quot;IMAGE_SAFETY&quot;;
+    readonly IMAGE_PROHIBITED_CONTENT: &quot;IMAGE_PROHIBITED_CONTENT&quot;;
+    readonly IMAGE_OTHER: &quot;IMAGE_OTHER&quot;;
+    readonly NO_IMAGE: &quot;NO_IMAGE&quot;;
+    readonly IMAGE_RECITATION: &quot;IMAGE_RECITATION&quot;;
+    readonly LANGUAGE: &quot;LANGUAGE&quot;;
+    readonly UNEXPECTED_TOOL_CALL: &quot;UNEXPECTED_TOOL_CALL&quot;;
+    readonly TOO_MANY_TOOL_CALLS: &quot;TOO_MANY_TOOL_CALLS&quot;;
+    readonly MISSING_THOUGHT_SIGNATURE: &quot;MISSING_THOUGHT_SIGNATURE&quot;;
+    readonly MALFORMED_RESPONSE: &quot;MALFORMED_RESPONSE&quot;;
+}</pre>
+<h2 id="functioncallingmode">FunctionCallingMode</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">FunctionCallingMode: {
+    readonly AUTO: &quot;AUTO&quot;;
+    readonly ANY: &quot;ANY&quot;;
+    readonly NONE: &quot;NONE&quot;;
+}</pre>
+<h2 id="harmblockmethod">HarmBlockMethod</h2>
+<p>This property is not supported in the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">HarmBlockMethod: {
+    readonly SEVERITY: &quot;SEVERITY&quot;;
+    readonly PROBABILITY: &quot;PROBABILITY&quot;;
+}</pre>
+<h2 id="harmblockthreshold">HarmBlockThreshold</h2>
+<p>Threshold above which a prompt or candidate will be blocked.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">HarmBlockThreshold: {
+    readonly BLOCK_LOW_AND_ABOVE: &quot;BLOCK_LOW_AND_ABOVE&quot;;
+    readonly BLOCK_MEDIUM_AND_ABOVE: &quot;BLOCK_MEDIUM_AND_ABOVE&quot;;
+    readonly BLOCK_ONLY_HIGH: &quot;BLOCK_ONLY_HIGH&quot;;
+    readonly BLOCK_NONE: &quot;BLOCK_NONE&quot;;
+    readonly OFF: &quot;OFF&quot;;
+}</pre>
+<h2 id="harmcategory">HarmCategory</h2>
+<p>Harm categories that would cause prompts or candidates to be blocked.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">HarmCategory: {
+    readonly HARM_CATEGORY_HATE_SPEECH: &quot;HARM_CATEGORY_HATE_SPEECH&quot;;
+    readonly HARM_CATEGORY_SEXUALLY_EXPLICIT: &quot;HARM_CATEGORY_SEXUALLY_EXPLICIT&quot;;
+    readonly HARM_CATEGORY_HARASSMENT: &quot;HARM_CATEGORY_HARASSMENT&quot;;
+    readonly HARM_CATEGORY_DANGEROUS_CONTENT: &quot;HARM_CATEGORY_DANGEROUS_CONTENT&quot;;
+}</pre>
+<h2 id="harmprobability">HarmProbability</h2>
+<p>Probability that a prompt or candidate matches a harm category.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">HarmProbability: {
+    readonly NEGLIGIBLE: &quot;NEGLIGIBLE&quot;;
+    readonly LOW: &quot;LOW&quot;;
+    readonly MEDIUM: &quot;MEDIUM&quot;;
+    readonly HIGH: &quot;HIGH&quot;;
+}</pre>
+<h2 id="harmseverity">HarmSeverity</h2>
+<p>Harm severity levels.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">HarmSeverity: {
+    readonly HARM_SEVERITY_NEGLIGIBLE: &quot;HARM_SEVERITY_NEGLIGIBLE&quot;;
+    readonly HARM_SEVERITY_LOW: &quot;HARM_SEVERITY_LOW&quot;;
+    readonly HARM_SEVERITY_MEDIUM: &quot;HARM_SEVERITY_MEDIUM&quot;;
+    readonly HARM_SEVERITY_HIGH: &quot;HARM_SEVERITY_HIGH&quot;;
+    readonly HARM_SEVERITY_UNSUPPORTED: &quot;HARM_SEVERITY_UNSUPPORTED&quot;;
+}</pre>
+<h2 id="imageconfigaspectratio">ImageConfigAspectRatio</h2>
+<p>Aspect ratios for generated images.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">ImageConfigAspectRatio: {
+    readonly SQUARE_1x1: &quot;1:1&quot;;
+    readonly PORTRAIT_9x16: &quot;9:16&quot;;
+    readonly LANDSCAPE_16x9: &quot;16:9&quot;;
+    readonly PORTRAIT_3x4: &quot;3:4&quot;;
+    readonly LANDSCAPE_4x3: &quot;4:3&quot;;
+    readonly PORTRAIT_2x3: &quot;2:3&quot;;
+    readonly LANDSCAPE_3x2: &quot;3:2&quot;;
+    readonly PORTRAIT_4x5: &quot;4:5&quot;;
+    readonly LANDSCAPE_5x4: &quot;5:4&quot;;
+    readonly PORTRAIT_1x4: &quot;1:4&quot;;
+    readonly LANDSCAPE_4x1: &quot;4:1&quot;;
+    readonly PORTRAIT_1x8: &quot;1:8&quot;;
+    readonly LANDSCAPE_8x1: &quot;8:1&quot;;
+    readonly ULTRAWIDE_21x9: &quot;21:9&quot;;
+}</pre>
+<h2 id="imageconfigimagesize">ImageConfigImageSize</h2>
+<p>Sizes for generated images. For example, &#39;1K&#39; is 1024px, &#39;2K&#39; is 2048px, and &#39;4K&#39; is 4096px.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">ImageConfigImageSize: {
+    readonly SIZE_512: &quot;512&quot;;
+    readonly SIZE_1K: &quot;1K&quot;;
+    readonly SIZE_2K: &quot;2K&quot;;
+    readonly SIZE_4K: &quot;4K&quot;;
+}</pre>
+<h2 id="inferencemode">InferenceMode</h2>
+<p>Determines whether inference happens on-device or in-cloud.</p>
+<p><b>PREFER_ON_DEVICE:</b> Attempt to make inference calls using an on-device model. If on-device inference is not available, the SDK will fall back to using a cloud-hosted model. <br/> <b>ONLY_ON_DEVICE:</b> Only attempt to make inference calls using an on-device model. The SDK will not fall back to a cloud-hosted model. If on-device inference is not available, inference methods will throw. <br/> <b>ONLY_IN_CLOUD:</b> Only attempt to make inference calls using a cloud-hosted model. The SDK will not fall back to an on-device model. <br/> <b>PREFER_IN_CLOUD:</b> Attempt to make inference calls to a cloud-hosted model. If not available, the SDK will fall back to an on-device model.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">InferenceMode: {
+    readonly PREFER_ON_DEVICE: &quot;prefer_on_device&quot;;
+    readonly ONLY_ON_DEVICE: &quot;only_on_device&quot;;
+    readonly ONLY_IN_CLOUD: &quot;only_in_cloud&quot;;
+    readonly PREFER_IN_CLOUD: &quot;prefer_in_cloud&quot;;
+}</pre>
+<h2 id="inferencesource">InferenceSource</h2>
+<p>Indicates whether inference happened on-device or in-cloud.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">InferenceSource: {
+    readonly ON_DEVICE: &quot;on_device&quot;;
+    readonly IN_CLOUD: &quot;in_cloud&quot;;
+}</pre>
+<h2 id="language">Language</h2>
+<p>The programming language of the code.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">Language: {
+    UNSPECIFIED: string;
+    PYTHON: string;
+}</pre>
+<h2 id="liveresponsetype">LiveResponseType</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The types of responses that can be returned by <a href="ai.livesession#livesessionreceive">LiveSession.receive()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">LiveResponseType: {
+    SERVER_CONTENT: string;
+    TOOL_CALL: string;
+    TOOL_CALL_CANCELLATION: string;
+    GOING_AWAY_NOTICE: string;
+    SESSION_RESUMPTION_UPDATE: string;
+}</pre>
+<h2 id="modality">Modality</h2>
+<p>Content part modality.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">Modality: {
+    readonly MODALITY_UNSPECIFIED: &quot;MODALITY_UNSPECIFIED&quot;;
+    readonly TEXT: &quot;TEXT&quot;;
+    readonly IMAGE: &quot;IMAGE&quot;;
+    readonly VIDEO: &quot;VIDEO&quot;;
+    readonly AUDIO: &quot;AUDIO&quot;;
+    readonly DOCUMENT: &quot;DOCUMENT&quot;;
+}</pre>
+<h2 id="outcome">Outcome</h2>
+<p>Represents the result of the code execution.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">Outcome: {
+    UNSPECIFIED: string;
+    OK: string;
+    FAILED: string;
+    DEADLINE_EXCEEDED: string;
+}</pre>
+<h2 id="possible_roles">POSSIBLE_ROLES</h2>
+<p>Possible roles.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">POSSIBLE_ROLES: readonly [&quot;user&quot;, &quot;model&quot;, &quot;function&quot;, &quot;system&quot;]</pre>
+<h2 id="responsemodality">ResponseModality</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Generation modalities to be returned in generation responses.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">ResponseModality: {
+    readonly TEXT: &quot;TEXT&quot;;
+    readonly IMAGE: &quot;IMAGE&quot;;
+    readonly AUDIO: &quot;AUDIO&quot;;
+}</pre>
+<h2 id="schematype">SchemaType</h2>
+<p>Contains the list of OpenAPI data types as defined by the <a href="https://swagger.io/docs/specification/data-models/data-types/">OpenAPI specification</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">SchemaType: {
+    readonly STRING: &quot;string&quot;;
+    readonly NUMBER: &quot;number&quot;;
+    readonly INTEGER: &quot;integer&quot;;
+    readonly BOOLEAN: &quot;boolean&quot;;
+    readonly ARRAY: &quot;array&quot;;
+    readonly OBJECT: &quot;object&quot;;
+}</pre>
+<h2 id="thinkinglevel">ThinkingLevel</h2>
+<p>A preset that controls the model&#39;s &quot;thinking&quot; process. Use <code>ThinkingLevel.LOW</code> for faster responses on less complex tasks, and <code>ThinkingLevel.HIGH</code> for better reasoning on more complex tasks.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">ThinkingLevel: {
+    MINIMAL: string;
+    LOW: string;
+    MEDIUM: string;
+    HIGH: string;
+}</pre>
+<h2 id="urlretrievalstatus">URLRetrievalStatus</h2>
+<p>The status of a URL retrieval.</p>
+<p><b>URL_RETRIEVAL_STATUS_UNSPECIFIED:</b> Unspecified retrieval status. <br/> <b>URL_RETRIEVAL_STATUS_SUCCESS:</b> The URL retrieval was successful. <br/> <b>URL_RETRIEVAL_STATUS_ERROR:</b> The URL retrieval failed. <br/> <b>URL_RETRIEVAL_STATUS_PAYWALL:</b> The URL retrieval failed because the content is behind a paywall. <br/> <b>URL_RETRIEVAL_STATUS_UNSAFE:</b> The URL retrieval failed because the content is unsafe. <br/></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">URLRetrievalStatus: {
+    URL_RETRIEVAL_STATUS_UNSPECIFIED: string;
+    URL_RETRIEVAL_STATUS_SUCCESS: string;
+    URL_RETRIEVAL_STATUS_ERROR: string;
+    URL_RETRIEVAL_STATUS_PAYWALL: string;
+    URL_RETRIEVAL_STATUS_UNSAFE: string;
+}</pre>
+<h2 id="aierrorcode-1">AIErrorCode</h2>
+<p>Standardized error codes that <a href="ai.aierror">AIError</a> can have.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type AIErrorCode = (typeof AIErrorCode)[keyof typeof AIErrorCode];</pre>
+<h2 id="backendtype-1">BackendType</h2>
+<p>Type alias representing valid backend types. It should be either <code>&#39;AGENT_PLATFORM&#39;</code> or <code>&#39;GOOGLE_AI&#39;</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type BackendType = (typeof BackendType)[keyof typeof BackendType];</pre>
+<h2 id="blockreason-1">BlockReason</h2>
+<p>Reason that a prompt was blocked.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type BlockReason = (typeof BlockReason)[keyof typeof BlockReason];</pre>
+<h2 id="finishreason-1">FinishReason</h2>
+<p>Reason that a candidate finished.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type FinishReason = (typeof FinishReason)[keyof typeof FinishReason];</pre>
+<h2 id="functioncallingmode-1">FunctionCallingMode</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type FunctionCallingMode = (typeof FunctionCallingMode)[keyof typeof FunctionCallingMode];</pre>
+<h2 id="harmblockmethod-1">HarmBlockMethod</h2>
+<p>This property is not supported in the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type HarmBlockMethod = (typeof HarmBlockMethod)[keyof typeof HarmBlockMethod];</pre>
+<h2 id="harmblockthreshold-1">HarmBlockThreshold</h2>
+<p>Threshold above which a prompt or candidate will be blocked.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type HarmBlockThreshold = (typeof HarmBlockThreshold)[keyof typeof HarmBlockThreshold];</pre>
+<h2 id="harmcategory-1">HarmCategory</h2>
+<p>Harm categories that would cause prompts or candidates to be blocked.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type HarmCategory = (typeof HarmCategory)[keyof typeof HarmCategory];</pre>
+<h2 id="harmprobability-1">HarmProbability</h2>
+<p>Probability that a prompt or candidate matches a harm category.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type HarmProbability = (typeof HarmProbability)[keyof typeof HarmProbability];</pre>
+<h2 id="harmseverity-1">HarmSeverity</h2>
+<p>Harm severity levels.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type HarmSeverity = (typeof HarmSeverity)[keyof typeof HarmSeverity];</pre>
+<h2 id="imageconfigaspectratio-1">ImageConfigAspectRatio</h2>
+<p>Aspect ratios for generated images.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type ImageConfigAspectRatio = (typeof ImageConfigAspectRatio)[keyof typeof ImageConfigAspectRatio];</pre>
+<h2 id="imageconfigimagesize-1">ImageConfigImageSize</h2>
+<p>Sizes for generated images.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type ImageConfigImageSize = (typeof ImageConfigImageSize)[keyof typeof ImageConfigImageSize];</pre>
+<h2 id="inferencemode-1">InferenceMode</h2>
+<p>Determines whether inference happens on-device or in-cloud.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type InferenceMode = (typeof InferenceMode)[keyof typeof InferenceMode];</pre>
+<h2 id="inferencesource-1">InferenceSource</h2>
+<p>Indicates whether inference happened on-device or in-cloud.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type InferenceSource = (typeof InferenceSource)[keyof typeof InferenceSource];</pre>
+<h2 id="language-1">Language</h2>
+<p>The programming language of the code.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type Language = (typeof Language)[keyof typeof Language];</pre>
+<h2 id="languagemodelmessagecontentvalue">LanguageModelMessageContentValue</h2>
+<p>Content formats that can be provided as on-device message content.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type LanguageModelMessageContentValue = ImageBitmapSource | AudioBuffer | BufferSource | string;</pre>
+<h2 id="languagemodelmessagerole">LanguageModelMessageRole</h2>
+<p>Allowable roles for on-device language model usage.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type LanguageModelMessageRole = 'system' | 'user' | 'assistant';</pre>
+<h2 id="languagemodelmessagetype">LanguageModelMessageType</h2>
+<p>Allowable types for on-device language model messages.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type LanguageModelMessageType = 'text' | 'image' | 'audio';</pre>
+<h2 id="liveresponsetype-1">LiveResponseType</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The types of responses that can be returned by <a href="ai.livesession#livesessionreceive">LiveSession.receive()</a><!-- -->. This is a property on all messages that can be used for type narrowing. This property is not returned by the server, it is assigned to a server message object once it&#39;s parsed.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type LiveResponseType = (typeof LiveResponseType)[keyof typeof LiveResponseType];</pre>
+<h2 id="modality-1">Modality</h2>
+<p>Content part modality.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type Modality = (typeof Modality)[keyof typeof Modality];</pre>
+<h2 id="outcome-1">Outcome</h2>
+<p>Represents the result of the code execution.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type Outcome = (typeof Outcome)[keyof typeof Outcome];</pre>
+<h2 id="part">Part</h2>
+<p>Content part - includes text, image/video, or function call/response part types.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type Part = TextPart | InlineDataPart | FunctionCallPart | FunctionResponsePart | FileDataPart | ExecutableCodePart | CodeExecutionResultPart;</pre>
+<h2 id="responsemodality-1">ResponseModality</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Generation modalities to be returned in generation responses.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type ResponseModality = (typeof ResponseModality)[keyof typeof ResponseModality];</pre>
+<h2 id="role">Role</h2>
+<p>Role is the producer of the content.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type Role = (typeof POSSIBLE_ROLES)[number];</pre>
+<h2 id="schematype-1">SchemaType</h2>
+<p>Contains the list of OpenAPI data types as defined by the <a href="https://swagger.io/docs/specification/data-models/data-types/">OpenAPI specification</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type SchemaType = (typeof SchemaType)[keyof typeof SchemaType];</pre>
+<h2 id="speechconfig">SpeechConfig</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Configures speech synthesis.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type SpeechConfig = SingleSpeakerSpeechConfig | MultiSpeakerSpeechConfig;</pre>
+<h2 id="templatetool">TemplateTool</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Defines a tool that a <a href="ai.templategenerativemodel">TemplateGenerativeModel</a> can call to access external knowledge. Only function declarations are currently supported for templates.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type TemplateTool = TemplateFunctionDeclarationsTool;</pre>
+<h2 id="thinkinglevel-1">ThinkingLevel</h2>
+<p>A preset that controls the model&#39;s &quot;thinking&quot; process. Use <code>ThinkingLevel.LOW</code> for faster responses on less complex tasks, and <code>ThinkingLevel.HIGH</code> for better reasoning on more complex tasks.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type ThinkingLevel = (typeof ThinkingLevel)[keyof typeof ThinkingLevel];</pre>
+<h2 id="tool">Tool</h2>
+<p>Defines a tool that model can call to access external knowledge.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type Tool = FunctionDeclarationsTool | GoogleMapsTool | GoogleSearchTool | CodeExecutionTool | URLContextTool;</pre>
+<h2 id="typedschema">TypedSchema</h2>
+<p>A type that includes all specific Schema types.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type TypedSchema = IntegerSchema | NumberSchema | StringSchema | BooleanSchema | ObjectSchema | ArraySchema | AnyOfSchema;</pre>
+<h2 id="urlretrievalstatus-1">URLRetrievalStatus</h2>
+<p>The status of a URL retrieval.</p>
+<p><b>URL_RETRIEVAL_STATUS_UNSPECIFIED:</b> Unspecified retrieval status. <br/> <b>URL_RETRIEVAL_STATUS_SUCCESS:</b> The URL retrieval was successful. <br/> <b>URL_RETRIEVAL_STATUS_ERROR:</b> The URL retrieval failed. <br/> <b>URL_RETRIEVAL_STATUS_PAYWALL:</b> The URL retrieval failed because the content is behind a paywall. <br/> <b>URL_RETRIEVAL_STATUS_UNSAFE:</b> The URL retrieval failed because the content is unsafe. <br/></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type URLRetrievalStatus = (typeof URLRetrievalStatus)[keyof typeof URLRetrievalStatus];</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai</a>
+  </p>
+</div>

@@ -1,0 +1,136 @@
+<h1>CollectionReference class</h1>
+<p>A <code>CollectionReference</code> object can be used for adding documents, getting document references, and querying for documents (using <a href="firestore_lite#query_9f7b0f4">query()</a><!-- -->).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class CollectionReference&lt;
+  AppModelType = DocumentData,
+  DbModelType extends DocumentData = DocumentData
+&gt; extends Query&lt;AppModelType, DbModelType&gt; </pre>
+<p><b>Extends:</b> <a href="firestore_lite.query">Query</a><!-- -->&lt;AppModelType, DbModelType&gt;</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite.collectionreference#collectionreferenceid">id</a></td>
+<td></td>
+<td>string</td>
+<td>The collection&#39;s identifier.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.collectionreference#collectionreferenceparent">parent</a></td>
+<td></td>
+<td><a href="firestore_lite.documentreference">DocumentReference</a><!-- -->&lt;<a href="firestore_lite.documentdata">DocumentData</a><!-- -->, <a href="firestore_lite.documentdata">DocumentData</a><!-- -->&gt; | null</td>
+<td>A reference to the containing <code>DocumentReference</code> if this is a subcollection. If this isn&#39;t a subcollection, the reference is null.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.collectionreference#collectionreferencepath">path</a></td>
+<td></td>
+<td>string</td>
+<td>A string representing the path of the referenced collection (relative to the root of the database).</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.collectionreference#collectionreferencetype">type</a></td>
+<td></td>
+<td>(not declared)</td>
+<td>The type of this Firestore reference.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite.collectionreference#collectionreferencewithconverter">withConverter(converter)</a></td>
+<td></td>
+<td>Applies a custom data converter to this <code>CollectionReference</code>, allowing you to use your own custom model objects with Firestore. When you call <a href="firestore_lite#adddoc_6e783ff">addDoc()</a> with the returned <code>CollectionReference</code> instance, the provided converter will convert between Firestore data of type <code>NewDbModelType</code> and your custom type <code>NewAppModelType</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.collectionreference#collectionreferencewithconverter">withConverter(converter)</a></td>
+<td></td>
+<td>Removes the current converter.</td>
+</tr>
+</tbody></table>
+<h2 id="collectionreferenceid">CollectionReference.id</h2>
+<p>The collection&#39;s identifier.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get id(): string;</pre>
+<h2 id="collectionreferenceparent">CollectionReference.parent</h2>
+<p>A reference to the containing <code>DocumentReference</code> if this is a subcollection. If this isn&#39;t a subcollection, the reference is null.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get parent(): DocumentReference&lt;DocumentData, DocumentData&gt; | null;</pre>
+<h2 id="collectionreferencepath">CollectionReference.path</h2>
+<p>A string representing the path of the referenced collection (relative to the root of the database).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get path(): string;</pre>
+<h2 id="collectionreferencetype">CollectionReference.type</h2>
+<p>The type of this Firestore reference.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly type = 'collection';</pre>
+<h2 id="collectionreferencewithconverter">CollectionReference.withConverter()</h2>
+<p>Applies a custom data converter to this <code>CollectionReference</code><!-- -->, allowing you to use your own custom model objects with Firestore. When you call <a href="firestore_lite#adddoc_6e783ff">addDoc()</a> with the returned <code>CollectionReference</code> instance, the provided converter will convert between Firestore data of type <code>NewDbModelType</code> and your custom type <code>NewAppModelType</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">withConverter&lt;
+    NewAppModelType,
+    NewDbModelType extends DocumentData = DocumentData
+  &gt;(
+    converter: FirestoreDataConverter&lt;NewAppModelType, NewDbModelType&gt;
+  ): CollectionReference&lt;NewAppModelType, NewDbModelType&gt;;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>converter</td>
+<td><a href="firestore_lite.firestoredataconverter">FirestoreDataConverter</a><!-- -->&lt;NewAppModelType, NewDbModelType&gt;</td>
+<td>Converts objects to and from Firestore.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.collectionreference">CollectionReference</a><!-- -->&lt;NewAppModelType, NewDbModelType&gt;</p>
+<p>A <code>CollectionReference</code> that uses the provided converter.</p>
+<h2 id="collectionreferencewithconverter-1">CollectionReference.withConverter()</h2>
+<p>Removes the current converter.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">withConverter(
+    converter: null
+  ): CollectionReference&lt;DocumentData, DocumentData&gt;;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>converter</td>
+<td>null</td>
+<td><code>null</code> removes the current converter.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.collectionreference">CollectionReference</a><!-- -->&lt;<a href="firestore_lite.documentdata">DocumentData</a><!-- -->, <a href="firestore_lite.documentdata">DocumentData</a><!-- -->&gt;</p>
+<p>A <code>CollectionReference&lt;DocumentData, DocumentData&gt;</code> that does not use a converter.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_lite.collectionreference" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_lite.collectionreference</a>
+  </p>
+</div>

@@ -1,0 +1,105 @@
+<h1>@firebase/crashlytics/react-router</h1>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="crashlytics_react-router#crashlyticsroutes_db8200c">CrashlyticsRoutes({ firebaseApp, crashlyticsOptions, children, ...props }, input)</a></td>
+<td><b><i>(Public Preview)</i></b> A wrapper around <code>Routes</code> from <code>react-router-dom</code> that automatically captures errors in route components.<!-- -->This component acts as a replacement for <code>Routes</code> from <code>react-router-dom</code>. It wraps the routes in an error boundary that captures errors thrown during rendering and reports them to Crashlytics. The error boundary is reset on navigation (path changes).</td>
+</tr>
+</tbody></table>
+<h2 id="interfaces">Interfaces</h2>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="crashlytics_react-router.crashlytics">Crashlytics</a></td>
+<td><b><i>(Public Preview)</i></b> An instance of the Firebase Crashlytics SDK.<!-- -->Do not create this instance directly. Instead, use <a href="crashlytics#getcrashlytics_a9d22a1">getCrashlytics()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="crashlytics_react-router.crashlyticsfeature">CrashlyticsFeature</a></td>
+<td><b>(EXPERIMENTAL)</b> An opaque feature plugin object returned by Crashlytics feature factory functions such as <a href="crashlytics#breadcrumbs">breadcrumbs()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="crashlytics_react-router.crashlyticsoptions">CrashlyticsOptions</a></td>
+<td><b><i>(Public Preview)</i></b> Options for initializing the Crashlytics service using <a href="crashlytics#getcrashlytics_a9d22a1">getCrashlytics()</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="function-firebaseapp-crashlyticsoptions-children-props--">function({ firebaseApp, crashlyticsOptions, children, ...props }, ...)</h2>
+<h3 id="crashlyticsroutes_db8200c">CrashlyticsRoutes({ firebaseApp, crashlyticsOptions, children, ...props }, input)</h3>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>A wrapper around <code>Routes</code> from <code>react-router-dom</code> that automatically captures errors in route components.</p>
+<p>This component acts as a replacement for <code>Routes</code> from <code>react-router-dom</code><!-- -->. It wraps the routes in an error boundary that captures errors thrown during rendering and reports them to Crashlytics. The error boundary is reset on navigation (path changes).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function CrashlyticsRoutes(input: RoutesProps &amp; {
+    firebaseApp: FirebaseApp;
+    crashlyticsOptions?: CrashlyticsOptions;
+}): React.ReactElement | null;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>{ firebaseApp, crashlyticsOptions, children, ...props }</td>
+<td>(not declared)</td>
+<td></td>
+</tr>
+<tr>
+<td>input</td>
+<td>RoutesProps &amp; { firebaseApp: <a href="app.firebaseapp">FirebaseApp</a><!-- -->; crashlyticsOptions?: <a href="crashlytics_react-router.crashlyticsoptions">CrashlyticsOptions</a><!-- -->; }</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>React.ReactElement | null</p>
+<p>The rendered routes wrapped in an error boundary.</p>
+<h3 id="example">Example</h3>
+<pre data-language="tsx">import { useEffect, useState } from &quot;react&quot;;
+import { CrashlyticsRoutes } from &quot;firebase/crashlytics/react-router&quot;;
+import { FirebaseApp, initializeApp } from &quot;firebase/app&quot;;
+
+export default function MyApp() {
+  const [app, setApp] = useState&lt;FirebaseApp | null&gt;(null);
+
+  useEffect(() =&gt; {
+    if (getApps().length === 0) {
+      const newApp = initializeApp({...});
+      setApp(newApp);
+    } else {
+      setApp(getApp());
+    }
+  }, []);
+
+  return (
+    &lt;&gt;
+      {app &amp;&amp; (
+        &lt;CrashlyticsRoutes firebaseApp={app}&gt;
+          &lt;Route path=&quot;/&quot; element={&lt;Home /&gt;} /&gt;
+          &lt;Route path=&quot;/about&quot; element={&lt;About /&gt;} /&gt;
+        &lt;/CrashlyticsRoutes&gt;
+      )}
+      ...
+    &lt;/&gt;
+  );
+}</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/crashlytics_react-router" class="_attribution-link">https://firebase.google.com/docs/reference/js/crashlytics_react-router</a>
+  </p>
+</div>

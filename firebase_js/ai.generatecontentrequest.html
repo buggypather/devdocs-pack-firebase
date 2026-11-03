@@ -1,0 +1,53 @@
+<h1>GenerateContentRequest interface</h1>
+<p>Request sent through <a href="ai.generativemodel#generativemodelgeneratecontent">GenerativeModel.generateContent()</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface GenerateContentRequest extends BaseParams </pre>
+<p><b>Extends:</b> <a href="ai.baseparams">BaseParams</a></p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.generatecontentrequest#generatecontentrequestcontents">contents</a></td>
+<td><a href="ai.content">Content</a><!-- -->[]</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generatecontentrequest#generatecontentrequestsysteminstruction">systemInstruction</a></td>
+<td>string | <a href="ai#part">Part</a> | <a href="ai.content">Content</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generatecontentrequest#generatecontentrequesttoolconfig">toolConfig</a></td>
+<td><a href="ai.toolconfig">ToolConfig</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.generatecontentrequest#generatecontentrequesttools">tools</a></td>
+<td><a href="ai#tool">Tool</a><!-- -->[]</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="generatecontentrequestcontents">GenerateContentRequest.contents</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">contents: Content[];</pre>
+<h2 id="generatecontentrequestsysteminstruction">GenerateContentRequest.systemInstruction</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">systemInstruction?: string | Part | Content;</pre>
+<h2 id="generatecontentrequesttoolconfig">GenerateContentRequest.toolConfig</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">toolConfig?: ToolConfig;</pre>
+<h2 id="generatecontentrequesttools">GenerateContentRequest.tools</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">tools?: Tool[];</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.generatecontentrequest" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.generatecontentrequest</a>
+  </p>
+</div>

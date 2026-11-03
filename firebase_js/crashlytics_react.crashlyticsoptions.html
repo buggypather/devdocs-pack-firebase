@@ -1,0 +1,116 @@
+<h1>CrashlyticsOptions interface</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Options for initializing the Crashlytics service using <a href="crashlytics#getcrashlytics_a9d22a1">getCrashlytics()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface CrashlyticsOptions </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="crashlytics_react.crashlyticsoptions#crashlyticsoptionsappversion">appVersion</a></td>
+<td>string</td>
+<td><b><i>(Public Preview)</i></b> The version of the application. This should be a unique string that identifies the snapshot of code to be deployed, such as &quot;1.0.2&quot;. If not specified, other default locations will be checked for an identifier. Setting a value here takes precedence over any other values.</td>
+</tr>
+<tr>
+<td><a href="crashlytics_react.crashlyticsoptions#crashlyticsoptionscaptureunhandlederrors">captureUnhandledErrors</a></td>
+<td>boolean</td>
+<td><b><i>(Public Preview)</i></b> Automatically capture uncaught browser exceptions (&#39;error&#39; and &#39;unhandledrejection&#39; window events).<!-- -->Defaults to <code>true</code>.</td>
+</tr>
+<tr>
+<td><a href="crashlytics_react.crashlyticsoptions#crashlyticsoptionscustomattributes">customAttributes</a></td>
+<td>AnyValueMap</td>
+<td><b><i>(Public Preview)</i></b> Base set of custom attributes to send with automatic error collection. Key-value pairs defined here will be sent with all error logs. If custom attributes are also specified in <code>recordError()</code> or <code>log()</code>, those values will take precedence over the base set defined here.</td>
+</tr>
+<tr>
+<td><a href="crashlytics_react.crashlyticsoptions#crashlyticsoptionsendpointurl">endpointUrl</a></td>
+<td>string</td>
+<td><b><i>(Public Preview)</i></b> The URL for the endpoint to which Crashlytics data should be sent, in the OpenTelemetry format. By default, data will be sent to Firebase.</td>
+</tr>
+<tr>
+<td><a href="crashlytics_react.crashlyticsoptions#crashlyticsoptionsfeatures">features</a></td>
+<td><a href="crashlytics_react.crashlyticsfeature">CrashlyticsFeature</a><!-- -->[]</td>
+<td><b>(EXPERIMENTAL)</b> Optional list of Crashlytics features (such as <a href="crashlytics#breadcrumbs">breadcrumbs()</a><!-- -->) to enable.<!-- -->When <a href="crashlytics#breadcrumbs">breadcrumbs()</a> is included, Crashlytics collects OpenTelemetry spans (such as Fetch, XMLHttpRequest, and Document Load) and breadcrumb logs (such as navigation events, Web Vitals, user actions, and visibility lifecycle events), buffering them in memory and exporting them when an error occurs.</td>
+</tr>
+<tr>
+<td><a href="crashlytics_react.crashlyticsoptions#crashlyticsoptionsregion">region</a></td>
+<td>string</td>
+<td><b><i>(Public Preview)</i></b> The Google Cloud region where the Crashlytics data should be sent.<!-- -->By default, data will be sent to the &quot;global&quot; region.<!-- -->Refer to <a href="https://cloud.google.com/logging/docs/regions">https://cloud.google.com/logging/docs/regions</a> for the list of available regions.</td>
+</tr>
+<tr>
+<td><a href="crashlytics_react.crashlyticsoptions#crashlyticsoptionsregistergloballoggerprovider">registerGlobalLoggerProvider</a></td>
+<td>boolean</td>
+<td><b><i>(Public Preview)</i></b> Whether to register the underlying OpenTelemetry LoggerProvider globally with the OpenTelemetry API (<code>logs.setGlobalLoggerProvider()</code>).<!-- -->When enabled, other OpenTelemetry instrumentations (such as Core Web Vitals, Console, or Fetch) and custom application loggers can automatically route logs through Firebase Crashlytics.<!-- -->Defaults to <code>false</code>.</td>
+</tr>
+</tbody></table>
+<h2 id="crashlyticsoptionsappversion">CrashlyticsOptions.appVersion</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The version of the application. This should be a unique string that identifies the snapshot of code to be deployed, such as &quot;1.0.2&quot;. If not specified, other default locations will be checked for an identifier. Setting a value here takes precedence over any other values.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">appVersion?: string;</pre>
+<h2 id="crashlyticsoptionscaptureunhandlederrors">CrashlyticsOptions.captureUnhandledErrors</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Automatically capture uncaught browser exceptions (&#39;error&#39; and &#39;unhandledrejection&#39; window events).</p>
+<p>Defaults to <code>true</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">captureUnhandledErrors?: boolean;</pre>
+<h2 id="crashlyticsoptionscustomattributes">CrashlyticsOptions.customAttributes</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Base set of custom attributes to send with automatic error collection. Key-value pairs defined here will be sent with all error logs. If custom attributes are also specified in <code>recordError()</code> or <code>log()</code><!-- -->, those values will take precedence over the base set defined here.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">customAttributes?: AnyValueMap;</pre>
+<h2 id="crashlyticsoptionsendpointurl">CrashlyticsOptions.endpointUrl</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The URL for the endpoint to which Crashlytics data should be sent, in the OpenTelemetry format. By default, data will be sent to Firebase.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">endpointUrl?: string;</pre>
+<h2 id="crashlyticsoptionsfeatures">CrashlyticsOptions.features</h2>
+<p><b>(EXPERIMENTAL)</b> Optional list of Crashlytics features (such as <a href="crashlytics#breadcrumbs">breadcrumbs()</a><!-- -->) to enable.</p>
+<p>When <a href="crashlytics#breadcrumbs">breadcrumbs()</a> is included, Crashlytics collects OpenTelemetry spans (such as Fetch, XMLHttpRequest, and Document Load) and breadcrumb logs (such as navigation events, Web Vitals, user actions, and visibility lifecycle events), buffering them in memory and exporting them when an error occurs.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">features?: CrashlyticsFeature[];</pre>
+<h3 id="example">Example</h3>
+<pre data-language="ts">import { getCrashlytics, breadcrumbs } from 'firebase/crashlytics';
+
+const crashlytics = getCrashlytics(app, {
+  features: [breadcrumbs()]
+});</pre>
+<h2 id="crashlyticsoptionsregion">CrashlyticsOptions.region</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The Google Cloud region where the Crashlytics data should be sent.</p>
+<p>By default, data will be sent to the &quot;global&quot; region.</p>
+<p>Refer to <a href="https://cloud.google.com/logging/docs/regions">https://cloud.google.com/logging/docs/regions</a> for the list of available regions.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">region?: string;</pre>
+<h2 id="crashlyticsoptionsregistergloballoggerprovider">CrashlyticsOptions.registerGlobalLoggerProvider</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Whether to register the underlying OpenTelemetry LoggerProvider globally with the OpenTelemetry API (<code>logs.setGlobalLoggerProvider()</code><!-- -->).</p>
+<p>When enabled, other OpenTelemetry instrumentations (such as Core Web Vitals, Console, or Fetch) and custom application loggers can automatically route logs through Firebase Crashlytics.</p>
+<p>Defaults to <code>false</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">registerGlobalLoggerProvider?: boolean;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/crashlytics_react.crashlyticsoptions" class="_attribution-link">https://firebase.google.com/docs/reference/js/crashlytics_react.crashlyticsoptions</a>
+  </p>
+</div>

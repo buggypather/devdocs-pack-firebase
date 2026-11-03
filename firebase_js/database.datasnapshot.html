@@ -1,0 +1,219 @@
+<h1>DataSnapshot class</h1>
+<p>A <code>DataSnapshot</code> contains data from a Database location.</p>
+<p>Any time you read data from the Database, you receive the data as a <code>DataSnapshot</code><!-- -->. A <code>DataSnapshot</code> is passed to the event callbacks you attach with <code>on()</code> or <code>once()</code><!-- -->. You can extract the contents of the snapshot as a JavaScript object by calling the <code>val()</code> method. Alternatively, you can traverse into the snapshot by calling <code>child()</code> to return child snapshots (which you could then call <code>val()</code> on).</p>
+<p>A <code>DataSnapshot</code> is an efficiently generated, immutable copy of the data at a Database location. It cannot be modified and will never change (to modify data, you always call the <code>set()</code> method on a <code>Reference</code> directly).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class DataSnapshot </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="database.datasnapshot#datasnapshotkey">key</a></td>
+<td></td>
+<td>string | null</td>
+<td>The key (last part of the path) of the location of this <code>DataSnapshot</code>.<!-- -->The last token in a Database location is considered its key. For example, &quot;ada&quot; is the key for the /users/ada/ node. Accessing the key on any <code>DataSnapshot</code> will return the key for the location that generated it. However, accessing the key on the root URL of a Database will return <code>null</code>.</td>
+</tr>
+<tr>
+<td><a href="database.datasnapshot#datasnapshotpriority">priority</a></td>
+<td></td>
+<td>string | number | null</td>
+<td>Gets the priority value of the data in this <code>DataSnapshot</code>.<!-- -->Applications need not use priority but can order collections by ordinary properties (see <a href="https://firebase.google.com/docs/database/web/lists-of-data#sorting_and_filtering_data">Sorting and filtering data</a> ).</td>
+</tr>
+<tr>
+<td><a href="database.datasnapshot#datasnapshotref">ref</a></td>
+<td></td>
+<td><a href="database.databasereference">DatabaseReference</a></td>
+<td>The location of this DataSnapshot.</td>
+</tr>
+<tr>
+<td><a href="database.datasnapshot#datasnapshotsize">size</a></td>
+<td></td>
+<td>number</td>
+<td>Returns the number of child properties of this <code>DataSnapshot</code>.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="database.datasnapshot#datasnapshotchild">child(path)</a></td>
+<td></td>
+<td>Gets another <code>DataSnapshot</code> for the location at the specified relative path.<!-- -->Passing a relative path to the <code>child()</code> method of a DataSnapshot returns another <code>DataSnapshot</code> for the location at the specified relative path. The relative path can either be a simple child name (for example, &quot;ada&quot;) or a deeper, slash-separated path (for example, &quot;ada/name/first&quot;). If the child location has no data, an empty <code>DataSnapshot</code> (that is, a <code>DataSnapshot</code> whose value is <code>null</code>) is returned.</td>
+</tr>
+<tr>
+<td><a href="database.datasnapshot#datasnapshotexists">exists()</a></td>
+<td></td>
+<td>Returns true if this <code>DataSnapshot</code> contains any data. It is slightly more efficient than using <code>snapshot.val() !== null</code>.</td>
+</tr>
+<tr>
+<td><a href="database.datasnapshot#datasnapshotexportval">exportVal()</a></td>
+<td></td>
+<td>Exports the entire contents of the DataSnapshot as a JavaScript object.<!-- -->The <code>exportVal()</code> method is similar to <code>val()</code>, except priority information is included (if available), making it suitable for backing up your data.</td>
+</tr>
+<tr>
+<td><a href="database.datasnapshot#datasnapshotforeach">forEach(action)</a></td>
+<td></td>
+<td>Enumerates the top-level children in the <code>IteratedDataSnapshot</code>.<!-- -->Because of the way JavaScript objects work, the ordering of data in the JavaScript object returned by <code>val()</code> is not guaranteed to match the ordering on the server nor the ordering of <code>onChildAdded()</code> events. That is where <code>forEach()</code> comes in handy. It guarantees the children of a <code>DataSnapshot</code> will be iterated in their query order.<!-- -->If no explicit <code>orderBy*()</code> method is used, results are returned ordered by key (unless priorities are used, in which case, results are returned by priority).</td>
+</tr>
+<tr>
+<td><a href="database.datasnapshot#datasnapshothaschild">hasChild(path)</a></td>
+<td></td>
+<td>Returns true if the specified child path has (non-null) data.</td>
+</tr>
+<tr>
+<td><a href="database.datasnapshot#datasnapshothaschildren">hasChildren()</a></td>
+<td></td>
+<td>Returns whether or not the <code>DataSnapshot</code> has any non-<code>null</code> child properties.<!-- -->You can use <code>hasChildren()</code> to determine if a <code>DataSnapshot</code> has any children. If it does, you can enumerate them using <code>forEach()</code>. If it doesn&#39;t, then either this snapshot contains a primitive value (which can be retrieved with <code>val()</code>) or it is empty (in which case, <code>val()</code> will return <code>null</code>).</td>
+</tr>
+<tr>
+<td><a href="database.datasnapshot#datasnapshottojson">toJSON()</a></td>
+<td></td>
+<td>Returns a JSON-serializable representation of this object.</td>
+</tr>
+<tr>
+<td><a href="database.datasnapshot#datasnapshotval">val()</a></td>
+<td></td>
+<td>Extracts a JavaScript value from a <code>DataSnapshot</code>.<!-- -->Depending on the data in a <code>DataSnapshot</code>, the <code>val()</code> method may return a scalar type (string, number, or boolean), an array, or an object. It may also return null, indicating that the <code>DataSnapshot</code> is empty (contains no data).</td>
+</tr>
+</tbody></table>
+<h2 id="datasnapshotkey">DataSnapshot.key</h2>
+<p>The key (last part of the path) of the location of this <code>DataSnapshot</code><!-- -->.</p>
+<p>The last token in a Database location is considered its key. For example, &quot;ada&quot; is the key for the /users/ada/ node. Accessing the key on any <code>DataSnapshot</code> will return the key for the location that generated it. However, accessing the key on the root URL of a Database will return <code>null</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get key(): string | null;</pre>
+<h2 id="datasnapshotpriority">DataSnapshot.priority</h2>
+<p>Gets the priority value of the data in this <code>DataSnapshot</code><!-- -->.</p>
+<p>Applications need not use priority but can order collections by ordinary properties (see <a href="https://firebase.google.com/docs/database/web/lists-of-data#sorting_and_filtering_data">Sorting and filtering data</a> ).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get priority(): string | number | null;</pre>
+<h2 id="datasnapshotref">DataSnapshot.ref</h2>
+<p>The location of this DataSnapshot.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly ref: DatabaseReference;</pre>
+<h2 id="datasnapshotsize">DataSnapshot.size</h2>
+<p>Returns the number of child properties of this <code>DataSnapshot</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get size(): number;</pre>
+<h2 id="datasnapshotchild">DataSnapshot.child()</h2>
+<p>Gets another <code>DataSnapshot</code> for the location at the specified relative path.</p>
+<p>Passing a relative path to the <code>child()</code> method of a DataSnapshot returns another <code>DataSnapshot</code> for the location at the specified relative path. The relative path can either be a simple child name (for example, &quot;ada&quot;) or a deeper, slash-separated path (for example, &quot;ada/name/first&quot;). If the child location has no data, an empty <code>DataSnapshot</code> (that is, a <code>DataSnapshot</code> whose value is <code>null</code><!-- -->) is returned.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">child(path: string): DataSnapshot;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>path</td>
+<td>string</td>
+<td>A relative path to the location of child data.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="database.datasnapshot">DataSnapshot</a></p>
+<h2 id="datasnapshotexists">DataSnapshot.exists()</h2>
+<p>Returns true if this <code>DataSnapshot</code> contains any data. It is slightly more efficient than using <code>snapshot.val() !== null</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">exists(): boolean;</pre>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<h2 id="datasnapshotexportval">DataSnapshot.exportVal()</h2>
+<p>Exports the entire contents of the DataSnapshot as a JavaScript object.</p>
+<p>The <code>exportVal()</code> method is similar to <code>val()</code><!-- -->, except priority information is included (if available), making it suitable for backing up your data.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">exportVal(): any;</pre>
+<p><b>Returns:</b></p>
+<p>any</p>
+<p>The DataSnapshot&#39;s contents as a JavaScript value (Object, Array, string, number, boolean, or <code>null</code><!-- -->).</p>
+<h2 id="datasnapshotforeach">DataSnapshot.forEach()</h2>
+<p>Enumerates the top-level children in the <code>IteratedDataSnapshot</code><!-- -->.</p>
+<p>Because of the way JavaScript objects work, the ordering of data in the JavaScript object returned by <code>val()</code> is not guaranteed to match the ordering on the server nor the ordering of <code>onChildAdded()</code> events. That is where <code>forEach()</code> comes in handy. It guarantees the children of a <code>DataSnapshot</code> will be iterated in their query order.</p>
+<p>If no explicit <code>orderBy*()</code> method is used, results are returned ordered by key (unless priorities are used, in which case, results are returned by priority).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">forEach(action: (child: IteratedDataSnapshot) =&gt; boolean | void): boolean;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>action</td>
+<td>(child: <a href="database.iterateddatasnapshot">IteratedDataSnapshot</a><!-- -->) =&gt; boolean | void</td>
+<td>A function that will be called for each child DataSnapshot. The callback can return true to cancel further enumeration.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<p>true if enumeration was canceled due to your callback returning true.</p>
+<h2 id="datasnapshothaschild">DataSnapshot.hasChild()</h2>
+<p>Returns true if the specified child path has (non-null) data.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">hasChild(path: string): boolean;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>path</td>
+<td>string</td>
+<td>A relative path to the location of a potential child.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<p><code>true</code> if data exists at the specified child path; else <code>false</code><!-- -->.</p>
+<h2 id="datasnapshothaschildren">DataSnapshot.hasChildren()</h2>
+<p>Returns whether or not the <code>DataSnapshot</code> has any non-<code>null</code> child properties.</p>
+<p>You can use <code>hasChildren()</code> to determine if a <code>DataSnapshot</code> has any children. If it does, you can enumerate them using <code>forEach()</code><!-- -->. If it doesn&#39;t, then either this snapshot contains a primitive value (which can be retrieved with <code>val()</code><!-- -->) or it is empty (in which case, <code>val()</code> will return <code>null</code><!-- -->).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">hasChildren(): boolean;</pre>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<p>true if this snapshot has any children; else false.</p>
+<h2 id="datasnapshottojson">DataSnapshot.toJSON()</h2>
+<p>Returns a JSON-serializable representation of this object.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">toJSON(): object | null;</pre>
+<p><b>Returns:</b></p>
+<p>object | null</p>
+<h2 id="datasnapshotval">DataSnapshot.val()</h2>
+<p>Extracts a JavaScript value from a <code>DataSnapshot</code><!-- -->.</p>
+<p>Depending on the data in a <code>DataSnapshot</code><!-- -->, the <code>val()</code> method may return a scalar type (string, number, or boolean), an array, or an object. It may also return null, indicating that the <code>DataSnapshot</code> is empty (contains no data).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">val(): any;</pre>
+<p><b>Returns:</b></p>
+<p>any</p>
+<p>The DataSnapshot&#39;s contents as a JavaScript value (Object, Array, string, number, boolean, or <code>null</code><!-- -->).</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/database.datasnapshot" class="_attribution-link">https://firebase.google.com/docs/reference/js/database.datasnapshot</a>
+  </p>
+</div>

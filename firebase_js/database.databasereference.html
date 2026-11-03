@@ -1,0 +1,53 @@
+<h1>DatabaseReference interface</h1>
+<p>A <code>DatabaseReference</code> represents a specific location in your Database and can be used for reading or writing data to that Database location.</p>
+<p>You can reference the root or child location in your Database by calling <code>ref()</code> or <code>ref(&quot;child/path&quot;)</code><!-- -->.</p>
+<p>Writing is done with the <code>set()</code> method and reading can be done with the <code>on*()</code> method. See <a href="https://firebase.google.com/docs/database/web/read-and-write">https://firebase.google.com/docs/database/web/read-and-write</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface DatabaseReference extends Query </pre>
+<p><b>Extends:</b> <a href="database.query">Query</a></p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="database.databasereference#databasereferencekey">key</a></td>
+<td>string | null</td>
+<td>The last part of the <code>DatabaseReference</code>&#39;s path.<!-- -->For example, <code>&quot;ada&quot;</code> is the key for <code>https://&lt;DATABASE_NAME&gt;.firebaseio.com/users/ada</code>.<!-- -->The key of a root <code>DatabaseReference</code> is <code>null</code>.</td>
+</tr>
+<tr>
+<td><a href="database.databasereference#databasereferenceparent">parent</a></td>
+<td><a href="database.databasereference">DatabaseReference</a> | null</td>
+<td>The parent location of a <code>DatabaseReference</code>.<!-- -->The parent of a root <code>DatabaseReference</code> is <code>null</code>.</td>
+</tr>
+<tr>
+<td><a href="database.databasereference#databasereferenceroot">root</a></td>
+<td><a href="database.databasereference">DatabaseReference</a></td>
+<td>The root <code>DatabaseReference</code> of the Database.</td>
+</tr>
+</tbody></table>
+<h2 id="databasereferencekey">DatabaseReference.key</h2>
+<p>The last part of the <code>DatabaseReference</code><!-- -->&#39;s path.</p>
+<p>For example, <code>&quot;ada&quot;</code> is the key for <code>https://&lt;DATABASE_NAME&gt;.firebaseio.com/users/ada</code><!-- -->.</p>
+<p>The key of a root <code>DatabaseReference</code> is <code>null</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly key: string | null;</pre>
+<h2 id="databasereferenceparent">DatabaseReference.parent</h2>
+<p>The parent location of a <code>DatabaseReference</code><!-- -->.</p>
+<p>The parent of a root <code>DatabaseReference</code> is <code>null</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly parent: DatabaseReference | null;</pre>
+<h2 id="databasereferenceroot">DatabaseReference.root</h2>
+<p>The root <code>DatabaseReference</code> of the Database.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly root: DatabaseReference;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/database.databasereference" class="_attribution-link">https://firebase.google.com/docs/reference/js/database.databasereference</a>
+  </p>
+</div>

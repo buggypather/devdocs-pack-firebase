@@ -1,0 +1,85 @@
+<h1>FunctionsError class</h1>
+<p>An error returned by the Firebase Functions client SDK.</p>
+<p>See <a href="functions#functionserrorcode">FunctionsErrorCode</a> for full documentation of codes.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class FunctionsError extends FirebaseError </pre>
+<p><b>Extends:</b> <a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.firebaseerror.md">FirebaseError</a></p>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="functions.functionserror#functionserrorconstructor">(constructor)(code, message, details, url)</a></td>
+<td></td>
+<td>Constructs a new instance of the <code>FunctionsError</code> class.</td>
+</tr>
+</tbody></table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="functions.functionserror#functionserrordetails">details</a></td>
+<td></td>
+<td>unknown</td>
+<td>Additional details to be converted to JSON and included in the error response.</td>
+</tr>
+</tbody></table>
+<h2 id="functionserrorconstructor">FunctionsError.(constructor)</h2>
+<p>Constructs a new instance of the <code>FunctionsError</code> class.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">constructor(
+    code: FunctionsErrorCode, message?: string, 
+    details?: unknown, 
+    url?: string);</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td><a href="functions#functionserrorcodecore">FunctionsErrorCode</a></td>
+<td></td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>details</td>
+<td>unknown</td>
+<td></td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="functionserrordetails">FunctionsError.details</h2>
+<p>Additional details to be converted to JSON and included in the error response.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly details?: unknown;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/functions.functionserror" class="_attribution-link">https://firebase.google.com/docs/reference/js/functions.functionserror</a>
+  </p>
+</div>

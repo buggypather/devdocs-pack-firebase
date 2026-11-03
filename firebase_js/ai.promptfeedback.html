@@ -1,0 +1,46 @@
+<h1>PromptFeedback interface</h1>
+<p>If the prompt was blocked, this will be populated with <code>blockReason</code> and the relevant <code>safetyRatings</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface PromptFeedback </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.promptfeedback#promptfeedbackblockreason">blockReason</a></td>
+<td><a href="ai#blockreason">BlockReason</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.promptfeedback#promptfeedbackblockreasonmessage">blockReasonMessage</a></td>
+<td>string</td>
+<td>A human-readable description of the <code>blockReason</code>.<!-- -->This property is only supported in the Agent Platform Gemini API (<a href="ai.agentplatformbackend">AgentPlatformBackend</a><!-- -->).</td>
+</tr>
+<tr>
+<td><a href="ai.promptfeedback#promptfeedbacksafetyratings">safetyRatings</a></td>
+<td><a href="ai.safetyrating">SafetyRating</a><!-- -->[]</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="promptfeedbackblockreason">PromptFeedback.blockReason</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">blockReason?: BlockReason;</pre>
+<h2 id="promptfeedbackblockreasonmessage">PromptFeedback.blockReasonMessage</h2>
+<p>A human-readable description of the <code>blockReason</code><!-- -->.</p>
+<p>This property is only supported in the Agent Platform Gemini API (<a href="ai.agentplatformbackend">AgentPlatformBackend</a><!-- -->).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">blockReasonMessage?: string;</pre>
+<h2 id="promptfeedbacksafetyratings">PromptFeedback.safetyRatings</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">safetyRatings: SafetyRating[];</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.promptfeedback" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.promptfeedback</a>
+  </p>
+</div>

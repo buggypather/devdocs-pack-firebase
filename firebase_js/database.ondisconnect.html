@@ -1,0 +1,141 @@
+<h1>OnDisconnect class</h1>
+<p>The <code>onDisconnect</code> class allows you to write or clear data when your client disconnects from the Database server. These updates occur whether your client disconnects cleanly or not, so you can rely on them to clean up data even if a connection is dropped or a client crashes.</p>
+<p>The <code>onDisconnect</code> class is most commonly used to manage presence in applications where it is useful to detect how many clients are connected and when other clients disconnect. See <a href="https://firebase.google.com/docs/database/web/offline-capabilities">Enabling Offline Capabilities in JavaScript</a> for more information.</p>
+<p>To avoid problems when a connection is dropped before the requests can be transferred to the Database server, these functions should be called before writing any data.</p>
+<p>Note that <code>onDisconnect</code> operations are only triggered once. If you want an operation to occur each time a disconnect occurs, you&#39;ll need to re-establish the <code>onDisconnect</code> operations each time you reconnect.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class OnDisconnect </pre>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="database.ondisconnect#ondisconnectcancel">cancel()</a></td>
+<td></td>
+<td>Cancels all previously queued <code>onDisconnect()</code> set or update events for this location and all children.<!-- -->If a write has been queued for this location via a <code>set()</code> or <code>update()</code> at a parent location, the write at this location will be canceled, though writes to sibling locations will still occur.</td>
+</tr>
+<tr>
+<td><a href="database.ondisconnect#ondisconnectremove">remove()</a></td>
+<td></td>
+<td>Ensures the data at this location is deleted when the client is disconnected (due to closing the browser, navigating to a new page, or network issues).</td>
+</tr>
+<tr>
+<td><a href="database.ondisconnect#ondisconnectset">set(value)</a></td>
+<td></td>
+<td>Ensures the data at this location is set to the specified value when the client is disconnected (due to closing the browser, navigating to a new page, or network issues).<code>set()</code> is especially useful for implementing &quot;presence&quot; systems, where a value should be changed or cleared when a user disconnects so that they appear &quot;offline&quot; to other users. See <a href="https://firebase.google.com/docs/database/web/offline-capabilities">Enabling Offline Capabilities in JavaScript</a> for more information.<!-- -->Note that <code>onDisconnect</code> operations are only triggered once. If you want an operation to occur each time a disconnect occurs, you&#39;ll need to re-establish the <code>onDisconnect</code> operations each time.</td>
+</tr>
+<tr>
+<td><a href="database.ondisconnect#ondisconnectsetwithpriority">setWithPriority(value, priority)</a></td>
+<td></td>
+<td>Ensures the data at this location is set to the specified value and priority when the client is disconnected (due to closing the browser, navigating to a new page, or network issues).</td>
+</tr>
+<tr>
+<td><a href="database.ondisconnect#ondisconnectupdate">update(values)</a></td>
+<td></td>
+<td>Writes multiple values at this location when the client is disconnected (due to closing the browser, navigating to a new page, or network issues).<!-- -->The <code>values</code> argument contains multiple property-value pairs that will be written to the Database together. Each child property can either be a simple property (for example, &quot;name&quot;) or a relative path (for example, &quot;name/first&quot;) from the current location to the data to update.<!-- -->As opposed to the <code>set()</code> method, <code>update()</code> can be use to selectively update only the referenced properties at the current location (instead of replacing all the child properties at the current location).</td>
+</tr>
+</tbody></table>
+<h2 id="ondisconnectcancel">OnDisconnect.cancel()</h2>
+<p>Cancels all previously queued <code>onDisconnect()</code> set or update events for this location and all children.</p>
+<p>If a write has been queued for this location via a <code>set()</code> or <code>update()</code> at a parent location, the write at this location will be canceled, though writes to sibling locations will still occur.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">cancel(): Promise&lt;void&gt;;</pre>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<p>Resolves when synchronization to the server is complete.</p>
+<h2 id="ondisconnectremove">OnDisconnect.remove()</h2>
+<p>Ensures the data at this location is deleted when the client is disconnected (due to closing the browser, navigating to a new page, or network issues).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">remove(): Promise&lt;void&gt;;</pre>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<p>Resolves when synchronization to the server is complete.</p>
+<h2 id="ondisconnectset">OnDisconnect.set()</h2>
+<p>Ensures the data at this location is set to the specified value when the client is disconnected (due to closing the browser, navigating to a new page, or network issues).</p>
+<p><code>set()</code> is especially useful for implementing &quot;presence&quot; systems, where a value should be changed or cleared when a user disconnects so that they appear &quot;offline&quot; to other users. See <a href="https://firebase.google.com/docs/database/web/offline-capabilities">Enabling Offline Capabilities in JavaScript</a> for more information.</p>
+<p>Note that <code>onDisconnect</code> operations are only triggered once. If you want an operation to occur each time a disconnect occurs, you&#39;ll need to re-establish the <code>onDisconnect</code> operations each time.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">set(value: unknown): Promise&lt;void&gt;;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>value</td>
+<td>unknown</td>
+<td>The value to be written to this location on disconnect (can be an object, array, string, number, boolean, or null).</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<p>Resolves when synchronization to the Database is complete.</p>
+<h2 id="ondisconnectsetwithpriority">OnDisconnect.setWithPriority()</h2>
+<p>Ensures the data at this location is set to the specified value and priority when the client is disconnected (due to closing the browser, navigating to a new page, or network issues).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">setWithPriority(
+    value: unknown,
+    priority: number | string | null
+  ): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>value</td>
+<td>unknown</td>
+<td>The value to be written to this location on disconnect (can be an object, array, string, number, boolean, or null).</td>
+</tr>
+<tr>
+<td>priority</td>
+<td>number | string | null</td>
+<td>The priority to be written (string, number, or null).</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<p>Resolves when synchronization to the Database is complete.</p>
+<h2 id="ondisconnectupdate">OnDisconnect.update()</h2>
+<p>Writes multiple values at this location when the client is disconnected (due to closing the browser, navigating to a new page, or network issues).</p>
+<p>The <code>values</code> argument contains multiple property-value pairs that will be written to the Database together. Each child property can either be a simple property (for example, &quot;name&quot;) or a relative path (for example, &quot;name/first&quot;) from the current location to the data to update.</p>
+<p>As opposed to the <code>set()</code> method, <code>update()</code> can be use to selectively update only the referenced properties at the current location (instead of replacing all the child properties at the current location).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">update(values: object): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>values</td>
+<td>object</td>
+<td>Object containing multiple values.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<p>Resolves when synchronization to the Database is complete.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/database.ondisconnect" class="_attribution-link">https://firebase.google.com/docs/reference/js/database.ondisconnect</a>
+  </p>
+</div>

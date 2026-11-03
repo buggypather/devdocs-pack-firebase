@@ -1,0 +1,78 @@
+<h1>SnapshotMetadata class</h1>
+<p>Metadata about a snapshot, describing the state of the snapshot.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class SnapshotMetadata </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.snapshotmetadata#snapshotmetadatafromcache">fromCache</a></td>
+<td></td>
+<td>boolean</td>
+<td>True if the snapshot was created from cached data rather than guaranteed up-to-date server data. If your listener has opted into metadata updates (via <code>SnapshotListenOptions</code>) you will receive another snapshot with <code>fromCache</code> set to false once the client has received up-to-date data from the backend.</td>
+</tr>
+<tr>
+<td><a href="firestore.snapshotmetadata#snapshotmetadatahaspendingwrites">hasPendingWrites</a></td>
+<td></td>
+<td>boolean</td>
+<td>True if the snapshot contains the result of local writes (for example <code>set()</code> or <code>update()</code> calls) that have not yet been committed to the backend. If your listener has opted into metadata updates (via <code>SnapshotListenOptions</code>) you will receive another snapshot with <code>hasPendingWrites</code> equal to false once the writes have been committed to the backend.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.snapshotmetadata#snapshotmetadataisequal">isEqual(other)</a></td>
+<td></td>
+<td>Returns true if this <code>SnapshotMetadata</code> is equal to the provided one.</td>
+</tr>
+</tbody></table>
+<h2 id="snapshotmetadatafromcache">SnapshotMetadata.fromCache</h2>
+<p>True if the snapshot was created from cached data rather than guaranteed up-to-date server data. If your listener has opted into metadata updates (via <code>SnapshotListenOptions</code><!-- -->) you will receive another snapshot with <code>fromCache</code> set to false once the client has received up-to-date data from the backend.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly fromCache: boolean;</pre>
+<h2 id="snapshotmetadatahaspendingwrites">SnapshotMetadata.hasPendingWrites</h2>
+<p>True if the snapshot contains the result of local writes (for example <code>set()</code> or <code>update()</code> calls) that have not yet been committed to the backend. If your listener has opted into metadata updates (via <code>SnapshotListenOptions</code><!-- -->) you will receive another snapshot with <code>hasPendingWrites</code> equal to false once the writes have been committed to the backend.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly hasPendingWrites: boolean;</pre>
+<h2 id="snapshotmetadataisequal">SnapshotMetadata.isEqual()</h2>
+<p>Returns true if this <code>SnapshotMetadata</code> is equal to the provided one.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">isEqual(other: SnapshotMetadata): boolean;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>other</td>
+<td><a href="firestore.snapshotmetadata">SnapshotMetadata</a></td>
+<td>The <code>SnapshotMetadata</code> to compare against.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<p>true if this <code>SnapshotMetadata</code> is equal to the provided one.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.snapshotmetadata" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.snapshotmetadata</a>
+  </p>
+</div>

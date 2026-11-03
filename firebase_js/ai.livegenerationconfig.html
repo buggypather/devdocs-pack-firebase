@@ -1,0 +1,177 @@
+<h1>LiveGenerationConfig interface</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Configuration parameters used by <a href="ai.livegenerativemodel">LiveGenerativeModel</a> to control live content generation.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface LiveGenerationConfig </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.livegenerationconfig#livegenerationconfigcontextwindowcompression">contextWindowCompression</a></td>
+<td><a href="ai.contextwindowcompressionconfig">ContextWindowCompressionConfig</a></td>
+<td><b><i>(Public Preview)</i></b> The context window compression configuration.</td>
+</tr>
+<tr>
+<td><a href="ai.livegenerationconfig#livegenerationconfigfrequencypenalty">frequencyPenalty</a></td>
+<td>number</td>
+<td><b><i>(Public Preview)</i></b> Frequency penalties.</td>
+</tr>
+<tr>
+<td><a href="ai.livegenerationconfig#livegenerationconfiginputaudiotranscription">inputAudioTranscription</a></td>
+<td><a href="ai.audiotranscriptionconfig">AudioTranscriptionConfig</a></td>
+<td><b><i>(Public Preview)</i></b> Enables transcription of audio input.<!-- -->When enabled, the model will respond with transcriptions of your audio input in the <code>inputTranscriptions</code> property in <a href="ai.liveservercontent">LiveServerContent</a> messages. Note that the transcriptions are broken up across messages, so you may only receive small amounts of text per message. For example, if you ask the model &quot;How are you today?&quot;, the model may transcribe that input across three messages, broken up as &quot;How a&quot;, &quot;re yo&quot;, &quot;u today?&quot;.</td>
+</tr>
+<tr>
+<td><a href="ai.livegenerationconfig#livegenerationconfigmaxoutputtokens">maxOutputTokens</a></td>
+<td>number</td>
+<td><b><i>(Public Preview)</i></b> Specifies the maximum number of tokens that can be generated in the response. The number of tokens per word varies depending on the language outputted. Is unbounded by default.</td>
+</tr>
+<tr>
+<td><a href="ai.livegenerationconfig#livegenerationconfigoutputaudiotranscription">outputAudioTranscription</a></td>
+<td><a href="ai.audiotranscriptionconfig">AudioTranscriptionConfig</a></td>
+<td><b><i>(Public Preview)</i></b> Enables transcription of audio input.<!-- -->When enabled, the model will respond with transcriptions of its audio output in the <code>outputTranscription</code> property in <a href="ai.liveservercontent">LiveServerContent</a> messages. Note that the transcriptions are broken up across messages, so you may only receive small amounts of text per message. For example, if the model says &quot;How are you today?&quot;, the model may transcribe that output across three messages, broken up as &quot;How a&quot;, &quot;re yo&quot;, &quot;u today?&quot;.</td>
+</tr>
+<tr>
+<td><a href="ai.livegenerationconfig#livegenerationconfigpresencepenalty">presencePenalty</a></td>
+<td>number</td>
+<td><b><i>(Public Preview)</i></b> Positive penalties.</td>
+</tr>
+<tr>
+<td><a href="ai.livegenerationconfig#livegenerationconfigresponsemodalities">responseModalities</a></td>
+<td><a href="ai#responsemodality">ResponseModality</a><!-- -->[]</td>
+<td><b><i>(Public Preview)</i></b> The modalities of the response.</td>
+</tr>
+<tr>
+<td><a href="ai.livegenerationconfig#livegenerationconfigspeechconfig">speechConfig</a></td>
+<td><a href="ai#speechconfig">SpeechConfig</a></td>
+<td><b><i>(Public Preview)</i></b> Configuration for speech synthesis for Live API Models.</td>
+</tr>
+<tr>
+<td><a href="ai.livegenerationconfig#livegenerationconfigtemperature">temperature</a></td>
+<td>number</td>
+<td><b><i>(Public Preview)</i></b> Controls the degree of randomness in token selection. A <code>temperature</code> value of 0 means that the highest probability tokens are always selected. In this case, responses for a given prompt are mostly deterministic, but a small amount of variation is still possible.</td>
+</tr>
+<tr>
+<td><a href="ai.livegenerationconfig#livegenerationconfigtopk">topK</a></td>
+<td>number</td>
+<td><b><i>(Public Preview)</i></b> Changes how the model selects token for output. A <code>topK</code> value of 1 means the select token is the most probable among all tokens in the model&#39;s vocabulary, while a <code>topK</code> value 3 means that the next token is selected from among the 3 most probably using probabilities sampled. Tokens are then further filtered with the highest selected <code>temperature</code> sampling. Defaults to 40 if unspecified.</td>
+</tr>
+<tr>
+<td><a href="ai.livegenerationconfig#livegenerationconfigtopp">topP</a></td>
+<td>number</td>
+<td><b><i>(Public Preview)</i></b> Changes how the model selects tokens for output. Tokens are selected from the most to least probable until the sum of their probabilities equals the <code>topP</code> value. For example, if tokens A, B, and C have probabilities of 0.3, 0.2, and 0.1 respectively and the <code>topP</code> value is 0.5, then the model will select either A or B as the next token by using the <code>temperature</code> and exclude C as a candidate. Defaults to 0.95 if unset.</td>
+</tr>
+</tbody></table>
+<h2 id="livegenerationconfigcontextwindowcompression">LiveGenerationConfig.contextWindowCompression</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The context window compression configuration.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">contextWindowCompression?: ContextWindowCompressionConfig;</pre>
+<h2 id="livegenerationconfigfrequencypenalty">LiveGenerationConfig.frequencyPenalty</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Not supported in Gemini 3.x and later models. Requests that include this parameter will fail with a 400 error. Omit this parameter.</p>
+</blockquote>
+<p>Frequency penalties.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">frequencyPenalty?: number;</pre>
+<h2 id="livegenerationconfiginputaudiotranscription">LiveGenerationConfig.inputAudioTranscription</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Enables transcription of audio input.</p>
+<p>When enabled, the model will respond with transcriptions of your audio input in the <code>inputTranscriptions</code> property in <a href="ai.liveservercontent">LiveServerContent</a> messages. Note that the transcriptions are broken up across messages, so you may only receive small amounts of text per message. For example, if you ask the model &quot;How are you today?&quot;, the model may transcribe that input across three messages, broken up as &quot;How a&quot;, &quot;re yo&quot;, &quot;u today?&quot;.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">inputAudioTranscription?: AudioTranscriptionConfig;</pre>
+<h2 id="livegenerationconfigmaxoutputtokens">LiveGenerationConfig.maxOutputTokens</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Specifies the maximum number of tokens that can be generated in the response. The number of tokens per word varies depending on the language outputted. Is unbounded by default.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">maxOutputTokens?: number;</pre>
+<h2 id="livegenerationconfigoutputaudiotranscription">LiveGenerationConfig.outputAudioTranscription</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Enables transcription of audio input.</p>
+<p>When enabled, the model will respond with transcriptions of its audio output in the <code>outputTranscription</code> property in <a href="ai.liveservercontent">LiveServerContent</a> messages. Note that the transcriptions are broken up across messages, so you may only receive small amounts of text per message. For example, if the model says &quot;How are you today?&quot;, the model may transcribe that output across three messages, broken up as &quot;How a&quot;, &quot;re yo&quot;, &quot;u today?&quot;.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">outputAudioTranscription?: AudioTranscriptionConfig;</pre>
+<h2 id="livegenerationconfigpresencepenalty">LiveGenerationConfig.presencePenalty</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Not supported in Gemini 3.x and later models. Requests that include this parameter will fail with a 400 error. Omit this parameter.</p>
+</blockquote>
+<p>Positive penalties.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">presencePenalty?: number;</pre>
+<h2 id="livegenerationconfigresponsemodalities">LiveGenerationConfig.responseModalities</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The modalities of the response.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">responseModalities?: ResponseModality[];</pre>
+<h2 id="livegenerationconfigspeechconfig">LiveGenerationConfig.speechConfig</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Configuration for speech synthesis for Live API Models.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">speechConfig?: SpeechConfig;</pre>
+<h2 id="livegenerationconfigtemperature">LiveGenerationConfig.temperature</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Not supported in Gemini 3.x and later models. The model will ignore this parameter if it&#39;s included in a request. Omit this parameter and let the model manage sampling automatically.</p>
+</blockquote>
+<p>Controls the degree of randomness in token selection. A <code>temperature</code> value of 0 means that the highest probability tokens are always selected. In this case, responses for a given prompt are mostly deterministic, but a small amount of variation is still possible.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">temperature?: number;</pre>
+<h2 id="livegenerationconfigtopk">LiveGenerationConfig.topK</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Not supported in Gemini 3.x and later models. The model will ignore this parameter if it&#39;s included in a request. Omit this parameter and let the model manage sampling automatically.</p>
+</blockquote>
+<p>Changes how the model selects token for output. A <code>topK</code> value of 1 means the select token is the most probable among all tokens in the model&#39;s vocabulary, while a <code>topK</code> value 3 means that the next token is selected from among the 3 most probably using probabilities sampled. Tokens are then further filtered with the highest selected <code>temperature</code> sampling. Defaults to 40 if unspecified.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">topK?: number;</pre>
+<h2 id="livegenerationconfigtopp">LiveGenerationConfig.topP</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Not supported in Gemini 3.x and later models. The model will ignore this parameter if it&#39;s included in a request. Omit this parameter and let the model manage sampling automatically.</p>
+</blockquote>
+<p>Changes how the model selects tokens for output. Tokens are selected from the most to least probable until the sum of their probabilities equals the <code>topP</code> value. For example, if tokens A, B, and C have probabilities of 0.3, 0.2, and 0.1 respectively and the <code>topP</code> value is 0.5, then the model will select either A or B as the next token by using the <code>temperature</code> and exclude C as a candidate. Defaults to 0.95 if unset.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">topP?: number;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.livegenerationconfig" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.livegenerationconfig</a>
+  </p>
+</div>

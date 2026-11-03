@@ -1,0 +1,38 @@
+<h1>CountTokensResponse interface</h1>
+<p>Response from calling <a href="ai.generativemodel#generativemodelcounttokens">GenerativeModel.countTokens()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface CountTokensResponse </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.counttokensresponse#counttokensresponseprompttokensdetails">promptTokensDetails</a></td>
+<td><a href="ai.modalitytokencount">ModalityTokenCount</a><!-- -->[]</td>
+<td>The breakdown, by modality, of how many tokens are consumed by the prompt.</td>
+</tr>
+<tr>
+<td><a href="ai.counttokensresponse#counttokensresponsetotaltokens">totalTokens</a></td>
+<td>number</td>
+<td>The total number of tokens counted across all instances from the request.</td>
+</tr>
+</tbody></table>
+<h2 id="counttokensresponseprompttokensdetails">CountTokensResponse.promptTokensDetails</h2>
+<p>The breakdown, by modality, of how many tokens are consumed by the prompt.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">promptTokensDetails?: ModalityTokenCount[];</pre>
+<h2 id="counttokensresponsetotaltokens">CountTokensResponse.totalTokens</h2>
+<p>The total number of tokens counted across all instances from the request.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">totalTokens: number;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.counttokensresponse" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.counttokensresponse</a>
+  </p>
+</div>

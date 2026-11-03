@@ -1,0 +1,117 @@
+<h1>LiveGenerativeModel class</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Class for Live generative model APIs. The Live API enables low-latency, two-way multimodal interactions with Gemini.</p>
+<p>This class should only be instantiated with <a href="ai#getlivegenerativemodel_f2099ac">getLiveGenerativeModel()</a><!-- -->.</p>
+<p>The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the <code>LiveGenerativeModel</code> class.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class LiveGenerativeModel extends AIModel </pre>
+<p><b>Extends:</b> <a href="ai.aimodel">AIModel</a></p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.livegenerativemodel#livegenerativemodelgenerationconfig">generationConfig</a></td>
+<td></td>
+<td><a href="ai.livegenerationconfig">LiveGenerationConfig</a></td>
+<td><b><i>(Public Preview)</i></b></td>
+</tr>
+<tr>
+<td><a href="ai.livegenerativemodel#livegenerativemodelsysteminstruction">systemInstruction</a></td>
+<td></td>
+<td><a href="ai.content">Content</a></td>
+<td><b><i>(Public Preview)</i></b></td>
+</tr>
+<tr>
+<td><a href="ai.livegenerativemodel#livegenerativemodeltoolconfig">toolConfig</a></td>
+<td></td>
+<td><a href="ai.toolconfig">ToolConfig</a></td>
+<td><b><i>(Public Preview)</i></b></td>
+</tr>
+<tr>
+<td><a href="ai.livegenerativemodel#livegenerativemodeltools">tools</a></td>
+<td></td>
+<td><a href="ai#tool">Tool</a><!-- -->[]</td>
+<td><b><i>(Public Preview)</i></b></td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.livegenerativemodel#livegenerativemodelconnect">connect(sessionResumption)</a></td>
+<td></td>
+<td><b><i>(Public Preview)</i></b> Starts a <a href="ai.livesession">LiveSession</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="livegenerativemodelgenerationconfig">LiveGenerativeModel.generationConfig</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">generationConfig: LiveGenerationConfig;</pre>
+<h2 id="livegenerativemodelsysteminstruction">LiveGenerativeModel.systemInstruction</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">systemInstruction?: Content;</pre>
+<h2 id="livegenerativemodeltoolconfig">LiveGenerativeModel.toolConfig</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">toolConfig?: ToolConfig;</pre>
+<h2 id="livegenerativemodeltools">LiveGenerativeModel.tools</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">tools?: Tool[];</pre>
+<h2 id="livegenerativemodelconnect">LiveGenerativeModel.connect()</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Starts a <a href="ai.livesession">LiveSession</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">connect(sessionResumption?: SessionResumptionConfig): Promise&lt;LiveSession&gt;;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sessionResumption</td>
+<td><a href="ai.sessionresumptionconfig">SessionResumptionConfig</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="ai.livesession">LiveSession</a><!-- -->&gt;</p>
+<p>A <a href="ai.livesession">LiveSession</a><!-- -->.</p>
+<h4 id="exceptions">Exceptions</h4>
+<p>If the connection failed to be established with the server.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.livegenerativemodel" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.livegenerativemodel</a>
+  </p>
+</div>

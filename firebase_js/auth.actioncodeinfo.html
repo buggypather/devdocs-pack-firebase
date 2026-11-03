@@ -1,0 +1,46 @@
+<h1>ActionCodeInfo interface</h1>
+<p>A response from <a href="auth#checkactioncode_d2ae15a">checkActionCode()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface ActionCodeInfo </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.actioncodeinfo#actioncodeinfodata">data</a></td>
+<td>{ email?: string | null; multiFactorInfo?: <a href="auth.multifactorinfo">MultiFactorInfo</a> | null; previousEmail?: string | null; }</td>
+<td>The data associated with the action code.</td>
+</tr>
+<tr>
+<td><a href="auth.actioncodeinfo#actioncodeinfooperation">operation</a></td>
+<td>(typeof <a href="auth#actioncodeoperation">ActionCodeOperationMap</a><!-- -->)[keyof typeof <a href="auth#actioncodeoperation">ActionCodeOperationMap</a><!-- -->]</td>
+<td>The type of operation that generated the action code.</td>
+</tr>
+</tbody></table>
+<h2 id="actioncodeinfodata">ActionCodeInfo.data</h2>
+<p>The data associated with the action code.</p>
+<p>For the <a href="auth#actioncodeoperation">ActionCodeOperation</a><!-- -->.PASSWORD_RESET, <a href="auth#actioncodeoperation">ActionCodeOperation</a><!-- -->.VERIFY_EMAIL, and <a href="auth#actioncodeoperation">ActionCodeOperation</a><!-- -->.RECOVER_EMAIL actions, this object contains an email field with the address the email was sent to.</p>
+<p>For the <a href="auth#actioncodeoperation">ActionCodeOperation</a><!-- -->.RECOVER_EMAIL action, which allows a user to undo an email address change, this object also contains a <code>previousEmail</code> field with the user account&#39;s current email address. After the action completes, the user&#39;s email address will revert to the value in the <code>email</code> field from the value in <code>previousEmail</code> field.</p>
+<p>For the <a href="auth#actioncodeoperation">ActionCodeOperation</a><!-- -->.VERIFY_AND_CHANGE_EMAIL action, which allows a user to verify the email before updating it, this object contains a <code>previousEmail</code> field with the user account&#39;s email address before updating. After the action completes, the user&#39;s email address will be updated to the value in the <code>email</code> field from the value in <code>previousEmail</code> field.</p>
+<p>For the <a href="auth#actioncodeoperation">ActionCodeOperation</a><!-- -->.REVERT_SECOND_FACTOR_ADDITION action, which allows a user to unenroll a newly added second factor, this object contains a <code>multiFactorInfo</code> field with the information about the second factor. For phone second factor, the <code>multiFactorInfo</code> is a <a href="auth.multifactorinfo">MultiFactorInfo</a> object, which contains the phone number.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">data: {
+        email?: string | null;
+        multiFactorInfo?: MultiFactorInfo | null;
+        previousEmail?: string | null;
+    };</pre>
+<h2 id="actioncodeinfooperation">ActionCodeInfo.operation</h2>
+<p>The type of operation that generated the action code.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">operation: (typeof ActionCodeOperationMap)[keyof typeof ActionCodeOperationMap];</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.actioncodeinfo" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.actioncodeinfo</a>
+  </p>
+</div>

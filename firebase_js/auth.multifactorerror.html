@@ -1,0 +1,53 @@
+<h1>MultiFactorError interface</h1>
+<p>The error thrown when the user needs to provide a second factor to sign in successfully.</p>
+<p>The error code for this error is <code>auth/multi-factor-auth-required</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface MultiFactorError extends AuthError </pre>
+<p><b>Extends:</b> <a href="auth.autherror">AuthError</a></p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.multifactorerror#multifactorerrorcustomdata">customData</a></td>
+<td><a href="auth.autherror">AuthError</a><!-- -->[&#39;customData&#39;] &amp; { readonly operationType: (typeof <a href="auth#operationtype">OperationTypeMap</a><!-- -->)[keyof typeof <a href="auth#operationtype">OperationTypeMap</a><!-- -->]; }</td>
+<td>Details about the MultiFactorError.</td>
+</tr>
+</tbody></table>
+<h2 id="multifactorerrorcustomdata">MultiFactorError.customData</h2>
+<p>Details about the MultiFactorError.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly customData: AuthError['customData'] &amp; {
+        readonly operationType: (typeof OperationTypeMap)[keyof typeof OperationTypeMap];
+    };</pre>
+<h3 id="example">Example</h3>
+<pre data-language="javascript">let resolver;
+let multiFactorHints;
+
+signInWithEmailAndPassword(auth, email, password)
+    .then((result) =&gt; {
+      // User signed in. No 2nd factor challenge is needed.
+    })
+    .catch((error) =&gt; {
+      if (error.code == 'auth/multi-factor-auth-required') {
+        resolver = getMultiFactorResolver(auth, error);
+        multiFactorHints = resolver.hints;
+      } else {
+        // Handle other errors.
+      }
+    });
+
+// Obtain a multiFactorAssertion by verifying the second factor.
+
+const userCredential = await resolver.resolveSignIn(multiFactorAssertion);</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.multifactorerror" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.multifactorerror</a>
+  </p>
+</div>

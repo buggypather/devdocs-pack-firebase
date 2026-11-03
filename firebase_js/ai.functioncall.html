@@ -1,0 +1,46 @@
+<h1>FunctionCall interface</h1>
+<p>A predicted <a href="ai.functioncall">FunctionCall</a> returned from the model that contains a string representing the <a href="ai.functiondeclaration#functiondeclarationname">FunctionDeclaration.name</a> and a structured JSON object containing the parameters and their values.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface FunctionCall </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.functioncall#functioncallargs">args</a></td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ai.functioncall#functioncallid">id</a></td>
+<td>string</td>
+<td>The id of the function call. This must be sent back in the associated <a href="ai.functionresponse">FunctionResponse</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="ai.functioncall#functioncallname">name</a></td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="functioncallargs">FunctionCall.args</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">args: object;</pre>
+<h2 id="functioncallid">FunctionCall.id</h2>
+<p>The id of the function call. This must be sent back in the associated <a href="ai.functionresponse">FunctionResponse</a><!-- -->.</p>
+<p>This property is only supported in the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->). When using the Gemini Developer API (<a href="ai.googleaibackend">GoogleAIBackend</a><!-- -->), this property will be <code>undefined</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">id?: string;</pre>
+<h2 id="functioncallname">FunctionCall.name</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">name: string;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.functioncall" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.functioncall</a>
+  </p>
+</div>

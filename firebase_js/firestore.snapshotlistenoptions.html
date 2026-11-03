@@ -1,0 +1,38 @@
+<h1>SnapshotListenOptions interface</h1>
+<p>An options object that can be passed to <a href="firestore#onsnapshot_c92ea4f">onSnapshot()</a> and <a href="firestore.querysnapshot#querysnapshotdocchanges">QuerySnapshot.docChanges()</a> to control which types of changes to include in the result set.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface SnapshotListenOptions </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.snapshotlistenoptions#snapshotlistenoptionsincludemetadatachanges">includeMetadataChanges</a></td>
+<td>boolean</td>
+<td>Include a change even if only the metadata of the query or of a document changed. Default is false.</td>
+</tr>
+<tr>
+<td><a href="firestore.snapshotlistenoptions#snapshotlistenoptionssource">source</a></td>
+<td><a href="firestore#listensource">ListenSource</a></td>
+<td>Set the source the query listens to. Default to &quot;default&quot;, which listens to both cache and server.</td>
+</tr>
+</tbody></table>
+<h2 id="snapshotlistenoptionsincludemetadatachanges">SnapshotListenOptions.includeMetadataChanges</h2>
+<p>Include a change even if only the metadata of the query or of a document changed. Default is false.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly includeMetadataChanges?: boolean;</pre>
+<h2 id="snapshotlistenoptionssource">SnapshotListenOptions.source</h2>
+<p>Set the source the query listens to. Default to &quot;default&quot;, which listens to both cache and server.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly source?: ListenSource;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.snapshotlistenoptions" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.snapshotlistenoptions</a>
+  </p>
+</div>

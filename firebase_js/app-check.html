@@ -1,0 +1,284 @@
+<h1>@firebase/app-check</h1>
+<p>The Firebase App Check Web SDK.</p>
+<p>Firebase App Check does not work in a Node.js environment using <code>ReCaptchaV3Provider</code> or <code>ReCaptchaEnterpriseProvider</code><!-- -->, but can be used in Node.js if you use <code>CustomProvider</code> and write your own attestation method.</p>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><b>function(app, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="app-check#initializeappcheck_5548dfc">initializeAppCheck(app, options)</a></td>
+<td>Activate App Check for the given app. Can be called only once per app.</td>
+</tr>
+<tr>
+<td><b>function(appCheckInstance, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="app-check#getlimitedusetoken_53ef5e3">getLimitedUseToken(appCheckInstance)</a></td>
+<td>Requests a Firebase App Check token. This method should be used only if you need to authorize requests to a non-Firebase backend.<!-- -->Returns limited-use tokens that are intended for use with your non-Firebase backend endpoints that are protected with <a href="https://firebase.google.com/docs/app-check/custom-resource-backend#replay-protection"> Replay Protection</a>. This method does not affect the token generation behavior of the #getAppCheckToken() method.</td>
+</tr>
+<tr>
+<td><a href="app-check#gettoken_39fc1b3">getToken(appCheckInstance, forceRefresh)</a></td>
+<td>Get the current App Check token. If <code>forceRefresh</code> is false, this function first checks for a valid token in memory, then local persistence (IndexedDB). If not found, or if <code>forceRefresh</code> is true, it makes a request to the App Check endpoint for a fresh token. That request attaches to the most recent in-flight request if one is present.</td>
+</tr>
+<tr>
+<td><a href="app-check#ontokenchanged_9761e16">onTokenChanged(appCheckInstance, observer)</a></td>
+<td>Registers a listener to changes in the token state. There can be more than one listener registered at the same time for one or more App Check instances. The listeners call back on the UI thread whenever the current token associated with this App Check instance changes.</td>
+</tr>
+<tr>
+<td><a href="app-check#ontokenchanged_8ef80a7">onTokenChanged(appCheckInstance, onNext, onError, onCompletion)</a></td>
+<td>Registers a listener to changes in the token state. There can be more than one listener registered at the same time for one or more App Check instances. The listeners call back on the UI thread whenever the current token associated with this App Check instance changes.</td>
+</tr>
+<tr>
+<td><a href="app-check#settokenautorefreshenabled_057a76c">setTokenAutoRefreshEnabled(appCheckInstance, isTokenAutoRefreshEnabled)</a></td>
+<td>Set whether App Check will automatically refresh tokens as needed.</td>
+</tr>
+</tbody></table>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="app-check.customprovider">CustomProvider</a></td>
+<td>Custom provider class.</td>
+</tr>
+<tr>
+<td><a href="app-check.recaptchaenterpriseprovider">ReCaptchaEnterpriseProvider</a></td>
+<td>App Check provider that can obtain a reCAPTCHA Enterprise token and exchange it for an App Check token.</td>
+</tr>
+<tr>
+<td><a href="app-check.recaptchav3provider">ReCaptchaV3Provider</a></td>
+<td>App Check provider that can obtain a reCAPTCHA V3 token and exchange it for an App Check token.</td>
+</tr>
+</tbody></table>
+<h2 id="interfaces">Interfaces</h2>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="app-check.appcheck">AppCheck</a></td>
+<td>The Firebase App Check service interface.</td>
+</tr>
+<tr>
+<td><a href="app-check.appcheckoptions">AppCheckOptions</a></td>
+<td>Options for App Check initialization.</td>
+</tr>
+<tr>
+<td><a href="app-check.appchecktoken">AppCheckToken</a></td>
+<td>The token returned from an App Check provider.</td>
+</tr>
+<tr>
+<td><a href="app-check.appchecktokenresult">AppCheckTokenResult</a></td>
+<td>Result returned by <code>getToken()</code>.</td>
+</tr>
+<tr>
+<td><a href="app-check.customprovideroptions">CustomProviderOptions</a></td>
+<td>Options when creating a <a href="app-check.customprovider">CustomProvider</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="type-aliases">Type Aliases</h2>
+<table>
+<thead>
+<tr>
+<th>Type Alias</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="app-check#appchecktokenlistener">AppCheckTokenListener</a></td>
+<td>A listener that is called whenever the App Check token changes.</td>
+</tr>
+</tbody></table>
+<h2 id="functionapp-">function(app, ...)</h2>
+<h3 id="initializeappcheck_5548dfc">initializeAppCheck(app, options)</h3>
+<p>Activate App Check for the given app. Can be called only once per app.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function initializeAppCheck(app: FirebaseApp | undefined, options: AppCheckOptions): AppCheck;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>app</td>
+<td><a href="app.firebaseapp">FirebaseApp</a> | undefined</td>
+<td>the <a href="app.firebaseapp">FirebaseApp</a> to activate App Check for</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="app-check.appcheckoptions">AppCheckOptions</a></td>
+<td>App Check initialization options</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="app-check.appcheck">AppCheck</a></p>
+<h2 id="functionappcheckinstance-">function(appCheckInstance, ...)</h2>
+<h3 id="getlimitedusetoken_53ef5e3">getLimitedUseToken(appCheckInstance)</h3>
+<p>Requests a Firebase App Check token. This method should be used only if you need to authorize requests to a non-Firebase backend.</p>
+<p>Returns limited-use tokens that are intended for use with your non-Firebase backend endpoints that are protected with <a href="https://firebase.google.com/docs/app-check/custom-resource-backend#replay-protection"> Replay Protection</a>. This method does not affect the token generation behavior of the #getAppCheckToken() method.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getLimitedUseToken(appCheckInstance: AppCheck): Promise&lt;AppCheckTokenResult&gt;;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>appCheckInstance</td>
+<td><a href="app-check.appcheck">AppCheck</a></td>
+<td>The App Check service instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="app-check.appchecktokenresult">AppCheckTokenResult</a><!-- -->&gt;</p>
+<p>The limited use token.</p>
+<h3 id="gettoken_39fc1b3">getToken(appCheckInstance, forceRefresh)</h3>
+<p>Get the current App Check token. If <code>forceRefresh</code> is false, this function first checks for a valid token in memory, then local persistence (IndexedDB). If not found, or if <code>forceRefresh</code> is true, it makes a request to the App Check endpoint for a fresh token. That request attaches to the most recent in-flight request if one is present.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getToken(appCheckInstance: AppCheck, forceRefresh?: boolean): Promise&lt;AppCheckTokenResult&gt;;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>appCheckInstance</td>
+<td><a href="app-check.appcheck">AppCheck</a></td>
+<td>The App Check service instance.</td>
+</tr>
+<tr>
+<td>forceRefresh</td>
+<td>boolean</td>
+<td>If true, will always try to fetch a fresh token. If false, will use a cached token if found in storage.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="app-check.appchecktokenresult">AppCheckTokenResult</a><!-- -->&gt;</p>
+<h3 id="ontokenchanged_9761e16">onTokenChanged(appCheckInstance, observer)</h3>
+<p>Registers a listener to changes in the token state. There can be more than one listener registered at the same time for one or more App Check instances. The listeners call back on the UI thread whenever the current token associated with this App Check instance changes.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function onTokenChanged(appCheckInstance: AppCheck, observer: PartialObserver&lt;AppCheckTokenResult&gt;): Unsubscribe;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>appCheckInstance</td>
+<td><a href="app-check.appcheck">AppCheck</a></td>
+<td>The App Check service instance.</td>
+</tr>
+<tr>
+<td>observer</td>
+<td><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#partialobserver">PartialObserver</a><!-- -->&lt;<a href="app-check.appchecktokenresult">AppCheckTokenResult</a><!-- -->&gt;</td>
+<td>An object with <code>next</code>, <code>error</code>, and <code>complete</code> properties. <code>next</code> is called with an <a href="app-check.appchecktokenresult">AppCheckTokenResult</a> whenever the token changes. <code>error</code> is optional and is called if an error is thrown by the listener (the <code>next</code> function). <code>complete</code> is unused, as the token stream is unending.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#unsubscribe">Unsubscribe</a></p>
+<p>A function that unsubscribes this listener.</p>
+<h3 id="ontokenchanged_8ef80a7">onTokenChanged(appCheckInstance, onNext, onError, onCompletion)</h3>
+<p>Registers a listener to changes in the token state. There can be more than one listener registered at the same time for one or more App Check instances. The listeners call back on the UI thread whenever the current token associated with this App Check instance changes.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function onTokenChanged(appCheckInstance: AppCheck, onNext: (tokenResult: AppCheckTokenResult) =&gt; void, onError?: (error: Error) =&gt; void, onCompletion?: () =&gt; void): Unsubscribe;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>appCheckInstance</td>
+<td><a href="app-check.appcheck">AppCheck</a></td>
+<td>The App Check service instance.</td>
+</tr>
+<tr>
+<td>onNext</td>
+<td>(tokenResult: <a href="app-check.appchecktokenresult">AppCheckTokenResult</a><!-- -->) =&gt; void</td>
+<td>When the token changes, this function is called with an <a href="app-check.appchecktokenresult">AppCheckTokenResult</a><!-- -->.</td>
+</tr>
+<tr>
+<td>onError</td>
+<td>(error: Error) =&gt; void</td>
+<td>Optional. Called if there is an error thrown by the listener (the <code>onNext</code> function).</td>
+</tr>
+<tr>
+<td>onCompletion</td>
+<td>() =&gt; void</td>
+<td>Currently unused, as the token stream is unending.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#unsubscribe">Unsubscribe</a></p>
+<p>A function that unsubscribes this listener.</p>
+<h3 id="settokenautorefreshenabled_057a76c">setTokenAutoRefreshEnabled(appCheckInstance, isTokenAutoRefreshEnabled)</h3>
+<p>Set whether App Check will automatically refresh tokens as needed.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function setTokenAutoRefreshEnabled(appCheckInstance: AppCheck, isTokenAutoRefreshEnabled: boolean): void;</pre>
+<h4 id="parameters-5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>appCheckInstance</td>
+<td><a href="app-check.appcheck">AppCheck</a></td>
+<td>The App Check service instance.</td>
+</tr>
+<tr>
+<td>isTokenAutoRefreshEnabled</td>
+<td>boolean</td>
+<td>If true, the SDK automatically refreshes App Check tokens as needed. This overrides any value set during <code>initializeAppCheck()</code>.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h2 id="appchecktokenlistener">AppCheckTokenListener</h2>
+<p>A listener that is called whenever the App Check token changes.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type AppCheckTokenListener = (token: AppCheckTokenResult) =&gt; void;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/app-check" class="_attribution-link">https://firebase.google.com/docs/reference/js/app-check</a>
+  </p>
+</div>

@@ -1,0 +1,146 @@
+<h1>MultiFactorUser interface</h1>
+<p>An interface that defines the multi-factor related properties and operations pertaining to a <a href="auth.user">User</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface MultiFactorUser </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.multifactoruser#multifactoruserenrolledfactors">enrolledFactors</a></td>
+<td><a href="auth.multifactorinfo">MultiFactorInfo</a><!-- -->[]</td>
+<td>Returns a list of the user&#39;s enrolled second factors.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.multifactoruser#multifactoruserenroll">enroll(assertion, displayName)</a></td>
+<td>Enrolls a second factor as identified by the <a href="auth.multifactorassertion">MultiFactorAssertion</a> for the user.</td>
+</tr>
+<tr>
+<td><a href="auth.multifactoruser#multifactorusergetsession">getSession()</a></td>
+<td>Returns the session identifier for a second factor enrollment operation. This is used to identify the user trying to enroll a second factor.</td>
+</tr>
+<tr>
+<td><a href="auth.multifactoruser#multifactoruserunenroll">unenroll(option)</a></td>
+<td>Unenrolls the specified second factor.</td>
+</tr>
+</tbody></table>
+<h2 id="multifactoruserenrolledfactors">MultiFactorUser.enrolledFactors</h2>
+<p>Returns a list of the user&#39;s enrolled second factors.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly enrolledFactors: MultiFactorInfo[];</pre>
+<h2 id="multifactoruserenroll">MultiFactorUser.enroll()</h2>
+<p>Enrolls a second factor as identified by the <a href="auth.multifactorassertion">MultiFactorAssertion</a> for the user.</p>
+<p>On resolution, the user tokens are updated to reflect the change in the JWT payload. Accepts an additional display name parameter used to identify the second factor to the end user. Recent re-authentication is required for this operation to succeed. On successful enrollment, existing Firebase sessions (refresh tokens) are revoked. When a new factor is enrolled, an email notification is sent to the user’s email.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">enroll(assertion: MultiFactorAssertion, displayName?: string | null): Promise&lt;void&gt;;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>assertion</td>
+<td><a href="auth.multifactorassertion">MultiFactorAssertion</a></td>
+<td>The multi-factor assertion to enroll with.</td>
+</tr>
+<tr>
+<td>displayName</td>
+<td>string | null</td>
+<td>The display name of the second factor.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="example">Example</h3>
+<pre data-language="javascript">const multiFactorUser = multiFactor(auth.currentUser);
+const multiFactorSession = await multiFactorUser.getSession();
+
+// Send verification code.
+const phoneAuthProvider = new PhoneAuthProvider(auth);
+const phoneInfoOptions = {
+  phoneNumber: phoneNumber,
+  session: multiFactorSession
+};
+const verificationId = await phoneAuthProvider.verifyPhoneNumber(phoneInfoOptions, appVerifier);
+
+// Obtain verification code from user.
+const phoneAuthCredential = PhoneAuthProvider.credential(verificationId, verificationCode);
+const multiFactorAssertion = PhoneMultiFactorGenerator.assertion(phoneAuthCredential);
+await multiFactorUser.enroll(multiFactorAssertion);
+// Second factor enrolled.</pre>
+<h2 id="multifactorusergetsession">MultiFactorUser.getSession()</h2>
+<p>Returns the session identifier for a second factor enrollment operation. This is used to identify the user trying to enroll a second factor.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">getSession(): Promise&lt;MultiFactorSession&gt;;</pre>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.multifactorsession">MultiFactorSession</a><!-- -->&gt;</p>
+<p>The promise that resolves with the <a href="auth.multifactorsession">MultiFactorSession</a><!-- -->.</p>
+<h3 id="example-1">Example</h3>
+<pre data-language="javascript">const multiFactorUser = multiFactor(auth.currentUser);
+const multiFactorSession = await multiFactorUser.getSession();
+
+// Send verification code.
+const phoneAuthProvider = new PhoneAuthProvider(auth);
+const phoneInfoOptions = {
+  phoneNumber: phoneNumber,
+  session: multiFactorSession
+};
+const verificationId = await phoneAuthProvider.verifyPhoneNumber(phoneInfoOptions, appVerifier);
+
+// Obtain verification code from user.
+const phoneAuthCredential = PhoneAuthProvider.credential(verificationId, verificationCode);
+const multiFactorAssertion = PhoneMultiFactorGenerator.assertion(phoneAuthCredential);
+await multiFactorUser.enroll(multiFactorAssertion);</pre>
+<h2 id="multifactoruserunenroll">MultiFactorUser.unenroll()</h2>
+<p>Unenrolls the specified second factor.</p>
+<p>To specify the factor to remove, pass a <a href="auth.multifactorinfo">MultiFactorInfo</a> object (retrieved from <a href="auth.multifactoruser#multifactoruserenrolledfactors">MultiFactorUser.enrolledFactors</a><!-- -->) or the factor&#39;s UID string. Sessions are not revoked when the account is unenrolled. An email notification is likely to be sent to the user notifying them of the change. Recent re-authentication is required for this operation to succeed. When an existing factor is unenrolled, an email notification is sent to the user’s email.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">unenroll(option: MultiFactorInfo | string): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>option</td>
+<td><a href="auth.multifactorinfo">MultiFactorInfo</a> | string</td>
+<td>The multi-factor option to unenroll.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<ul>
+<li>A <code>Promise</code> which resolves when the unenroll operation is complete.</li>
+</ul>
+<h3 id="example-2">Example</h3>
+<pre data-language="javascript">const multiFactorUser = multiFactor(auth.currentUser);
+// Present user the option to choose which factor to unenroll.
+await multiFactorUser.unenroll(multiFactorUser.enrolledFactors[i])</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.multifactoruser" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.multifactoruser</a>
+  </p>
+</div>

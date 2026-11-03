@@ -1,0 +1,160 @@
+<h1>QuerySnapshot class</h1>
+<p>A <code>QuerySnapshot</code> contains zero or more <code>DocumentSnapshot</code> objects representing the results of a query. The documents can be accessed as an array via the <code>docs</code> property or enumerated using the <code>forEach</code> method. The number of documents can be determined via the <code>empty</code> and <code>size</code> properties.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class QuerySnapshot&lt;
+  AppModelType = DocumentData,
+  DbModelType extends DocumentData = DocumentData
+&gt; </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.querysnapshot#querysnapshotdocs">docs</a></td>
+<td></td>
+<td>Array&lt;<a href="firestore.querydocumentsnapshot">QueryDocumentSnapshot</a><!-- -->&lt;AppModelType, DbModelType&gt;&gt;</td>
+<td>An array of all the documents in the <code>QuerySnapshot</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore.querysnapshot#querysnapshotempty">empty</a></td>
+<td></td>
+<td>boolean</td>
+<td>True if there are no documents in the <code>QuerySnapshot</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore.querysnapshot#querysnapshotmetadata">metadata</a></td>
+<td></td>
+<td><a href="firestore.snapshotmetadata">SnapshotMetadata</a></td>
+<td>Metadata about this snapshot, concerning its source and if it has local modifications.</td>
+</tr>
+<tr>
+<td><a href="firestore.querysnapshot#querysnapshotquery">query</a></td>
+<td></td>
+<td><a href="firestore.query">Query</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>The query on which you called <code>get</code> or <code>onSnapshot</code> in order to get this <code>QuerySnapshot</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore.querysnapshot#querysnapshotsize">size</a></td>
+<td></td>
+<td>number</td>
+<td>The number of documents in the <code>QuerySnapshot</code>.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.querysnapshot#querysnapshotdocchanges">docChanges(options)</a></td>
+<td></td>
+<td>Returns an array of the documents changes since the last snapshot. If this is the first snapshot, all documents will be in the list as &#39;added&#39; changes.</td>
+</tr>
+<tr>
+<td><a href="firestore.querysnapshot#querysnapshotforeach">forEach(callback, thisArg)</a></td>
+<td></td>
+<td>Enumerates all of the documents in the <code>QuerySnapshot</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore.querysnapshot#querysnapshottojson">toJSON()</a></td>
+<td></td>
+<td>Returns a JSON-serializable representation of this <code>QuerySnapshot</code> instance.</td>
+</tr>
+</tbody></table>
+<h2 id="querysnapshotdocs">QuerySnapshot.docs</h2>
+<p>An array of all the documents in the <code>QuerySnapshot</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get docs(): Array&lt;QueryDocumentSnapshot&lt;AppModelType, DbModelType&gt;&gt;;</pre>
+<h2 id="querysnapshotempty">QuerySnapshot.empty</h2>
+<p>True if there are no documents in the <code>QuerySnapshot</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get empty(): boolean;</pre>
+<h2 id="querysnapshotmetadata">QuerySnapshot.metadata</h2>
+<p>Metadata about this snapshot, concerning its source and if it has local modifications.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly metadata: SnapshotMetadata;</pre>
+<h2 id="querysnapshotquery">QuerySnapshot.query</h2>
+<p>The query on which you called <code>get</code> or <code>onSnapshot</code> in order to get this <code>QuerySnapshot</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly query: Query&lt;AppModelType, DbModelType&gt;;</pre>
+<h2 id="querysnapshotsize">QuerySnapshot.size</h2>
+<p>The number of documents in the <code>QuerySnapshot</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get size(): number;</pre>
+<h2 id="querysnapshotdocchanges">QuerySnapshot.docChanges()</h2>
+<p>Returns an array of the documents changes since the last snapshot. If this is the first snapshot, all documents will be in the list as &#39;added&#39; changes.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">docChanges(
+    options?: SnapshotListenOptions
+  ): Array&lt;DocumentChange&lt;AppModelType, DbModelType&gt;&gt;;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>options</td>
+<td><a href="firestore.snapshotlistenoptions">SnapshotListenOptions</a></td>
+<td><code>SnapshotListenOptions</code> that control whether metadata-only changes (i.e. only <code>DocumentSnapshot.metadata</code> changed) should trigger snapshot events.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Array&lt;<a href="firestore.documentchange">DocumentChange</a><!-- -->&lt;AppModelType, DbModelType&gt;&gt;</p>
+<h2 id="querysnapshotforeach">QuerySnapshot.forEach()</h2>
+<p>Enumerates all of the documents in the <code>QuerySnapshot</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">forEach(
+    callback: (
+      result: QueryDocumentSnapshot&lt;AppModelType, DbModelType&gt;
+    ) =&gt; void,
+    thisArg?: unknown
+  ): void;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>callback</td>
+<td>( result: <a href="firestore.querydocumentsnapshot">QueryDocumentSnapshot</a><!-- -->&lt;AppModelType, DbModelType&gt; ) =&gt; void</td>
+<td>A callback to be called with a <code>QueryDocumentSnapshot</code> for each document in the snapshot.</td>
+</tr>
+<tr>
+<td>thisArg</td>
+<td>unknown</td>
+<td>The <code>this</code> binding for the callback.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h2 id="querysnapshottojson">QuerySnapshot.toJSON()</h2>
+<p>Returns a JSON-serializable representation of this <code>QuerySnapshot</code> instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">toJSON(): object;</pre>
+<p><b>Returns:</b></p>
+<p>object</p>
+<p>a JSON representation of this object. Throws a <a href="firestore.firestoreerror">FirestoreError</a> if this <code>QuerySnapshot</code> has pending writes.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.querysnapshot" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.querysnapshot</a>
+  </p>
+</div>

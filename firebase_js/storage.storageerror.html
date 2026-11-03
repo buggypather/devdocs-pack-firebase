@@ -1,0 +1,137 @@
+<h1>StorageError class</h1>
+<p>An error returned by the Firebase Storage SDK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class StorageError extends FirebaseError </pre>
+<p><b>Extends:</b> <a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.firebaseerror.md">FirebaseError</a></p>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="storage.storageerror#storageerrorconstructor">(constructor)(code, message, status_)</a></td>
+<td></td>
+<td>Constructs a new instance of the <code>StorageError</code> class</td>
+</tr>
+</tbody></table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="storage.storageerror#storageerrorcustomdata">customData</a></td>
+<td></td>
+<td>{ serverResponse: string | null; }</td>
+<td>Stores custom error data unique to the <code>StorageError</code>.</td>
+</tr>
+<tr>
+<td><a href="storage.storageerror#storageerrorserverresponse">serverResponse</a></td>
+<td></td>
+<td>null | string</td>
+<td>Optional response message that was added by the server.</td>
+</tr>
+<tr>
+<td><a href="storage.storageerror#storageerrorstatus">status</a></td>
+<td></td>
+<td>number</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="storage.storageerror#storageerror_codeequals">_codeEquals(code)</a></td>
+<td></td>
+<td>Compares a <code>StorageErrorCode</code> against this error&#39;s code, filtering out the prefix.</td>
+</tr>
+</tbody></table>
+<h2 id="storageerrorconstructor">StorageError.(constructor)</h2>
+<p>Constructs a new instance of the <code>StorageError</code> class</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">constructor(code: StorageErrorCode, message: string, status_?: number);</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td><a href="storage#storageerrorcode">StorageErrorCode</a></td>
+<td>A <code>StorageErrorCode</code> string to be prefixed with &#39;storage/&#39; and added to the end of the message.</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>Error message.</td>
+</tr>
+<tr>
+<td>status_</td>
+<td>number</td>
+<td>Corresponding HTTP Status Code</td>
+</tr>
+</tbody></table>
+<h2 id="storageerrorcustomdata">StorageError.customData</h2>
+<p>Stores custom error data unique to the <code>StorageError</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">customData: {
+        serverResponse: string | null;
+    };</pre>
+<h2 id="storageerrorserverresponse">StorageError.serverResponse</h2>
+<p>Optional response message that was added by the server.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get serverResponse(): null | string;
+
+set serverResponse(serverResponse: string | null);</pre>
+<h2 id="storageerrorstatus">StorageError.status</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get status(): number;
+
+set status(status: number);</pre>
+<h2 id="storageerror_codeequals">StorageError._codeEquals()</h2>
+<p>Compares a <code>StorageErrorCode</code> against this error&#39;s code, filtering out the prefix.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">_codeEquals(code: StorageErrorCode): boolean;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td><a href="storage#storageerrorcode">StorageErrorCode</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/storage.storageerror" class="_attribution-link">https://firebase.google.com/docs/reference/js/storage.storageerror</a>
+  </p>
+</div>

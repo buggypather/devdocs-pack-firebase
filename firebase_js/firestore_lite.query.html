@@ -1,0 +1,142 @@
+<h1>Query class</h1>
+<p>A <code>Query</code> refers to a query which you can read or listen to. You can also construct refined <code>Query</code> objects by adding filters and ordering.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class Query&lt;
+  AppModelType = DocumentData,
+  DbModelType extends DocumentData = DocumentData
+&gt; </pre>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite.query#queryconstructor">(constructor)()</a></td>
+<td></td>
+<td>Constructs a new instance of the <code>Query</code> class</td>
+</tr>
+</tbody></table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite.query#queryconverter">converter</a></td>
+<td></td>
+<td><a href="firestore_lite.firestoredataconverter">FirestoreDataConverter</a><!-- -->&lt;AppModelType, DbModelType&gt; | null</td>
+<td>If provided, the <code>FirestoreDataConverter</code> associated with this instance.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.query#queryfirestore">firestore</a></td>
+<td></td>
+<td><a href="firestore_lite.firestore">Firestore</a></td>
+<td>The <code>Firestore</code> instance for the Firestore database (useful for performing transactions, etc.).</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.query#querytype">type</a></td>
+<td></td>
+<td>&#39;query&#39; | &#39;collection&#39;</td>
+<td>The type of this Firestore reference.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite.query#querywithconverter">withConverter(converter)</a></td>
+<td></td>
+<td>Removes the current converter.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.query#querywithconverter">withConverter(converter)</a></td>
+<td></td>
+<td>Applies a custom data converter to this query, allowing you to use your own custom model objects with Firestore. When you call <a href="firestore_lite#getdocs_4e56953">getDocs()</a> with the returned query, the provided converter will convert between Firestore data of type <code>NewDbModelType</code> and your custom type <code>NewAppModelType</code>.</td>
+</tr>
+</tbody></table>
+<h2 id="queryconstructor">Query.(constructor)</h2>
+<p>Constructs a new instance of the <code>Query</code> class</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">protected constructor();</pre>
+<h2 id="queryconverter">Query.converter</h2>
+<p>If provided, the <code>FirestoreDataConverter</code> associated with this instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly converter: FirestoreDataConverter&lt;AppModelType, DbModelType&gt; | null;</pre>
+<h2 id="queryfirestore">Query.firestore</h2>
+<p>The <code>Firestore</code> instance for the Firestore database (useful for performing transactions, etc.).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly firestore: Firestore;</pre>
+<h2 id="querytype">Query.type</h2>
+<p>The type of this Firestore reference.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly type: 'query' | 'collection';</pre>
+<h2 id="querywithconverter">Query.withConverter()</h2>
+<p>Removes the current converter.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">withConverter(converter: null): Query&lt;DocumentData, DocumentData&gt;;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>converter</td>
+<td>null</td>
+<td><code>null</code> removes the current converter.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.query">Query</a><!-- -->&lt;<a href="firestore_lite.documentdata">DocumentData</a><!-- -->, <a href="firestore_lite.documentdata">DocumentData</a><!-- -->&gt;</p>
+<p>A <code>Query&lt;DocumentData, DocumentData&gt;</code> that does not use a converter.</p>
+<h2 id="querywithconverter-1">Query.withConverter()</h2>
+<p>Applies a custom data converter to this query, allowing you to use your own custom model objects with Firestore. When you call <a href="firestore_lite#getdocs_4e56953">getDocs()</a> with the returned query, the provided converter will convert between Firestore data of type <code>NewDbModelType</code> and your custom type <code>NewAppModelType</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">withConverter&lt;
+    NewAppModelType,
+    NewDbModelType extends DocumentData = DocumentData
+  &gt;(
+    converter: FirestoreDataConverter&lt;NewAppModelType, NewDbModelType&gt;
+  ): Query&lt;NewAppModelType, NewDbModelType&gt;;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>converter</td>
+<td><a href="firestore_lite.firestoredataconverter">FirestoreDataConverter</a><!-- -->&lt;NewAppModelType, NewDbModelType&gt;</td>
+<td>Converts objects to and from Firestore.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite.query">Query</a><!-- -->&lt;NewAppModelType, NewDbModelType&gt;</p>
+<p>A <code>Query</code> that uses the provided converter.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_lite.query" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_lite.query</a>
+  </p>
+</div>

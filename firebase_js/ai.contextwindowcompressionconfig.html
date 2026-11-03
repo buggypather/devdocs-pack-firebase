@@ -1,0 +1,48 @@
+<h1>ContextWindowCompressionConfig interface</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Enables context window compression to manage the model&#39;s context window.</p>
+<p>This mechanism prevents the context from exceeding a given length.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface ContextWindowCompressionConfig </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.contextwindowcompressionconfig#contextwindowcompressionconfigslidingwindow">slidingWindow</a></td>
+<td><a href="ai.slidingwindow">SlidingWindow</a></td>
+<td><b><i>(Public Preview)</i></b> The sliding window compression mechanism.</td>
+</tr>
+<tr>
+<td><a href="ai.contextwindowcompressionconfig#contextwindowcompressionconfigtriggertokens">triggerTokens</a></td>
+<td>number</td>
+<td><b><i>(Public Preview)</i></b> The number of tokens (before running a turn) that triggers the context window compression.</td>
+</tr>
+</tbody></table>
+<h2 id="contextwindowcompressionconfigslidingwindow">ContextWindowCompressionConfig.slidingWindow</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The sliding window compression mechanism.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">slidingWindow?: SlidingWindow;</pre>
+<h2 id="contextwindowcompressionconfigtriggertokens">ContextWindowCompressionConfig.triggerTokens</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The number of tokens (before running a turn) that triggers the context window compression.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">triggerTokens?: number;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.contextwindowcompressionconfig" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.contextwindowcompressionconfig</a>
+  </p>
+</div>

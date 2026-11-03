@@ -1,0 +1,241 @@
+<h1>DocumentReference class</h1>
+<p>A <code>DocumentReference</code> refers to a document location in a Firestore database and can be used to write, read, or listen to the location. The document at the referenced location may or may not exist.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class DocumentReference&lt;
+  AppModelType = DocumentData,
+  DbModelType extends DocumentData = DocumentData
+&gt; </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.documentreference#documentreferenceconverter">converter</a></td>
+<td></td>
+<td><a href="firestore.firestoredataconverter">FirestoreDataConverter</a><!-- -->&lt;AppModelType, DbModelType&gt; | null</td>
+<td>If provided, the <code>FirestoreDataConverter</code> associated with this instance.</td>
+</tr>
+<tr>
+<td><a href="firestore.documentreference#documentreferencefirestore">firestore</a></td>
+<td></td>
+<td><a href="firestore.firestore">Firestore</a></td>
+<td>The <a href="firestore.firestore">Firestore</a> instance the document is in. This is useful for performing transactions, for example.</td>
+</tr>
+<tr>
+<td><a href="firestore.documentreference#documentreferenceid">id</a></td>
+<td></td>
+<td>string</td>
+<td>The document&#39;s identifier within its collection.</td>
+</tr>
+<tr>
+<td><a href="firestore.documentreference#documentreferenceparent">parent</a></td>
+<td></td>
+<td><a href="firestore.collectionreference">CollectionReference</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>The collection this <code>DocumentReference</code> belongs to.</td>
+</tr>
+<tr>
+<td><a href="firestore.documentreference#documentreferencepath">path</a></td>
+<td></td>
+<td>string</td>
+<td>A string representing the path of the referenced document (relative to the root of the database).</td>
+</tr>
+<tr>
+<td><a href="firestore.documentreference#documentreferencetype">type</a></td>
+<td></td>
+<td>(not declared)</td>
+<td>The type of this Firestore reference.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.documentreference#documentreferencefromjson">fromJSON(firestore, json)</a></td>
+<td><code>static</code></td>
+<td>Builds a <code>DocumentReference</code> instance from a JSON object created by <a href="firestore.documentreference#documentreferencetojson">DocumentReference.toJSON()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="firestore.documentreference#documentreferencefromjson">fromJSON(firestore, json, converter)</a></td>
+<td><code>static</code></td>
+<td>Builds a <code>DocumentReference</code> instance from a JSON object created by <a href="firestore.documentreference#documentreferencetojson">DocumentReference.toJSON()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="firestore.documentreference#documentreferencetojson">toJSON()</a></td>
+<td></td>
+<td>Returns a JSON-serializable representation of this <code>DocumentReference</code> instance.</td>
+</tr>
+<tr>
+<td><a href="firestore.documentreference#documentreferencewithconverter">withConverter(converter)</a></td>
+<td></td>
+<td>Applies a custom data converter to this <code>DocumentReference</code>, allowing you to use your own custom model objects with Firestore. When you call <a href="firestore_lite#setdoc_ee215ad">setDoc()</a><!-- -->, <a href="firestore_lite#getdoc_4569087">getDoc()</a><!-- -->, etc. with the returned <code>DocumentReference</code> instance, the provided converter will convert between Firestore data of type <code>NewDbModelType</code> and your custom type <code>NewAppModelType</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore.documentreference#documentreferencewithconverter">withConverter(converter)</a></td>
+<td></td>
+<td>Removes the current converter.</td>
+</tr>
+</tbody></table>
+<h2 id="documentreferenceconverter">DocumentReference.converter</h2>
+<p>If provided, the <code>FirestoreDataConverter</code> associated with this instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly converter: FirestoreDataConverter&lt;AppModelType, DbModelType&gt; | null;</pre>
+<h2 id="documentreferencefirestore">DocumentReference.firestore</h2>
+<p>The <a href="firestore.firestore">Firestore</a> instance the document is in. This is useful for performing transactions, for example.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly firestore: Firestore;</pre>
+<h2 id="documentreferenceid">DocumentReference.id</h2>
+<p>The document&#39;s identifier within its collection.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get id(): string;</pre>
+<h2 id="documentreferenceparent">DocumentReference.parent</h2>
+<p>The collection this <code>DocumentReference</code> belongs to.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get parent(): CollectionReference&lt;AppModelType, DbModelType&gt;;</pre>
+<h2 id="documentreferencepath">DocumentReference.path</h2>
+<p>A string representing the path of the referenced document (relative to the root of the database).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get path(): string;</pre>
+<h2 id="documentreferencetype">DocumentReference.type</h2>
+<p>The type of this Firestore reference.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly type = 'document';</pre>
+<h2 id="documentreferencefromjson">DocumentReference.fromJSON()</h2>
+<p>Builds a <code>DocumentReference</code> instance from a JSON object created by <a href="firestore.documentreference#documentreferencetojson">DocumentReference.toJSON()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static fromJSON(firestore: Firestore, json: object): DocumentReference;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>firestore</td>
+<td><a href="firestore.firestore">Firestore</a></td>
+<td>The <a href="firestore.firestore">Firestore</a> instance the snapshot should be loaded for.</td>
+</tr>
+<tr>
+<td>json</td>
+<td>object</td>
+<td>a JSON object represention of a <code>DocumentReference</code> instance</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore.documentreference">DocumentReference</a></p>
+<p>an instance of <a href="firestore.documentreference">DocumentReference</a> if the JSON object could be parsed. Throws a <a href="firestore.firestoreerror">FirestoreError</a> if an error occurs.</p>
+<h2 id="documentreferencefromjson-1">DocumentReference.fromJSON()</h2>
+<p>Builds a <code>DocumentReference</code> instance from a JSON object created by <a href="firestore.documentreference#documentreferencetojson">DocumentReference.toJSON()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static fromJSON&lt;
+    NewAppModelType = DocumentData,
+    NewDbModelType extends DocumentData = DocumentData
+  &gt;(
+    firestore: Firestore,
+    json: object,
+    converter: FirestoreDataConverter&lt;NewAppModelType, NewDbModelType&gt;
+  ): DocumentReference&lt;NewAppModelType, NewDbModelType&gt;;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>firestore</td>
+<td><a href="firestore.firestore">Firestore</a></td>
+<td>The <a href="firestore.firestore">Firestore</a> instance the snapshot should be loaded for.</td>
+</tr>
+<tr>
+<td>json</td>
+<td>object</td>
+<td>a JSON object represention of a <code>DocumentReference</code> instance</td>
+</tr>
+<tr>
+<td>converter</td>
+<td><a href="firestore.firestoredataconverter">FirestoreDataConverter</a><!-- -->&lt;NewAppModelType, NewDbModelType&gt;</td>
+<td>Converts objects to and from Firestore.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore.documentreference">DocumentReference</a><!-- -->&lt;NewAppModelType, NewDbModelType&gt;</p>
+<p>an instance of <a href="firestore.documentreference">DocumentReference</a> if the JSON object could be parsed. Throws a <a href="firestore.firestoreerror">FirestoreError</a> if an error occurs.</p>
+<h2 id="documentreferencetojson">DocumentReference.toJSON()</h2>
+<p>Returns a JSON-serializable representation of this <code>DocumentReference</code> instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">toJSON(): object;</pre>
+<p><b>Returns:</b></p>
+<p>object</p>
+<p>a JSON representation of this object.</p>
+<h2 id="documentreferencewithconverter">DocumentReference.withConverter()</h2>
+<p>Applies a custom data converter to this <code>DocumentReference</code><!-- -->, allowing you to use your own custom model objects with Firestore. When you call <a href="firestore_lite#setdoc_ee215ad">setDoc()</a><!-- -->, <a href="firestore_lite#getdoc_4569087">getDoc()</a><!-- -->, etc. with the returned <code>DocumentReference</code> instance, the provided converter will convert between Firestore data of type <code>NewDbModelType</code> and your custom type <code>NewAppModelType</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">withConverter&lt;
+    NewAppModelType,
+    NewDbModelType extends DocumentData = DocumentData
+  &gt;(
+    converter: FirestoreDataConverter&lt;NewAppModelType, NewDbModelType&gt;
+  ): DocumentReference&lt;NewAppModelType, NewDbModelType&gt;;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>converter</td>
+<td><a href="firestore.firestoredataconverter">FirestoreDataConverter</a><!-- -->&lt;NewAppModelType, NewDbModelType&gt;</td>
+<td>Converts objects to and from Firestore.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore.documentreference">DocumentReference</a><!-- -->&lt;NewAppModelType, NewDbModelType&gt;</p>
+<p>A <code>DocumentReference</code> that uses the provided converter.</p>
+<h2 id="documentreferencewithconverter-1">DocumentReference.withConverter()</h2>
+<p>Removes the current converter.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">withConverter(converter: null): DocumentReference&lt;DocumentData, DocumentData&gt;;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>converter</td>
+<td>null</td>
+<td><code>null</code> removes the current converter.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore.documentreference">DocumentReference</a><!-- -->&lt;<a href="firestore.documentdata">DocumentData</a><!-- -->, <a href="firestore.documentdata">DocumentData</a><!-- -->&gt;</p>
+<p>A <code>DocumentReference&lt;DocumentData, DocumentData&gt;</code> that does not use a converter.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.documentreference" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.documentreference</a>
+  </p>
+</div>

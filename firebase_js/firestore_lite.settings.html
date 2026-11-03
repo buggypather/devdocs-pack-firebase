@@ -1,0 +1,58 @@
+<h1>Settings interface</h1>
+<p>Specifies custom configurations for your Cloud Firestore instance. You must set these before invoking any other methods.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface Settings </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite.settings#settingsgrpcflowcontrolwindow">grpcFlowControlWindow</a></td>
+<td>number</td>
+<td>Only applicable in Node environments.<!-- -->The gRPC flow control window size in bytes. Defaults to 256 KB. This maps directly to grpc-node&#39;s <a href="https://github.com/grpc/grpc-node/blob/651cbeec6b4d6d11cbee91c042946d2fe5968ef6/packages/grpc-js/README.md#supported-channel-options">grpc-node.flow_control_window</a> setting.<!-- -->**WARNING:** This is an advanced setting. The default of 256 KB is optimized for most Node workloads. Only modify this if you are actively tuning gRPC network behavior and understand the implications of HTTP/2 flow control.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.settings#settingshost">host</a></td>
+<td>string</td>
+<td>The hostname to connect to.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.settings#settingsignoreundefinedproperties">ignoreUndefinedProperties</a></td>
+<td>boolean</td>
+<td>Whether to skip nested properties that are set to <code>undefined</code> during object serialization. If set to <code>true</code>, these properties are skipped and not written to Firestore. If set to <code>false</code> or omitted, the SDK throws an exception when it encounters properties of type <code>undefined</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite.settings#settingsssl">ssl</a></td>
+<td>boolean</td>
+<td>Whether to use SSL when connecting.</td>
+</tr>
+</tbody></table>
+<h2 id="settingsgrpcflowcontrolwindow">Settings.grpcFlowControlWindow</h2>
+<p>Only applicable in Node environments.</p>
+<p>The gRPC flow control window size in bytes. Defaults to 256 KB. This maps directly to grpc-node&#39;s <a href="https://github.com/grpc/grpc-node/blob/651cbeec6b4d6d11cbee91c042946d2fe5968ef6/packages/grpc-js/README.md#supported-channel-options">grpc-node.flow_control_window</a> setting.</p>
+<p>**WARNING:** This is an advanced setting. The default of 256 KB is optimized for most Node workloads. Only modify this if you are actively tuning gRPC network behavior and understand the implications of HTTP/2 flow control.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">grpcFlowControlWindow?: number;</pre>
+<h2 id="settingshost">Settings.host</h2>
+<p>The hostname to connect to.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">host?: string;</pre>
+<h2 id="settingsignoreundefinedproperties">Settings.ignoreUndefinedProperties</h2>
+<p>Whether to skip nested properties that are set to <code>undefined</code> during object serialization. If set to <code>true</code><!-- -->, these properties are skipped and not written to Firestore. If set to <code>false</code> or omitted, the SDK throws an exception when it encounters properties of type <code>undefined</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">ignoreUndefinedProperties?: boolean;</pre>
+<h2 id="settingsssl">Settings.ssl</h2>
+<p>Whether to use SSL when connecting.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">ssl?: boolean;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_lite.settings" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_lite.settings</a>
+  </p>
+</div>

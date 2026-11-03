@@ -1,0 +1,114 @@
+<h1>MultiFactorResolver interface</h1>
+<p>The class used to facilitate recovery from <a href="auth.multifactorerror">MultiFactorError</a> when a user needs to provide a second factor to sign in.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface MultiFactorResolver </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.multifactorresolver#multifactorresolverhints">hints</a></td>
+<td><a href="auth.multifactorinfo">MultiFactorInfo</a><!-- -->[]</td>
+<td>The list of hints for the second factors needed to complete the sign-in for the current session.</td>
+</tr>
+<tr>
+<td><a href="auth.multifactorresolver#multifactorresolversession">session</a></td>
+<td><a href="auth.multifactorsession">MultiFactorSession</a></td>
+<td>The session identifier for the current sign-in flow, which can be used to complete the second factor sign-in.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.multifactorresolver#multifactorresolverresolvesignin">resolveSignIn(assertion)</a></td>
+<td>A helper function to help users complete sign in with a second factor using an <a href="auth.multifactorassertion">MultiFactorAssertion</a> confirming the user successfully completed the second factor challenge.</td>
+</tr>
+</tbody></table>
+<h2 id="multifactorresolverhints">MultiFactorResolver.hints</h2>
+<p>The list of hints for the second factors needed to complete the sign-in for the current session.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly hints: MultiFactorInfo[];</pre>
+<h2 id="multifactorresolversession">MultiFactorResolver.session</h2>
+<p>The session identifier for the current sign-in flow, which can be used to complete the second factor sign-in.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly session: MultiFactorSession;</pre>
+<h2 id="multifactorresolverresolvesignin">MultiFactorResolver.resolveSignIn()</h2>
+<p>A helper function to help users complete sign in with a second factor using an <a href="auth.multifactorassertion">MultiFactorAssertion</a> confirming the user successfully completed the second factor challenge.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">resolveSignIn(assertion: MultiFactorAssertion): Promise&lt;UserCredential&gt;;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>assertion</td>
+<td><a href="auth.multifactorassertion">MultiFactorAssertion</a></td>
+<td>The multi-factor assertion to resolve sign-in with.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.usercredential">UserCredential</a><!-- -->&gt;</p>
+<p>The promise that resolves with the user credential object.</p>
+<h3 id="example">Example</h3>
+<pre data-language="javascript">const phoneAuthCredential = PhoneAuthProvider.credential(verificationId, verificationCode);
+const multiFactorAssertion = PhoneMultiFactorGenerator.assertion(phoneAuthCredential);
+const userCredential = await resolver.resolveSignIn(multiFactorAssertion);</pre>
+<h3 id="example-1">Example</h3>
+<pre data-language="javascript">let resolver;
+let multiFactorHints;
+
+signInWithEmailAndPassword(auth, email, password)
+    .then((result) =&gt; {
+      // User signed in. No 2nd factor challenge is needed.
+    })
+    .catch((error) =&gt; {
+      if (error.code == 'auth/multi-factor-auth-required') {
+        resolver = getMultiFactorResolver(auth, error);
+        // Show UI to let user select second factor.
+        multiFactorHints = resolver.hints;
+      } else {
+        // Handle other errors.
+      }
+    });
+
+// The enrolled second factors that can be used to complete
+// sign-in are returned in the `MultiFactorResolver.hints` list.
+// UI needs to be presented to allow the user to select a second factor
+// from that list.
+
+const selectedHint = // ; selected from multiFactorHints
+const phoneAuthProvider = new PhoneAuthProvider(auth);
+const phoneInfoOptions = {
+  multiFactorHint: selectedHint,
+  session: resolver.session
+};
+const verificationId = phoneAuthProvider.verifyPhoneNumber(phoneInfoOptions, appVerifier);
+// Store `verificationId` and show UI to let user enter verification code.
+
+// UI to enter verification code and continue.
+// Continue button click handler
+const phoneAuthCredential = PhoneAuthProvider.credential(verificationId, verificationCode);
+const multiFactorAssertion = PhoneMultiFactorGenerator.assertion(phoneAuthCredential);
+const userCredential = await resolver.resolveSignIn(multiFactorAssertion);</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.multifactorresolver" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.multifactorresolver</a>
+  </p>
+</div>

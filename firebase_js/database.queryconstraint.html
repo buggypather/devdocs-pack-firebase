@@ -1,0 +1,31 @@
+<h1>QueryConstraint class</h1>
+<p>A <code>QueryConstraint</code> is used to narrow the set of documents returned by a Database query. <code>QueryConstraint</code><!-- -->s are created by invoking <a href="database#endat_51c2c8b">endAt()</a><!-- -->, <a href="database#endbefore_51c2c8b">endBefore()</a><!-- -->, <a href="database#startat_51c2c8b">startAt()</a><!-- -->, <a href="database#startafter_51c2c8b">startAfter()</a><!-- -->, <a href="database#limittofirst_ec46c78">limitToFirst()</a><!-- -->, <a href="database#limittolast_ec46c78">limitToLast()</a><!-- -->, <a href="database#orderbychild_fe1f8e4">orderByChild()</a><!-- -->, <a href="database#orderbychild_fe1f8e4">orderByChild()</a><!-- -->, <a href="database#orderbykey">orderByKey()</a> , <a href="database#orderbypriority">orderByPriority()</a> , <a href="database#orderbyvalue">orderByValue()</a> or <a href="database#equalto_51c2c8b">equalTo()</a> and can then be passed to <a href="database#query_870e07a">query()</a> to create a new query instance that also contains this <code>QueryConstraint</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare abstract class QueryConstraint </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="database.queryconstraint#queryconstrainttype">type</a></td>
+<td></td>
+<td><a href="database#queryconstrainttype">QueryConstraintType</a></td>
+<td>The type of this query constraints</td>
+</tr>
+</tbody></table>
+<h2 id="queryconstrainttype">QueryConstraint.type</h2>
+<p>The type of this query constraints</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">abstract readonly type: QueryConstraintType;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/database.queryconstraint" class="_attribution-link">https://firebase.google.com/docs/reference/js/database.queryconstraint</a>
+  </p>
+</div>

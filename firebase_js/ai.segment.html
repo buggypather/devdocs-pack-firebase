@@ -1,0 +1,56 @@
+<h1>Segment interface</h1>
+<p>Represents a specific segment within a <a href="ai.content">Content</a> object, often used to pinpoint the exact location of text or data that grounding information refers to.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface Segment </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.segment#segmentendindex">endIndex</a></td>
+<td>number</td>
+<td>The zero-based end index of the segment within the specified <code>Part</code>, measured in UTF-8 bytes. This offset is exclusive, meaning the character at this index is not included in the segment.</td>
+</tr>
+<tr>
+<td><a href="ai.segment#segmentpartindex">partIndex</a></td>
+<td>number</td>
+<td>The zero-based index of the <a href="ai#part">Part</a> object within the <code>parts</code> array of its parent <a href="ai.content">Content</a> object. This identifies which part of the content the segment belongs to.</td>
+</tr>
+<tr>
+<td><a href="ai.segment#segmentstartindex">startIndex</a></td>
+<td>number</td>
+<td>The zero-based start index of the segment within the specified <code>Part</code>, measured in UTF-8 bytes. This offset is inclusive, starting from 0 at the beginning of the part&#39;s content (for example, <code>Part.text</code>).</td>
+</tr>
+<tr>
+<td><a href="ai.segment#segmenttext">text</a></td>
+<td>string</td>
+<td>The text corresponding to the segment from the response.</td>
+</tr>
+</tbody></table>
+<h2 id="segmentendindex">Segment.endIndex</h2>
+<p>The zero-based end index of the segment within the specified <code>Part</code><!-- -->, measured in UTF-8 bytes. This offset is exclusive, meaning the character at this index is not included in the segment.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">endIndex: number;</pre>
+<h2 id="segmentpartindex">Segment.partIndex</h2>
+<p>The zero-based index of the <a href="ai#part">Part</a> object within the <code>parts</code> array of its parent <a href="ai.content">Content</a> object. This identifies which part of the content the segment belongs to.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">partIndex: number;</pre>
+<h2 id="segmentstartindex">Segment.startIndex</h2>
+<p>The zero-based start index of the segment within the specified <code>Part</code><!-- -->, measured in UTF-8 bytes. This offset is inclusive, starting from 0 at the beginning of the part&#39;s content (for example, <code>Part.text</code><!-- -->).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">startIndex: number;</pre>
+<h2 id="segmenttext">Segment.text</h2>
+<p>The text corresponding to the segment from the response.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">text: string;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.segment" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.segment</a>
+  </p>
+</div>

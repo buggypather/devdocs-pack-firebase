@@ -1,0 +1,278 @@
+<h1>EventParams interface</h1>
+<p>Standard <code>gtag.js</code> event parameters. For more information, see <a href="https://developers.google.com/gtagjs/reference/ga4-events">the GA4 reference documentation</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface EventParams </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="analytics.eventparams#eventparamsaffiliation">affiliation</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamscheckout_option">checkout_option</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamscheckout_step">checkout_step</a></td>
+<td>number</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamscontent_type">content_type</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamscoupon">coupon</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamscurrency">currency</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamsdescription">description</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamsevent_category">event_category</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamsevent_label">event_label</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamsfatal">fatal</a></td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams">firebase_screen_class</a></td>
+<td>string</td>
+<td>Firebase-specific. Use to log a <code>screen_class</code> to Firebase Analytics.</td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamsfirebase_screen">firebase_screen</a></td>
+<td>string</td>
+<td>Firebase-specific. Use to log a <code>screen_name</code> to Firebase Analytics.</td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamsitem_id">item_id</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamsitem_list_id">item_list_id</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamsitem_list_name">item_list_name</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamsitems">items</a></td>
+<td><a href="analytics.item">Item</a><!-- -->[]</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamsmethod">method</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamsnumber">number</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamspage_location">page_location</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamspage_path">page_path</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamspage_title">page_title</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamspayment_type">payment_type</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamspromotion_id">promotion_id</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamspromotion_name">promotion_name</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamspromotions">promotions</a></td>
+<td><a href="analytics.promotion">Promotion</a><!-- -->[]</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamsscreen_name">screen_name</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamssearch_term">search_term</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamsshipping_tier">shipping_tier</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamsshipping">shipping</a></td>
+<td><a href="analytics#currency">Currency</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamstax">tax</a></td>
+<td><a href="analytics#currency">Currency</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamstransaction_id">transaction_id</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analytics.eventparams#eventparamsvalue">value</a></td>
+<td>number</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="eventparamsaffiliation">EventParams.affiliation</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">affiliation?: string;</pre>
+<h2 id="eventparamscheckout_option">EventParams.checkout_option</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">checkout_option?: string;</pre>
+<h2 id="eventparamscheckout_step">EventParams.checkout_step</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">checkout_step?: number;</pre>
+<h2 id="eventparamscontent_type">EventParams.content_type</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">content_type?: string;</pre>
+<h2 id="eventparamscoupon">EventParams.coupon</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">coupon?: string;</pre>
+<h2 id="eventparamscurrency">EventParams.currency</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">currency?: string;</pre>
+<h2 id="eventparamsdescription">EventParams.description</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">description?: string;</pre>
+<h2 id="eventparamsevent_category">EventParams.event_category</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">event_category?: string;</pre>
+<h2 id="eventparamsevent_label">EventParams.event_label</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">event_label?: string;</pre>
+<h2 id="eventparamsfatal">EventParams.fatal</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">fatal?: boolean;</pre>
+<h2 id="eventparamsfirebase_screen_class">EventParams.firebase_screen_class</h2>
+<p>Firebase-specific. Use to log a <code>screen_class</code> to Firebase Analytics.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">firebase_screen_class?: string;</pre>
+<h2 id="eventparamsfirebase_screen">EventParams.firebase_screen</h2>
+<p>Firebase-specific. Use to log a <code>screen_name</code> to Firebase Analytics.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">firebase_screen?: string;</pre>
+<h2 id="eventparamsitem_id">EventParams.item_id</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">item_id?: string;</pre>
+<h2 id="eventparamsitem_list_id">EventParams.item_list_id</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">item_list_id?: string;</pre>
+<h2 id="eventparamsitem_list_name">EventParams.item_list_name</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">item_list_name?: string;</pre>
+<h2 id="eventparamsitems">EventParams.items</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">items?: Item[];</pre>
+<h2 id="eventparamsmethod">EventParams.method</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">method?: string;</pre>
+<h2 id="eventparamsnumber">EventParams.number</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">number?: string;</pre>
+<h2 id="eventparamspage_location">EventParams.page_location</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">page_location?: string;</pre>
+<h2 id="eventparamspage_path">EventParams.page_path</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">page_path?: string;</pre>
+<h2 id="eventparamspage_title">EventParams.page_title</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">page_title?: string;</pre>
+<h2 id="eventparamspayment_type">EventParams.payment_type</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">payment_type?: string;</pre>
+<h2 id="eventparamspromotion_id">EventParams.promotion_id</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">promotion_id?: string;</pre>
+<h2 id="eventparamspromotion_name">EventParams.promotion_name</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">promotion_name?: string;</pre>
+<h2 id="eventparamspromotions">EventParams.promotions</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">promotions?: Promotion[];</pre>
+<h2 id="eventparamsscreen_name">EventParams.screen_name</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">screen_name?: string;</pre>
+<h2 id="eventparamssearch_term">EventParams.search_term</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">search_term?: string;</pre>
+<h2 id="eventparamsshipping_tier">EventParams.shipping_tier</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">shipping_tier?: string;</pre>
+<h2 id="eventparamsshipping">EventParams.shipping</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">shipping?: Currency;</pre>
+<h2 id="eventparamstax">EventParams.tax</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">tax?: Currency;</pre>
+<h2 id="eventparamstransaction_id">EventParams.transaction_id</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">transaction_id?: string;</pre>
+<h2 id="eventparamsvalue">EventParams.value</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">value?: number;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/analytics.eventparams" class="_attribution-link">https://firebase.google.com/docs/reference/js/analytics.eventparams</a>
+  </p>
+</div>

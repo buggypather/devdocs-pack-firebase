@@ -1,0 +1,89 @@
+<h1>@firebase/crashlytics/next-navigation</h1>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="crashlytics_next-navigation#crashlyticsroutes_097ca29">CrashlyticsRoutes({ firebaseApp, crashlyticsOptions }, input)</a></td>
+<td><b><i>(Public Preview)</i></b> A client-side routing component for Next.js App Router that automatically captures navigation events and updates route attributes.<!-- -->This component should be mounted inside a root Client Component layout.</td>
+</tr>
+</tbody></table>
+<h2 id="interfaces">Interfaces</h2>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="crashlytics_next-navigation.crashlytics">Crashlytics</a></td>
+<td><b><i>(Public Preview)</i></b> An instance of the Firebase Crashlytics SDK.<!-- -->Do not create this instance directly. Instead, use <a href="crashlytics#getcrashlytics_a9d22a1">getCrashlytics()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="crashlytics_next-navigation.crashlyticsfeature">CrashlyticsFeature</a></td>
+<td><b>(EXPERIMENTAL)</b> An opaque feature plugin object returned by Crashlytics feature factory functions such as <a href="crashlytics#breadcrumbs">breadcrumbs()</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="crashlytics_next-navigation.crashlyticsoptions">CrashlyticsOptions</a></td>
+<td><b><i>(Public Preview)</i></b> Options for initializing the Crashlytics service using <a href="crashlytics#getcrashlytics_a9d22a1">getCrashlytics()</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="function-firebaseapp-crashlyticsoptions--">function({ firebaseApp, crashlyticsOptions }, ...)</h2>
+<h3 id="crashlyticsroutes_097ca29">CrashlyticsRoutes({ firebaseApp, crashlyticsOptions }, input)</h3>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>A client-side routing component for Next.js App Router that automatically captures navigation events and updates route attributes.</p>
+<p>This component should be mounted inside a root Client Component layout.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function CrashlyticsRoutes(input: {
+    firebaseApp: FirebaseApp;
+    crashlyticsOptions?: CrashlyticsOptions;
+}): null;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>{ firebaseApp, crashlyticsOptions }</td>
+<td>(not declared)</td>
+<td></td>
+</tr>
+<tr>
+<td>input</td>
+<td>{ firebaseApp: <a href="app.firebaseapp">FirebaseApp</a><!-- -->; crashlyticsOptions?: <a href="crashlytics_next-navigation.crashlyticsoptions">CrashlyticsOptions</a><!-- -->; }</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>null</p>
+<h3 id="example">Example</h3>
+<pre data-language="tsx">// app/layout.tsx
+import { CrashlyticsRoutes } from 'firebase/crashlytics/next-navigation';
+
+export default function RootLayout({ children }) {
+  return (
+    &lt;html&gt;
+      &lt;body&gt;
+        &lt;CrashlyticsRoutes firebaseApp={app} /&gt;
+        {children}
+      &lt;/body&gt;
+    &lt;/html&gt;
+  );
+}</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/crashlytics_next-navigation" class="_attribution-link">https://firebase.google.com/docs/reference/js/crashlytics_next-navigation</a>
+  </p>
+</div>

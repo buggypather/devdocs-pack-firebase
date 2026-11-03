@@ -1,0 +1,525 @@
+<h1>@firebase/remote-config</h1>
+<p>The Firebase Remote Config Web SDK. This SDK does not work in a Node.js environment.</p>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><b>function(app, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="remote-config#getremoteconfig_61d368f">getRemoteConfig(app, options)</a></td>
+<td></td>
+</tr>
+<tr>
+<td><b>function(remoteConfig, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="remote-config#activate_722a192">activate(remoteConfig)</a></td>
+<td>Makes the last fetched config available to the getters.</td>
+</tr>
+<tr>
+<td><a href="remote-config#ensureinitialized_722a192">ensureInitialized(remoteConfig)</a></td>
+<td>Ensures the last activated config are available to the getters.</td>
+</tr>
+<tr>
+<td><a href="remote-config#fetchandactivate_722a192">fetchAndActivate(remoteConfig)</a></td>
+<td>Performs fetch and activate operations, as a convenience.</td>
+</tr>
+<tr>
+<td><a href="remote-config#fetchconfig_722a192">fetchConfig(remoteConfig)</a></td>
+<td>Fetches and caches configuration from the Remote Config service.</td>
+</tr>
+<tr>
+<td><a href="remote-config#getall_722a192">getAll(remoteConfig)</a></td>
+<td>Gets all config.</td>
+</tr>
+<tr>
+<td><a href="remote-config#getboolean_476c09f">getBoolean(remoteConfig, key)</a></td>
+<td>Gets the value for the given key as a boolean.<!-- -->Convenience method for calling <code>remoteConfig.getValue(key).asBoolean()</code>.</td>
+</tr>
+<tr>
+<td><a href="remote-config#getnumber_476c09f">getNumber(remoteConfig, key)</a></td>
+<td>Gets the value for the given key as a number.<!-- -->Convenience method for calling <code>remoteConfig.getValue(key).asNumber()</code>.</td>
+</tr>
+<tr>
+<td><a href="remote-config#getstring_476c09f">getString(remoteConfig, key)</a></td>
+<td>Gets the value for the given key as a string. Convenience method for calling <code>remoteConfig.getValue(key).asString()</code>.</td>
+</tr>
+<tr>
+<td><a href="remote-config#getvalue_476c09f">getValue(remoteConfig, key)</a></td>
+<td>Gets the <a href="remote-config.value">Value</a> for the given key.</td>
+</tr>
+<tr>
+<td><a href="remote-config#onconfigupdate_8b13b26">onConfigUpdate(remoteConfig, observer)</a></td>
+<td>Starts listening for real-time config updates from the Remote Config backend and automatically fetches updates from the Remote Config backend when they are available.</td>
+</tr>
+<tr>
+<td><a href="remote-config#setcustomsignals_aeeb95e">setCustomSignals(remoteConfig, customSignals)</a></td>
+<td>Sets the custom signals for the app instance.</td>
+</tr>
+<tr>
+<td><a href="remote-config#setloglevel_039a45b">setLogLevel(remoteConfig, logLevel)</a></td>
+<td>Defines the log level to use.</td>
+</tr>
+<tr>
+<td><b>function()</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="remote-config#issupported">isSupported()</a></td>
+<td>This method provides two different checks:<!-- -->1. Check if IndexedDB exists in the browser environment. 2. Check if the current browser context allows IndexedDB <code>open()</code> calls.</td>
+</tr>
+</tbody></table>
+<h2 id="interfaces">Interfaces</h2>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="remote-config.configupdate">ConfigUpdate</a></td>
+<td>Contains information about which keys have been updated.</td>
+</tr>
+<tr>
+<td><a href="remote-config.configupdateobserver">ConfigUpdateObserver</a></td>
+<td>Observer interface for receiving real-time Remote Config update notifications.<!-- -->NOTE: Although an <code>complete</code> callback can be provided, it will never be called because the ConfigUpdate stream is never-ending.</td>
+</tr>
+<tr>
+<td><a href="remote-config.customsignals">CustomSignals</a></td>
+<td>Defines the type for representing custom signals and their values.<p>The values in CustomSignals must be one of the following types:<ul> <li><code>string</code> <li><code>number</code> <li><code>null</code> </ul></td>
+</tr>
+<tr>
+<td><a href="remote-config.fetchresponse">FetchResponse</a></td>
+<td>Defines a successful response (200 or 304).<p>Modeled after the native <code>Response</code> interface, but simplified for Remote Config&#39;s use case.</td>
+</tr>
+<tr>
+<td><a href="remote-config.firebaseexperimentdescription">FirebaseExperimentDescription</a></td>
+<td>Defines experiment and variant attached to a config parameter.</td>
+</tr>
+<tr>
+<td><a href="remote-config.firebaseremoteconfigobject">FirebaseRemoteConfigObject</a></td>
+<td>Defines a self-descriptive reference for config key-value pairs.</td>
+</tr>
+<tr>
+<td><a href="remote-config.firebaserolloutmetadata">FirebaseRolloutMetadata</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="remote-config.remoteconfig">RemoteConfig</a></td>
+<td>The Firebase Remote Config service interface.</td>
+</tr>
+<tr>
+<td><a href="remote-config.remoteconfigoptions">RemoteConfigOptions</a></td>
+<td>Options for Remote Config initialization.</td>
+</tr>
+<tr>
+<td><a href="remote-config.remoteconfigsettings">RemoteConfigSettings</a></td>
+<td>Defines configuration options for the Remote Config SDK.</td>
+</tr>
+<tr>
+<td><a href="remote-config.value">Value</a></td>
+<td>Wraps a value with metadata and type-safe getters.</td>
+</tr>
+</tbody></table>
+<h2 id="type-aliases">Type Aliases</h2>
+<table>
+<thead>
+<tr>
+<th>Type Alias</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="remote-config#fetchstatus">FetchStatus</a></td>
+<td>Summarizes the outcome of the last attempt to fetch config from the Firebase Remote Config server.<ul> <li>&quot;no-fetch-yet&quot; indicates the <a href="remote-config.remoteconfig">RemoteConfig</a> instance has not yet attempted to fetch config, or that SDK initialization is incomplete.</li> <li>&quot;success&quot; indicates the last attempt succeeded.</li> <li>&quot;failure&quot; indicates the last attempt failed.</li> <li>&quot;throttle&quot; indicates the last attempt was rate-limited.</li> </ul></td>
+</tr>
+<tr>
+<td><a href="remote-config#fetchtype">FetchType</a></td>
+<td>Indicates the type of fetch request.<ul> <li>&quot;BASE&quot; indicates a standard fetch request.</li> <li>&quot;REALTIME&quot; indicates a fetch request triggered by a real-time update.</li> </ul></td>
+</tr>
+<tr>
+<td><a href="remote-config#loglevel">LogLevel</a></td>
+<td>Defines levels of Remote Config logging.</td>
+</tr>
+<tr>
+<td><a href="remote-config#unsubscribe">Unsubscribe</a></td>
+<td>A function that unsubscribes from a real-time event stream.</td>
+</tr>
+<tr>
+<td><a href="remote-config#valuesource">ValueSource</a></td>
+<td>Indicates the source of a value.<ul> <li>&quot;static&quot; indicates the value was defined by a static constant.</li> <li>&quot;default&quot; indicates the value was defined by default config.</li> <li>&quot;remote&quot; indicates the value was defined by fetched config.</li> </ul></td>
+</tr>
+</tbody></table>
+<h2 id="functionapp-">function(app, ...)</h2>
+<h3 id="getremoteconfig_61d368f">getRemoteConfig(app, options)</h3>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getRemoteConfig(app?: FirebaseApp, options?: RemoteConfigOptions): RemoteConfig;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>app</td>
+<td><a href="app.firebaseapp">FirebaseApp</a></td>
+<td>The <a href="app.firebaseapp">FirebaseApp</a> instance.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="remote-config.remoteconfigoptions">RemoteConfigOptions</a></td>
+<td>Optional. The <a href="remote-config.remoteconfigoptions">RemoteConfigOptions</a> with which to instantiate the Remote Config instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="remote-config.remoteconfig">RemoteConfig</a></p>
+<p>A <a href="remote-config.remoteconfig">RemoteConfig</a> instance.</p>
+<h2 id="functionremoteconfig-">function(remoteConfig, ...)</h2>
+<h3 id="activate_722a192">activate(remoteConfig)</h3>
+<p>Makes the last fetched config available to the getters.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function activate(remoteConfig: RemoteConfig): Promise&lt;boolean&gt;;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>remoteConfig</td>
+<td><a href="remote-config.remoteconfig">RemoteConfig</a></td>
+<td>The <a href="remote-config.remoteconfig">RemoteConfig</a> instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;boolean&gt;</p>
+<p>A <code>Promise</code> which resolves to true if the current call activated the fetched configs. If the fetched configs were already activated, the <code>Promise</code> will resolve to false.</p>
+<h3 id="ensureinitialized_722a192">ensureInitialized(remoteConfig)</h3>
+<p>Ensures the last activated config are available to the getters.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function ensureInitialized(remoteConfig: RemoteConfig): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>remoteConfig</td>
+<td><a href="remote-config.remoteconfig">RemoteConfig</a></td>
+<td>The <a href="remote-config.remoteconfig">RemoteConfig</a> instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<p>A <code>Promise</code> that resolves when the last activated config is available to the getters.</p>
+<h3 id="fetchandactivate_722a192">fetchAndActivate(remoteConfig)</h3>
+<p>Performs fetch and activate operations, as a convenience.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function fetchAndActivate(remoteConfig: RemoteConfig): Promise&lt;boolean&gt;;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>remoteConfig</td>
+<td><a href="remote-config.remoteconfig">RemoteConfig</a></td>
+<td>The <a href="remote-config.remoteconfig">RemoteConfig</a> instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;boolean&gt;</p>
+<p>A <code>Promise</code> which resolves to true if the current call activated the fetched configs. If the fetched configs were already activated, the <code>Promise</code> will resolve to false.</p>
+<h3 id="fetchconfig_722a192">fetchConfig(remoteConfig)</h3>
+<p>Fetches and caches configuration from the Remote Config service.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function fetchConfig(remoteConfig: RemoteConfig): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>remoteConfig</td>
+<td><a href="remote-config.remoteconfig">RemoteConfig</a></td>
+<td>The <a href="remote-config.remoteconfig">RemoteConfig</a> instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="getall_722a192">getAll(remoteConfig)</h3>
+<p>Gets all config.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getAll(remoteConfig: RemoteConfig): Record&lt;string, Value&gt;;</pre>
+<h4 id="parameters-5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>remoteConfig</td>
+<td><a href="remote-config.remoteconfig">RemoteConfig</a></td>
+<td>The <a href="remote-config.remoteconfig">RemoteConfig</a> instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Record&lt;string, <a href="remote-config.value">Value</a><!-- -->&gt;</p>
+<p>All config.</p>
+<h3 id="getboolean_476c09f">getBoolean(remoteConfig, key)</h3>
+<p>Gets the value for the given key as a boolean.</p>
+<p>Convenience method for calling <code>remoteConfig.getValue(key).asBoolean()</code>.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getBoolean(remoteConfig: RemoteConfig, key: string): boolean;</pre>
+<h4 id="parameters-6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>remoteConfig</td>
+<td><a href="remote-config.remoteconfig">RemoteConfig</a></td>
+<td>The <a href="remote-config.remoteconfig">RemoteConfig</a> instance.</td>
+</tr>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>The name of the parameter.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<p>The value for the given key as a boolean.</p>
+<h3 id="getnumber_476c09f">getNumber(remoteConfig, key)</h3>
+<p>Gets the value for the given key as a number.</p>
+<p>Convenience method for calling <code>remoteConfig.getValue(key).asNumber()</code>.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getNumber(remoteConfig: RemoteConfig, key: string): number;</pre>
+<h4 id="parameters-7">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>remoteConfig</td>
+<td><a href="remote-config.remoteconfig">RemoteConfig</a></td>
+<td>The <a href="remote-config.remoteconfig">RemoteConfig</a> instance.</td>
+</tr>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>The name of the parameter.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>number</p>
+<p>The value for the given key as a number.</p>
+<h3 id="getstring_476c09f">getString(remoteConfig, key)</h3>
+<p>Gets the value for the given key as a string. Convenience method for calling <code>remoteConfig.getValue(key).asString()</code>.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getString(remoteConfig: RemoteConfig, key: string): string;</pre>
+<h4 id="parameters-8">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>remoteConfig</td>
+<td><a href="remote-config.remoteconfig">RemoteConfig</a></td>
+<td>The <a href="remote-config.remoteconfig">RemoteConfig</a> instance.</td>
+</tr>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>The name of the parameter.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>string</p>
+<p>The value for the given key as a string.</p>
+<h3 id="getvalue_476c09f">getValue(remoteConfig, key)</h3>
+<p>Gets the <a href="remote-config.value">Value</a> for the given key.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getValue(remoteConfig: RemoteConfig, key: string): Value;</pre>
+<h4 id="parameters-9">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>remoteConfig</td>
+<td><a href="remote-config.remoteconfig">RemoteConfig</a></td>
+<td>The <a href="remote-config.remoteconfig">RemoteConfig</a> instance.</td>
+</tr>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>The name of the parameter.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="remote-config.value">Value</a></p>
+<p>The value for the given key.</p>
+<h3 id="onconfigupdate_8b13b26">onConfigUpdate(remoteConfig, observer)</h3>
+<p>Starts listening for real-time config updates from the Remote Config backend and automatically fetches updates from the Remote Config backend when they are available.</p>
+<p>If a connection to the Remote Config backend is not already open, calling this method will open it. Multiple listeners can be added by calling this method again, but subsequent calls re-use the same connection to the backend.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function onConfigUpdate(remoteConfig: RemoteConfig, observer: ConfigUpdateObserver): Unsubscribe;</pre>
+<h4 id="parameters-10">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>remoteConfig</td>
+<td><a href="remote-config.remoteconfig">RemoteConfig</a></td>
+<td>The <a href="remote-config.remoteconfig">RemoteConfig</a> instance.</td>
+</tr>
+<tr>
+<td>observer</td>
+<td><a href="remote-config.configupdateobserver">ConfigUpdateObserver</a></td>
+<td>The <a href="remote-config.configupdateobserver">ConfigUpdateObserver</a> to be notified of config updates.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="remote-config#unsubscribe">Unsubscribe</a></p>
+<p>An <a href="remote-config#unsubscribe">Unsubscribe</a> function to remove the listener.</p>
+<h3 id="setcustomsignals_aeeb95e">setCustomSignals(remoteConfig, customSignals)</h3>
+<p>Sets the custom signals for the app instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function setCustomSignals(remoteConfig: RemoteConfig, customSignals: CustomSignals): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-11">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>remoteConfig</td>
+<td><a href="remote-config.remoteconfig">RemoteConfig</a></td>
+<td>The <a href="remote-config.remoteconfig">RemoteConfig</a> instance.</td>
+</tr>
+<tr>
+<td>customSignals</td>
+<td><a href="remote-config.customsignals">CustomSignals</a></td>
+<td>Map (key, value) of the custom signals to be set for the app instance. If a key already exists, the value is overwritten. Setting the value of a custom signal to null unsets the signal. The signals will be persisted locally on the client.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="setloglevel_039a45b">setLogLevel(remoteConfig, logLevel)</h3>
+<p>Defines the log level to use.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function setLogLevel(remoteConfig: RemoteConfig, logLevel: RemoteConfigLogLevel): void;</pre>
+<h4 id="parameters-12">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>remoteConfig</td>
+<td><a href="remote-config.remoteconfig">RemoteConfig</a></td>
+<td>The <a href="remote-config.remoteconfig">RemoteConfig</a> instance.</td>
+</tr>
+<tr>
+<td>logLevel</td>
+<td><a href="remote-config#loglevel">RemoteConfigLogLevel</a></td>
+<td>The log level to set.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h2 id="function">function()</h2>
+<h3 id="issupported">isSupported()</h3>
+<p>This method provides two different checks:</p>
+<ol>
+<li>Check if IndexedDB exists in the browser environment. 2. Check if the current browser context allows IndexedDB <code>open()</code> calls.</li>
+</ol>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function isSupported(): Promise&lt;boolean&gt;;</pre>
+<p><b>Returns:</b></p>
+<p>Promise&lt;boolean&gt;</p>
+<p>A <code>Promise</code> which resolves to true if a <a href="remote-config.remoteconfig">RemoteConfig</a> instance can be initialized in this environment, or false if it cannot.</p>
+<h2 id="fetchstatus">FetchStatus</h2>
+<p>Summarizes the outcome of the last attempt to fetch config from the Firebase Remote Config server.</p>
+<ul> <li>"no-fetch-yet" indicates the [RemoteConfig](./remote-config.remoteconfig.md#remoteconfig_interface) instance has not yet attempted to fetch config, or that SDK initialization is incomplete.</li> <li>"success" indicates the last attempt succeeded.</li> <li>"failure" indicates the last attempt failed.</li> <li>"throttle" indicates the last attempt was rate-limited.</li> </ul><p><b>Signature:</b></p>
+<pre data-language="typescript">export type FetchStatus = 'no-fetch-yet' | 'success' | 'failure' | 'throttle';</pre>
+<h2 id="fetchtype">FetchType</h2>
+<p>Indicates the type of fetch request.</p>
+<ul> <li>"BASE" indicates a standard fetch request.</li> <li>"REALTIME" indicates a fetch request triggered by a real-time update.</li> </ul><p><b>Signature:</b></p>
+<pre data-language="typescript">export type FetchType = 'BASE' | 'REALTIME';</pre>
+<h2 id="loglevel">LogLevel</h2>
+<p>Defines levels of Remote Config logging.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type LogLevel = 'debug' | 'error' | 'silent';</pre>
+<h2 id="unsubscribe">Unsubscribe</h2>
+<p>A function that unsubscribes from a real-time event stream.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type Unsubscribe = () =&gt; void;</pre>
+<h2 id="valuesource">ValueSource</h2>
+<p>Indicates the source of a value.</p>
+<ul> <li>"static" indicates the value was defined by a static constant.</li> <li>"default" indicates the value was defined by default config.</li> <li>"remote" indicates the value was defined by fetched config.</li> </ul><p><b>Signature:</b></p>
+<pre data-language="typescript">export type ValueSource = 'static' | 'default' | 'remote';</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/remote-config" class="_attribution-link">https://firebase.google.com/docs/reference/js/remote-config</a>
+  </p>
+</div>

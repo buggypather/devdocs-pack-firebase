@@ -1,0 +1,32 @@
+<h1>QueryStartAtConstraint class</h1>
+<p>A <code>QueryStartAtConstraint</code> is used to exclude documents from the start of a result set returned by a Firestore query. <code>QueryStartAtConstraint</code><!-- -->s are created by invoking <a href="firestore_lite#startat_9a4477f">startAt()</a> or <a href="firestore_lite#startafter_9a4477f">startAfter()</a> and can then be passed to <a href="firestore_lite#query_9f7b0f4">query()</a> to create a new query instance that also contains this <code>QueryStartAtConstraint</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class QueryStartAtConstraint extends QueryConstraint </pre>
+<p><b>Extends:</b> <a href="firestore_lite.queryconstraint">QueryConstraint</a></p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite.querystartatconstraint#querystartatconstrainttype">type</a></td>
+<td></td>
+<td>&#39;startAt&#39; | &#39;startAfter&#39;</td>
+<td>The type of this query constraint</td>
+</tr>
+</tbody></table>
+<h2 id="querystartatconstrainttype">QueryStartAtConstraint.type</h2>
+<p>The type of this query constraint</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly type: 'startAt' | 'startAfter';</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_lite.querystartatconstraint" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_lite.querystartatconstraint</a>
+  </p>
+</div>

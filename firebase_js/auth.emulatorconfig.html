@@ -1,0 +1,58 @@
+<h1>EmulatorConfig interface</h1>
+<p>Configuration of Firebase Authentication Emulator.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface EmulatorConfig </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.emulatorconfig#emulatorconfighost">host</a></td>
+<td>string</td>
+<td>The hostname of the emulator, which may be a domain (&quot;localhost&quot;), IPv4 address (&quot;127.0.0.1&quot;) or quoted IPv6 address (&quot;[::1]&quot;).</td>
+</tr>
+<tr>
+<td><a href="auth.emulatorconfig#emulatorconfigoptions">options</a></td>
+<td>{ readonly disableWarnings: boolean; }</td>
+<td>The emulator-specific options.</td>
+</tr>
+<tr>
+<td><a href="auth.emulatorconfig#emulatorconfigport">port</a></td>
+<td>number | null</td>
+<td>The port of the emulator, or null if port isn&#39;t specified (i.e. protocol default).</td>
+</tr>
+<tr>
+<td><a href="auth.emulatorconfig#emulatorconfigprotocol">protocol</a></td>
+<td>string</td>
+<td>The protocol used to communicate with the emulator (&quot;http&quot;/&quot;https&quot;).</td>
+</tr>
+</tbody></table>
+<h2 id="emulatorconfighost">EmulatorConfig.host</h2>
+<p>The hostname of the emulator, which may be a domain (&quot;localhost&quot;), IPv4 address (&quot;127.0.0.1&quot;) or quoted IPv6 address (&quot;[::1]&quot;).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly host: string;</pre>
+<h2 id="emulatorconfigoptions">EmulatorConfig.options</h2>
+<p>The emulator-specific options.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly options: {
+        readonly disableWarnings: boolean;
+    };</pre>
+<h2 id="emulatorconfigport">EmulatorConfig.port</h2>
+<p>The port of the emulator, or null if port isn&#39;t specified (i.e. protocol default).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly port: number | null;</pre>
+<h2 id="emulatorconfigprotocol">EmulatorConfig.protocol</h2>
+<p>The protocol used to communicate with the emulator (&quot;http&quot;/&quot;https&quot;).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly protocol: string;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.emulatorconfig" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.emulatorconfig</a>
+  </p>
+</div>

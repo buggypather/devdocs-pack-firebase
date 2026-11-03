@@ -1,0 +1,44 @@
+<h1>StorageObserver interface</h1>
+<p>A stream observer for Firebase Storage.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface StorageObserver&lt;T&gt; </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="storage.storageobserver#storageobservercomplete">complete</a></td>
+<td><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#completefn">CompleteFn</a> | null</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="storage.storageobserver#storageobservererror">error</a></td>
+<td>(error: <a href="storage.storageerror">StorageError</a><!-- -->) =&gt; void | null</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="storage.storageobserver#storageobservernext">next</a></td>
+<td><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.md#nextfn">NextFn</a><!-- -->&lt;T&gt; | null</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="storageobservercomplete">StorageObserver.complete</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">complete?: CompleteFn | null;</pre>
+<h2 id="storageobservererror">StorageObserver.error</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">error?: (error: StorageError) =&gt; void | null;</pre>
+<h2 id="storageobservernext">StorageObserver.next</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">next?: NextFn&lt;T&gt; | null;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/storage.storageobserver" class="_attribution-link">https://firebase.google.com/docs/reference/js/storage.storageobserver</a>
+  </p>
+</div>

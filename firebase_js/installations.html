@@ -1,0 +1,201 @@
+<h1>@firebase/installations</h1>
+<p>The Firebase Installations Web SDK. This SDK does not work in a Node.js environment.</p>
+<h2 id="functions">Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><b>function(app, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="installations#getinstallations_cf608e1">getInstallations(app)</a></td>
+<td>Returns an instance of <a href="installations.installations">Installations</a> associated with the given <a href="app.firebaseapp">FirebaseApp</a> instance.</td>
+</tr>
+<tr>
+<td><b>function(installations, ...)</b></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="installations#deleteinstallations_606c567">deleteInstallations(installations)</a></td>
+<td>Deletes the Firebase Installation and all associated data.</td>
+</tr>
+<tr>
+<td><a href="installations#getid_606c567">getId(installations)</a></td>
+<td>Creates a Firebase Installation if there isn&#39;t one for the app and returns the Installation ID.</td>
+</tr>
+<tr>
+<td><a href="installations#gettoken_cf009a7">getToken(installations, forceRefresh)</a></td>
+<td>Returns a Firebase Installations auth token, identifying the current Firebase Installation.</td>
+</tr>
+<tr>
+<td><a href="installations#onidchange_b579e0e">onIdChange(installations, callback)</a></td>
+<td>Sets a new callback that will get called when Installation ID changes. Returns an unsubscribe function that will remove the callback when called.</td>
+</tr>
+</tbody></table>
+<h2 id="interfaces">Interfaces</h2>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="installations.installations">Installations</a></td>
+<td>Public interface of the Firebase Installations SDK.</td>
+</tr>
+</tbody></table>
+<h2 id="type-aliases">Type Aliases</h2>
+<table>
+<thead>
+<tr>
+<th>Type Alias</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="installations#idchangecallbackfn">IdChangeCallbackFn</a></td>
+<td>An user defined callback function that gets called when Installations ID changes.</td>
+</tr>
+<tr>
+<td><a href="installations#idchangeunsubscribefn">IdChangeUnsubscribeFn</a></td>
+<td>Unsubscribe a callback function previously added via <a href="installations#idchangecallbackfn">IdChangeCallbackFn</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="functionapp-">function(app, ...)</h2>
+<h3 id="getinstallations_cf608e1">getInstallations(app)</h3>
+<p>Returns an instance of <a href="installations.installations">Installations</a> associated with the given <a href="app.firebaseapp">FirebaseApp</a> instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getInstallations(app?: FirebaseApp): Installations;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>app</td>
+<td><a href="app.firebaseapp">FirebaseApp</a></td>
+<td>The <a href="app.firebaseapp">FirebaseApp</a> instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="installations.installations">Installations</a></p>
+<h2 id="functioninstallations-">function(installations, ...)</h2>
+<h3 id="deleteinstallations_606c567">deleteInstallations(installations)</h3>
+<p>Deletes the Firebase Installation and all associated data.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function deleteInstallations(installations: Installations): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>installations</td>
+<td><a href="installations.installations">Installations</a></td>
+<td>The <code>Installations</code> instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h3 id="getid_606c567">getId(installations)</h3>
+<p>Creates a Firebase Installation if there isn&#39;t one for the app and returns the Installation ID.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getId(installations: Installations): Promise&lt;string&gt;;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>installations</td>
+<td><a href="installations.installations">Installations</a></td>
+<td>The <code>Installations</code> instance.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;string&gt;</p>
+<h3 id="gettoken_cf009a7">getToken(installations, forceRefresh)</h3>
+<p>Returns a Firebase Installations auth token, identifying the current Firebase Installation.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function getToken(installations: Installations, forceRefresh?: boolean): Promise&lt;string&gt;;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>installations</td>
+<td><a href="installations.installations">Installations</a></td>
+<td>The <code>Installations</code> instance.</td>
+</tr>
+<tr>
+<td>forceRefresh</td>
+<td>boolean</td>
+<td>Force refresh regardless of token expiration.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;string&gt;</p>
+<h3 id="onidchange_b579e0e">onIdChange(installations, callback)</h3>
+<p>Sets a new callback that will get called when Installation ID changes. Returns an unsubscribe function that will remove the callback when called.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare function onIdChange(installations: Installations, callback: IdChangeCallbackFn): IdChangeUnsubscribeFn;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>installations</td>
+<td><a href="installations.installations">Installations</a></td>
+<td>The <code>Installations</code> instance.</td>
+</tr>
+<tr>
+<td>callback</td>
+<td><a href="installations#idchangecallbackfn">IdChangeCallbackFn</a></td>
+<td>The callback function that is invoked when FID changes.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="installations#idchangeunsubscribefn">IdChangeUnsubscribeFn</a></p>
+<p>A function that can be called to unsubscribe.</p>
+<h2 id="idchangecallbackfn">IdChangeCallbackFn</h2>
+<p>An user defined callback function that gets called when Installations ID changes.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type IdChangeCallbackFn = (installationId: string) =&gt; void;</pre>
+<h2 id="idchangeunsubscribefn">IdChangeUnsubscribeFn</h2>
+<p>Unsubscribe a callback function previously added via <a href="installations#idchangecallbackfn">IdChangeCallbackFn</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export type IdChangeUnsubscribeFn = () =&gt; void;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/installations" class="_attribution-link">https://firebase.google.com/docs/reference/js/installations</a>
+  </p>
+</div>

@@ -1,0 +1,208 @@
+<h1>BooleanExpression class</h1>
+<p>An interface that represents a filter condition.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare abstract class BooleanExpression extends Expression </pre>
+<p><b>Extends:</b> <a href="firestore_pipelines.expression">Expression</a></p>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_pipelines.booleanexpression#booleanexpressionconditional">conditional(thenExpr, elseExpr)</a></td>
+<td></td>
+<td>Creates a conditional expression that evaluates to the &#39;then&#39; expression if <code>this</code> expression evaluates to <code>true</code>, or evaluates to the &#39;else&#39; expression if <code>this</code> expressions evaluates <code>false</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.booleanexpression#booleanexpressioncountif">countIf()</a></td>
+<td></td>
+<td>Creates an aggregation that finds the count of input documents satisfying this boolean expression.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.booleanexpression#booleanexpressioniferror">ifError(catchValue)</a></td>
+<td></td>
+<td>Creates an expression that returns the <code>catch</code> argument if there is an error, else return the result of this expression.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.booleanexpression#booleanexpressioniferror">ifError(catchValue)</a></td>
+<td></td>
+<td>Creates an expression that returns the <code>catch</code> argument if there is an error, else return the result of this expression.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.booleanexpression#booleanexpressioniferror">ifError(catchValue)</a></td>
+<td></td>
+<td>Creates an expression that returns the <code>catch</code> argument if there is an error, else return the result of this expression.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.booleanexpression#booleanexpressioniferror">ifError(catchValue)</a></td>
+<td></td>
+<td>Creates an expression that returns the <code>catch</code> argument if there is an error, else return the result of this expression.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.booleanexpression#booleanexpressionnot">not()</a></td>
+<td></td>
+<td>Creates an expression that negates this boolean expression.</td>
+</tr>
+</tbody></table>
+<h2 id="booleanexpressionconditional">BooleanExpression.conditional()</h2>
+<p>Creates a conditional expression that evaluates to the &#39;then&#39; expression if <code>this</code> expression evaluates to <code>true</code><!-- -->, or evaluates to the &#39;else&#39; expression if <code>this</code> expressions evaluates <code>false</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">conditional(thenExpr: Expression, elseExpr: Expression): FunctionExpression;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>thenExpr</td>
+<td><a href="firestore_pipelines.expression">Expression</a></td>
+<td>The expression to evaluate if the condition is true.</td>
+</tr>
+<tr>
+<td>elseExpr</td>
+<td><a href="firestore_pipelines.expression">Expression</a></td>
+<td>The expression to evaluate if the condition is false.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_pipelines.functionexpression">FunctionExpression</a></p>
+<p>A new <a href="firestore_lite_pipelines.expression">Expression</a> representing the conditional expression.</p>
+<h3 id="example">Example</h3>
+<pre data-language="typescript">// If 'age' is greater than 18, return &quot;Adult&quot;; otherwise, return &quot;Minor&quot;.
+field(&quot;age&quot;).greaterThanOrEqual(18).conditional(constant(&quot;Adult&quot;), constant(&quot;Minor&quot;));</pre>
+<h2 id="booleanexpressioncountif">BooleanExpression.countIf()</h2>
+<p>Creates an aggregation that finds the count of input documents satisfying this boolean expression.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">countIf(): AggregateFunction;</pre>
+<p><b>Returns:</b></p>
+<p><a href="firestore_pipelines.aggregatefunction">AggregateFunction</a></p>
+<p>A new <code>AggregateFunction</code> representing the &#39;countIf&#39; aggregation.</p>
+<h3 id="example-1">Example</h3>
+<pre data-language="typescript">// Find the count of documents with a score greater than 90
+field(&quot;score&quot;).greaterThan(90).countIf().as(&quot;highestScore&quot;);</pre>
+<h2 id="booleanexpressioniferror">BooleanExpression.ifError()</h2>
+<p>Creates an expression that returns the <code>catch</code> argument if there is an error, else return the result of this expression.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">ifError(catchValue: BooleanExpression): BooleanExpression;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>catchValue</td>
+<td><a href="firestore_pipelines.booleanexpression">BooleanExpression</a></td>
+<td>The value that will be returned if this expression produces an error.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_pipelines.booleanexpression">BooleanExpression</a></p>
+<p>A new <a href="firestore_lite_pipelines.expression">Expression</a> representing the &#39;ifError&#39; operation.</p>
+<h3 id="example-2">Example</h3>
+<pre data-language="typescript">// Create an expression that protects against a divide by zero error
+// but always returns a boolean expression.
+constant(50).divide(field('length')).greaterThan(1).ifError(constant(false));</pre>
+<h2 id="booleanexpressioniferror-1">BooleanExpression.ifError()</h2>
+<p>Creates an expression that returns the <code>catch</code> argument if there is an error, else return the result of this expression.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">ifError(catchValue: boolean): BooleanExpression;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>catchValue</td>
+<td>boolean</td>
+<td>The value that will be returned if this expression produces an error.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_pipelines.booleanexpression">BooleanExpression</a></p>
+<p>A new <a href="firestore_lite_pipelines.expression">Expression</a> representing the &#39;ifError&#39; operation.</p>
+<h3 id="example-3">Example</h3>
+<pre data-language="typescript">// Create an expression that protects against a divide by zero error
+// but always returns a boolean expression.
+constant(50).divide(field('length')).greaterThan(1).ifError(false);</pre>
+<h2 id="booleanexpressioniferror-2">BooleanExpression.ifError()</h2>
+<p>Creates an expression that returns the <code>catch</code> argument if there is an error, else return the result of this expression.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">ifError(catchValue: Expression): FunctionExpression;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>catchValue</td>
+<td><a href="firestore_pipelines.expression">Expression</a></td>
+<td>The value that will be returned if this expression produces an error.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_pipelines.functionexpression">FunctionExpression</a></p>
+<p>A new <a href="firestore_lite_pipelines.expression">Expression</a> representing the &#39;ifError&#39; operation.</p>
+<h3 id="example-4">Example</h3>
+<pre data-language="typescript">// Create an expression that protects against a divide by zero error.
+constant(50).divide(field('length')).greaterThan(1).ifError(constant(0));</pre>
+<h2 id="booleanexpressioniferror-3">BooleanExpression.ifError()</h2>
+<p>Creates an expression that returns the <code>catch</code> argument if there is an error, else return the result of this expression.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">ifError(catchValue: unknown): FunctionExpression;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>catchValue</td>
+<td>unknown</td>
+<td>The value that will be returned if this expression produces an error.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_pipelines.functionexpression">FunctionExpression</a></p>
+<p>A new <a href="firestore_lite_pipelines.expression">Expression</a> representing the &#39;ifError&#39; operation.</p>
+<h3 id="example-5">Example</h3>
+<pre data-language="typescript">// Create an expression that protects against a divide by zero error.
+constant(50).divide(field('length')).greaterThan(1).ifError(0);</pre>
+<h2 id="booleanexpressionnot">BooleanExpression.not()</h2>
+<p>Creates an expression that negates this boolean expression.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">not(): BooleanExpression;</pre>
+<p><b>Returns:</b></p>
+<p><a href="firestore_pipelines.booleanexpression">BooleanExpression</a></p>
+<p>A new <a href="firestore_lite_pipelines.expression">Expression</a> representing the negated filter condition.</p>
+<h3 id="example-6">Example</h3>
+<pre data-language="typescript">// Find documents where the 'tags' field does not contain 'completed'
+field(&quot;tags&quot;).arrayContains(&quot;completed&quot;).not();</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_pipelines.booleanexpression" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_pipelines.booleanexpression</a>
+  </p>
+</div>

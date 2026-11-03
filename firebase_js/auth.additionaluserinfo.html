@@ -1,0 +1,56 @@
+<h1>AdditionalUserInfo interface</h1>
+<p>A structure containing additional user information from a federated identity provider.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface AdditionalUserInfo </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.additionaluserinfo#additionaluserinfoisnewuser">isNewUser</a></td>
+<td>boolean</td>
+<td>Whether the user is new (created via sign-up) or existing (authenticated using sign-in).</td>
+</tr>
+<tr>
+<td><a href="auth.additionaluserinfo#additionaluserinfoprofile">profile</a></td>
+<td>Record&lt;string, unknown&gt; | null</td>
+<td>Map containing IDP-specific user data.</td>
+</tr>
+<tr>
+<td><a href="auth.additionaluserinfo#additionaluserinfoproviderid">providerId</a></td>
+<td>string | null</td>
+<td>Identifier for the provider used to authenticate this user.</td>
+</tr>
+<tr>
+<td><a href="auth.additionaluserinfo#additionaluserinfousername">username</a></td>
+<td>string | null</td>
+<td>The username if the provider is GitHub or Twitter.</td>
+</tr>
+</tbody></table>
+<h2 id="additionaluserinfoisnewuser">AdditionalUserInfo.isNewUser</h2>
+<p>Whether the user is new (created via sign-up) or existing (authenticated using sign-in).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly isNewUser: boolean;</pre>
+<h2 id="additionaluserinfoprofile">AdditionalUserInfo.profile</h2>
+<p>Map containing IDP-specific user data.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly profile: Record&lt;string, unknown&gt; | null;</pre>
+<h2 id="additionaluserinfoproviderid">AdditionalUserInfo.providerId</h2>
+<p>Identifier for the provider used to authenticate this user.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly providerId: string | null;</pre>
+<h2 id="additionaluserinfousername">AdditionalUserInfo.username</h2>
+<p>The username if the provider is GitHub or Twitter.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly username?: string | null;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.additionaluserinfo" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.additionaluserinfo</a>
+  </p>
+</div>

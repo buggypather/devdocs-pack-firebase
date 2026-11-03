@@ -1,0 +1,30 @@
+<h1>MemoryEagerGarbageCollector interface</h1>
+<p>A garbage collector deletes documents whenever they are not part of any active queries, and have no local mutations attached to them.</p>
+<p>This collector tries to ensure lowest memory footprints from the SDK, at the risk of documents not being cached for offline queries or for direct queries to the cache.</p>
+<p>Use factory function  to create an instance of this collector.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface MemoryEagerGarbageCollector </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.memoryeagergarbagecollector#memoryeagergarbagecollectorkind">kind</a></td>
+<td>&#39;memoryEager&#39;</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="memoryeagergarbagecollectorkind">MemoryEagerGarbageCollector.kind</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">kind: 'memoryEager';</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.memoryeagergarbagecollector" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.memoryeagergarbagecollector</a>
+  </p>
+</div>

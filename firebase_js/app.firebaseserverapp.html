@@ -1,0 +1,43 @@
+<h1>FirebaseServerApp interface</h1>
+<p>A <a href="app.firebaseserverapp">FirebaseServerApp</a> holds the initialization information for a collection of services running in server environments.</p>
+<p>Do not call this constructor directly. Instead, use <a href="app#initializeserverapp_30ab697">initializeServerApp()</a> to create an app.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface FirebaseServerApp extends FirebaseApp </pre>
+<p><b>Extends:</b> <a href="app.firebaseapp">FirebaseApp</a></p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="app.firebaseserverapp#firebaseserverappname">name</a></td>
+<td>string</td>
+<td>There is no <code>getApp()</code> operation for <code>FirebaseServerApp</code>, so the name is not relevant for applications. However, it may be used internally, and is declared here so that <code>FirebaseServerApp</code> conforms to the <code>FirebaseApp</code> interface.</td>
+</tr>
+<tr>
+<td><a href="app.firebaseserverapp#firebaseserverappsettings">settings</a></td>
+<td><a href="app.firebaseserverappsettings">FirebaseServerAppSettings</a></td>
+<td>The (read-only) configuration settings for this server app. These are the original parameters given in <a href="app#initializeserverapp_30ab697">initializeServerApp()</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="firebaseserverappname">FirebaseServerApp.name</h2>
+<p>There is no <code>getApp()</code> operation for <code>FirebaseServerApp</code><!-- -->, so the name is not relevant for applications. However, it may be used internally, and is declared here so that <code>FirebaseServerApp</code> conforms to the <code>FirebaseApp</code> interface.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">name: string;</pre>
+<h2 id="firebaseserverappsettings">FirebaseServerApp.settings</h2>
+<p>The (read-only) configuration settings for this server app. These are the original parameters given in <a href="app#initializeserverapp_30ab697">initializeServerApp()</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly settings: FirebaseServerAppSettings;</pre>
+<h3 id="example">Example</h3>
+<pre data-language="javascript">const app = initializeServerApp(settings);
+console.log(app.settings.authIdToken === options.authIdToken);  // true</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/app.firebaseserverapp" class="_attribution-link">https://firebase.google.com/docs/reference/js/app.firebaseserverapp</a>
+  </p>
+</div>

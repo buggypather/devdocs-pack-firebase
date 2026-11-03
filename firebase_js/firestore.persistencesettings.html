@@ -1,0 +1,30 @@
+<h1>PersistenceSettings interface</h1>
+<p>Settings that can be passed to <code>enableIndexedDbPersistence()</code> to configure Firestore persistence.</p>
+<p>Persistence cannot be used in a Node.js environment.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface PersistenceSettings </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.persistencesettings#persistencesettingsforceownership">forceOwnership</a></td>
+<td>boolean</td>
+<td>Whether to force enable persistence for the client. This cannot be used with multi-tab synchronization and is primarily intended for use with Web Workers. Setting this to <code>true</code> will enable persistence, but cause other tabs using persistence to fail.</td>
+</tr>
+</tbody></table>
+<h2 id="persistencesettingsforceownership">PersistenceSettings.forceOwnership</h2>
+<p>Whether to force enable persistence for the client. This cannot be used with multi-tab synchronization and is primarily intended for use with Web Workers. Setting this to <code>true</code> will enable persistence, but cause other tabs using persistence to fail.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">forceOwnership?: boolean;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.persistencesettings" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.persistencesettings</a>
+  </p>
+</div>

@@ -1,0 +1,124 @@
+<h1>RecaptchaVerifier class</h1>
+<p>An <a href="https://www.google.com/recaptcha/">reCAPTCHA</a><!-- -->-based application verifier.</p>
+<p><code>RecaptchaVerifier</code> does not work in a Node.js environment.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class RecaptchaVerifier implements ApplicationVerifierInternal </pre>
+<p><b>Implements:</b> ApplicationVerifierInternal</p>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.recaptchaverifier#recaptchaverifierconstructor">(constructor)(authExtern, containerOrId, parameters)</a></td>
+<td></td>
+<td>Constructs a new instance of the <code>RecaptchaVerifier</code> class</td>
+</tr>
+</tbody></table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.recaptchaverifier#recaptchaverifiertype">type</a></td>
+<td></td>
+<td>(not declared)</td>
+<td>The application verifier type.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.recaptchaverifier#recaptchaverifierclear">clear()</a></td>
+<td></td>
+<td>Clears the reCAPTCHA widget from the page and destroys the instance.</td>
+</tr>
+<tr>
+<td><a href="auth.recaptchaverifier#recaptchaverifierrender">render()</a></td>
+<td></td>
+<td>Renders the reCAPTCHA widget on the page.</td>
+</tr>
+<tr>
+<td><a href="auth.recaptchaverifier#recaptchaverifierverify">verify()</a></td>
+<td></td>
+<td>Waits for the user to solve the reCAPTCHA and resolves with the reCAPTCHA token.</td>
+</tr>
+</tbody></table>
+<h2 id="recaptchaverifierconstructor">RecaptchaVerifier.(constructor)</h2>
+<p>Constructs a new instance of the <code>RecaptchaVerifier</code> class</p>
+<p>Check the reCAPTCHA docs for a comprehensive list. All parameters are accepted except for the sitekey. Firebase Auth backend provisions a reCAPTCHA for each project and will configure this upon rendering. For an invisible reCAPTCHA, a size key must have the value &#39;invisible&#39;.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">constructor(authExtern: Auth, containerOrId: HTMLElement | string, parameters?: RecaptchaParameters);</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>authExtern</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The corresponding Firebase <a href="auth.auth">Auth</a> instance.</td>
+</tr>
+<tr>
+<td>containerOrId</td>
+<td>HTMLElement | string</td>
+<td>The reCAPTCHA container parameter.</td>
+</tr>
+<tr>
+<td>parameters</td>
+<td><a href="auth.recaptchaparameters">RecaptchaParameters</a></td>
+<td>The optional reCAPTCHA parameters.</td>
+</tr>
+</tbody></table>
+<h2 id="recaptchaverifiertype">RecaptchaVerifier.type</h2>
+<p>The application verifier type.</p>
+<p>For a reCAPTCHA verifier, this is &#39;recaptcha&#39;.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly type = &quot;recaptcha&quot;;</pre>
+<h2 id="recaptchaverifierclear">RecaptchaVerifier.clear()</h2>
+<p>Clears the reCAPTCHA widget from the page and destroys the instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">clear(): void;</pre>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h2 id="recaptchaverifierrender">RecaptchaVerifier.render()</h2>
+<p>Renders the reCAPTCHA widget on the page.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">render(): Promise&lt;number&gt;;</pre>
+<p><b>Returns:</b></p>
+<p>Promise&lt;number&gt;</p>
+<p>A Promise that resolves with the reCAPTCHA widget ID.</p>
+<h2 id="recaptchaverifierverify">RecaptchaVerifier.verify()</h2>
+<p>Waits for the user to solve the reCAPTCHA and resolves with the reCAPTCHA token.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">verify(): Promise&lt;string&gt;;</pre>
+<p><b>Returns:</b></p>
+<p>Promise&lt;string&gt;</p>
+<p>A Promise for the reCAPTCHA token.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.recaptchaverifier" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.recaptchaverifier</a>
+  </p>
+</div>

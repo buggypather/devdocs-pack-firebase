@@ -1,0 +1,59 @@
+<h1>DocumentChange interface</h1>
+<p>A <code>DocumentChange</code> represents a change to the documents matching a query. It contains the document affected and the type of change that occurred.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface DocumentChange&lt;
+  AppModelType = DocumentData,
+  DbModelType extends DocumentData = DocumentData
+&gt; </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.documentchange#documentchangedoc">doc</a></td>
+<td><a href="firestore.querydocumentsnapshot">QueryDocumentSnapshot</a><!-- -->&lt;AppModelType, DbModelType&gt;</td>
+<td>The document affected by this change.</td>
+</tr>
+<tr>
+<td><a href="firestore.documentchange#documentchangenewindex">newIndex</a></td>
+<td>number</td>
+<td>The index of the changed document in the result set immediately after this <code>DocumentChange</code> (i.e. supposing that all prior <code>DocumentChange</code> objects and the current <code>DocumentChange</code> object have been applied). Is -1 for &#39;removed&#39; events.</td>
+</tr>
+<tr>
+<td><a href="firestore.documentchange#documentchangeoldindex">oldIndex</a></td>
+<td>number</td>
+<td>The index of the changed document in the result set immediately prior to this <code>DocumentChange</code> (i.e. supposing that all prior <code>DocumentChange</code> objects have been applied). Is <code>-1</code> for &#39;added&#39; events.</td>
+</tr>
+<tr>
+<td><a href="firestore.documentchange#documentchangetype">type</a></td>
+<td><a href="firestore#documentchangetype">DocumentChangeType</a></td>
+<td>The type of change (&#39;added&#39;, &#39;modified&#39;, or &#39;removed&#39;).</td>
+</tr>
+</tbody></table>
+<h2 id="documentchangedoc">DocumentChange.doc</h2>
+<p>The document affected by this change.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly doc: QueryDocumentSnapshot&lt;AppModelType, DbModelType&gt;;</pre>
+<h2 id="documentchangenewindex">DocumentChange.newIndex</h2>
+<p>The index of the changed document in the result set immediately after this <code>DocumentChange</code> (i.e. supposing that all prior <code>DocumentChange</code> objects and the current <code>DocumentChange</code> object have been applied). Is -1 for &#39;removed&#39; events.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly newIndex: number;</pre>
+<h2 id="documentchangeoldindex">DocumentChange.oldIndex</h2>
+<p>The index of the changed document in the result set immediately prior to this <code>DocumentChange</code> (i.e. supposing that all prior <code>DocumentChange</code> objects have been applied). Is <code>-1</code> for &#39;added&#39; events.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly oldIndex: number;</pre>
+<h2 id="documentchangetype">DocumentChange.type</h2>
+<p>The type of change (&#39;added&#39;, &#39;modified&#39;, or &#39;removed&#39;).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly type: DocumentChangeType;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.documentchange" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.documentchange</a>
+  </p>
+</div>

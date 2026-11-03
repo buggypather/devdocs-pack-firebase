@@ -1,0 +1,125 @@
+<h1>LoadBundleTask class</h1>
+<p>Represents the task of loading a Firestore bundle. It provides progress of bundle loading, as well as task completion and error events.</p>
+<p>The API is compatible with <code>Promise&lt;LoadBundleTaskProgress&gt;</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class LoadBundleTask
+  implements PromiseLike&lt;LoadBundleTaskProgress&gt;</pre>
+<p><b>Implements:</b> PromiseLike&lt;<a href="firestore.loadbundletaskprogress">LoadBundleTaskProgress</a><!-- -->&gt;</p>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.loadbundletask#loadbundletaskcatch">catch(onRejected)</a></td>
+<td></td>
+<td>Implements the <code>Promise&lt;LoadBundleTaskProgress&gt;.catch</code> interface.</td>
+</tr>
+<tr>
+<td><a href="firestore.loadbundletask#loadbundletaskonprogress">onProgress(next, error, complete)</a></td>
+<td></td>
+<td>Registers functions to listen to bundle loading progress events.</td>
+</tr>
+<tr>
+<td><a href="firestore.loadbundletask#loadbundletaskthen">then(onFulfilled, onRejected)</a></td>
+<td></td>
+<td>Implements the <code>Promise&lt;LoadBundleTaskProgress&gt;.then</code> interface.</td>
+</tr>
+</tbody></table>
+<h2 id="loadbundletaskcatch">LoadBundleTask.catch()</h2>
+<p>Implements the <code>Promise&lt;LoadBundleTaskProgress&gt;.catch</code> interface.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">catch&lt;R&gt;(
+    onRejected: (a: Error) =&gt; R | PromiseLike&lt;R&gt;
+  ): Promise&lt;R | LoadBundleTaskProgress&gt;;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onRejected</td>
+<td>(a: Error) =&gt; R | PromiseLike&lt;R&gt;</td>
+<td>Called when an error occurs during bundle loading.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;R | <a href="firestore.loadbundletaskprogress">LoadBundleTaskProgress</a><!-- -->&gt;</p>
+<h2 id="loadbundletaskonprogress">LoadBundleTask.onProgress()</h2>
+<p>Registers functions to listen to bundle loading progress events.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">onProgress(
+    next?: (progress: LoadBundleTaskProgress) =&gt; unknown,
+    error?: (err: Error) =&gt; unknown,
+    complete?: () =&gt; void
+  ): void;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>next</td>
+<td>(progress: <a href="firestore.loadbundletaskprogress">LoadBundleTaskProgress</a><!-- -->) =&gt; unknown</td>
+<td>Called when there is a progress update from bundle loading. Typically <code>next</code> calls occur each time a Firestore document is loaded from the bundle.</td>
+</tr>
+<tr>
+<td>error</td>
+<td>(err: Error) =&gt; unknown</td>
+<td>Called when an error occurs during bundle loading. The task aborts after reporting the error, and there should be no more updates after this.</td>
+</tr>
+<tr>
+<td>complete</td>
+<td>() =&gt; void</td>
+<td>Called when the loading task is complete.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h2 id="loadbundletaskthen">LoadBundleTask.then()</h2>
+<p>Implements the <code>Promise&lt;LoadBundleTaskProgress&gt;.then</code> interface.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">then&lt;T, R&gt;(
+    onFulfilled?: (a: LoadBundleTaskProgress) =&gt; T | PromiseLike&lt;T&gt;,
+    onRejected?: (a: Error) =&gt; R | PromiseLike&lt;R&gt;
+  ): Promise&lt;T | R&gt;;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onFulfilled</td>
+<td>(a: <a href="firestore.loadbundletaskprogress">LoadBundleTaskProgress</a><!-- -->) =&gt; T | PromiseLike&lt;T&gt;</td>
+<td>Called on the completion of the loading task with a final <code>LoadBundleTaskProgress</code> update. The update will always have its <code>taskState</code> set to <code>&quot;Success&quot;</code>.</td>
+</tr>
+<tr>
+<td>onRejected</td>
+<td>(a: Error) =&gt; R | PromiseLike&lt;R&gt;</td>
+<td>Called when an error occurs during bundle loading.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;T | R&gt;</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.loadbundletask" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.loadbundletask</a>
+  </p>
+</div>

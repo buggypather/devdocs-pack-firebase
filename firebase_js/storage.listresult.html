@@ -1,0 +1,48 @@
+<h1>ListResult interface</h1>
+<p>Result returned by list().</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface ListResult </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="storage.listresult#listresultitems">items</a></td>
+<td><a href="storage.storagereference">StorageReference</a><!-- -->[]</td>
+<td>Objects in this directory. You can call getMetadata() and getDownloadUrl() on them.</td>
+</tr>
+<tr>
+<td><a href="storage.listresult#listresultnextpagetoken">nextPageToken</a></td>
+<td>string</td>
+<td>If set, there might be more results for this list. Use this token to resume the list.</td>
+</tr>
+<tr>
+<td><a href="storage.listresult#listresultprefixes">prefixes</a></td>
+<td><a href="storage.storagereference">StorageReference</a><!-- -->[]</td>
+<td>References to prefixes (sub-folders). You can call list() on them to get its contents.<!-- -->Folders are implicit based on &#39;/&#39; in the object paths. For example, if a bucket has two objects &#39;/a/b/1&#39; and &#39;/a/b/2&#39;, list(&#39;/a&#39;) will return &#39;/a/b&#39; as a prefix.</td>
+</tr>
+</tbody></table>
+<h2 id="listresultitems">ListResult.items</h2>
+<p>Objects in this directory. You can call getMetadata() and getDownloadUrl() on them.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">items: StorageReference[];</pre>
+<h2 id="listresultnextpagetoken">ListResult.nextPageToken</h2>
+<p>If set, there might be more results for this list. Use this token to resume the list.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">nextPageToken?: string;</pre>
+<h2 id="listresultprefixes">ListResult.prefixes</h2>
+<p>References to prefixes (sub-folders). You can call list() on them to get its contents.</p>
+<p>Folders are implicit based on &#39;/&#39; in the object paths. For example, if a bucket has two objects &#39;/a/b/1&#39; and &#39;/a/b/2&#39;, list(&#39;/a&#39;) will return &#39;/a/b&#39; as a prefix.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">prefixes: StorageReference[];</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/storage.listresult" class="_attribution-link">https://firebase.google.com/docs/reference/js/storage.listresult</a>
+  </p>
+</div>

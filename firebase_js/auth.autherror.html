@@ -1,0 +1,35 @@
+<h1>AuthError interface</h1>
+<p>Interface for an <code>Auth</code> error.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface AuthError extends FirebaseError </pre>
+<p><b>Extends:</b> <a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.firebaseerror.md">FirebaseError</a></p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.autherror#autherrorcustomdata">customData</a></td>
+<td>{ readonly appName: string; readonly email?: string; readonly phoneNumber?: string; readonly tenantId?: string; }</td>
+<td>Details about the Firebase Auth error.</td>
+</tr>
+</tbody></table>
+<h2 id="autherrorcustomdata">AuthError.customData</h2>
+<p>Details about the Firebase Auth error.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly customData: {
+        readonly appName: string;
+        readonly email?: string;
+        readonly phoneNumber?: string;
+        readonly tenantId?: string;
+    };</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.autherror" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.autherror</a>
+  </p>
+</div>

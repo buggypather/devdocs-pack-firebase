@@ -1,0 +1,124 @@
+<h1>PipelineResult class</h1>
+<p>A PipelineResult contains data read from a Firestore Pipeline. The data can be extracted with the <a href="firestore_lite_pipelines.pipelineresult#pipelineresultdata">PipelineResult.data()</a> or <a href="firestore_lite_pipelines.pipelineresult#pipelineresultget">PipelineResult.get()</a> methods.</p>
+<p>If the PipelineResult represents a non-document result, `ref` will return a undefined value.<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class PipelineResult&lt;AppModelType = DocumentData&gt; </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_pipelines.pipelineresult#pipelineresultcreatetime">createTime</a></td>
+<td></td>
+<td><a href="firestore.timestamp">Timestamp</a> | undefined</td>
+<td>The time the document was created. Undefined if this result is not a document.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.pipelineresult#pipelineresultid">id</a></td>
+<td></td>
+<td>string | undefined</td>
+<td>The ID of the document for which this PipelineResult contains data, if it is a document; otherwise <code>undefined</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.pipelineresult#pipelineresultref">ref</a></td>
+<td></td>
+<td><a href="firestore.documentreference">DocumentReference</a> | undefined</td>
+<td>The reference of the document, if it is a document; otherwise <code>undefined</code>.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.pipelineresult#pipelineresultupdatetime">updateTime</a></td>
+<td></td>
+<td><a href="firestore.timestamp">Timestamp</a> | undefined</td>
+<td>The time the document was last updated (at the time the snapshot was generated). Undefined if this result is not a document.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_pipelines.pipelineresult#pipelineresultdata">data()</a></td>
+<td></td>
+<td>Retrieves all fields in the result as an object.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.pipelineresult#pipelineresultget">get(fieldPath)</a></td>
+<td></td>
+<td>Retrieves the field specified by <code>field</code>.</td>
+</tr>
+</tbody></table>
+<h2 id="pipelineresultcreatetime">PipelineResult.createTime</h2>
+<p>The time the document was created. Undefined if this result is not a document.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get createTime(): Timestamp | undefined;</pre>
+<h2 id="pipelineresultid">PipelineResult.id</h2>
+<p>The ID of the document for which this PipelineResult contains data, if it is a document; otherwise <code>undefined</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get id(): string | undefined;</pre>
+<h2 id="pipelineresultref">PipelineResult.ref</h2>
+<p>The reference of the document, if it is a document; otherwise <code>undefined</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get ref(): DocumentReference | undefined;</pre>
+<h2 id="pipelineresultupdatetime">PipelineResult.updateTime</h2>
+<p>The time the document was last updated (at the time the snapshot was generated). Undefined if this result is not a document.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get updateTime(): Timestamp | undefined;</pre>
+<h2 id="pipelineresultdata">PipelineResult.data()</h2>
+<p>Retrieves all fields in the result as an object.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">data(): AppModelType;</pre>
+<p><b>Returns:</b></p>
+<p>AppModelType</p>
+<p>An object containing all fields in the document or &#39;undefined&#39; if the document doesn&#39;t exist.</p>
+<h3 id="example">Example</h3>
+<pre>let p = firestore.pipeline().collection('col');
+
+p.execute().then(results =&gt; {
+  let data = results[0].data();
+  console.log(`Retrieved data: ${JSON.stringify(data)}`);
+});</pre>
+<h2 id="pipelineresultget">PipelineResult.get()</h2>
+<p>Retrieves the field specified by <code>field</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">get(fieldPath: string | FieldPath | Field): any;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fieldPath</td>
+<td>string | <a href="firestore.fieldpath">FieldPath</a> | <a href="firestore_pipelines.field">Field</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>any</p>
+<p>The data at the specified field location or <code>undefined</code> if no such field exists.</p>
+<h3 id="example-1">Example</h3>
+<pre>let p = firestore.pipeline().collection('col');
+
+p.execute().then(results =&gt; {
+  let field = results[0].get('a.b');
+  console.log(`Retrieved field value: ${field}`);
+});</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_pipelines.pipelineresult" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_pipelines.pipelineresult</a>
+  </p>
+</div>

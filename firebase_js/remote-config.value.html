@@ -1,0 +1,60 @@
+<h1>Value interface</h1>
+<p>Wraps a value with metadata and type-safe getters.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface Value </pre>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="remote-config.value#valueasboolean">asBoolean()</a></td>
+<td>Gets the value as a boolean.<!-- -->The following values (case-insensitive) are interpreted as true: &quot;1&quot;, &quot;true&quot;, &quot;t&quot;, &quot;yes&quot;, &quot;y&quot;, &quot;on&quot;. Other values are interpreted as false.</td>
+</tr>
+<tr>
+<td><a href="remote-config.value#valueasnumber">asNumber()</a></td>
+<td>Gets the value as a number. Comparable to calling <code>Number(value) || 0</code>.</td>
+</tr>
+<tr>
+<td><a href="remote-config.value#valueasstring">asString()</a></td>
+<td>Gets the value as a string.</td>
+</tr>
+<tr>
+<td><a href="remote-config.value#valuegetsource">getSource()</a></td>
+<td>Gets the <a href="remote-config#valuesource">ValueSource</a> for the given key.</td>
+</tr>
+</tbody></table>
+<h2 id="valueasboolean">Value.asBoolean()</h2>
+<p>Gets the value as a boolean.</p>
+<p>The following values (case-insensitive) are interpreted as true: &quot;1&quot;, &quot;true&quot;, &quot;t&quot;, &quot;yes&quot;, &quot;y&quot;, &quot;on&quot;. Other values are interpreted as false.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">asBoolean(): boolean;</pre>
+<p><b>Returns:</b></p>
+<p>boolean</p>
+<h2 id="valueasnumber">Value.asNumber()</h2>
+<p>Gets the value as a number. Comparable to calling <code>Number(value) || 0</code>.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">asNumber(): number;</pre>
+<p><b>Returns:</b></p>
+<p>number</p>
+<h2 id="valueasstring">Value.asString()</h2>
+<p>Gets the value as a string.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">asString(): string;</pre>
+<p><b>Returns:</b></p>
+<p>string</p>
+<h2 id="valuegetsource">Value.getSource()</h2>
+<p>Gets the <a href="remote-config#valuesource">ValueSource</a> for the given key.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">getSource(): ValueSource;</pre>
+<p><b>Returns:</b></p>
+<p><a href="remote-config#valuesource">ValueSource</a></p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/remote-config.value" class="_attribution-link">https://firebase.google.com/docs/reference/js/remote-config.value</a>
+  </p>
+</div>

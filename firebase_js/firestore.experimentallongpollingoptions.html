@@ -1,0 +1,33 @@
+<h1>ExperimentalLongPollingOptions interface</h1>
+<p>Options that configure the SDK’s underlying network transport (WebChannel) when long-polling is used.</p>
+<p>Note: This interface is &quot;experimental&quot; and is subject to change.</p>
+<p>See <code>FirestoreSettings.experimentalAutoDetectLongPolling</code><!-- -->, <code>FirestoreSettings.experimentalForceLongPolling</code><!-- -->, and <code>FirestoreSettings.experimentalLongPollingOptions</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface ExperimentalLongPollingOptions </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.experimentallongpollingoptions#experimentallongpollingoptionstimeoutseconds">timeoutSeconds</a></td>
+<td>number</td>
+<td>The desired maximum timeout interval, in seconds, to complete a long-polling GET response. Valid values are between 5 and 30, inclusive. Floating point values are allowed and will be rounded to the nearest millisecond.<!-- -->By default, when long-polling is used the &quot;hanging GET&quot; request sent by the client times out after 30 seconds. To request a different timeout from the server, set this setting with the desired timeout.<!-- -->Changing the default timeout may be useful, for example, if the buffering proxy that necessitated enabling long-polling in the first place has a shorter timeout for hanging GET requests, in which case setting the long-polling timeout to a shorter value, such as 25 seconds, may fix prematurely-closed hanging GET requests. For example, see <a href="https://github.com/firebase/firebase-js-sdk/issues/6987">https://github.com/firebase/firebase-js-sdk/issues/6987</a>.</td>
+</tr>
+</tbody></table>
+<h2 id="experimentallongpollingoptionstimeoutseconds">ExperimentalLongPollingOptions.timeoutSeconds</h2>
+<p>The desired maximum timeout interval, in seconds, to complete a long-polling GET response. Valid values are between 5 and 30, inclusive. Floating point values are allowed and will be rounded to the nearest millisecond.</p>
+<p>By default, when long-polling is used the &quot;hanging GET&quot; request sent by the client times out after 30 seconds. To request a different timeout from the server, set this setting with the desired timeout.</p>
+<p>Changing the default timeout may be useful, for example, if the buffering proxy that necessitated enabling long-polling in the first place has a shorter timeout for hanging GET requests, in which case setting the long-polling timeout to a shorter value, such as 25 seconds, may fix prematurely-closed hanging GET requests. For example, see <a href="https://github.com/firebase/firebase-js-sdk/issues/6987">https://github.com/firebase/firebase-js-sdk/issues/6987</a>.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">timeoutSeconds?: number;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.experimentallongpollingoptions" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.experimentallongpollingoptions</a>
+  </p>
+</div>

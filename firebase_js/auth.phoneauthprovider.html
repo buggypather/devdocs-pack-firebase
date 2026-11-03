@@ -1,0 +1,258 @@
+<h1>PhoneAuthProvider class</h1>
+<p>Provider for generating an <a href="auth.phoneauthcredential">PhoneAuthCredential</a><!-- -->.</p>
+<p><code>PhoneAuthProvider</code> does not work in a Node.js environment.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class PhoneAuthProvider </pre>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.phoneauthprovider#phoneauthproviderconstructor">(constructor)(auth)</a></td>
+<td></td>
+<td>Constructs a new instance of the <code>PhoneAuthProvider</code> class</td>
+</tr>
+</tbody></table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.phoneauthprovider#phoneauthproviderphone_sign_in_method">PHONE_SIGN_IN_METHOD</a></td>
+<td><code>static</code></td>
+<td>&#39;phone&#39;</td>
+<td>Always set to <a href="auth#signinmethod">SignInMethod</a><!-- -->.PHONE.</td>
+</tr>
+<tr>
+<td><a href="auth.phoneauthprovider#phoneauthproviderprovider_id">PROVIDER_ID</a></td>
+<td><code>static</code></td>
+<td>&#39;phone&#39;</td>
+<td>Always set to <a href="auth#providerid">ProviderId</a><!-- -->.PHONE.</td>
+</tr>
+<tr>
+<td><a href="auth.phoneauthprovider#phoneauthproviderproviderid">providerId</a></td>
+<td></td>
+<td>&quot;phone&quot;</td>
+<td>Always set to <a href="auth#providerid">ProviderId</a><!-- -->.PHONE.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.phoneauthprovider#phoneauthprovidercredential">credential(verificationId, verificationCode)</a></td>
+<td><code>static</code></td>
+<td>Creates a phone auth credential, given the verification ID from <a href="auth.phoneauthprovider#phoneauthproviderverifyphonenumber">PhoneAuthProvider.verifyPhoneNumber()</a> and the code that was sent to the user&#39;s mobile device.</td>
+</tr>
+<tr>
+<td><a href="auth.phoneauthprovider#phoneauthprovidercredentialfromerror">credentialFromError(error)</a></td>
+<td><code>static</code></td>
+<td>Returns an <a href="auth.authcredential">AuthCredential</a> when passed an error.</td>
+</tr>
+<tr>
+<td><a href="auth.phoneauthprovider#phoneauthprovidercredentialfromresult">credentialFromResult(userCredential)</a></td>
+<td><code>static</code></td>
+<td>Generates an <a href="auth.authcredential">AuthCredential</a> from a <a href="auth.usercredential">UserCredential</a><!-- -->.</td>
+</tr>
+<tr>
+<td><a href="auth.phoneauthprovider#phoneauthproviderverifyphonenumber">verifyPhoneNumber(phoneOptions, applicationVerifier)</a></td>
+<td></td>
+<td>Starts a phone number authentication flow by sending a verification code to the given phone number.</td>
+</tr>
+</tbody></table>
+<h2 id="phoneauthproviderconstructor">PhoneAuthProvider.(constructor)</h2>
+<p>Constructs a new instance of the <code>PhoneAuthProvider</code> class</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">constructor(auth: Auth);</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auth</td>
+<td><a href="auth.auth">Auth</a></td>
+<td>The Firebase <a href="auth.auth">Auth</a> instance in which sign-ins should occur.</td>
+</tr>
+</tbody></table>
+<h2 id="phoneauthproviderphone_sign_in_method">PhoneAuthProvider.PHONE_SIGN_IN_METHOD</h2>
+<p>Always set to <a href="auth#signinmethod">SignInMethod</a><!-- -->.PHONE.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static readonly PHONE_SIGN_IN_METHOD: 'phone';</pre>
+<h2 id="phoneauthproviderprovider_id">PhoneAuthProvider.PROVIDER_ID</h2>
+<p>Always set to <a href="auth#providerid">ProviderId</a><!-- -->.PHONE.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static readonly PROVIDER_ID: 'phone';</pre>
+<h2 id="phoneauthproviderproviderid">PhoneAuthProvider.providerId</h2>
+<p>Always set to <a href="auth#providerid">ProviderId</a><!-- -->.PHONE.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly providerId: &quot;phone&quot;;</pre>
+<h2 id="phoneauthprovidercredential">PhoneAuthProvider.credential()</h2>
+<p>Creates a phone auth credential, given the verification ID from <a href="auth.phoneauthprovider#phoneauthproviderverifyphonenumber">PhoneAuthProvider.verifyPhoneNumber()</a> and the code that was sent to the user&#39;s mobile device.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static credential(verificationId: string, verificationCode: string): PhoneAuthCredential;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>verificationId</td>
+<td>string</td>
+<td>The verification ID returned from <a href="auth.phoneauthprovider#phoneauthproviderverifyphonenumber">PhoneAuthProvider.verifyPhoneNumber()</a><!-- -->.</td>
+</tr>
+<tr>
+<td>verificationCode</td>
+<td>string</td>
+<td>The verification code sent to the user&#39;s mobile device.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="auth.phoneauthcredential">PhoneAuthCredential</a></p>
+<p>The auth provider credential.</p>
+<h3 id="example-1">Example 1</h3>
+<pre data-language="javascript">const provider = new PhoneAuthProvider(auth);
+const verificationId = provider.verifyPhoneNumber(phoneNumber, applicationVerifier);
+// Obtain verificationCode from the user.
+const authCredential = PhoneAuthProvider.credential(verificationId, verificationCode);
+const userCredential = signInWithCredential(auth, authCredential);</pre>
+<h3 id="example-2">Example 2</h3>
+<p>An alternative flow is provided using the <code>signInWithPhoneNumber</code> method.</p>
+<pre data-language="javascript">const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, applicationVerifier);
+// Obtain verificationCode from the user.
+const userCredential = await confirmationResult.confirm(verificationCode);</pre>
+<h2 id="phoneauthprovidercredentialfromerror">PhoneAuthProvider.credentialFromError()</h2>
+<p>Returns an <a href="auth.authcredential">AuthCredential</a> when passed an error.</p>
+<p>This method works for errors like <code>auth/account-exists-with-different-credentials</code><!-- -->. This is useful for recovering when attempting to set a user&#39;s phone number but the number in question is already tied to another account. For example, the following code tries to update the current user&#39;s phone number, and if that fails, links the user with the account associated with that number:</p>
+<pre data-language="js">const provider = new PhoneAuthProvider(auth);
+const verificationId = await provider.verifyPhoneNumber(number, verifier);
+try {
+  const code = ''; // Prompt the user for the verification code
+  await updatePhoneNumber(
+      auth.currentUser,
+      PhoneAuthProvider.credential(verificationId, code));
+} catch (e) {
+  if ((e as FirebaseError)?.code === 'auth/account-exists-with-different-credential') {
+    const cred = PhoneAuthProvider.credentialFromError(e);
+    await linkWithCredential(auth.currentUser, cred);
+  }
+}
+
+// At this point, auth.currentUser.phoneNumber === number.</pre>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static credentialFromError(error: FirebaseError): AuthCredential | null;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>error</td>
+<td><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.firebaseerror.md">FirebaseError</a></td>
+<td>The error to generate a credential from.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="auth.authcredential">AuthCredential</a> | null</p>
+<h2 id="phoneauthprovidercredentialfromresult">PhoneAuthProvider.credentialFromResult()</h2>
+<p>Generates an <a href="auth.authcredential">AuthCredential</a> from a <a href="auth.usercredential">UserCredential</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static credentialFromResult(userCredential: UserCredential): AuthCredential | null;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>userCredential</td>
+<td><a href="auth.usercredential">UserCredential</a></td>
+<td>The user credential.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="auth.authcredential">AuthCredential</a> | null</p>
+<h2 id="phoneauthproviderverifyphonenumber">PhoneAuthProvider.verifyPhoneNumber()</h2>
+<p>Starts a phone number authentication flow by sending a verification code to the given phone number.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">verifyPhoneNumber(phoneOptions: PhoneInfoOptions | string, applicationVerifier?: ApplicationVerifier): Promise&lt;string&gt;;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>phoneOptions</td>
+<td><a href="auth#phoneinfooptions">PhoneInfoOptions</a> | string</td>
+<td></td>
+</tr>
+<tr>
+<td>applicationVerifier</td>
+<td><a href="auth.applicationverifier">ApplicationVerifier</a></td>
+<td>An <a href="auth.applicationverifier">ApplicationVerifier</a><!-- -->, which prevents requests from unauthorized clients. This SDK includes an implementation based on reCAPTCHA v2, <a href="auth.recaptchaverifier">RecaptchaVerifier</a><!-- -->. If you&#39;ve enabled reCAPTCHA Enterprise bot protection in Enforce mode, this parameter is optional; in all other configurations, the parameter is required.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;string&gt;</p>
+<p>A Promise for a verification ID that can be passed to <a href="auth.phoneauthprovider#phoneauthprovidercredential">PhoneAuthProvider.credential()</a> to identify this flow.</p>
+<h3 id="example-1-1">Example 1</h3>
+<pre data-language="javascript">const provider = new PhoneAuthProvider(auth);
+const verificationId = await provider.verifyPhoneNumber(phoneNumber, applicationVerifier);
+// Obtain verificationCode from the user.
+const authCredential = PhoneAuthProvider.credential(verificationId, verificationCode);
+const userCredential = await signInWithCredential(auth, authCredential);</pre>
+<h3 id="example-2-1">Example 2</h3>
+<p>An alternative flow is provided using the <code>signInWithPhoneNumber</code> method.</p>
+<pre data-language="javascript">const confirmationResult = signInWithPhoneNumber(auth, phoneNumber, applicationVerifier);
+// Obtain verificationCode from the user.
+const userCredential = confirmationResult.confirm(verificationCode);</pre>
+<h3 id="example">Example</h3>
+<pre data-language="javascript">// 'recaptcha-container' is the ID of an element in the DOM.
+const applicationVerifier = new RecaptchaVerifier('recaptcha-container');
+const provider = new PhoneAuthProvider(auth);
+const verificationId = await provider.verifyPhoneNumber('+16505550101', applicationVerifier);
+// Obtain the verificationCode from the user.
+const phoneCredential = PhoneAuthProvider.credential(verificationId, verificationCode);
+const userCredential = await signInWithCredential(auth, phoneCredential);</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.phoneauthprovider" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.phoneauthprovider</a>
+  </p>
+</div>

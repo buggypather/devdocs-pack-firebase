@@ -1,0 +1,258 @@
+<h1>PerformanceTrace interface</h1>
+<p>The interface representing a <code>Trace</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface PerformanceTrace </pre>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="performance.performancetrace#performancetracegetattribute">getAttribute(attr)</a></td>
+<td>Retrieves the value which a custom attribute is set to.</td>
+</tr>
+<tr>
+<td><a href="performance.performancetrace#performancetracegetattributes">getAttributes()</a></td>
+<td>Returns a map of all custom attributes of a trace instance.</td>
+</tr>
+<tr>
+<td><a href="performance.performancetrace#performancetracegetmetric">getMetric(metricName)</a></td>
+<td>Returns the value of the custom metric by that name. If a custom metric with that name does not exist will return zero.</td>
+</tr>
+<tr>
+<td><a href="performance.performancetrace#performancetraceincrementmetric">incrementMetric(metricName, num)</a></td>
+<td>Adds to the value of a custom metric. If a custom metric with the provided name does not exist, it creates one with that name and the value equal to the given number. The value will be floored down to an integer.</td>
+</tr>
+<tr>
+<td><a href="performance.performancetrace#performancetraceputattribute">putAttribute(attr, value)</a></td>
+<td>Set a custom attribute of a trace to a certain value.</td>
+</tr>
+<tr>
+<td><a href="performance.performancetrace#performancetraceputmetric">putMetric(metricName, num)</a></td>
+<td>Sets the value of the specified custom metric to the given number regardless of whether a metric with that name already exists on the trace instance or not. The value will be floored down to an integer.</td>
+</tr>
+<tr>
+<td><a href="performance.performancetrace#performancetracerecord">record(startTime, duration, options)</a></td>
+<td>Records a trace from given parameters. This provides a direct way to use trace without a need to start/stop. This is useful for use cases in which the trace cannot directly be used (e.g. if the duration was captured before the Performance SDK was loaded).</td>
+</tr>
+<tr>
+<td><a href="performance.performancetrace#performancetraceremoveattribute">removeAttribute(attr)</a></td>
+<td>Removes the specified custom attribute from a trace instance.</td>
+</tr>
+<tr>
+<td><a href="performance.performancetrace#performancetracestart">start()</a></td>
+<td>Starts the timing for the trace instance.</td>
+</tr>
+<tr>
+<td><a href="performance.performancetrace#performancetracestop">stop()</a></td>
+<td>Stops the timing of the trace instance and logs the data of the instance.</td>
+</tr>
+</tbody></table>
+<h2 id="performancetracegetattribute">PerformanceTrace.getAttribute()</h2>
+<p>Retrieves the value which a custom attribute is set to.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">getAttribute(attr: string): string | undefined;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>attr</td>
+<td>string</td>
+<td>Name of the custom attribute.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>string | undefined</p>
+<h2 id="performancetracegetattributes">PerformanceTrace.getAttributes()</h2>
+<p>Returns a map of all custom attributes of a trace instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">getAttributes(): {
+        [key: string]: string;
+    };</pre>
+<p><b>Returns:</b></p>
+<p>{ [key: string]: string; }</p>
+<h2 id="performancetracegetmetric">PerformanceTrace.getMetric()</h2>
+<p>Returns the value of the custom metric by that name. If a custom metric with that name does not exist will return zero.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">getMetric(metricName: string): number;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>metricName</td>
+<td>string</td>
+<td>Name of the custom metric.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>number</p>
+<h2 id="performancetraceincrementmetric">PerformanceTrace.incrementMetric()</h2>
+<p>Adds to the value of a custom metric. If a custom metric with the provided name does not exist, it creates one with that name and the value equal to the given number. The value will be floored down to an integer.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">incrementMetric(metricName: string, num?: number): void;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>metricName</td>
+<td>string</td>
+<td>The name of the custom metric.</td>
+</tr>
+<tr>
+<td>num</td>
+<td>number</td>
+<td>The number to be added to the value of the custom metric. If not provided, it uses a default value of one.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h2 id="performancetraceputattribute">PerformanceTrace.putAttribute()</h2>
+<p>Set a custom attribute of a trace to a certain value.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">putAttribute(attr: string, value: string): void;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>attr</td>
+<td>string</td>
+<td>Name of the custom attribute.</td>
+</tr>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>Value of the custom attribute.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h2 id="performancetraceputmetric">PerformanceTrace.putMetric()</h2>
+<p>Sets the value of the specified custom metric to the given number regardless of whether a metric with that name already exists on the trace instance or not. The value will be floored down to an integer.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">putMetric(metricName: string, num: number): void;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>metricName</td>
+<td>string</td>
+<td>Name of the custom metric.</td>
+</tr>
+<tr>
+<td>num</td>
+<td>number</td>
+<td>Value to of the custom metric.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h2 id="performancetracerecord">PerformanceTrace.record()</h2>
+<p>Records a trace from given parameters. This provides a direct way to use trace without a need to start/stop. This is useful for use cases in which the trace cannot directly be used (e.g. if the duration was captured before the Performance SDK was loaded).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">record(startTime: number, duration: number, options?: {
+        metrics?: {
+            [key: string]: number;
+        };
+        attributes?: {
+            [key: string]: string;
+        };
+    }): void;</pre>
+<h4 id="parameters-5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>startTime</td>
+<td>number</td>
+<td>trace start time since epoch in millisec.</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>number</td>
+<td>The duration of the trace in millisec.</td>
+</tr>
+<tr>
+<td>options</td>
+<td>{ metrics?: { [key: string]: number; }; attributes?: { [key: string]: string; }; }</td>
+<td>An object which can optionally hold maps of custom metrics and custom attributes.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h2 id="performancetraceremoveattribute">PerformanceTrace.removeAttribute()</h2>
+<p>Removes the specified custom attribute from a trace instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">removeAttribute(attr: string): void;</pre>
+<h4 id="parameters-6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>attr</td>
+<td>string</td>
+<td>Name of the custom attribute.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h2 id="performancetracestart">PerformanceTrace.start()</h2>
+<p>Starts the timing for the trace instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">start(): void;</pre>
+<p><b>Returns:</b></p>
+<p>void</p>
+<h2 id="performancetracestop">PerformanceTrace.stop()</h2>
+<p>Stops the timing of the trace instance and logs the data of the instance.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">stop(): void;</pre>
+<p><b>Returns:</b></p>
+<p>void</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/performance.performancetrace" class="_attribution-link">https://firebase.google.com/docs/reference/js/performance.performancetrace</a>
+  </p>
+</div>

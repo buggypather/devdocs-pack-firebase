@@ -1,0 +1,30 @@
+<h1>MultiFactorAssertion interface</h1>
+<p>The base class for asserting ownership of a second factor.</p>
+<p>This is used to facilitate enrollment of a second factor on an existing user or sign-in of a user who already verified the first factor.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface MultiFactorAssertion </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.multifactorassertion#multifactorassertionfactorid">factorId</a></td>
+<td>(typeof <a href="auth#factorid">FactorIdMap</a><!-- -->)[keyof typeof <a href="auth#factorid">FactorIdMap</a><!-- -->]</td>
+<td>The identifier of the second factor.</td>
+</tr>
+</tbody></table>
+<h2 id="multifactorassertionfactorid">MultiFactorAssertion.factorId</h2>
+<p>The identifier of the second factor.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly factorId: (typeof FactorIdMap)[keyof typeof FactorIdMap];</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.multifactorassertion" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.multifactorassertion</a>
+  </p>
+</div>

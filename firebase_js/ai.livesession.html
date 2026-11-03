@@ -1,0 +1,310 @@
+<h1>LiveSession class</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Represents an active, real-time, bidirectional conversation with the model.</p>
+<p>This class should only be instantiated by calling <a href="ai.livegenerativemodel#livegenerativemodelconnect">LiveGenerativeModel.connect()</a><!-- -->.</p>
+<p>The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the <code>LiveSession</code> class.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class LiveSession </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.livesession#livesessionconnectionpromise">connectionPromise</a></td>
+<td></td>
+<td>Promise&lt;void&gt;</td>
+<td><b><i>(Public Preview)</i></b> Allows external code to await the opening of the WebSocket connection.</td>
+</tr>
+<tr>
+<td><a href="ai.livesession#livesessioninconversation">inConversation</a></td>
+<td></td>
+<td>boolean</td>
+<td><b><i>(Public Preview)</i></b> Indicates whether this Live session is being controlled by an <code>AudioConversationController</code>.</td>
+</tr>
+<tr>
+<td><a href="ai.livesession#livesessionisclosed">isClosed</a></td>
+<td></td>
+<td>boolean</td>
+<td><b><i>(Public Preview)</i></b> Indicates whether this Live session is closed.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.livesession#livesessionclose">close()</a></td>
+<td></td>
+<td><b><i>(Public Preview)</i></b> Closes this session. All methods on this session will throw an error once this resolves.</td>
+</tr>
+<tr>
+<td><a href="ai.livesession#livesessionreceive">receive()</a></td>
+<td></td>
+<td><b><i>(Public Preview)</i></b> Yields messages received from the server. This can only be used by one consumer at a time.</td>
+</tr>
+<tr>
+<td><a href="ai.livesession#livesessionresumesession">resumeSession(sessionResumption)</a></td>
+<td></td>
+<td><b><i>(Public Preview)</i></b> Resumes an existing live session with the server.<!-- -->This closes the current WebSocket connection and establishes a new one using the same configuration (URI, headers, model, system instruction, tools, etc.) as the original session.</td>
+</tr>
+<tr>
+<td><a href="ai.livesession#livesessionsend">send(request, turnComplete)</a></td>
+<td></td>
+<td><b><i>(Public Preview)</i></b> Sends content to the server.</td>
+</tr>
+<tr>
+<td><a href="ai.livesession#livesessionsendaudiorealtime">sendAudioRealtime(blob)</a></td>
+<td></td>
+<td><b><i>(Public Preview)</i></b> Sends audio data to the server in realtime.</td>
+</tr>
+<tr>
+<td><a href="ai.livesession#livesessionsendfunctionresponses">sendFunctionResponses(functionResponses)</a></td>
+<td></td>
+<td><b><i>(Public Preview)</i></b> Sends function responses to the server.</td>
+</tr>
+<tr>
+<td><a href="ai.livesession#livesessionsendtextrealtime">sendTextRealtime(text)</a></td>
+<td></td>
+<td><b><i>(Public Preview)</i></b> Sends text to the server in realtime.</td>
+</tr>
+<tr>
+<td><a href="ai.livesession#livesessionsendvideorealtime">sendVideoRealtime(blob)</a></td>
+<td></td>
+<td><b><i>(Public Preview)</i></b> Sends video data to the server in realtime.</td>
+</tr>
+</tbody></table>
+<h2 id="livesessionconnectionpromise">LiveSession.connectionPromise</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Allows external code to await the opening of the WebSocket connection.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">connectionPromise: Promise&lt;void&gt;;</pre>
+<h2 id="livesessioninconversation">LiveSession.inConversation</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Indicates whether this Live session is being controlled by an <code>AudioConversationController</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">inConversation: boolean;</pre>
+<h2 id="livesessionisclosed">LiveSession.isClosed</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Indicates whether this Live session is closed.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">isClosed: boolean;</pre>
+<h2 id="livesessionclose">LiveSession.close()</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Closes this session. All methods on this session will throw an error once this resolves.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">close(): Promise&lt;void&gt;;</pre>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h2 id="livesessionreceive">LiveSession.receive()</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Yields messages received from the server. This can only be used by one consumer at a time.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">receive(): AsyncGenerator&lt;LiveServerContent | LiveServerToolCall | LiveServerToolCallCancellation | LiveServerGoingAwayNotice | LiveSessionResumptionUpdate&gt;;</pre>
+<p><b>Returns:</b></p>
+<p>AsyncGenerator&lt;<a href="ai.liveservercontent">LiveServerContent</a> | <a href="ai.liveservertoolcall">LiveServerToolCall</a> | <a href="ai.liveservertoolcallcancellation">LiveServerToolCallCancellation</a> | <a href="ai.liveservergoingawaynotice">LiveServerGoingAwayNotice</a> | <a href="ai.livesessionresumptionupdate">LiveSessionResumptionUpdate</a><!-- -->&gt;</p>
+<p>An <code>AsyncGenerator</code> that yields server messages as they arrive.</p>
+<h4 id="exceptions">Exceptions</h4>
+<p>If the session is already closed, or if we receive a response that we don&#39;t support.</p>
+<h2 id="livesessionresumesession">LiveSession.resumeSession()</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Resumes an existing live session with the server.</p>
+<p>This closes the current WebSocket connection and establishes a new one using the same configuration (URI, headers, model, system instruction, tools, etc.) as the original session.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">resumeSession(sessionResumption?: SessionResumptionConfig): Promise&lt;void&gt;;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sessionResumption</td>
+<td><a href="ai.sessionresumptionconfig">SessionResumptionConfig</a></td>
+<td>The configuration for session resumption, such as the handle to the previous session state to restore.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h4 id="exceptions-1">Exceptions</h4>
+<p>If the session resumption configuration is unsupported.</p>
+<h2 id="livesessionsend">LiveSession.send()</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Sends content to the server.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">send(request: string | Array&lt;string | Part&gt;, turnComplete?: boolean): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>request</td>
+<td>string | Array&lt;string | <a href="ai#part">Part</a><!-- -->&gt;</td>
+<td>The message to send to the model.</td>
+</tr>
+<tr>
+<td>turnComplete</td>
+<td>boolean</td>
+<td>Indicates if the turn is complete. Defaults to false.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h4 id="exceptions-2">Exceptions</h4>
+<p>If this session has been closed.</p>
+<h2 id="livesessionsendaudiorealtime">LiveSession.sendAudioRealtime()</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Sends audio data to the server in realtime.</p>
+<p>The server requires that the audio data is base64-encoded 16-bit PCM at 16kHz little-endian.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">sendAudioRealtime(blob: GenerativeContentBlob): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>blob</td>
+<td><a href="ai.generativecontentblob">GenerativeContentBlob</a></td>
+<td>The base64-encoded PCM data to send to the server in realtime.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h4 id="exceptions-3">Exceptions</h4>
+<p>If this session has been closed.</p>
+<h3 id="example">Example</h3>
+<pre data-language="javascript">// const pcmData = ... base64-encoded 16-bit PCM at 16kHz little-endian.
+const blob = { mimeType: &quot;audio/pcm&quot;, data: pcmData };
+liveSession.sendAudioRealtime(blob);</pre>
+<h2 id="livesessionsendfunctionresponses">LiveSession.sendFunctionResponses()</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Sends function responses to the server.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">sendFunctionResponses(functionResponses: FunctionResponse[]): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>functionResponses</td>
+<td><a href="ai.functionresponse">FunctionResponse</a><!-- -->[]</td>
+<td>The function responses to send.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h4 id="exceptions-4">Exceptions</h4>
+<p>If this session has been closed.</p>
+<h2 id="livesessionsendtextrealtime">LiveSession.sendTextRealtime()</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Sends text to the server in realtime.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">sendTextRealtime(text: string): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>text</td>
+<td>string</td>
+<td>The text data to send.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h4 id="exceptions-5">Exceptions</h4>
+<p>If this session has been closed.</p>
+<h3 id="example-1">Example</h3>
+<pre data-language="javascript">liveSession.sendTextRealtime(&quot;Hello, how are you?&quot;);</pre>
+<h2 id="livesessionsendvideorealtime">LiveSession.sendVideoRealtime()</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Sends video data to the server in realtime.</p>
+<p>The server requires that the video is sent as individual video frames at 1 FPS. It is recommended to set <code>mimeType</code> to <code>image/jpeg</code><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">sendVideoRealtime(blob: GenerativeContentBlob): Promise&lt;void&gt;;</pre>
+<h4 id="parameters-5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>blob</td>
+<td><a href="ai.generativecontentblob">GenerativeContentBlob</a></td>
+<td>The base64-encoded video data to send to the server in realtime.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;void&gt;</p>
+<h4 id="exceptions-6">Exceptions</h4>
+<p>If this session has been closed.</p>
+<h3 id="example-2">Example</h3>
+<pre data-language="javascript">// const videoFrame = ... base64-encoded JPEG data
+const blob = { mimeType: &quot;image/jpeg&quot;, data: videoFrame };
+liveSession.sendVideoRealtime(blob);</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.livesession" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.livesession</a>
+  </p>
+</div>

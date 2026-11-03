@@ -1,0 +1,67 @@
+<h1>RemoteConfig interface</h1>
+<p>The Firebase Remote Config service interface.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface RemoteConfig </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="remote-config.remoteconfig#remoteconfigapp">app</a></td>
+<td><a href="app.firebaseapp">FirebaseApp</a></td>
+<td>The <a href="app.firebaseapp">FirebaseApp</a> this <code>RemoteConfig</code> instance is associated with.</td>
+</tr>
+<tr>
+<td><a href="remote-config.remoteconfig#remoteconfigdefaultconfig">defaultConfig</a></td>
+<td>{ [key: string]: string | number | boolean; }</td>
+<td>Object containing default values for configs.</td>
+</tr>
+<tr>
+<td><a href="remote-config.remoteconfig#remoteconfigfetchtimemillis">fetchTimeMillis</a></td>
+<td>number</td>
+<td>The Unix timestamp in milliseconds of the last <i>successful</i> fetch, or negative one if the <a href="remote-config.remoteconfig">RemoteConfig</a> instance either hasn&#39;t fetched or initialization is incomplete.</td>
+</tr>
+<tr>
+<td><a href="remote-config.remoteconfig#remoteconfiglastfetchstatus">lastFetchStatus</a></td>
+<td><a href="remote-config#fetchstatus">FetchStatus</a></td>
+<td>The status of the last fetch <i>attempt</i>.</td>
+</tr>
+<tr>
+<td><a href="remote-config.remoteconfig#remoteconfigsettings">settings</a></td>
+<td><a href="remote-config.remoteconfigsettings">RemoteConfigSettings</a></td>
+<td>Defines configuration for the Remote Config SDK.</td>
+</tr>
+</tbody></table>
+<h2 id="remoteconfigapp">RemoteConfig.app</h2>
+<p>The <a href="app.firebaseapp">FirebaseApp</a> this <code>RemoteConfig</code> instance is associated with.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">app: FirebaseApp;</pre>
+<h2 id="remoteconfigdefaultconfig">RemoteConfig.defaultConfig</h2>
+<p>Object containing default values for configs.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">defaultConfig: {
+        [key: string]: string | number | boolean;
+    };</pre>
+<h2 id="remoteconfigfetchtimemillis">RemoteConfig.fetchTimeMillis</h2>
+<p>The Unix timestamp in milliseconds of the last <i>successful</i> fetch, or negative one if the <a href="remote-config.remoteconfig">RemoteConfig</a> instance either hasn&#39;t fetched or initialization is incomplete.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">fetchTimeMillis: number;</pre>
+<h2 id="remoteconfiglastfetchstatus">RemoteConfig.lastFetchStatus</h2>
+<p>The status of the last fetch <i>attempt</i>.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">lastFetchStatus: FetchStatus;</pre>
+<h2 id="remoteconfigsettings">RemoteConfig.settings</h2>
+<p>Defines configuration for the Remote Config SDK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">settings: RemoteConfigSettings;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/remote-config.remoteconfig" class="_attribution-link">https://firebase.google.com/docs/reference/js/remote-config.remoteconfig</a>
+  </p>
+</div>

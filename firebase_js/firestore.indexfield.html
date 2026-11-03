@@ -1,0 +1,65 @@
+<h1>IndexField interface</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Instead of creating cache indexes manually, consider using <code>enablePersistentCacheIndexAutoCreation()</code> to let the SDK decide whether to create cache indexes for queries running locally.</p>
+</blockquote>
+<p>A single field element in an index configuration.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface IndexField </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.indexfield#indexfieldarrayconfig">arrayConfig</a></td>
+<td>&#39;CONTAINS&#39;</td>
+<td><b><i>(Public Preview)</i></b> What type of array index to create. Set to <code>CONTAINS</code> for <code>array-contains</code> and <code>array-contains-any</code> indexes.<!-- -->Only one of <code>arrayConfig</code> or <code>order</code> should be set;</td>
+</tr>
+<tr>
+<td><a href="firestore.indexfield#indexfieldfieldpath">fieldPath</a></td>
+<td>string</td>
+<td><b><i>(Public Preview)</i></b> The field path to index.</td>
+</tr>
+<tr>
+<td><a href="firestore.indexfield#indexfieldorder">order</a></td>
+<td>&#39;ASCENDING&#39; | &#39;DESCENDING&#39;</td>
+<td><b><i>(Public Preview)</i></b> What type of array index to create. Set to <code>ASCENDING</code> or &#39;DESCENDING<code> for </code>==<code>, </code>!=<code>, </code>&lt;<!-- -->=<code>, </code>&lt;<!-- -->=<code>, </code>in<code> and </code>not-in<!-- -->` filters.<!-- -->Only one of <code>arrayConfig</code> or <code>order</code> should be set.</td>
+</tr>
+</tbody></table>
+<h2 id="indexfieldarrayconfig">IndexField.arrayConfig</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>What type of array index to create. Set to <code>CONTAINS</code> for <code>array-contains</code> and <code>array-contains-any</code> indexes.</p>
+<p>Only one of <code>arrayConfig</code> or <code>order</code> should be set;</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly arrayConfig?: 'CONTAINS';</pre>
+<h2 id="indexfieldfieldpath">IndexField.fieldPath</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The field path to index.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly fieldPath: string;</pre>
+<h2 id="indexfieldorder">IndexField.order</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>What type of array index to create. Set to <code>ASCENDING</code> or &#39;DESCENDING<code>for</code><!-- -->==<code>, </code><!-- -->!=<code>, </code><!-- -->&lt;<!-- -->=<code>, </code><!-- -->&lt;<!-- -->=<code>, </code><!-- -->in<code>and</code><!-- -->not-in<!-- -->` filters.</p>
+<p>Only one of <code>arrayConfig</code> or <code>order</code> should be set.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly order?: 'ASCENDING' | 'DESCENDING';</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.indexfield" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.indexfield</a>
+  </p>
+</div>

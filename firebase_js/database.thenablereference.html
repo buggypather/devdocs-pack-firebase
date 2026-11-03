@@ -1,0 +1,39 @@
+<h1>ThenableReference interface</h1>
+<p>A <code>Promise</code> that can also act as a <code>DatabaseReference</code> when returned by <a href="database#push_c74661c">push()</a><!-- -->. The reference is available immediately and the <code>Promise</code> resolves as the write to the backend completes.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface ThenableReference
+  extends DatabaseReference,
+    Pick&lt;Promise&lt;DatabaseReference&gt;, 'then' | 'catch'&gt; </pre>
+<p><b>Extends:</b> <a href="database.databasereference">DatabaseReference</a><!-- -->, Pick&lt;Promise&lt;<a href="database.databasereference">DatabaseReference</a><!-- -->&gt;, &#39;then&#39; | &#39;catch&#39;&gt;</p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="database.thenablereference#thenablereferencekey">key</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="database.thenablereference#thenablereferenceparent">parent</a></td>
+<td><a href="database.databasereference">DatabaseReference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="thenablereferencekey">ThenableReference.key</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">key: string;</pre>
+<h2 id="thenablereferenceparent">ThenableReference.parent</h2>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">parent: DatabaseReference;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/database.thenablereference" class="_attribution-link">https://firebase.google.com/docs/reference/js/database.thenablereference</a>
+  </p>
+</div>

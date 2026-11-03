@@ -1,0 +1,46 @@
+<h1>SingleRequestOptions interface</h1>
+<p>Options that can be provided per-request. Extends the base <a href="ai.requestoptions">RequestOptions</a> (like <code>timeout</code> and <code>baseUrl</code><!-- -->) with request-specific controls like cancellation via <code>AbortSignal</code><!-- -->.</p>
+<p>Options specified here will override any default <a href="ai.requestoptions">RequestOptions</a> configured on a model (for example, <a href="ai.generativemodel">GenerativeModel</a><!-- -->).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface SingleRequestOptions extends RequestOptions </pre>
+<p><b>Extends:</b> <a href="ai.requestoptions">RequestOptions</a></p>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.singlerequestoptions#singlerequestoptionssignal">signal</a></td>
+<td>AbortSignal</td>
+<td>An <code>AbortSignal</code> instance that allows cancelling ongoing requests (like <code>generateContent</code> or <code>generateImages</code>).</td>
+</tr>
+</tbody></table>
+<h2 id="singlerequestoptionssignal">SingleRequestOptions.signal</h2>
+<p>An <code>AbortSignal</code> instance that allows cancelling ongoing requests (like <code>generateContent</code> or <code>generateImages</code><!-- -->).</p>
+<p>If provided, calling <code>abort()</code> on the corresponding <code>AbortController</code> will attempt to cancel the underlying HTTP request. An <code>AbortError</code> will be thrown if cancellation is successful.</p>
+<p>Note that this will not cancel the request in the backend, so any applicable billing charges will still be applied despite cancellation.</p>
+<p>Also see <a href="https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal">AbortSignal</a> documentation.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">signal?: AbortSignal;</pre>
+<h3 id="example">Example</h3>
+<pre data-language="javascript">const controller = new AbortController();
+const model = getGenerativeModel({
+  // ...
+});
+model.generateContent(
+  &quot;Write a story about a magic backpack.&quot;,
+  { signal: controller.signal }
+);
+
+// To cancel request:
+controller.abort();</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.singlerequestoptions" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.singlerequestoptions</a>
+  </p>
+</div>

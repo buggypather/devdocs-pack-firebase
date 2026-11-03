@@ -1,0 +1,68 @@
+<h1>ConfirmationResult interface</h1>
+<p>A result from a phone number sign-in, link, or reauthenticate call.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface ConfirmationResult </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.confirmationresult#confirmationresultverificationid">verificationId</a></td>
+<td>string</td>
+<td>The phone number authentication operation&#39;s verification ID.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.confirmationresult#confirmationresultconfirm">confirm(verificationCode)</a></td>
+<td>Finishes a phone number sign-in, link, or reauthentication.</td>
+</tr>
+</tbody></table>
+<h2 id="confirmationresultverificationid">ConfirmationResult.verificationId</h2>
+<p>The phone number authentication operation&#39;s verification ID.</p>
+<p>This can be used along with the verification code to initialize a <a href="auth.phoneauthcredential">PhoneAuthCredential</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly verificationId: string;</pre>
+<h2 id="confirmationresultconfirm">ConfirmationResult.confirm()</h2>
+<p>Finishes a phone number sign-in, link, or reauthentication.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">confirm(verificationCode: string): Promise&lt;UserCredential&gt;;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>verificationCode</td>
+<td>string</td>
+<td>The code that was sent to the user&#39;s mobile device.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>Promise&lt;<a href="auth.usercredential">UserCredential</a><!-- -->&gt;</p>
+<h3 id="example">Example</h3>
+<pre data-language="javascript">const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, applicationVerifier);
+// Obtain verificationCode from the user.
+const userCredential = await confirmationResult.confirm(verificationCode);</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.confirmationresult" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.confirmationresult</a>
+  </p>
+</div>

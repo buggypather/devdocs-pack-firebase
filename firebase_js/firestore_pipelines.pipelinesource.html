@@ -1,0 +1,304 @@
+<h1>PipelineSource class</h1>
+<p>Provides the entry point for defining the data source of a Firestore <a href="firestore_lite_pipelines.pipeline">Pipeline</a><!-- -->.</p>
+<p>Use the methods of this class (e.g., <a href="firestore_lite_pipelines.pipelinesource#pipelinesourcecollection">PipelineSource.collection()</a><!-- -->, <a href="firestore_lite_pipelines.pipelinesource#pipelinesourcecollectiongroup">PipelineSource.collectionGroup()</a><!-- -->, <a href="firestore_lite_pipelines.pipelinesource#pipelinesourcedatabase">PipelineSource.database()</a><!-- -->, or <a href="firestore_lite_pipelines.pipelinesource#pipelinesourcedocuments">PipelineSource.documents()</a><!-- -->) to specify the initial data for your pipeline, such as a collection, a collection group, the entire database, or a set of specific documents.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class PipelineSource&lt;PipelineType&gt; </pre>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_pipelines.pipelinesource#pipelinesourcecollection">collection(collection)</a></td>
+<td></td>
+<td>Returns all documents from the entire collection. The collection can be nested.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.pipelinesource#pipelinesourcecollection">collection(options)</a></td>
+<td></td>
+<td>Returns all documents from the entire collection. The collection can be nested.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.pipelinesource#pipelinesourcecollectiongroup">collectionGroup(collectionId)</a></td>
+<td></td>
+<td>Returns all documents from a collection ID regardless of the parent.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.pipelinesource#pipelinesourcecollectiongroup">collectionGroup(options)</a></td>
+<td></td>
+<td>Returns all documents from a collection ID regardless of the parent.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.pipelinesource#pipelinesourcecreatefrom">createFrom(query)</a></td>
+<td></td>
+<td>Convert the given Query into an equivalent Pipeline.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.pipelinesource#pipelinesourcedatabase">database()</a></td>
+<td></td>
+<td>Returns all documents from the entire database.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.pipelinesource#pipelinesourcedatabase">database(options)</a></td>
+<td></td>
+<td>Returns all documents from the entire database.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.pipelinesource#pipelinesourcedocuments">documents(docs)</a></td>
+<td></td>
+<td>Set the pipeline&#39;s source to the documents specified by the given paths and DocumentReferences.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.pipelinesource#pipelinesourcedocuments">documents(options)</a></td>
+<td></td>
+<td>Set the pipeline&#39;s source to the documents specified by the given paths and DocumentReferences.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.pipelinesource#pipelinesourceliterals">literals(documents)</a></td>
+<td></td>
+<td>Set the pipeline&#39;s source to the documents specified by the given array of literal objects.<!-- -->Each object in the array represents a document where keys are field names and values are constants or <a href="firestore_lite_pipelines.expression">Expression</a> instances.</td>
+</tr>
+<tr>
+<td><a href="firestore_pipelines.pipelinesource#pipelinesourceliterals">literals(options)</a></td>
+<td></td>
+<td>Set the pipeline&#39;s source to the documents specified by the given <a href="firestore_lite_pipelines#literalsstageoptions">LiteralsStageOptions</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="pipelinesourcecollection">PipelineSource.collection()</h2>
+<p>Returns all documents from the entire collection. The collection can be nested.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">collection(collection: string | CollectionReference): PipelineType;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>collection</td>
+<td>string | <a href="firestore.collectionreference">CollectionReference</a></td>
+<td>Name or reference to the collection that will be used as the Pipeline source.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>PipelineType</p>
+<h2 id="pipelinesourcecollection-1">PipelineSource.collection()</h2>
+<p>Returns all documents from the entire collection. The collection can be nested.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">collection(options: CollectionStageOptions): PipelineType;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>options</td>
+<td><a href="firestore_pipelines#collectionstageoptions">CollectionStageOptions</a></td>
+<td>Options defining how this CollectionStage is evaluated.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>PipelineType</p>
+<h2 id="pipelinesourcecollectiongroup">PipelineSource.collectionGroup()</h2>
+<p>Returns all documents from a collection ID regardless of the parent.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">collectionGroup(collectionId: string): PipelineType;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>collectionId</td>
+<td>string</td>
+<td>ID of the collection group to use as the Pipeline source.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>PipelineType</p>
+<h2 id="pipelinesourcecollectiongroup-1">PipelineSource.collectionGroup()</h2>
+<p>Returns all documents from a collection ID regardless of the parent.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">collectionGroup(options: CollectionGroupStageOptions): PipelineType;</pre>
+<h4 id="parameters-3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>options</td>
+<td><a href="firestore_pipelines#collectiongroupstageoptions">CollectionGroupStageOptions</a></td>
+<td>Options defining how this CollectionGroupStage is evaluated.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>PipelineType</p>
+<h2 id="pipelinesourcecreatefrom">PipelineSource.createFrom()</h2>
+<p>Convert the given Query into an equivalent Pipeline.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">createFrom(query: Query): PipelineType;</pre>
+<h4 id="parameters-4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>query</td>
+<td><a href="firestore.query">Query</a></td>
+<td>A Query to be converted into a Pipeline.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>PipelineType</p>
+<h4 id="exceptions">Exceptions</h4>
+<p><code>FirestoreError</code> Thrown if any of the provided DocumentReferences target a different project or database than the pipeline.</p>
+<h2 id="pipelinesourcedatabase">PipelineSource.database()</h2>
+<p>Returns all documents from the entire database.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">database(): PipelineType;</pre>
+<p><b>Returns:</b></p>
+<p>PipelineType</p>
+<h2 id="pipelinesourcedatabase-1">PipelineSource.database()</h2>
+<p>Returns all documents from the entire database.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">database(options: DatabaseStageOptions): PipelineType;</pre>
+<h4 id="parameters-5">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>options</td>
+<td><a href="firestore_pipelines#databasestageoptions">DatabaseStageOptions</a></td>
+<td>Options defining how a DatabaseStage is evaluated.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>PipelineType</p>
+<h2 id="pipelinesourcedocuments">PipelineSource.documents()</h2>
+<p>Set the pipeline&#39;s source to the documents specified by the given paths and DocumentReferences.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">documents(docs: Array&lt;string | DocumentReference&gt;): PipelineType;</pre>
+<h4 id="parameters-6">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>docs</td>
+<td>Array&lt;string | <a href="firestore.documentreference">DocumentReference</a><!-- -->&gt;</td>
+<td>An array of paths and DocumentReferences specifying the individual documents that will be the source of this pipeline. The converters for these DocumentReferences will be ignored and not have an effect on this pipeline.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>PipelineType</p>
+<h4 id="exceptions-1">Exceptions</h4>
+<p><code>FirestoreError</code> Thrown if any of the provided DocumentReferences target a different project or database than the pipeline.</p>
+<h2 id="pipelinesourcedocuments-1">PipelineSource.documents()</h2>
+<p>Set the pipeline&#39;s source to the documents specified by the given paths and DocumentReferences.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">documents(options: DocumentsStageOptions): PipelineType;</pre>
+<h4 id="parameters-7">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>options</td>
+<td><a href="firestore_pipelines#documentsstageoptions">DocumentsStageOptions</a></td>
+<td>Options defining how this DocumentsStage is evaluated.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>PipelineType</p>
+<h4 id="exceptions-2">Exceptions</h4>
+<p><code>FirestoreError</code> Thrown if any of the provided DocumentReferences target a different project or database than the pipeline.</p>
+<h2 id="pipelinesourceliterals">PipelineSource.literals()</h2>
+<p>Set the pipeline&#39;s source to the documents specified by the given array of literal objects.</p>
+<p>Each object in the array represents a document where keys are field names and values are constants or <a href="firestore_lite_pipelines.expression">Expression</a> instances.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">literals(documents: Array&lt;Record&lt;string, unknown&gt;&gt;): PipelineType;</pre>
+<h4 id="parameters-8">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>documents</td>
+<td>Array&lt;Record&lt;string, unknown&gt;&gt;</td>
+<td>An array of literal document objects.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>PipelineType</p>
+<h3 id="example">Example</h3>
+<pre data-language="typescript">firestore.pipeline().literals([
+  { name: 'Alice', score: 50 },
+  { name: 'Bob', score: add(constant(30), constant(40)) }
+]);</pre>
+<h2 id="pipelinesourceliterals-1">PipelineSource.literals()</h2>
+<p>Set the pipeline&#39;s source to the documents specified by the given <a href="firestore_lite_pipelines#literalsstageoptions">LiteralsStageOptions</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">literals(options: LiteralsStageOptions): PipelineType;</pre>
+<h4 id="parameters-9">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>options</td>
+<td><a href="firestore_pipelines#literalsstageoptions">LiteralsStageOptions</a></td>
+<td>Options defining how this <code>LiteralsStage</code> is evaluated.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p>PipelineType</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_pipelines.pipelinesource" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_pipelines.pipelinesource</a>
+  </p>
+</div>

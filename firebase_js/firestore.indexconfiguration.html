@@ -1,0 +1,40 @@
+<h1>IndexConfiguration interface</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Instead of creating cache indexes manually, consider using <code>enablePersistentCacheIndexAutoCreation()</code> to let the SDK decide whether to create cache indexes for queries running locally.</p>
+</blockquote>
+<p>A list of Firestore indexes to speed up local query execution.</p>
+<p>See <a href="https://firebase.google.com/docs/reference/firestore/indexes/#json_format">JSON Format</a> for a description of the format of the index definition.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface IndexConfiguration </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore.indexconfiguration#indexconfigurationindexes">indexes</a></td>
+<td><a href="firestore.index">Index</a><!-- -->[]</td>
+<td><b><i>(Public Preview)</i></b> A list of all Firestore indexes.</td>
+</tr>
+</tbody></table>
+<h2 id="indexconfigurationindexes">IndexConfiguration.indexes</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>A list of all Firestore indexes.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly indexes?: Index[];</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore.indexconfiguration" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore.indexconfiguration</a>
+  </p>
+</div>

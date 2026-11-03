@@ -1,0 +1,181 @@
+<h1>FacebookAuthProvider class</h1>
+<p>Provider for generating an <a href="auth.oauthcredential">OAuthCredential</a> for <a href="auth#providerid">ProviderId</a><!-- -->.FACEBOOK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class FacebookAuthProvider extends BaseOAuthProvider </pre>
+<p><b>Extends:</b> BaseOAuthProvider</p>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.facebookauthprovider#facebookauthproviderconstructor">(constructor)()</a></td>
+<td></td>
+<td>Constructs a new instance of the <code>FacebookAuthProvider</code> class</td>
+</tr>
+</tbody></table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.facebookauthprovider#facebookauthproviderfacebook_sign_in_method">FACEBOOK_SIGN_IN_METHOD</a></td>
+<td><code>static</code></td>
+<td>&#39;facebook.com&#39;</td>
+<td>Always set to <a href="auth#signinmethod">SignInMethod</a><!-- -->.FACEBOOK.</td>
+</tr>
+<tr>
+<td><a href="auth.facebookauthprovider#facebookauthproviderprovider_id">PROVIDER_ID</a></td>
+<td><code>static</code></td>
+<td>&#39;facebook.com&#39;</td>
+<td>Always set to <a href="auth#providerid">ProviderId</a><!-- -->.FACEBOOK.</td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.facebookauthprovider#facebookauthprovidercredential">credential(accessToken)</a></td>
+<td><code>static</code></td>
+<td>Creates a credential for Facebook.</td>
+</tr>
+<tr>
+<td><a href="auth.facebookauthprovider#facebookauthprovidercredentialfromerror">credentialFromError(error)</a></td>
+<td><code>static</code></td>
+<td>Used to extract the underlying <a href="auth.oauthcredential">OAuthCredential</a> from a <a href="auth.autherror">AuthError</a> which was thrown during a sign-in, link, or reauthenticate operation.</td>
+</tr>
+<tr>
+<td><a href="auth.facebookauthprovider#facebookauthprovidercredentialfromresult">credentialFromResult(userCredential)</a></td>
+<td><code>static</code></td>
+<td>Used to extract the underlying <a href="auth.oauthcredential">OAuthCredential</a> from a <a href="auth.usercredential">UserCredential</a><!-- -->.</td>
+</tr>
+</tbody></table>
+<h2 id="facebookauthproviderconstructor">FacebookAuthProvider.(constructor)</h2>
+<p>Constructs a new instance of the <code>FacebookAuthProvider</code> class</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">constructor();</pre>
+<h2 id="facebookauthproviderfacebook_sign_in_method">FacebookAuthProvider.FACEBOOK_SIGN_IN_METHOD</h2>
+<p>Always set to <a href="auth#signinmethod">SignInMethod</a><!-- -->.FACEBOOK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static readonly FACEBOOK_SIGN_IN_METHOD: 'facebook.com';</pre>
+<h2 id="facebookauthproviderprovider_id">FacebookAuthProvider.PROVIDER_ID</h2>
+<p>Always set to <a href="auth#providerid">ProviderId</a><!-- -->.FACEBOOK.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static readonly PROVIDER_ID: 'facebook.com';</pre>
+<h2 id="facebookauthprovidercredential">FacebookAuthProvider.credential()</h2>
+<p>Creates a credential for Facebook.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static credential(accessToken: string): OAuthCredential;</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>accessToken</td>
+<td>string</td>
+<td>Facebook access token.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="auth.oauthcredential">OAuthCredential</a></p>
+<h3 id="example">Example</h3>
+<pre data-language="javascript">// `event` from the Facebook auth.authResponseChange callback.
+const credential = FacebookAuthProvider.credential(event.authResponse.accessToken);
+const result = await signInWithCredential(credential);</pre>
+<h2 id="facebookauthprovidercredentialfromerror">FacebookAuthProvider.credentialFromError()</h2>
+<p>Used to extract the underlying <a href="auth.oauthcredential">OAuthCredential</a> from a <a href="auth.autherror">AuthError</a> which was thrown during a sign-in, link, or reauthenticate operation.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static credentialFromError(error: FirebaseError): OAuthCredential | null;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>error</td>
+<td><a href="https://github.com/firebase/firebase-js-sdk/blob/HEAD/docs-devsite/util.firebaseerror.md">FirebaseError</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="auth.oauthcredential">OAuthCredential</a> | null</p>
+<h2 id="facebookauthprovidercredentialfromresult">FacebookAuthProvider.credentialFromResult()</h2>
+<p>Used to extract the underlying <a href="auth.oauthcredential">OAuthCredential</a> from a <a href="auth.usercredential">UserCredential</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">static credentialFromResult(userCredential: UserCredential): OAuthCredential | null;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>userCredential</td>
+<td><a href="auth.usercredential">UserCredential</a></td>
+<td>The user credential.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="auth.oauthcredential">OAuthCredential</a> | null</p>
+<h3 id="example-1">Example 1</h3>
+<pre data-language="javascript">// Sign in using a redirect.
+const provider = new FacebookAuthProvider();
+// Start a sign in process for an unauthenticated user.
+provider.addScope('user_birthday');
+await signInWithRedirect(auth, provider);
+// This will trigger a full page redirect away from your app
+
+// After returning from the redirect when your app initializes you can obtain the result
+const result = await getRedirectResult(auth);
+if (result) {
+  // This is the signed-in user
+  const user = result.user;
+  // This gives you a Facebook Access Token.
+  const credential = FacebookAuthProvider.credentialFromResult(result);
+  const token = credential.accessToken;
+}</pre>
+<h3 id="example-2">Example 2</h3>
+<pre data-language="javascript">// Sign in using a popup.
+const provider = new FacebookAuthProvider();
+provider.addScope('user_birthday');
+const result = await signInWithPopup(auth, provider);
+
+// The signed-in user info.
+const user = result.user;
+// This gives you a Facebook Access Token.
+const credential = FacebookAuthProvider.credentialFromResult(result);
+const token = credential.accessToken;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.facebookauthprovider" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.facebookauthprovider</a>
+  </p>
+</div>

@@ -1,0 +1,87 @@
+<h1>IdTokenResult interface</h1>
+<p>Interface representing ID token result obtained from <a href="auth.user#usergetidtokenresult">User.getIdTokenResult()</a><!-- -->.</p>
+<p><code>IdTokenResult</code> contains the ID token JWT string and other helper properties for getting different data associated with the token as well as all the decoded payload claims.</p>
+<p>Note that these claims are not to be trusted as they are parsed client side. Only server side verification can guarantee the integrity of the token claims.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface IdTokenResult </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="auth.idtokenresult#idtokenresultauthtime">authTime</a></td>
+<td>string</td>
+<td>The authentication time formatted as a UTC string.</td>
+</tr>
+<tr>
+<td><a href="auth.idtokenresult#idtokenresultclaims">claims</a></td>
+<td><a href="auth.parsedtoken">ParsedToken</a></td>
+<td>The entire payload claims of the ID token including the standard reserved claims as well as the custom claims.</td>
+</tr>
+<tr>
+<td><a href="auth.idtokenresult#idtokenresultexpirationtime">expirationTime</a></td>
+<td>string</td>
+<td>The ID token expiration time formatted as a UTC string.</td>
+</tr>
+<tr>
+<td><a href="auth.idtokenresult#idtokenresultissuedattime">issuedAtTime</a></td>
+<td>string</td>
+<td>The ID token issuance time formatted as a UTC string.</td>
+</tr>
+<tr>
+<td><a href="auth.idtokenresult#idtokenresultsigninprovider">signInProvider</a></td>
+<td>string | null</td>
+<td>The sign-in provider through which the ID token was obtained (anonymous, custom, phone, password, etc).</td>
+</tr>
+<tr>
+<td><a href="auth.idtokenresult#idtokenresultsigninsecondfactor">signInSecondFactor</a></td>
+<td>string | null</td>
+<td>The type of second factor associated with this session, provided the user was multi-factor authenticated (eg. phone, etc).</td>
+</tr>
+<tr>
+<td><a href="auth.idtokenresult#idtokenresulttoken">token</a></td>
+<td>string</td>
+<td>The Firebase Auth ID token JWT string.</td>
+</tr>
+</tbody></table>
+<h2 id="idtokenresultauthtime">IdTokenResult.authTime</h2>
+<p>The authentication time formatted as a UTC string.</p>
+<p>This is the time the user authenticated (signed in) and not the time the token was refreshed.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">authTime: string;</pre>
+<h2 id="idtokenresultclaims">IdTokenResult.claims</h2>
+<p>The entire payload claims of the ID token including the standard reserved claims as well as the custom claims.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">claims: ParsedToken;</pre>
+<h2 id="idtokenresultexpirationtime">IdTokenResult.expirationTime</h2>
+<p>The ID token expiration time formatted as a UTC string.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">expirationTime: string;</pre>
+<h2 id="idtokenresultissuedattime">IdTokenResult.issuedAtTime</h2>
+<p>The ID token issuance time formatted as a UTC string.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">issuedAtTime: string;</pre>
+<h2 id="idtokenresultsigninprovider">IdTokenResult.signInProvider</h2>
+<p>The sign-in provider through which the ID token was obtained (anonymous, custom, phone, password, etc).</p>
+<p>Note, this does not map to provider IDs.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">signInProvider: string | null;</pre>
+<h2 id="idtokenresultsigninsecondfactor">IdTokenResult.signInSecondFactor</h2>
+<p>The type of second factor associated with this session, provided the user was multi-factor authenticated (eg. phone, etc).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">signInSecondFactor: string | null;</pre>
+<h2 id="idtokenresulttoken">IdTokenResult.token</h2>
+<p>The Firebase Auth ID token JWT string.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">token: string;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/auth.idtokenresult" class="_attribution-link">https://firebase.google.com/docs/reference/js/auth.idtokenresult</a>
+  </p>
+</div>
