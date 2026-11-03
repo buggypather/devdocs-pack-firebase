@@ -1,0 +1,112 @@
+<h1>Troubleshooting Jekyll build errors for GitHub Pages sites</h1>
+<p>You can use Jekyll build error messages to troubleshoot problems with your GitHub Pages site.</p>
+<h2 id="troubleshooting-build-errors">Troubleshooting build errors</h2>
+<p>If Jekyll encounters an error building your GitHub Pages site locally or on GitHub, you can use error messages to troubleshoot. For more information about error messages and how to view them, see <a href="about-jekyll-build-errors-for-github-pages-sites">About Jekyll build errors for GitHub Pages sites</a>.</p>
+<p>If you received a generic error message, check for common issues.</p>
+<ul>
+<li>You&#39;re using unsupported plugins. For more information, see <a href="about-github-pages-and-jekyll#plugins">About GitHub Pages and Jekyll</a>.</li>
+<li>Your repository has exceeded our repository size limits. For more information, see <a href="https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github">About large files on github</a></li>
+<li>You changed the <code>source</code> setting in your <code>_config.yml</code> file. If you publish your site from a branch, GitHub Pages overrides this setting during the build process.</li>
+<li>A filename in your published files contains a colon (<code>:</code>) which is not supported.</li>
+</ul>
+<p>If you received a specific error message, review the troubleshooting information for the error message below.</p>
+<p>After you&#39;ve fixed any errors, trigger another build by pushing the changes to your site&#39;s source branch (if you are publishing from a branch) or by triggering your custom GitHub Actions workflow (if you are publishing with GitHub Actions).</p>
+<h2 id="config-file-error">Config file error</h2>
+<p>This error means that your site failed to build because the <code>_config.yml</code> file contains syntax errors.</p>
+<p>To troubleshoot, make sure that your <code>_config.yml</code> file follows these rules:</p>
+<ul>
+<li>Use spaces instead of tabs.</li>
+<li>Include a space after the <code>:</code> for each key value pair, like <code>timezone: Africa/Nairobi</code>.</li>
+<li>Use only UTF-8 characters.</li>
+<li>Quote any special characters, such as <code>:</code>, like <code>title: &quot;my awesome site: an adventure in parse errors&quot;</code>.</li>
+<li>For multi-line values, use <code>|</code> to create newlines and <code>&gt;</code> to ignore newlines.</li>
+</ul>
+<p>To identify any errors, you can copy and paste the contents of your YAML file into a YAML linter, such as <a href="http://codebeautify.org/yaml-validator">YAML Validator</a>.</p>
+<blockquote>
+<p><strong>Note:</strong> If your repository contains symbolic links, you will need to publish your site using a GitHub Actions workflow. For more information about GitHub Actions, see <a href="https://docs.github.com/en/actions">Actions</a>.</p>
+</blockquote>
+<h2 id="date-is-not-a-valid-datetime">Date is not a valid datetime</h2>
+<p>This error means that one of the pages on your site includes an invalid datetime.</p>
+<p>To troubleshoot, search the file in the error message and the file&#39;s layouts for calls to any date-related Liquid filters. Make sure that any variables passed into date-related Liquid filters have values in all cases and never pass <code>nil</code> or <code>&quot;&quot;</code>. For more information, see <a href="https://shopify.dev/docs/api/liquid/filters">Filters</a> in the Liquid documentation.</p>
+<h2 id="file-does-not-exist-in-includes-directory">File does not exist in includes directory</h2>
+<p>This error means that your code references a file that doesn&#39;t exist in your <code>_includes</code> directory.</p>
+<p>To troubleshoot, search the file in the error message for <code>include</code> to see where you&#39;ve referenced other files, such as <code>{% include example_header.html %}</code>. If any of the files you&#39;ve referenced aren&#39;t in the <code>_includes</code> directory, copy or move the files into the <code>_includes</code> directory.</p>
+<h2 id="file-is-not-properly-utf-8-encoded">File is not properly UTF-8 encoded</h2>
+<p>This error means that you used non-Latin characters, like <code>日本語</code>, without telling the computer to expect these symbols.</p>
+<p>To troubleshoot, force UTF-8 encoding by adding the following line to your <code>_config.yml</code> file:</p>
+<pre data-language="yaml">encoding: UTF-8</pre>
+<h2 id="invalid-highlighter-language">Invalid highlighter language</h2>
+<p>This error means that you specified any syntax highlighter other than <a href="https://github.com/jneen/rouge">Rouge</a> or <a href="https://pygments.org/">Pygments</a> in your configuration file.</p>
+<p>To troubleshoot, update your <code>_config.yml</code> file to specify <a href="https://github.com/jneen/rouge">Rouge</a> or <a href="https://pygments.org/">Pygments</a>. For more information, see <a href="about-github-pages-and-jekyll#syntax-highlighting">About GitHub Pages and Jekyll</a>.</p>
+<h2 id="invalid-post-date">Invalid post date</h2>
+<p>This error means that a post on your site contains an invalid date in the filename or YAML front matter.</p>
+<p>To troubleshoot, make sure all dates are formatted as YYYY-MM-DD HH:MM:SS for UTC and are actual calendar dates. To specify a time zone with an offset from UTC, use the format YYYY-MM-DD HH:MM:SS +/-TTTT, like <code>2014-04-18 11:30:00 +0800</code>.</p>
+<p>If you specify a date format in your <code>_config.yml</code> file, make sure the format is correct.</p>
+<h2 id="invalid-sass-or-scss">Invalid Sass or SCSS</h2>
+<p>This error means your repository contains a Sass or SCSS file with invalid content.</p>
+<p>To troubleshoot, review the line number included in the error message for invalid Sass or SCSS. To help prevent future errors, install a Sass or SCSS linter for your favorite text editor.</p>
+<h2 id="invalid-submodule">Invalid submodule</h2>
+<p>This error means that your repository includes a submodule that hasn&#39;t been properly initialized.</p>
+<p>To troubleshoot, first decide if you actually want to use a submodule, which is a Git project inside a Git project; submodules are sometimes created accidentally.</p>
+<p>If you don&#39;t want to use a submodule, remove the submodule, replacing PATH-TO-SUBMODULE with the path to the submodule:</p>
+<pre data-language="shell">git submodule deinit PATH-TO-SUBMODULE
+git rm PATH-TO-SUBMODULE
+git commit -m &quot;Remove submodule&quot;
+rm -rf .git/modules/PATH-TO-SUBMODULE</pre>
+<p>If do you want to use the submodule, make sure you use <code>https://</code> when referencing the submodule (not <code>http://</code>) and that the submodule is in a public repository.</p>
+<h2 id="invalid-yaml-in-data-file">Invalid YAML in data file</h2>
+<p>This error means that one of more files in the _<em>data</em> folder contains invalid YAML.</p>
+<p>To troubleshoot, make sure the YAML files in your _<em>data</em> folder follow these rules:</p>
+<ul>
+<li>Use spaces instead of tabs.</li>
+<li>Include a space after the <code>:</code> for each key value pair, like <code>timezone: Africa/Nairobi</code>.</li>
+<li>Use only UTF-8 characters.</li>
+<li>Quote any special characters, such as <code>:</code>, like <code>title: &quot;my awesome site: an adventure in parse errors&quot;</code>.</li>
+<li>For multi-line values, use <code>|</code> to create newlines and <code>&gt;</code> to ignore newlines.</li>
+</ul>
+<p>To identify any errors, you can copy and paste the contents of your YAML file into a YAML linter, such as <a href="http://codebeautify.org/yaml-validator">YAML Validator</a>.</p>
+<p>For more information about Jekyll data files, see <a href="https://jekyllrb.com/docs/datafiles/">Data Files</a> in the Jekyll documentation.</p>
+<h2 id="markdown-errors">Markdown errors</h2>
+<p>This error means that your repository contains Markdown errors.</p>
+<p>To troubleshoot, make sure you are using a supported Markdown processor. For more information, see <a href="setting-a-markdown-processor-for-your-github-pages-site-using-jekyll">Setting a Markdown processor for your GitHub Pages site using Jekyll</a>.</p>
+<p>Then, make sure the file in the error message uses valid Markdown syntax. For more information, see <a href="https://daringfireball.net/projects/markdown/syntax">Markdown: Syntax</a> on Daring Fireball.</p>
+<h2 id="missing-docs-folder">Missing docs folder</h2>
+<p>This error means that you have chosen the <code>docs</code> folder on a branch as your publishing source, but there is no <code>docs</code> folder in the root of your repository on that branch.</p>
+<p>To troubleshoot, if your <code>docs</code> folder was accidentally moved, try moving the <code>docs</code> folder back to the root of your repository on the branch you chose for your publishing source. If the <code>docs</code> folder was accidentally deleted, you can either:</p>
+<ul>
+<li>Use Git to revert or undo the deletion. For more information, see <a href="https://git-scm.com/docs/git-revert.html">git-revert</a> in the Git documentation.</li>
+<li>Create a new <code>docs</code> folder in the root of your repository on the branch you chose for your publishing source and add your site&#39;s source files to the folder. For more information, see <a href="https://docs.github.com/en/repositories/working-with-files/managing-files/creating-new-files">Creating new files</a>.</li>
+<li>Change your publishing source. For more information, see <a href="../getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">Configuring a publishing source for your GitHub Pages site</a>.</li>
+</ul>
+<h2 id="missing-submodule">Missing submodule</h2>
+<p>This error means that your repository includes a submodule that doesn&#39;t exist or hasn&#39;t been properly initialized.</p>
+<p>To troubleshoot, first decide if you actually want to use a submodule, which is a Git project inside a Git project; submodules are sometimes created accidentally.</p>
+<p>If you don&#39;t want to use a submodule, remove the submodule, replacing PATH-TO-SUBMODULE with the path to the submodule:</p>
+<pre data-language="shell">git submodule deinit PATH-TO-SUBMODULE
+git rm PATH-TO-SUBMODULE
+git commit -m &quot;Remove submodule&quot;
+rm -rf .git/modules/PATH-TO-SUBMODULE</pre>
+<p>If you do want to use a submodule, initialize the submodule. For more information, see <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Git Tools - Submodules</a> in the <em>Pro Git</em> book.</p>
+<h2 id="relative-permalinks-configured">Relative permalinks configured</h2>
+<p>This error means that you have relative permalinks, which are not supported by GitHub Pages, in your <code>_config.yml</code> file.</p>
+<p>Permalinks are permanent URLs that reference a particular page on your site. Absolute permalinks begin with the root of the site, while relative permalinks begin with the folder containing the referenced page. GitHub Pages and Jekyll no longer support relative permalinks. For more information about permalinks, see <a href="https://jekyllrb.com/docs/permalinks/">Permalinks</a> in the Jekyll documentation.</p>
+<p>To troubleshoot, remove the <code>relative_permalinks</code> line from your <code>_config.yml</code> file and reformat any relative permalinks in your site with absolute permalinks. For more information, see <a href="https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files">Editing files</a>.</p>
+<h2 id="syntax-error-in-for-loop">Syntax error in &#39;for&#39; loop</h2>
+<p>This error means that your code includes invalid syntax in a Liquid <code>for</code> loop declaration.</p>
+<p>To troubleshoot, make sure all <code>for</code> loops in the file in the error message have proper syntax. For more information about proper syntax for <code>for</code> loops, see <a href="https://shopify.dev/docs/api/liquid/tags/for">Tags</a> in the Liquid documentation.</p>
+<h2 id="tag-not-properly-closed">Tag not properly closed</h2>
+<p>This error message means that your code includes a logic tag that is not properly closed. For example, <code>{% capture example_variable %}</code> must be closed by <code>{% endcapture %}</code>.</p>
+<p>To troubleshoot, make sure all logic tags in the file in the error message are properly closed. For more information, see <a href="https://shopify.dev/docs/api/liquid/tags">Tags</a> in the Liquid documentation.</p>
+<h2 id="tag-not-properly-terminated">Tag not properly terminated</h2>
+<p>This error means that your code includes an output tag that is not properly terminated. For example, <code>{{ page.title }</code> instead of <code>{{ page.title }}</code>.</p>
+<p>To troubleshoot, make sure all output tags in the file in the error message are terminated with <code>}}</code>. For more information, see <a href="https://shopify.dev/docs/api/liquid/objects">Objects</a> in the Liquid documentation.</p>
+<h2 id="unknown-tag-error">Unknown tag error</h2>
+<p>This error means that your code contains an unrecognized Liquid tag.</p>
+<p>To troubleshoot, make sure all Liquid tags in the file in the error message match Jekyll&#39;s default variables and there are no typos in the tag names. For a list of default variables, see <a href="https://jekyllrb.com/docs/variables/">Variables</a> in the Jekyll documentation.</p>
+<p>Unsupported plugins are a common source of unrecognized tags. If you use an unsupported plugin in your site by generating your site locally and pushing your static files to GitHub, make sure the plugin is not introducing tags that are not in Jekyll&#39;s default variables. For a list of supported plugins, see <a href="about-github-pages-and-jekyll#plugins">About GitHub Pages and Jekyll</a>.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; GitHub, Inc.<br>Licensed under the Creative Commons Attribution 4.0 International License.<br>
+    <a href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites" class="_attribution-link">https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites</a>
+  </p>
+</div>

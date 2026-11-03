@@ -1,0 +1,105 @@
+<h1>Using custom workflows with GitHub Pages</h1>
+<p>You can take advantage of using GitHub Actions and GitHub Pages by creating a workflow file or choosing from the predefined workflows.</p>
+<h2 id="about-custom-workflows">About custom workflows</h2>
+<p>Custom workflows allow GitHub Pages sites to be built via the use of GitHub Actions. You can still select the branch you would like to use via the workflow file, but you are able to do much more with the use of custom workflows. To start using custom workflows you must first enable them for your current repository. For more information, see <a href="configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow">Configuring a publishing source for your GitHub Pages site</a>.</p>
+<h2 id="configuring-the-configure-pages-action">Configuring the <code>configure-pages</code> action</h2>
+<p>GitHub Actions enables the use of GitHub Pages through the <code>configure-pages</code> action, which also lets you gather different metadata about a website. For more information, see the <a href="https://github.com/marketplace/actions/configure-github-pages"><code>configure-pages</code></a> action.</p>
+<p>To use the action place this snippet under your <code>jobs</code> in the desired workflow.</p>
+<pre data-language="yaml">- name: Configure GitHub Pages
+  uses: actions/configure-pages@v5</pre>
+<p>This action helps support deployment from any static site generator to GitHub Pages. To make this process less repetitive you can use workflow templates for some of the most widely used static site generators. For more information, see <a href="https://docs.github.com/en/actions/how-tos/write-workflows/use-workflow-templates">Use workflow templates</a>.</p>
+<h2 id="configuring-the-upload-pages-artifact-action">Configuring the <code>upload-pages-artifact</code> action</h2>
+<p>The <code>upload-pages-artifact</code> actions enables you to package and upload artifacts. The GitHub Pages artifact should be a compressed <code>gzip</code> archive containing a single <code>tar</code> file. The <code>tar</code> file must be under 10GB in size and should not contain any symbolic or hard links. For more information, see the <a href="https://github.com/marketplace/actions/upload-github-pages-artifact"><code>upload-pages-artifact</code></a> action.</p>
+<p>To use the action in your current workflow place this snippet under <code>jobs</code>.</p>
+<pre data-language="yaml">- name: Upload GitHub Pages artifact
+  uses: actions/upload-pages-artifact@v4</pre>
+<h2 id="deploying-github-pages-artifacts">Deploying GitHub Pages artifacts</h2>
+<p>The <code>deploy-pages</code> action handles the necessary setup for deploying artifacts. To ensure proper functionality, the following requirements should be met:</p>
+<ul>
+<li>The job must have a minimum of <code>pages: write</code> and <code>id-token: write</code> permissions.</li>
+<li>The <code>needs</code> parameter must be set to the <code>id</code> of the build step. Not setting this parameter may result in an independent deployment that continuously searches for an artifact that hasn&#39;t been created.</li>
+<li>An <code>environment</code> must be established to enforce branch/deployment protection rules. The default environment is <code>github-pages</code>.</li>
+<li>To specify the URL of the page as an output, utilize the <code>url:</code> field.</li>
+</ul>
+<p>For more information, see the <a href="https://github.com/marketplace/actions/deploy-github-pages-site"><code>deploy-pages</code></a> action.</p>
+<pre data-language="yaml"># ...
+
+jobs:
+  deploy:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    needs: jekyll-build
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}    steps:
+      - name: Deploy artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
+# ...</pre>
+<h2 id="linking-separate-build-and-deploy-jobs">Linking separate build and deploy jobs</h2>
+<p>You can link your <code>build</code> and <code>deploy</code> jobs in a single workflow file, eliminating the need to create two separate files to get the same result. To get started on your workflow file, under <code>jobs</code> you can define a <code>build</code> and <code>deploy</code> job to execute your jobs.</p>
+<pre data-language="yaml"># ...
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+# ...</pre>
+<p>In certain cases, you might choose to combine everything into a single job, especially if there is no need for a build process. Consequently, you would solely focus on the deployment step.</p>
+<pre data-language="yaml"># ...
+
+jobs:
+  # Single deploy job no building
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          # upload entire directory
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+# ...</pre>
+<p>You can define your jobs to be run on different runners, sequentially, or in parallel. For more information, see <a href="https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do">Choose what workflows do</a>.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; GitHub, Inc.<br>Licensed under the Creative Commons Attribution 4.0 International License.<br>
+    <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages" class="_attribution-link">https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages</a>
+  </p>
+</div>

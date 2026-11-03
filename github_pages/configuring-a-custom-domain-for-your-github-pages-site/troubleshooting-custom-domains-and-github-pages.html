@@ -1,0 +1,52 @@
+<h1>Troubleshooting custom domains and GitHub Pages</h1>
+<p>You can check for common errors to resolve issues with custom domains or HTTPS for your GitHub Pages site.</p>
+<h2 id="cname-errors">CNAME errors</h2>
+<p>If you are publishing from a custom GitHub Actions workflow, any CNAME file is ignored and is not required.</p>
+<p>If you are publishing from a branch, custom domains are stored in a CNAME file in the root of your publishing source. You can add or update this file through your repository settings or manually. For more information, see <a href="managing-a-custom-domain-for-your-github-pages-site">Managing a custom domain for your GitHub Pages site</a>.</p>
+<p>For your site to render at the correct domain, make sure your CNAME file still exists in the repository. For example, many static site generators force push to your repository, which can overwrite the CNAME file that was added to your repository when you configured your custom domain. If you build your site locally and push generated files to GitHub, make sure to pull the commit that added the CNAME file to your local repository first, so the file will be included in the build.</p>
+<p>Then, make sure the CNAME file is formatted correctly.</p>
+<ul>
+<li>The CNAME filename must be all uppercase.</li>
+<li>The CNAME file can contain only one domain. To point multiple domains to your site, you must set up a redirect through your DNS provider.</li>
+<li>The CNAME file must contain the domain name only. For example, <code>www.example.com</code>, <code>blog.example.com</code>, or <code>example.com</code>.</li>
+<li>The domain name must be unique across all GitHub Pages sites. For example, if another repository&#39;s CNAME file contains <code>example.com</code>, you cannot use <code>example.com</code> in the CNAME file for your repository.</li>
+</ul>
+<h2 id="dns-misconfiguration">DNS misconfiguration</h2>
+<p>If you have trouble pointing the default domain for your site to your custom domain, contact your DNS provider.</p>
+<p>You can also use one of the following methods to test whether your custom domain&#39;s DNS records are configured correctly:</p>
+<ul>
+<li>A CLI tool such as <code>dig</code>. For more information, see <a href="managing-a-custom-domain-for-your-github-pages-site">Managing a custom domain for your GitHub Pages site</a>.</li>
+<li>An online DNS lookup tool.</li>
+</ul>
+<h2 id="custom-domain-names-that-are-unsupported">Custom domain names that are unsupported</h2>
+<p>If your custom domain is unsupported, you may need to change your domain to a supported domain. You can also contact your DNS provider to see if they offer forwarding services for domain names.</p>
+<p>Make sure your site does not:</p>
+<ul>
+<li><p>Use more than one apex domain. For example, both <code>example.com</code> and <code>anotherexample.com</code>.</p>
+</li>
+<li><p>Use more than one <code>www</code> subdomain. For example, both <code>www.example.com</code> and <code>www.anotherexample.com</code>.</p>
+</li>
+<li><p>Use both an apex domain and custom subdomain. For example, both <code>example.com</code> and <code>docs.example.com</code>.</p>
+<p>The one exception is the <code>www</code> subdomain. If configured correctly, the <code>www</code> subdomain is automatically redirected to the apex domain. For more information, see <a href="managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain">Managing a custom domain for your GitHub Pages site</a>.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Warning:</strong> We strongly recommend that you do not use wildcard DNS records, such as <code>*.example.com</code>. These records put you at an immediate risk of domain takeovers, even if you verify the domain. For example, if you verify <code>example.com</code> this prevents someone from using <code>a.example.com</code> but they could still take over <code>b.a.example.com</code> (which is covered by the wildcard DNS record).</p>
+</blockquote>
+<p>For a list of supported custom domains, see <a href="about-custom-domains-and-github-pages#supported-custom-domains">About custom domains and GitHub Pages</a>.</p>
+<h2 id="https-errors">HTTPS errors</h2>
+<p>GitHub Pages sites using custom domains that are correctly configured with <code>CNAME</code>, <code>ALIAS</code>, <code>ANAME</code>, or <code>A</code> DNS records can be accessed over HTTPS. For more information, see <a href="../getting-started-with-github-pages/securing-your-github-pages-site-with-https">Securing your GitHub Pages site with HTTPS</a>.</p>
+<p>It can take up to an hour for your site to become available over HTTPS after you configure your custom domain. After you update existing DNS settings, you may need to remove and re-add your custom domain to your site&#39;s repository to trigger the process of enabling HTTPS. For more information, see <a href="managing-a-custom-domain-for-your-github-pages-site">Managing a custom domain for your GitHub Pages site</a>.</p>
+<p>If you&#39;re using Certification Authority Authorization (CAA) records, at least one CAA record must exist with the value <code>letsencrypt.org</code> for your site to be accessible over HTTPS. For more information, see <a href="https://letsencrypt.org/docs/caa/">Certificate Authority Authorization (CAA)</a> in the Let&#39;s Encrypt documentation.</p>
+<h2 id="url-formatting-on-linux">URL formatting on Linux</h2>
+<p>If the URL for your site contains a username or organization name that begins or ends with a dash, or contains consecutive dashes, people browsing with Linux will receive a server error when they attempt to visit your site. To fix this, change your GitHub username to remove non-alphanumeric characters. For more information, see <a href="https://docs.github.com/en/account-and-profile/concepts/username-changes">Username changes</a>.</p>
+<h2 id="browser-cache">Browser cache</h2>
+<p>If you&#39;ve recently changed or removed your custom domain and can&#39;t access the new URL in your browser, you may need to clear your browser&#39;s cache to reach the new URL. For more information on clearing your cache, see your browser&#39;s documentation.</p>
+<h2 id="domain-name-taken">Domain name taken</h2>
+<p>If you&#39;re trying to use a custom domain and it says the domain is already in use, you can make the domain available for your own use by verifying it first. For more information, see <a href="verifying-your-custom-domain-for-github-pages">Verifying your custom domain for GitHub Pages</a>.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; GitHub, Inc.<br>Licensed under the Creative Commons Attribution 4.0 International License.<br>
+    <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages" class="_attribution-link">https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages</a>
+  </p>
+</div>

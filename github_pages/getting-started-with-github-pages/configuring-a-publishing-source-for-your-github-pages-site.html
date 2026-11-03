@@ -1,0 +1,83 @@
+<h1>Configuring a publishing source for your GitHub Pages site</h1>
+<p>You can configure your GitHub Pages site to publish when changes are pushed to a specific branch, or you can write a GitHub Actions workflow to publish your site.</p>
+<h2 id="about-publishing-sources">About publishing sources</h2>
+<p>You can publish your site when changes are pushed to a specific branch, or you can write a GitHub Actions workflow to publish your site. </p>
+<p>If you do not need any control over the build process for your site, we recommend that you publish your site when changes are pushed to a specific branch. You can specify which branch and folder to use as your publishing source. The source branch can be any branch in your repository, and the source folder can either be the root of the repository (<code>/</code>) on the source branch or a <code>/docs</code> folder on the source branch. Whenever changes are pushed to the source branch, the changes in the source folder will be published to your GitHub Pages site.</p>
+<p>If you want to use a build process other than Jekyll or you do not want a dedicated branch to hold your compiled static files, we recommend that you write a GitHub Actions workflow to publish your site. GitHub provides workflow templates for common publishing scenarios to help you write your workflow.</p>
+<blockquote>
+<p><strong>Warning:</strong> GitHub Pages sites are publicly available on the internet, even if the repository for the site is private (if your plan or organization allows it). If you have sensitive data in your site&#39;s repository, you may want to remove the data before publishing. For more information, see <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility">About repositories</a>.</p>
+</blockquote>
+<h2 id="publishing-from-a-branch">Publishing from a branch</h2>
+<ol>
+<li><p>Make sure the branch you want to use as your publishing source already exists in your repository.</p>
+</li>
+<li><p>On GitHub, navigate to your site&#39;s repository.</p>
+</li>
+<li><p>Under your repository name, click <strong>⚙ Settings</strong>. If you cannot see the &quot;Settings&quot; tab, select the <strong>⋯</strong> dropdown menu, then click <strong>Settings</strong>.</p>
+<p><img src="https://raw.githubusercontent.com/github/docs/7fa55a0ac28d01b5cb6f9cbebff06fbee1e2408f/assets/images/help/repository/repo-actions-settings.png" alt="Screenshot of a repository header showing the tabs. The &quot;Settings&quot; tab is highlighted by a dark orange outline."></p>
+</li>
+<li><p>In the &quot;Code, planning, and automation&quot; section of the sidebar, click <strong>Pages</strong>.</p>
+</li>
+<li><p>Under &quot;Build and deployment&quot;, under &quot;Source&quot;, select <strong>Deploy from a branch</strong>.</p>
+</li>
+<li><p>Under &quot;Build and deployment&quot;, use the branch dropdown menu and select a publishing source.
+<img src="https://raw.githubusercontent.com/github/docs/7fa55a0ac28d01b5cb6f9cbebff06fbee1e2408f/assets/images/help/pages/publishing-source-drop-down.png" alt="Screenshot of Pages settings in a GitHub repository. A menu to select a branch for a publishing source, labeled &quot;None,&quot; is outlined in dark orange."></p>
+</li>
+<li><p>Optionally, use the folder dropdown menu to select a folder for your publishing source.
+<img src="https://raw.githubusercontent.com/github/docs/7fa55a0ac28d01b5cb6f9cbebff06fbee1e2408f/assets/images/help/pages/publishing-source-folder-drop-down.png" alt="Screenshot of Pages settings in a GitHub repository. A menu to select a folder for a publishing source, labeled &quot;/(root),&quot; is outlined in dark orange."></p>
+</li>
+<li><p>Click <strong>Save</strong>.</p>
+</li>
+</ol>
+<h3 id="troubleshooting-publishing-from-a-branch">Troubleshooting publishing from a branch</h3>
+<blockquote>
+<p><strong>Note:</strong> If your repository contains symbolic links, you will need to publish your site using a GitHub Actions workflow. For more information about GitHub Actions, see <a href="https://docs.github.com/en/actions">Actions</a>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note:</strong> </p>
+<ul>
+<li>If you are publishing from a branch and your site has not published automatically, make sure someone with admin permissions and a verified email address has pushed to the publishing source.</li>
+<li>Commits pushed by a GitHub Actions workflow that uses the <code>GITHUB_TOKEN</code> do not trigger a GitHub Pages build.</li>
+</ul>
+</blockquote>
+<p>If you choose the <code>docs</code> folder on any branch as your publishing source, then later remove the <code>/docs</code> folder from that branch in your repository, your site won&#39;t build and you&#39;ll get a page build error message for a missing <code>/docs</code> folder. For more information, see <a href="../setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder">Troubleshooting Jekyll build errors for GitHub Pages sites</a>.</p>
+<p>Your GitHub Pages site will always be deployed with a GitHub Actions workflow run, even if you&#39;ve configured your GitHub Pages site to be built using a different CI tool. Most external CI workflows &quot;deploy&quot; to GitHub Pages by committing the build output to the <code>gh-pages</code> branch of the repository, and typically include a <code>.nojekyll</code> file. When this happens, the GitHub Actions workflow will detect the state that the branch does not need a build step, and will execute only the steps necessary to deploy the site to GitHub Pages servers.</p>
+<p>To find potential errors with either the build or deployment, you can check the workflow run for your GitHub Pages site by reviewing your repository&#39;s workflow runs. For more information, see <a href="https://docs.github.com/en/actions/how-tos/monitor-workflows/view-workflow-run-history">View workflow run history</a>. For more information about how to re-run the workflow in case of an error, see <a href="https://docs.github.com/en/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs">Re run workflows and jobs</a>.</p>
+<h2 id="publishing-with-a-custom-github-actions-workflow">Publishing with a custom GitHub Actions workflow</h2>
+<p>To configure your site to publish with GitHub Actions:</p>
+<ol>
+<li><p>On GitHub, navigate to your site&#39;s repository.</p>
+</li>
+<li><p>Under your repository name, click <strong>⚙ Settings</strong>. If you cannot see the &quot;Settings&quot; tab, select the <strong>⋯</strong> dropdown menu, then click <strong>Settings</strong>.</p>
+<p><img src="https://raw.githubusercontent.com/github/docs/7fa55a0ac28d01b5cb6f9cbebff06fbee1e2408f/assets/images/help/repository/repo-actions-settings.png" alt="Screenshot of a repository header showing the tabs. The &quot;Settings&quot; tab is highlighted by a dark orange outline."></p>
+</li>
+<li><p>In the &quot;Code, planning, and automation&quot; section of the sidebar, click <strong>Pages</strong>.</p>
+</li>
+<li><p>Under &quot;Build and deployment&quot;, under &quot;Source&quot;, select <strong>GitHub Actions</strong>.</p>
+</li>
+<li><p>GitHub will suggest several workflow templates. If you already have a workflow to publish your site, you can skip this step. Otherwise, choose one of the options to create a GitHub Actions workflow. For more information about creating your custom workflow, see <a href="#creating-a-custom-github-actions-workflow-to-publish-your-site">Creating a custom GitHub Actions workflow to publish your site</a>.</p>
+<p>GitHub Pages does not associate a specific workflow to the GitHub Pages settings. However, the GitHub Pages settings will link to the workflow run that most recently deployed your site.</p>
+</li>
+</ol>
+<h3 id="creating-a-custom-github-actions-workflow-to-publish-your-site">Creating a custom GitHub Actions workflow to publish your site</h3>
+<p>For more information about GitHub Actions, see <a href="https://docs.github.com/en/actions">Actions</a>.</p>
+<p>When you configure your site to publish with GitHub Actions, GitHub will suggest workflow templates for common publishing scenarios. The general flow of a workflow is to:</p>
+<ol>
+<li>Trigger whenever there is a push to the default branch of the repository or whenever the workflow is run manually from the Actions tab.</li>
+<li>Use the <a href="https://github.com/actions/checkout"><code>actions/checkout</code></a> action to check out the repository contents.</li>
+<li>If required by your site, build any static site files.</li>
+<li>Use the <a href="https://github.com/actions/upload-pages-artifact"><code>actions/upload-pages-artifact</code></a> action to upload the static files as an artifact.</li>
+<li>If the workflow was triggered by a push to the default branch, use the <a href="https://github.com/actions/deploy-pages"><code>actions/deploy-pages</code></a> action to deploy the artifact. This step is skipped if the workflow was triggered by a pull request.</li>
+</ol>
+<p>The workflow templates use a deployment environment called <code>github-pages</code>. If your repository does not already include an environment called <code>github-pages</code>, the environment will be created automatically. We recommend that you add a deployment protection rule so that only the default branch can deploy to this environment. For more information, see <a href="https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments">Manage environments</a>.</p>
+<blockquote>
+<p><strong>Note:</strong> A <code>CNAME</code> file in your repository file does not automatically add or remove a custom domain. Instead, you must configure the custom domain through your repository settings or through the API. For more information, see <a href="../configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain">Managing a custom domain for your GitHub Pages site</a> and <a href="https://docs.github.com/en/rest/pages#update-information-about-a-github-pages-site">Pages</a>.</p>
+</blockquote>
+<h3 id="troubleshooting-publishing-with-a-custom-github-actions-workflow">Troubleshooting publishing with a custom GitHub Actions workflow</h3>
+<p>For information about how to troubleshoot your GitHub Actions workflow, see <a href="https://docs.github.com/en/actions/how-tos/monitor-workflows">Monitor workflows</a>.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; GitHub, Inc.<br>Licensed under the Creative Commons Attribution 4.0 International License.<br>
+    <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site" class="_attribution-link">https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site</a>
+  </p>
+</div>

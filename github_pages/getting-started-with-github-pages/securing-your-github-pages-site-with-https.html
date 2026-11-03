@@ -1,0 +1,109 @@
+<h1>Securing your GitHub Pages site with HTTPS</h1>
+<p>HTTPS adds a layer of encryption that prevents others from snooping on or tampering with traffic to your site. You can enforce HTTPS for your GitHub Pages site to transparently redirect all HTTP requests to HTTPS.</p>
+<p>People with admin permissions for a repository can enforce HTTPS for a GitHub Pages site.</p>
+<h2 id="about-https-and-github-pages">About HTTPS and GitHub Pages</h2>
+<p>All GitHub Pages sites, including sites that are correctly configured with a custom domain, support HTTPS and HTTPS enforcement. For more information about custom domains, see <a href="../configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages">About custom domains and GitHub Pages</a> and <a href="../configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages#https-errors">Troubleshooting custom domains and GitHub Pages</a>.</p>
+<p>GitHub Pages sites created after June 15, 2016, and using <code>github.io</code> domains are served over HTTPS automatically.</p>
+<p>GitHub Pages sites shouldn&#39;t be used for sensitive transactions like sending passwords or credit card numbers.</p>
+<blockquote>
+<p><strong>Warning:</strong> GitHub Pages sites are publicly available on the internet, even if the repository for the site is private (if your plan or organization allows it). If you have sensitive data in your site&#39;s repository, you may want to remove the data before publishing. For more information, see <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility">About repositories</a>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note:</strong> RFC3280 states that the maximum length of the common name should be 64 characters. Therefore, the entire domain name of your GitHub Pages site must be less than 64 characters long for a certificate to be successfully created.</p>
+</blockquote>
+<h2 id="enforcing-https-for-your-github-pages-site">Enforcing HTTPS for your GitHub Pages site</h2>
+<ol>
+<li><p>On GitHub, navigate to your site&#39;s repository.</p>
+</li>
+<li><p>Under your repository name, click <strong>⚙ Settings</strong>. If you cannot see the &quot;Settings&quot; tab, select the <strong>⋯</strong> dropdown menu, then click <strong>Settings</strong>.</p>
+<p><img src="https://raw.githubusercontent.com/github/docs/7fa55a0ac28d01b5cb6f9cbebff06fbee1e2408f/assets/images/help/repository/repo-actions-settings.png" alt="Screenshot of a repository header showing the tabs. The &quot;Settings&quot; tab is highlighted by a dark orange outline."></p>
+</li>
+<li><p>In the &quot;Code, planning, and automation&quot; section of the sidebar, click <strong>Pages</strong>.</p>
+</li>
+<li><p>Under &quot;GitHub Pages,&quot; select <strong>Enforce HTTPS</strong>.</p>
+</li>
+</ol>
+<h2 id="troubleshooting-certificate-provisioning-certificate-not-yet-created-error">Troubleshooting certificate provisioning (&quot;Certificate not yet created&quot; error)</h2>
+<p>When you set or change your custom domain in the Pages settings, an automatic DNS check begins. This check determines if your DNS settings are configured to allow GitHub to obtain a certificate automatically. If the check is successful, GitHub queues a job to request a TLS certificate from <a href="https://letsencrypt.org/">Let&#39;s Encrypt</a>. On receiving a valid certificate, GitHub automatically uploads it to the servers that handle TLS termination for Pages. When this process completes successfully, a check mark is displayed beside your custom domain name.</p>
+<p>The process may take some time. If the process has not completed several minutes after you clicked <strong>Save</strong>, try clicking <strong>Remove</strong> next to your custom domain name. Retype the domain name and click <strong>Save</strong> again. This will cancel and restart the provisioning process.</p>
+<h2 id="resolving-problems-with-mixed-content">Resolving problems with mixed content</h2>
+<p>If you enable HTTPS for your GitHub Pages site but your site&#39;s HTML still references images, CSS, or JavaScript over HTTP, then your site is serving <em>mixed content</em>. Serving mixed content may make your site less secure and cause trouble loading assets.</p>
+<p>To remove your site&#39;s mixed content, make sure all your assets are served over HTTPS by changing <code>http://</code> to <code>https://</code> in your site&#39;s HTML.</p>
+<p>Assets are commonly found in the following locations:</p>
+<ul>
+<li>If your site uses Jekyll, your HTML files will probably be found in the <code>_layouts</code> folder.</li>
+<li>CSS is usually found in the <code>&lt;head&gt;</code> section of your HTML file.</li>
+<li>JavaScript is usually found in the <code>&lt;head&gt;</code> section or just before the closing <code>&lt;/body&gt;</code> tag.</li>
+<li>Images are often found in the <code>&lt;body&gt;</code> section.</li>
+</ul>
+<blockquote>
+<p><strong>Tip:</strong> If you can&#39;t find your assets in your site&#39;s source files, try searching your site&#39;s source files for <code>http://</code> in your text editor or on GitHub.</p>
+</blockquote>
+<h3 id="examples-of-assets-referenced-in-an-html-file">Examples of assets referenced in an HTML file</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Asset type</th>
+<th align="center">HTTP</th>
+<th align="center">HTTPS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CSS</td>
+<td align="center"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;http://example.com/css/main.css&quot;&gt;</code></td>
+<td align="center"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://example.com/css/main.css&quot;&gt;</code></td>
+</tr>
+<tr>
+<td align="center">JavaScript</td>
+<td align="center"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;http://example.com/js/main.js&quot;&gt;&lt;/script&gt;</code></td>
+<td align="center"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://example.com/js/main.js&quot;&gt;&lt;/script&gt;</code></td>
+</tr>
+<tr>
+<td align="center">Image</td>
+<td align="center"><code>&lt;a href=&quot;http://www.somesite.com&quot;&gt;&lt;img src=&quot;http://www.example.com/logo.jpg&quot; alt=&quot;Logo&quot;&gt;&lt;/a&gt;</code></td>
+<td align="center"><code>&lt;a href=&quot;https://www.somesite.com&quot;&gt;&lt;img src=&quot;https://www.example.com/logo.jpg&quot; alt=&quot;Logo&quot;&gt;&lt;/a&gt;</code></td>
+</tr>
+</tbody></table>
+<h2 id="verifying-the-dns-configuration">Verifying the DNS configuration</h2>
+<p>In some cases, an HTTPS certificate will not be able to be generated due to the DNS configuration of your custom domain. This can be caused by extra DNS records, or records not pointing to the IP addresses for GitHub Pages.</p>
+<p>To ensure an HTTPS certificate generates correctly, we recommend the following configurations. Any additional <code>A</code>, <code>AAAA</code>, <code>ALIAS</code>, <code>ANAME</code> records with the <code>@</code> host, or <code>CNAME</code> records pointing to your <code>www</code> subdomain or other custom subdomain that you would like to use with GitHub Pages may prevent the HTTPS certificate from generating.</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>DNS record type</th>
+<th>DNS record name</th>
+<th>DNS record value(s)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Apex domain<br />(<code>example.com</code>)</td>
+<td><code>A</code></td>
+<td><code>@</code></td>
+<td><code>185.199.108.153</code><br /><code>185.199.109.153</code><br /><code>185.199.110.153</code><br /><code>185.199.111.153</code></td>
+</tr>
+<tr>
+<td>Apex domain<br />(<code>example.com</code>)</td>
+<td><code>AAAA</code></td>
+<td><code>@</code></td>
+<td><code>2606:50c0:8000::153</code><br /><code>2606:50c0:8001::153</code><br /><code>2606:50c0:8002::153</code><br /><code>2606:50c0:8003::153</code></td>
+</tr>
+<tr>
+<td>Apex domain<br />(<code>example.com</code>)</td>
+<td><code>ALIAS</code> or <code>ANAME</code></td>
+<td><code>@</code></td>
+<td><code>USERNAME.github.io</code> or<br /> <code>ORGANIZATION.github.io</code></td>
+</tr>
+<tr>
+<td>Subdomain<br />(<code>ww​w.example.com</code>,<br /><code>blog.example.com</code>)</td>
+<td><code>CNAME</code></td>
+<td><code>SUBDOMAIN.example.com.</code></td>
+<td><code>USERNAME.github.io</code> or<br /> <code>ORGANIZATION.github.io</code></td>
+</tr>
+</tbody></table>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; GitHub, Inc.<br>Licensed under the Creative Commons Attribution 4.0 International License.<br>
+    <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https" class="_attribution-link">https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https</a>
+  </p>
+</div>
