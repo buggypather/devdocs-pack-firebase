@@ -1,0 +1,10 @@
+toc:
+- title: firebase
+  path: /docs/reference/js/index
+- title: auth
+  path: /docs/reference/js/auth.md
+  section:
+  - title: User
+    path: /docs/reference/js/auth.user.md
+- title: app
+  path: /docs/reference/js/app.md

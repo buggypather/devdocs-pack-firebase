@@ -1,0 +1,3 @@
+versions:
+  fpt: '*'
+  ghes: '>=3.9'

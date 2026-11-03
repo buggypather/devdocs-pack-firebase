@@ -1,0 +1,65 @@
+# Builds the doc pack described in pack.config.json and publishes it to the
+# "pack" branch, whose address is what you paste into DevDocs.
+name: Build doc pack
+
+on:
+  push:
+    branches: [main]
+    paths: [pack.config.json, src/**, package.json, package-lock.json, .github/workflows/build-pack.yml]
+  # Every Monday, to pick up changes to the documentation itself.
+  schedule:
+    - cron: "17 6 * * 1"
+  # The "Run workflow" button on the Actions tab.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-pack
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # The previous build, so that docs whose pages didn't change keep their
+      # build time and DevDocs doesn't offer an update that changes nothing.
+      - name: Get the previous pack
+        env:
+          REPO_URL: https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}
+        run: |
+          if git ls-remote --exit-code --heads "$REPO_URL" pack > /dev/null; then
+            git clone --depth 1 --branch pack "$REPO_URL" pack
+          else
+            git init -b pack pack
+          fi
+
+      - name: Build
+        run: npm run build -- --out pack
+
+      - name: Publish to the pack branch
+        working-directory: pack
+        env:
+          REPO_URL: https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "The pack hasn't changed."
+          else
+            git commit -m "Build from ${GITHUB_SHA::7}"
+            git push "$REPO_URL" HEAD:pack
+          fi
+          echo "### Add this pack in DevDocs" >> "$GITHUB_STEP_SUMMARY"
+          echo "Preferences → Doc packs → paste \`https://github.com/${{ github.repository }}/tree/pack\`" >> "$GITHUB_STEP_SUMMARY"

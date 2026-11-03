@@ -1,0 +1,18 @@
+{
+  "name": "GitHub Docs",
+  "docs": [
+    {
+      "name": "GitHub Pages",
+      "slug": "github_pages",
+      "category": "services",
+      "source": {
+        "repo": "github/docs",
+        "path": "content/pages",
+        "root": "content"
+      },
+      "versions": ["fpt"],
+      "site": "https://docs.github.com/en",
+      "attribution": "&copy; GitHub, Inc.<br>Licensed under the Creative Commons Attribution 4.0 International License."
+    }
+  ]
+}

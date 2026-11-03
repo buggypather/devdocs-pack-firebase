@@ -1,0 +1,19 @@
+{
+  "name": "devdocs-pack-builder",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Turns Markdown documentation in a Git repository into a DevDocs doc pack.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node src/cli.mjs",
+    "test": "node --test \"test/*.test.mjs\""
+  },
+  "dependencies": {
+    "marked": "^18.1.2",
+    "yaml": "^2.9.1"
+  }
+}
