@@ -1,3 +1,19 @@
+# Firebase JavaScript SDK for DevDocs
+
+The [Firebase JavaScript SDK's API reference](https://firebase.google.com/docs/reference/js) as a
+DevDocs doc pack: searchable, readable offline, and rebuilt every Monday from the Markdown in
+[firebase/firebase-js-sdk](https://github.com/firebase/firebase-js-sdk/tree/main/docs-devsite).
+
+**To add it:** in DevDocs (the [doc packs version](https://github.com/buggypather/devdocs/tree/main-custom-docs)),
+open **Preferences → Doc packs**, paste `https://github.com/buggypather/devdocs-pack-firebase/tree/pack`,
+and click **Add**.
+
+The reference is © Google LLC, under the Apache License 2.0, like the SDK it documents.
+This repository is a copy of [devdocs-pack-builder](https://github.com/buggypather/devdocs-pack-builder);
+its instructions follow.
+
+---
+
 # DevDocs pack builder
 
 Turns documentation written in Markdown, in any public GitHub repository, into a

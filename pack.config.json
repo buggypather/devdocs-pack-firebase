@@ -1,18 +1,18 @@
 {
-  "name": "GitHub Docs",
+  "name": "Firebase",
   "docs": [
     {
-      "name": "GitHub Pages",
-      "slug": "github_pages",
+      "name": "Firebase JS SDK",
+      "slug": "firebase_js",
       "category": "services",
+      "entries": "api",
       "source": {
-        "repo": "github/docs",
-        "path": "content/pages",
-        "root": "content"
+        "repo": "firebase/firebase-js-sdk",
+        "path": "docs-devsite",
+        "toc": "_toc.yaml"
       },
-      "versions": ["fpt"],
-      "site": "https://docs.github.com/en",
-      "attribution": "&copy; GitHub, Inc.<br>Licensed under the Creative Commons Attribution 4.0 International License."
+      "site": "https://firebase.google.com/docs/reference/js",
+      "attribution": "&copy; Google LLC<br>Licensed under the Apache License, Version 2.0."
     }
   ]
 }
