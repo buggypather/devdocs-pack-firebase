@@ -1,0 +1,48 @@
+<h1>SpeechMetadata interface</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Structured speech metadata associated with a <a href="ai.textpart">TextPart</a><!-- -->.</p>
+<p>Used to guide speech generation for a specific piece of text, such as identifying which speaker says it and the vocal style they should use.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export interface SpeechMetadata </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="ai.speechmetadata#speechmetadataspeaker">speaker</a></td>
+<td>string</td>
+<td><b><i>(Public Preview)</i></b> Identifies which speaker is speaking this turn. When using a <a href="ai.multispeakervoiceconfig">MultiSpeakerVoiceConfig</a><!-- -->, this should match the <a href="ai.speakervoiceconfig#speakervoiceconfigspeaker">SpeakerVoiceConfig.speaker</a> of one of the configured speakers.</td>
+</tr>
+<tr>
+<td><a href="ai.speechmetadata#speechmetadatastyle">style</a></td>
+<td>string</td>
+<td><b><i>(Public Preview)</i></b> A natural language description of the vocal style (such as <code>&quot;cheerful&quot;</code>).</td>
+</tr>
+</tbody></table>
+<h2 id="speechmetadataspeaker">SpeechMetadata.speaker</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Identifies which speaker is speaking this turn. When using a <a href="ai.multispeakervoiceconfig">MultiSpeakerVoiceConfig</a><!-- -->, this should match the <a href="ai.speakervoiceconfig#speakervoiceconfigspeaker">SpeakerVoiceConfig.speaker</a> of one of the configured speakers.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">speaker?: string;</pre>
+<h2 id="speechmetadatastyle">SpeechMetadata.style</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>A natural language description of the vocal style (such as <code>&quot;cheerful&quot;</code><!-- -->).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">style?: string;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/ai.speechmetadata" class="_attribution-link">https://firebase.google.com/docs/reference/js/ai.speechmetadata</a>
+  </p>
+</div>

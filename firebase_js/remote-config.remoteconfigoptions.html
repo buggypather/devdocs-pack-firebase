@@ -23,10 +23,18 @@
 </tr>
 </tbody></table>
 <h2 id="remoteconfigoptionsinitialfetchresponse">RemoteConfigOptions.initialFetchResponse</h2>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Remote Config server-side rendering (SSR) hydration is no longer supported. This option will be removed in a future major release.</p>
+</blockquote>
 <p>Hydrates the state with an initial fetch response.</p>
 <p><b>Signature:</b></p>
 <pre data-language="typescript">initialFetchResponse?: FetchResponse;</pre>
 <h2 id="remoteconfigoptionstemplateid">RemoteConfigOptions.templateId</h2>
+<blockquote>
+<p>Warning: This API is now obsolete.</p>
+<p>Fetching server templates from client apps is not supported. Server templates (<code>&quot;firebase-server&quot;</code><!-- -->) can only be read by the Admin SDK and are rejected by client fetch and real-time requests. This option will be removed in a future major release.</p>
+</blockquote>
 <p>The ID of the template to use. If not provided, defaults to &quot;firebase&quot;.</p>
 <p><b>Signature:</b></p>
 <pre data-language="typescript">templateId?: string;</pre>

@@ -483,6 +483,10 @@
 <td><b><i>(Public Preview)</i></b> Configuration for a single speaker&#39;s voice.</td>
 </tr>
 <tr>
+<td><a href="ai.speechmetadata">SpeechMetadata</a></td>
+<td><b><i>(Public Preview)</i></b> Structured speech metadata associated with a <a href="ai.textpart">TextPart</a><!-- -->.<!-- -->Used to guide speech generation for a specific piece of text, such as identifying which speaker says it and the vocal style they should use.</td>
+</tr>
+<tr>
 <td><a href="ai.startaudioconversationoptions">StartAudioConversationOptions</a></td>
 <td><b><i>(Public Preview)</i></b> Options for <a href="ai#startaudioconversation_01c8e7f">startAudioConversation()</a><!-- -->.</td>
 </tr>
@@ -829,6 +833,8 @@
 <p><b>Returns:</b></p>
 <p><a href="ai.ai">AI</a></p>
 <p>The default <a href="ai.ai">AI</a> instance for the given <a href="app.firebaseapp">FirebaseApp</a><!-- -->.</p>
+<h4 id="exceptions">Exceptions</h4>
+<p>If <code>options.useLimitedUseAppCheckTokens</code> conflicts with the options of the existing <a href="ai.ai">AI</a> instance for the same app and backend.</p>
 <h3 id="example-1">Example 1</h3>
 <pre data-language="javascript">const ai = getAI(app);</pre>
 <h3 id="example-2">Example 2</h3>
@@ -899,7 +905,7 @@ const ai = getAI(app, { backend: new AgentPlatformBackend() });</pre>
 </tbody></table>
 <p><b>Returns:</b></p>
 <p><a href="ai.livegenerativemodel">LiveGenerativeModel</a></p>
-<h4 id="exceptions">Exceptions</h4>
+<h4 id="exceptions-1">Exceptions</h4>
 <p>If the <code>apiKey</code> or <code>projectId</code> fields are missing in your Firebase config.</p>
 <h3 id="gettemplategenerativemodel_9476bbc">getTemplateGenerativeModel(ai, requestOptions)</h3>
 <blockquote>
@@ -962,7 +968,7 @@ const ai = getAI(app, { backend: new AgentPlatformBackend() });</pre>
 <p><b>Returns:</b></p>
 <p>Promise&lt;<a href="ai.audioconversationcontroller">AudioConversationController</a><!-- -->&gt;</p>
 <p>A <code>Promise</code> that resolves with an <a href="ai.audioconversationcontroller">AudioConversationController</a><!-- -->.</p>
-<h4 id="exceptions-1">Exceptions</h4>
+<h4 id="exceptions-2">Exceptions</h4>
 <p><code>AIError</code> if the environment does not support required Web APIs (<code>UNSUPPORTED</code><!-- -->), if a conversation is already active (<code>REQUEST_ERROR</code><!-- -->), the session is closed (<code>SESSION_CLOSED</code><!-- -->), or if an unexpected initialization error occurs (<code>ERROR</code><!-- -->).</p>
 <p><code>DOMException</code> Thrown by <code>navigator.mediaDevices.getUserMedia()</code> if issues occur with microphone access, such as permissions being denied (<code>NotAllowedError</code><!-- -->) or no compatible hardware being found (<code>NotFoundError</code><!-- -->). See the <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia#exceptions">MDN documentation</a> for a full list of exceptions.</p>
 <h3 id="example">Example</h3>
@@ -1004,6 +1010,7 @@ async function startConversation() {
     readonly SESSION_CLOSED: &quot;session-closed&quot;;
     readonly INVALID_CONTENT: &quot;invalid-content&quot;;
     readonly API_NOT_ENABLED: &quot;api-not-enabled&quot;;
+    readonly ALREADY_INITIALIZED: &quot;already-initialized&quot;;
     readonly INVALID_SCHEMA: &quot;invalid-schema&quot;;
     readonly NO_API_KEY: &quot;no-api-key&quot;;
     readonly NO_APP_ID: &quot;no-app-id&quot;;
