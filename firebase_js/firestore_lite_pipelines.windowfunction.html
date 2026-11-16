@@ -1,0 +1,161 @@
+<h1>WindowFunction class</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>A function that is evaluated over a window frame of documents, as part of an <a href="firestore_pipelines.pipeline#pipelineaddwindowfields">Pipeline.addWindowFields()</a> stage.</p>
+<p>Window Functions SDK features are in preview until the backend feature launches. Look for launch announcement at: <a href="https://docs.cloud.google.com/firestore/docs/release-notes">https://docs.cloud.google.com/firestore/docs/release-notes</a></p>
+<p>A <code>WindowFunction</code> is created either by one of the dedicated window function factories (such as <a href="firestore_pipelines#rank">rank()</a><!-- -->), or by calling <code>over()</code> on an <a href="firestore_pipelines.aggregatefunction">AggregateFunction</a><!-- -->.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare class WindowFunction </pre>
+<h2 id="constructors">Constructors</h2>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite_pipelines.windowfunction#windowfunctionconstructor">(constructor)(name, params)</a></td>
+<td></td>
+<td><b><i>(Public Preview)</i></b> Constructs a new instance of the <code>WindowFunction</code> class</td>
+</tr>
+</tbody></table>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Modifiers</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite_pipelines.windowfunction#windowfunctionexprtype">exprType</a></td>
+<td></td>
+<td><a href="firestore_lite_pipelines#expressiontype">ExpressionType</a></td>
+<td><b><i>(Public Preview)</i></b></td>
+</tr>
+</tbody></table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Modifiers</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite_pipelines.windowfunction#windowfunctionas">as(name)</a></td>
+<td></td>
+<td><b><i>(Public Preview)</i></b> Assigns an alias to this <code>WindowFunction</code>. The alias specifies the name that the computed value will have in the output document.<!-- -->Window Functions SDK features are in preview until the backend feature launches. Look for launch announcement at: <a href="https://docs.cloud.google.com/firestore/docs/release-notes">https://docs.cloud.google.com/firestore/docs/release-notes</a></td>
+</tr>
+<tr>
+<td><a href="firestore_lite_pipelines.windowfunction#windowfunctionover">over(frame)</a></td>
+<td></td>
+<td><b><i>(Public Preview)</i></b> Evaluates this window function over a specific window frame, rather than over the window frame defined by the enclosing <a href="firestore_pipelines.pipeline#pipelineaddwindowfields">Pipeline.addWindowFields()</a> stage.<!-- -->Window Functions SDK features are in preview until the backend feature launches. Look for launch announcement at: <a href="https://docs.cloud.google.com/firestore/docs/release-notes">https://docs.cloud.google.com/firestore/docs/release-notes</a><!-- -->The backend only accepts a frame (<code>documents</code> or <code>range</code>) here, and rejects <code>partition</code> and <code>sort</code>, which must be specified on the enclosing <code>addWindowFields()</code> stage.<!-- -->- In a <code>documents</code> frame, bounds are document offsets relative to the current document&#39;s position (<code>'current'</code> refers strictly to the current document&#39;s position; tied documents are not included). For <code>preceding</code>, a positive integer (e.g. <code>2</code>) includes up to that many documents before the current document, and a negative integer (e.g. <code>-1</code>) indicates a boundary following the current document, enabling frames that start after the current document. For <code>following</code>, a positive integer (e.g. <code>2</code>) includes up to that many documents after the current document, and a negative integer (e.g. <code>-1</code>) indicates a boundary preceding the current document, enabling frames that end before the current document (e.g. excluding the current document). - In a <code>range</code> frame, bounds are value or time offsets relative to the current document&#39;s sort value(s) (<code>'current'</code> is peer-inclusive and includes all documents tied with the current document&#39;s sort value(s), equivalent to an offset of <code>0</code>). For <code>preceding</code>, a positive offset subtracts from the current document&#39;s sort value (looking into the past), and a negative offset adds to the current document&#39;s sort value (shifting the lower boundary past the current document). For <code>following</code>, a positive offset adds to the current document&#39;s sort value (looking into the future), and a negative offset subtracts from the current document&#39;s sort value (shifting the upper boundary before the current document). Range frames with numeric or time-unit offsets require a single numeric or timestamp <code>sort</code> ordering on the enclosing stage, whereas range frames bounded only by <code>'current'</code> and <code>'unbounded'</code> support multiple <code>sort</code> orderings and non-numeric sort values.</td>
+</tr>
+</tbody></table>
+<h2 id="windowfunctionconstructor">WindowFunction.(constructor)</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Constructs a new instance of the <code>WindowFunction</code> class</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">constructor(name: string, params?: Expression[]);</pre>
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>params</td>
+<td><a href="firestore_lite_pipelines.expression">Expression</a><!-- -->[]</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="windowfunctionexprtype">WindowFunction.exprType</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">exprType: ExpressionType;</pre>
+<h2 id="windowfunctionas">WindowFunction.as()</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Assigns an alias to this <code>WindowFunction</code><!-- -->. The alias specifies the name that the computed value will have in the output document.</p>
+<p>Window Functions SDK features are in preview until the backend feature launches. Look for launch announcement at: <a href="https://docs.cloud.google.com/firestore/docs/release-notes">https://docs.cloud.google.com/firestore/docs/release-notes</a></p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">as(name: string): AliasedWindowFunction;</pre>
+<h4 id="parameters-1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>string</td>
+<td>The alias to assign to this <code>WindowFunction</code>.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite_pipelines.aliasedwindowfunction">AliasedWindowFunction</a></p>
+<p>A new <a href="firestore_pipelines.aliasedwindowfunction">AliasedWindowFunction</a><!-- -->.</p>
+<h2 id="windowfunctionover">WindowFunction.over()</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Evaluates this window function over a specific window frame, rather than over the window frame defined by the enclosing <a href="firestore_pipelines.pipeline#pipelineaddwindowfields">Pipeline.addWindowFields()</a> stage.</p>
+<p>Window Functions SDK features are in preview until the backend feature launches. Look for launch announcement at: <a href="https://docs.cloud.google.com/firestore/docs/release-notes">https://docs.cloud.google.com/firestore/docs/release-notes</a></p>
+<p>The backend only accepts a frame (<code>documents</code> or <code>range</code><!-- -->) here, and rejects <code>partition</code> and <code>sort</code><!-- -->, which must be specified on the enclosing <code>addWindowFields()</code> stage.</p>
+<ul>
+<li>In a <code>documents</code> frame, bounds are document offsets relative to the current document&#39;s position (<code>&#39;current&#39;</code> refers strictly to the current document&#39;s position; tied documents are not included). For <code>preceding</code><!-- -->, a positive integer (e.g. <code>2</code><!-- -->) includes up to that many documents before the current document, and a negative integer (e.g. <code>-1</code><!-- -->) indicates a boundary following the current document, enabling frames that start after the current document. For <code>following</code><!-- -->, a positive integer (e.g. <code>2</code><!-- -->) includes up to that many documents after the current document, and a negative integer (e.g. <code>-1</code><!-- -->) indicates a boundary preceding the current document, enabling frames that end before the current document (e.g. excluding the current document). - In a <code>range</code> frame, bounds are value or time offsets relative to the current document&#39;s sort value(s) (<code>&#39;current&#39;</code> is peer-inclusive and includes all documents tied with the current document&#39;s sort value(s), equivalent to an offset of <code>0</code><!-- -->). For <code>preceding</code><!-- -->, a positive offset subtracts from the current document&#39;s sort value (looking into the past), and a negative offset adds to the current document&#39;s sort value (shifting the lower boundary past the current document). For <code>following</code><!-- -->, a positive offset adds to the current document&#39;s sort value (looking into the future), and a negative offset subtracts from the current document&#39;s sort value (shifting the upper boundary before the current document). Range frames with numeric or time-unit offsets require a single numeric or timestamp <code>sort</code> ordering on the enclosing stage, whereas range frames bounded only by <code>&#39;current&#39;</code> and <code>&#39;unbounded&#39;</code> support multiple <code>sort</code> orderings and non-numeric sort values.</li>
+</ul>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">over(
+    frame: OneOf&lt;{
+      documents: DocumentWindowFrame;
+      range: RangeWindowFrame;
+    }&gt;
+  ): WindowFunction;</pre>
+<h4 id="parameters-2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>frame</td>
+<td><a href="firestore_lite_pipelines#oneof">OneOf</a><!-- -->&lt;{ documents: <a href="firestore_lite_pipelines.documentwindowframe">DocumentWindowFrame</a><!-- -->; range: <a href="firestore_lite_pipelines.rangewindowframe">RangeWindowFrame</a><!-- -->; }&gt;</td>
+<td>The <code>documents</code> or <code>range</code> window frame to evaluate this function over.</td>
+</tr>
+</tbody></table>
+<p><b>Returns:</b></p>
+<p><a href="firestore_lite_pipelines.windowfunction">WindowFunction</a></p>
+<p>A new <a href="firestore_pipelines.windowfunction">WindowFunction</a><!-- -->.</p>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_lite_pipelines.windowfunction" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_lite_pipelines.windowfunction</a>
+  </p>
+</div>

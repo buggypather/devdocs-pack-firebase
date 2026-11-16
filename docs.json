@@ -5,10 +5,10 @@
       "name": "Firebase JS SDK",
       "slug": "firebase_js",
       "type": "simple",
-      "source_commit": "8f4977509b3a014e390d2658913e469b6c59c391",
-      "mtime": 1794242091,
-      "db_size": 4036796,
-      "db_hash": "1e6d76ec2be84f22",
+      "source_commit": "e101b004a39fa9ad63212d69f8dc68e825cfcc6a",
+      "mtime": 1794844823,
+      "db_size": 4150642,
+      "db_hash": "f970ff4ca5c22e4d",
       "links": {
         "home": "https://firebase.google.com/docs/reference/js",
         "code": "https://github.com/firebase/firebase-js-sdk"

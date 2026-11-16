@@ -1,0 +1,74 @@
+<h1>RangeWindowFrame interface</h1>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>Defines a range-value based window frame relative to the sort value(s) of the current document.</p>
+<p>Window Functions SDK features are in preview until the backend feature launches. Look for launch announcement at: <a href="https://docs.cloud.google.com/firestore/docs/release-notes">https://docs.cloud.google.com/firestore/docs/release-notes</a></p>
+<p>One or more <code>sort</code> expressions must be specified on the enclosing <a href="firestore_pipelines#windowspec">WindowSpec</a> when using a <code>range</code> window frame. Range frames with numeric or time-unit offsets require a single numeric or timestamp <code>sort</code> expression, whereas frames bounded only by <code>&#39;current&#39;</code> and <code>&#39;unbounded&#39;</code> support multiple <code>sort</code> expressions and non-numeric sort values (such as strings or booleans).</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">export declare interface RangeWindowFrame </pre>
+<h2 id="properties">Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="firestore_lite_pipelines.rangewindowframe#rangewindowframefollowing">following</a></td>
+<td>number | &#39;current&#39; | &#39;unbounded&#39; | <a href="firestore_lite_pipelines.expression">Expression</a></td>
+<td><b><i>(Public Preview)</i></b> The upper bound (inclusive) of the window frame, relative to the sort value(s) of the current document.<!-- -->Can be: - A number specifying the value-based offset from the current document&#39;s sort value. A positive offset adds to the current document&#39;s sort value (looking into the future). A negative offset subtracts from the current document&#39;s sort value (shifting the upper boundary before the current document). - <code>'current'</code> to include all documents tied with the current document&#39;s sort value(s) (peer-inclusive, equivalent to an offset of <code>0</code>). - <code>'unbounded'</code> to include all documents to the end of the group.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite_pipelines.rangewindowframe#rangewindowframepreceding">preceding</a></td>
+<td>number | &#39;current&#39; | &#39;unbounded&#39; | <a href="firestore_lite_pipelines.expression">Expression</a></td>
+<td><b><i>(Public Preview)</i></b> The lower bound (inclusive) of the window frame, relative to the sort value(s) of the current document.<!-- -->Can be: - A number specifying the value-based offset from the current document&#39;s sort value. A positive offset subtracts from the current document&#39;s sort value (looking into the past). A negative offset adds to the current document&#39;s sort value (shifting the lower boundary past the current document). - <code>'current'</code> to include all documents tied with the current document&#39;s sort value(s) (peer-inclusive, equivalent to an offset of <code>0</code>). - <code>'unbounded'</code> to include all documents from the start of the group.</td>
+</tr>
+<tr>
+<td><a href="firestore_lite_pipelines.rangewindowframe#rangewindowframeunit">unit</a></td>
+<td>| &#39;microsecond&#39; | &#39;millisecond&#39; | &#39;second&#39; | &#39;minute&#39; | &#39;hour&#39; | &#39;day&#39; | &#39;week&#39; | &#39;month&#39; | &#39;quarter&#39; | &#39;year&#39; | <a href="firestore_lite_pipelines.expression">Expression</a></td>
+<td><b><i>(Public Preview)</i></b> The unit used to calculate range boundaries when the <code>sort</code> field contains date or time values.</td>
+</tr>
+</tbody></table>
+<h2 id="rangewindowframefollowing">RangeWindowFrame.following</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The upper bound (inclusive) of the window frame, relative to the sort value(s) of the current document.</p>
+<p>Can be: - A number specifying the value-based offset from the current document&#39;s sort value. A positive offset adds to the current document&#39;s sort value (looking into the future). A negative offset subtracts from the current document&#39;s sort value (shifting the upper boundary before the current document). - <code>&#39;current&#39;</code> to include all documents tied with the current document&#39;s sort value(s) (peer-inclusive, equivalent to an offset of <code>0</code><!-- -->). - <code>&#39;unbounded&#39;</code> to include all documents to the end of the group.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">following: number | 'current' | 'unbounded' | Expression;</pre>
+<h2 id="rangewindowframepreceding">RangeWindowFrame.preceding</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The lower bound (inclusive) of the window frame, relative to the sort value(s) of the current document.</p>
+<p>Can be: - A number specifying the value-based offset from the current document&#39;s sort value. A positive offset subtracts from the current document&#39;s sort value (looking into the past). A negative offset adds to the current document&#39;s sort value (shifting the lower boundary past the current document). - <code>&#39;current&#39;</code> to include all documents tied with the current document&#39;s sort value(s) (peer-inclusive, equivalent to an offset of <code>0</code><!-- -->). - <code>&#39;unbounded&#39;</code> to include all documents from the start of the group.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">preceding: number | 'current' | 'unbounded' | Expression;</pre>
+<h2 id="rangewindowframeunit">RangeWindowFrame.unit</h2>
+<blockquote>
+<p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
+</blockquote>
+<p>The unit used to calculate range boundaries when the <code>sort</code> field contains date or time values.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">unit?:
+    | 'microsecond'
+    | 'millisecond'
+    | 'second'
+    | 'minute'
+    | 'hour'
+    | 'day'
+    | 'week'
+    | 'month'
+    | 'quarter'
+    | 'year'
+    | Expression;</pre>
+<div class="_attribution">
+  <p class="_attribution-p">
+    &copy; Google LLC<br>Licensed under the Apache License, Version 2.0.<br>
+    <a href="https://firebase.google.com/docs/reference/js/firestore_lite_pipelines.rangewindowframe" class="_attribution-link">https://firebase.google.com/docs/reference/js/firestore_lite_pipelines.rangewindowframe</a>
+  </p>
+</div>
