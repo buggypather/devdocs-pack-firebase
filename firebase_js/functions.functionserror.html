@@ -14,7 +14,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><a href="functions.functionserror#functionserrorconstructor">(constructor)(code, message, details, url)</a></td>
+<td><a href="functions.functionserror#functionserrorconstructor">(constructor)(code, message, details, url, cause)</a></td>
 <td></td>
 <td>Constructs a new instance of the <code>FunctionsError</code> class.</td>
 </tr>
@@ -30,6 +30,12 @@
 </tr>
 </thead>
 <tbody><tr>
+<td><a href="functions.functionserror#functionserrorcause">cause</a></td>
+<td></td>
+<td>unknown</td>
+<td>Optional. The underlying error that caused this error, if applicable.</td>
+</tr>
+<tr>
 <td><a href="functions.functionserror#functionserrordetails">details</a></td>
 <td></td>
 <td>unknown</td>
@@ -42,7 +48,8 @@
 <pre data-language="typescript">constructor(
     code: FunctionsErrorCode, message?: string, 
     details?: unknown, 
-    url?: string);</pre>
+    url?: string, 
+    cause?: unknown);</pre>
 <h4 id="parameters">Parameters</h4>
 <table>
 <thead>
@@ -72,7 +79,16 @@
 <td>string</td>
 <td></td>
 </tr>
+<tr>
+<td>cause</td>
+<td>unknown</td>
+<td></td>
+</tr>
 </tbody></table>
+<h2 id="functionserrorcause">FunctionsError.cause</h2>
+<p>Optional. The underlying error that caused this error, if applicable.</p>
+<p><b>Signature:</b></p>
+<pre data-language="typescript">readonly cause?: unknown;</pre>
 <h2 id="functionserrordetails">FunctionsError.details</h2>
 <p>Additional details to be converted to JSON and included in the error response.</p>
 <p><b>Signature:</b></p>

@@ -33,11 +33,11 @@
 <td><b><i>(Public Preview)</i></b> Flushes all enqueued Crashlytics data immediately, instead of waiting for default batching.</td>
 </tr>
 <tr>
-<td><a href="crashlytics#log_a58b551">log(crashlytics, message, attributes)</a></td>
+<td><a href="crashlytics#log_5ba066c">log(crashlytics, message, attributes)</a></td>
 <td><b>(EXPERIMENTAL)</b> Queues a log message to be uploaded to the Firebase Crashlytics API.</td>
 </tr>
 <tr>
-<td><a href="crashlytics#recorderror_6824e74">recordError(crashlytics, error, attributes)</a></td>
+<td><a href="crashlytics#recorderror_71ca165">recordError(crashlytics, error, attributes)</a></td>
 <td><b><i>(Public Preview)</i></b> Queues an error to be uploaded to the Firebase Crashlytics API.</td>
 </tr>
 </tbody></table>
@@ -135,10 +135,10 @@ const crashlytics = getCrashlytics(app, {
 <p><b>Returns:</b></p>
 <p>Promise&lt;void&gt;</p>
 <p>a promise which is resolved when all flushes are complete</p>
-<h3 id="log_a58b551">log(crashlytics, message, attributes)</h3>
+<h3 id="log_5ba066c">log(crashlytics, message, attributes)</h3>
 <p><b>(EXPERIMENTAL)</b> Queues a log message to be uploaded to the Firebase Crashlytics API.</p>
 <p><b>Signature:</b></p>
-<pre data-language="typescript">export declare function log(crashlytics: Crashlytics, message: string, attributes?: AnyValueMap): void;</pre>
+<pre data-language="typescript">export declare function log(crashlytics: Crashlytics, message: string, attributes?: Attributes): void;</pre>
 <h4 id="parameters-2">Parameters</h4>
 <table>
 <thead>
@@ -160,19 +160,19 @@ const crashlytics = getCrashlytics(app, {
 </tr>
 <tr>
 <td>attributes</td>
-<td>AnyValueMap</td>
+<td>Attributes</td>
 <td>Optional, arbitrary attributes to attach to the log.</td>
 </tr>
 </tbody></table>
 <p><b>Returns:</b></p>
 <p>void</p>
-<h3 id="recorderror_6824e74">recordError(crashlytics, error, attributes)</h3>
+<h3 id="recorderror_71ca165">recordError(crashlytics, error, attributes)</h3>
 <blockquote>
 <p>This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.</p>
 </blockquote>
 <p>Queues an error to be uploaded to the Firebase Crashlytics API.</p>
 <p><b>Signature:</b></p>
-<pre data-language="typescript">export declare function recordError(crashlytics: Crashlytics, error: unknown, attributes?: AnyValueMap): void;</pre>
+<pre data-language="typescript">export declare function recordError(crashlytics: Crashlytics, error: unknown, attributes?: Attributes): void;</pre>
 <h4 id="parameters-3">Parameters</h4>
 <table>
 <thead>
@@ -194,7 +194,7 @@ const crashlytics = getCrashlytics(app, {
 </tr>
 <tr>
 <td>attributes</td>
-<td>AnyValueMap</td>
+<td>Attributes</td>
 <td>Optional, arbitrary attributes to attach to the error log</td>
 </tr>
 </tbody></table>
